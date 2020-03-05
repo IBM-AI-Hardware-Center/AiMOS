@@ -14,13 +14,23 @@ The IBM Research AI Hardware Center is a global research hub headquartered in Al
 The center is focused on enabling next-generation chips and systems that support the tremendous processing power and 
 unprecedented speed that AI requires to realize its full potential.  
 AiMOS (short for **A**rtificial **I**ntelligence **M**ultiprocessing **O**ptimized **S**ystem) serves as the test bed for 
-the New York State-IBM Research AI Hardware Center. 
+the IBM Research AI Hardware Center. AiMOS consists of 2 front end nodes and 252 AC922 compute nodes configured in a 14 rack system.
 
-The following sections will provide you the basic steps to get you on-board to the AiMOS environment.  However if you need any assistance, please post your questions to the https://ibm-research.slack.com/archives/CR271K4M7[aimos slack channel] or send email to kvtran@us.ibm.com and herger@us.ibm.com.
+Each compute node has: 
+
+* 2x 20 core POWER9 processors (Summit’s variant)
+* 6x NVIDIA Volta V100 GPUs w/ 32 GB of HBM each
+* 512 GB of DRAM
+* 1.6 TB NVMe SSD storage
+* Dual, 100 Gb/sec Mellanox IB links
+
+AiMOS uses SLURM for resource management and scheduler tool.  The front end nodes are for developing applications or build the AI frameworks if needed as well as issuing SLURM commands to allocate the compute nodes for testing and running applications.
+
+The following sections will provide you the basic steps to get you on-boarded to the AiMOS environment.  If you need any assistance, please post your questions to the https://ibm-research.slack.com/archives/CR271K4M7[aimos slack channel] or send email to kvtran@us.ibm.com and herger@us.ibm.com.
 
 ## How to apply for a user id on AiMOS?
 
-You need to fill out the following forms:
+You need to fill out the following forms, sign and send the forms to herger@us.ibm.com.
 
 ### Project Information 
 A user must belong to one or more projects.  You use the Project Information form to create a new project or updated the existing projects to add your name to the project.
@@ -33,8 +43,7 @@ https://secure.cci.rpi.edu/wiki/images/b/b1/CCI_User_Information_20140612.pdf
 ### CCI User Responsibility Agreement
 https://secure.cci.rpi.edu/wiki/images/b/b3/CCI_User_Responsibility_Agreement_20140612.pdf
 
-Sign and send the forms to herger@us.ibm.com
-Once the forms are processed, you will receive emails from the system administrators at RPI for your account ID and temporary password. The next step is to set your password. 
+Once the forms are processed, you will receive emails from the system administrators at RPI for your account ID and temporary password. The next step is to <<set-your-password>>. 
 
 ### Set your password 
 You will receive the link  similar to this, https://secure.cci.rpi.edu/password/?a=XXXXXXXXXXXXXXXX&b=1, where XXXXXXXXXXXXXXXX is your temporary password. You need to use the link to reset your password.
@@ -53,12 +62,11 @@ The last step is to choose the Personal Identification code (PIC). The PIC is ca
 
 You now have everything you need to login to a landing pad node.
 
-
 ## What is the landing pad nodes?
 
 For more information see https://secure.cci.rpi.edu/wiki/index.php?title=Landing_pad
 
-Landing pad nodes are nodes that have external ethernet IP which you can login from your laptop or desktop.
+Landing pad nodes are nodes that have an external IP.  You will need to login to one of the landing pad nodes before you can access the AiMOS systems.
 
 There are 4 landing pad nodes for AiMOS:
 
@@ -67,9 +75,24 @@ There are 4 landing pad nodes for AiMOS:
 * blp03.ccni.rpi.edu 
 * blp04.ccni.rpi.edu 
 
+## What is the frond end node?
+
+The front end nodes (a.k.a. login nodes) are nodes where you find Slurm, compilers, libraries, headers, development tools, etc.  This is where you build your executables if needed, issue Slurm commands to submit jobs.  In order to see some of the executables, libraries, etc., you may need to use module to load them first. For how to, please see section <<how-to-load-different-modules-for-your-development-and-testing>> section later in this documentation.
+
+There are two front end nodes in AiMOS.
+
+* dcsfen01.ccni.rpi.edu
+* dcsfen02.ccni.rpi.edu
+
+## What is the compute node?
+
+Compute node is node where you execute your application.  There are 252 compute nodes in AiMOS.  They are AC922 with 6 GPU each. You can only log in to the compute nodes that are allocated to you via SLURM commands.
+
+* dcs001.ccni.rpi.edu - dcs252.ccni.rpi.edu
+
 ## How to login to AiMOS?
 
-*  First you need to ssh to one of the landing pad nodes.  For example:
+*  First you need to ssh to one of the landing pad nodes. For PIC+Token, enter your chosen PIC that you set above and the token from the Google Authenticator app on your mobile device.  Note, do not enter + and space.  For example:
 
 ....
 $ ssh blp01.ccni.rpi.edu
@@ -98,14 +121,14 @@ Last login: Thu Feb 27 15:21:56 2020 from 70.113.9.236
 
 ....
 
-* Set up passwordless.  You only need to do this once. 
+* Set up passwordless to login to the front end nodes and compute nodes.  You only need to do this once. 
 
 ....
 ssh-keygen –t rsa
 cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
 ....
 
-* From the landing pad node, you ssh to the front end node.  There are two front end nodes: dcsfen01 and dcsfend02. For example: 
+* From the landing pad node, you ssh to the one of the front end nodes.  There are two front end nodes: dcsfen01 and dcsfen02.   For example: 
 
 ....
 [BMHRkmkh@blp01 ~]$ ssh dcsfen01
@@ -124,12 +147,14 @@ Last login: Fri Feb 28 11:43:56 2020 from 172.31.29.1
 **                                                             **
 ....
 
-* Set up proxy on the front end node by adding the following lines to your .bashrc
+* Set up proxy on the front end node by adding the following lines to your .bashrc.  You only need to do this once.
 
 ....
 export http_proxy=http://proxy:8888
 export https_proxy=$http_proxy
 ....
+
+Do not forget to source your .bashrc for this to take effect.
 
 ## What is the disk space on the nodes?
 
@@ -162,22 +187,46 @@ image:AiMOS-allocation.png[]
 
 The fairshare allocation is used in the environment:
 
-* Each key partner (e.g., IBM, RPI, SUNY is a given a fixed slice of AiMOS expressed as a percentage of the whole system
+* Each key partner (e.g., IBM, RPI) is given a fixed slice of AiMOS expressed as a percentage of the whole system
 Within a key partner’s “slice”, group projects are defined. 
 * By default, each project gets a fair share of the overall partner level slice.
 * Inside each project, users accounts are created. 
 * By default, each user gets a fair share of the overall group project level slice
 
+NOTE: You need to specify the time limit (-t <number of minutes>) on the SLURM command that you issue.  If not, you will get an error message for that.  The maximum time limit is set to 6 hours (360 mins) on AiMOS.
+
 ## What are the SLURM Frequently Used Commands?
 
-salloc – allocate resources for a job in real time and start a shell.
+For the complete list of SLURM manpage, see https://slurm.schedmd.com/man_index.html
+ 
+For the summary for SLURM commands and options, see https://slurm.schedmd.com/pdfs/summary.pdf
+
+The frequently used options for SLURM commands:
+
+....
+ -n, --ntasks=ntasks         number of tasks to run
+ -N, --nodes=N               number of nodes on which to run (N = min[-max])
+ -c, --cpus-per-task=ncpus   number of cpus required per task
+     --ntasks-per-node=n     number of tasks to invoke on each node
+ -i, --input=in              file for batch script's standard input
+ -o, --output=out            file for batch script's standard output
+ -e, --error=err             file for batch script's standard error
+ -p, --partition=partition   partition requested
+ -t, --time=minutes          time limit
+ -D, --chdir=path            change remote current working directory
+ -D, --workdir=directory     set working directory for batch script
+     --mail-type=type        notify on state change: BEGIN, END, FAIL or ALL
+     --mail-user=user        who to send email notification for job state changes
+....
+
+*salloc* – allocate resources for a job in real time and start a shell.
 
 ....
 [BMHRkmkh@dcsfen01 ~]$  salloc -N 1 --gres=gpu:6 -t 15
 salloc: Granted job allocation 60780
 ....
 
-squeue – reports the state of jobs or job step. By default, it reports the running jobs in priority order and then the pending jobs in priority order.
+*squeue* – reports the state of jobs or job step. By default, it reports the running jobs in priority order and then the pending jobs in priority order.
 
 ....
 [BMHRkmkh@dcsfen01 ~]$ squeue
@@ -187,18 +236,15 @@ squeue – reports the state of jobs or job step. By default, it reports the run
 Warning: Permanently added 'dcs249,172.31.236.249' (ECDSA) to the list of known hosts.
 ....
 
-srun – submits a job for execution or initiates job steps in real time.
+*srun* – submits a job for execution or initiates job steps in real time.
 
+*sattach* – attach standard input, output, error and signal capabilities to a current running job or job step.
 
-sattach – attach standard input, output, error and signal capabilities to a current running job or job step.
+*sbatch* – submit a job script for later execution. The script typically contains one or more srun commands to launch parallel tasks.
 
-sbatch – submit a job script for later execution. The script typically contains one or more srun commands to launch parallel tasks.
+*scancel* – cancel a pending or running job or job step.
 
-sbcast – transfer a file from local disk to local disk on the nodes allocated to a job.
-
-scancel – cancel a pending or running job or job step.
-
-sinfo – reports the state of partitions and nodes managed by Slurm.
+*sinfo* – reports the state of partitions and nodes managed by Slurm.
 
 ....
 [BMHRkmkh@dcs249 ~]$ sinfo
@@ -220,9 +266,7 @@ rpi          up    6:00:00     13  drain dcs[217,219-222,224-229,231-232]
 rpi          up    6:00:00      2  alloc dcs[223,230]
 ....
 
-smap – reports state information for jobs, partitions, and nodes managed by Slurm.
-
-## How Submit an interactive job via SLURM?
+## How to submit an interactive job via SLURM?
 
 For example, after ssh to one of the front end nodes, run salloc to allocate 1 node with 6 gpu for 15 minutes. After the command returns, you now run squeue command to see which node is allocated for the interactive session.  In the example below, dcs249 is allocated.  Now you can ssh to the node and execute your application.  
 
@@ -252,9 +296,60 @@ Authentication failed.
 ....
 
 
-## How to Submit a batch job via SLURM?
+## How to submit a batch job via SLURM?
 
-<TBD>
+You need to create a script to submit via *sbatch* SLURM command. The script contains a list of SLURM directives (or commands) to tell SLURM what to do. This is a sample script to run a hello_MPI_c program.
+
+....
+#!/bin/bash -x
+
+#SBATCH -J hello_MPI
+#SBATCH -o hello_MPI_%j.out
+#SBATCH -e hello_MPI_%j.err
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=<you email address>
+#SBATCH --gres=gpu:6
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=4
+#SBATCH --time=02:00:00
+
+# SLURM_NPROCS and SLURM_NTASK_PER_NODE env variables are set by the SBATCH directive nodes, ntasks-per-node above.
+if [ "x$SLURM_NPROCS" = "x" ]
+then
+  if [ "x$SLURM_NTASKS_PER_NODE" = "x" ]
+  then
+    SLURM_NTASKS_PER_NODE=1
+  fi
+  SLURM_NPROCS=`expr $SLURM_JOB_NUM_NODES \* $SLURM_NTASKS_PER_NODE`
+else
+  if [ "x$SLURM_NTASKS_PER_NODE" = "x" ]
+  then
+    SLURM_NTASKS_PER_NODE=`expr $SLURM_NPROCS / $SLURM_JOB_NUM_NODES`
+  fi
+fi
+
+srun hostname -s | sort -u > ~/tmp/hosts.$SLURM_JOBID
+awk "{ print \$0 \"-ib slots=$SLURM_NTASKS_PER_NODE\"; }" ~/tmp/hosts.$SLURM_JOBID >~/tmp/tmp.$SLURM_JOBID
+mv ~/tmp/tmp.$SLURM_JOBID ~/tmp/hosts.$SLURM_JOBID
+
+module load gcc/6.4.0/1
+module load spectrum-mpi
+mpirun --bind-to core --report-bindings -hostfile ~/tmp/hosts.$SLURM_JOBID -np $SLURM_NPROCS <PATH>/hello_MPI_c
+
+rm ~/tmp/hosts.$SLURM_JOBID
+....
+
+Submit the job via sbatch
+
+....
+sbatch ./hello_MPI.sh
+....
+
+Note: that you can specify the command options on the *sbatch* command line instead of using #SBATCH directive like in the sample script above.
+
+With #SBATCH --mail-type=ALL, #SBATCH --mail-user=<you email address>, you should receive the email from SLURM when a job starts and ends to your email address.
+
+You should also see the <job name>_<job_id>.out and <job name>_<job_id>.err in your current directory with #SBATCH -o hello_MPI_%j.out and #SBATCH -e hello_MPI_%j.err after the job completes.
 
 ## How to install conda environment?
 
@@ -354,24 +449,29 @@ channels:
   - defaults
 ....
 
-As a best practice, you should install WML-CE in a conda environment.  That would enable you to have different versions of WML-CE.
+As a best practice, you should install WML-CE in a new conda environment (i.e. not the base environment).  That would enable you to have different versions of WML-CE.
 
-Create a new conda environment wmlce-1.7.0 using python version 3.6
+Create a new conda environment wmlce-1.7.0 using python version 3.6.
 
 ....
 conda create --name wmlce-1.7.0 python=3.6
+....
+
+Activate the created conda environment.
+
+....
 conda activate wmlce-1.7.0
 ....
 
 Install WML-CE version 1.7.0 which is the latest version at the time of this writting.
 
-* To install powerai GPU packages in the conda environment, run:
+* To install powerai GPU packages in the created conda environment, run:
 
 ....
 conda install powerai
 ....
 
-* To install powerai CPU packages in the conda environment, run:
+* To install powerai CPU packages in the created conda environment, run:
 
 ....
 conda install powerai-cpu
@@ -383,7 +483,7 @@ conda install powerai-cpu
 conda install powerai-rapids
 ....
 
-## How to load different modules?
+## How to load different modules for your development and testing?
 
 List the available modules on the node:
 
@@ -432,6 +532,131 @@ alias cmake='cmake3'
 
 ....
 
-## How to display the WebGUI for a running application via ssh tunnelling?
+## How to install Jupyter notebook?
 
-<TBD>
+It is recommended to link:https://jupyter.org/install.html[install Jupyter notebook] in a miniconda environment which includes a minimal Python and conda installation.  You can install Jupyter notebook via conda install or pip install.
+
+....
+conda install -c conda-forge notebook
+....
+
+Or
+
+....
+pip install notebook
+....
+
+For example:
+
+....
+(base) [BMHRkmkh@dcsfen01 wmlce-1.7.0]$ conda install -c conda-forge notebook
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3
+
+  added / updated specs:
+    - notebook
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+....
+
+Verify the notebook  installation.
+
+....
+(base) [BMHRkmkh@dcsfen01 wmlce-1.7.0]$ conda list | grep notebook
+notebook                  6.0.3                    py37_0    conda-forge
+....
+
+## How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?
+
+Prerequisite: conda and jupyter notebook are installed on the node. For how to see <<how-to-install-conda-environment>> and <<how-to-install-jupyter-notebook>>
+
+### Start the jupyter notebook on the allocated compute node. In the following example, starting jupyter notebook on dcs085.
+
+....
+(wmlce-1.7.0) [BMHRkmkh@dcs085 ~]$ jupyter notebook --ip=0.0.0.0 --no-browser
+....
+
+### SSH tunnelling on a Linux or MAC OSX node
+
+Start the ssh session to one of the landing pad nodes.  For example:
+
+....
+[tran58@kvt-rhel ~]$ ssh -L8888:dcs085:8888 BMHRkmkh@blp01.ccni.rpi.edu
+....
+
+Go to the browser on the node, enter the following to tunnel to the jupyter notebook running on the compute node.
+
+....
+http://localhost:8888
+....
+
+You should see the jupyter notebook after you enter the token at the login prompt.
+
+image:jupyter-l.png[]
+
+### SSH tunneling via PUTTY on Windows
+
+Go to the putty entry for the landing pad node.  For example:
+
+image:putty2.png[]
+
+Go section Connection->SSH->Tunnels, enter the jupyter notebok URL on the compute node and click *Add*, for example:
+
+image:putty-tunnel.png[]
+
+Start the putty session and login to the landing node as usual.  
+
+After that, go to your browser and enter the following to tunnel to the jupyter notebook running on the compute node.
+
+....
+http://localhost:18889
+....
+
+You should see the jupyter notebook after you enter the token at the login prompt.
+
+image:jupyter-w.png[]
+
+## How to transfer data in and out of AiMOS environment?
+
+You need to use scp to copy data from/to your laptop/desktop to/from one of the landing pad node. Since the same gpfs file system is mounted on the landing pad nodes, front end nodes and compute nodes, the data will be available and accessible on all the nodes.
+
+If your desktop/laptop is running Windows, you use winscp to do the copy.
+
+Note that you MUST initiate the copy operation from your desktop/laptop.
+
+## How to request for NVMe storage on the compute nodes?
+
+To request NVMe storage, specify --gres=nvme with your SLURM commands. This can be combined with other requests, such as GPUs. When the first job step starts, the system will initialize the storage and create the path /mnt/nvme/uid_${SLURM_JOB_UID}/job_${SLURM_JOBID}.
+
+....
+(base) [BMHRkmkh@dcsfen01 ~]$  salloc -N 1 --gres=gpu:6 --gres=nvme -t 30
+salloc: Granted job allocation 64444
+(base) [BMHRkmkh@dcsfen01 ~]$ squeue
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+             64444       dcs     bash BMHRkmkh  R       0:11      1 dcs055
+(base) [BMHRkmkh@dcsfen01 ~]$ ssh dcs055
+Warning: Permanently added 'dcs055,172.31.236.55' (ECDSA) to the list of known hosts.
+(base) [BMHRkmkh@dcs055 ~]$
+(base) [BMHRkmkh@dcs055 ~]$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        243G     0  243G   0% /dev
+tmpfs           256G   64K  256G   1% /dev/shm
+tmpfs           256G   25M  256G   1% /run
+tmpfs           256G     0  256G   0% /sys/fs/cgroup
+rootfs          256G  7.6G  249G   3% /
+rw              256G   64K  256G   1% /.sllocal/log
+gpfs.u          1.1P  387T  640T  38% /gpfs/u
+/dev/nvme0n1    1.5T   77M  1.5T   1% /mnt/nvme
+(base) [BMHRkmkh@dcs055 job_64444]$ pwd
+/mnt/nvme/uid_6112/job_64444
+....
+
+The storage is not persistent between allocations.
+
