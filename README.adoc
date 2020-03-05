@@ -33,7 +33,7 @@ The following sections will provide you the basic steps to get you on-boarded to
 You need to fill out the following forms, sign and send them to herger@us.ibm.com.
 
 ### Project Information 
-A user must belong to one or more projects.  You use the Project Information form to create a new project or add your name to an existing project.
+A user must belong to one or more projects.  You use the Project Information form to create a new project or to add your name to an existing project.
 
 https://secure.cci.rpi.edu/wiki/images/6/6b/CCI_Project_Information_20140612.pdf
 
