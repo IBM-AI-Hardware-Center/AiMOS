@@ -30,7 +30,7 @@ The following sections will provide you the basic steps to get you on-boarded to
 
 ## How to apply for a user id on AiMOS?
 
-You need to fill out the following forms, sign and send the forms to herger@us.ibm.com.
+You need to fill out the following forms, sign and send them to herger@us.ibm.com.
 
 ### Project Information 
 A user must belong to one or more projects.  You use the Project Information form to create a new project or updated the existing projects to add your name to the project.
