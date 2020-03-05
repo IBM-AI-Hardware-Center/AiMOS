@@ -28,6 +28,7 @@ AiMOS uses SLURM for resource management and scheduler tool.  The front end node
 
 The following sections will provide you the basic steps to get you on-boarded to the AiMOS environment.  If you need any assistance, please post your questions to the https://ibm-research.slack.com/archives/CR271K4M7[aimos slack channel] or send email to kvtran@us.ibm.com and herger@us.ibm.com.
 
+
 ## How to apply for a user id on AiMOS?
 
 You need to fill out the following forms, sign and send them to herger@us.ibm.com.
@@ -62,6 +63,7 @@ The last step is to choose the Personal Identification code (PIC). The PIC is ca
 
 You now have everything you need to login to a landing pad node.
 
+
 ## What is the landing pad nodes?
 
 For more information see https://secure.cci.rpi.edu/wiki/index.php?title=Landing_pad
@@ -75,6 +77,7 @@ There are 4 landing pad nodes for AiMOS:
 * blp03.ccni.rpi.edu 
 * blp04.ccni.rpi.edu 
 
+
 ## What is the frond end node?
 
 The front end nodes (a.k.a. login nodes) are nodes where you find Slurm, compilers, libraries, headers, development tools, etc.  This is where you build your executables if needed, issue Slurm commands to submit jobs.  In order to see some of the executables, libraries, etc., you may need to use module to load them first. For how to, please see section <<how-to-load-different-modules-for-your-development-and-testing>> section later in this documentation.
@@ -84,11 +87,13 @@ There are two front end nodes in AiMOS.
 * dcsfen01.ccni.rpi.edu
 * dcsfen02.ccni.rpi.edu
 
+
 ## What is the compute node?
 
 Compute node is node where you execute your application.  There are 252 compute nodes in AiMOS.  They are AC922 with 6 GPU each. You can only log in to the compute nodes that are allocated to you via SLURM commands.
 
 * dcs001.ccni.rpi.edu - dcs252.ccni.rpi.edu
+
 
 ## How to login to AiMOS?
 
@@ -156,6 +161,7 @@ export https_proxy=$http_proxy
 
 Do not forget to source your .bashrc for this to take effect.
 
+
 ## What is the disk space on the nodes?
 
 The same GPFS filesystems are mounted on all the front end nodes and compute nodes in AiMOS.
@@ -178,6 +184,7 @@ This is the general user level filesystem view.
 * scratch and scratch-shared are meant as a temporary staging area for performing computation. Performance in this directory will be better than in the home or barn areas. This space does not have a quota. However, it will periodically be purged of files that are not used (either by read or write operation) in the last 56 days.  WARNING: If purging files that are not used in the last 56 days is not  sufficient to maintain enough working space, the RPI team may purge all files with with advance warning.
 
 Due to the total space of 10 GiB in home, barn and barn-shared, it is best to use these directories to store "dot files", configuration files, scripts, or small programs needed to customize the working environment. You should use scratch and scratch-shared for things that require more space.
+
 
 ## How is slurm workload manager configured in AiMOS environment?
 
@@ -266,6 +273,7 @@ rpi          up    6:00:00     13  drain dcs[217,219-222,224-229,231-232]
 rpi          up    6:00:00      2  alloc dcs[223,230]
 ....
 
+
 ## How to submit an interactive job via SLURM?
 
 For example, after ssh to one of the front end nodes, run salloc to allocate 1 node with 6 gpu for 15 minutes. After the command returns, you now run squeue command to see which node is allocated for the interactive session.  In the example below, dcs249 is allocated.  Now you can ssh to the node and execute your application.  
@@ -351,6 +359,7 @@ With #SBATCH --mail-type=ALL, #SBATCH --mail-user=<you email address>, you shoul
 
 You should also see the <job name>_<job_id>.out and <job name>_<job_id>.err in your current directory with #SBATCH -o hello_MPI_%j.out and #SBATCH -e hello_MPI_%j.err after the job completes.
 
+
 ## How to install conda environment?
 
 Download the the Miniconda3 installer if needed.
@@ -431,6 +440,7 @@ Thank you for installing Miniconda3!
 (base) [BMHRkmkh@dcsfen01 ~]$
 ....
 
+
 ## How to install WML-CE (a.k.a PowerAI)?
 
 Watson Machine Learning Community Edition (WML CE), formerly PowerAI, is a free, enterprise-grade software distribution that combines popular open source deep learning frameworks, efficient AI development tools, and accelerated IBM® Power Systems™ servers to take your deep learning projects to the next level.  For more information, see
@@ -483,6 +493,7 @@ conda install powerai-cpu
 conda install powerai-rapids
 ....
 
+
 ## How to load different modules for your development and testing?
 
 List the available modules on the node:
@@ -532,6 +543,7 @@ alias cmake='cmake3'
 
 ....
 
+
 ## How to install Jupyter notebook?
 
 It is recommended to link:https://jupyter.org/install.html[install Jupyter notebook] in a miniconda environment which includes a minimal Python and conda installation.  You can install Jupyter notebook via conda install or pip install.
@@ -573,6 +585,7 @@ Verify the notebook  installation.
 notebook                  6.0.3                    py37_0    conda-forge
 ....
 
+
 ## How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?
 
 Prerequisite: conda and jupyter notebook are installed on the node. For how to see <<how-to-install-conda-environment>> and <<how-to-install-jupyter-notebook>>
@@ -582,6 +595,7 @@ Prerequisite: conda and jupyter notebook are installed on the node. For how to s
 ....
 (wmlce-1.7.0) [BMHRkmkh@dcs085 ~]$ jupyter notebook --ip=0.0.0.0 --no-browser
 ....
+
 
 ### SSH tunnelling on a Linux or MAC OSX node
 
@@ -600,6 +614,7 @@ http://localhost:8888
 You should see the jupyter notebook after you enter the token at the login prompt.
 
 image:jupyter-l.png[]
+
 
 ### SSH tunneling via PUTTY on Windows
 
@@ -623,6 +638,7 @@ You should see the jupyter notebook after you enter the token at the login promp
 
 image:jupyter-w.png[]
 
+
 ## How to transfer data in and out of AiMOS environment?
 
 You need to use scp to copy data from/to your laptop/desktop to/from one of the landing pad node. Since the same gpfs file system is mounted on the landing pad nodes, front end nodes and compute nodes, the data will be available and accessible on all the nodes.
@@ -630,6 +646,7 @@ You need to use scp to copy data from/to your laptop/desktop to/from one of the 
 If your desktop/laptop is running Windows, you use winscp to do the copy.
 
 Note that you MUST initiate the copy operation from your desktop/laptop.
+
 
 ## How to request for NVMe storage on the compute nodes?
 
@@ -658,5 +675,5 @@ gpfs.u          1.1P  387T  640T  38% /gpfs/u
 /mnt/nvme/uid_6112/job_64444
 ....
 
-The storage is not persistent between allocations.
+The NVMe storage is not persistent between allocations.
 
