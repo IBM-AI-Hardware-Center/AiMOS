@@ -194,7 +194,7 @@ image:AiMOS-allocation2.png[]
 
 The fairshare allocation is used in the environment:
 
-* Each key partner (e.g., IBM, RPI) is given a fixed slice of AiMOS expressed as a percentage of the whole system
+* Each key partner (e.g. AI Hardware Center, RPI) is given a fixed slice of AiMOS expressed as a percentage of the whole system
 Within a key partner’s “slice”, group projects are defined. 
 * By default, each project gets a fair share of the overall partner level slice.
 * Inside each project, users accounts are created. 
