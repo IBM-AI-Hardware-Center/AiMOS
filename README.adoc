@@ -190,7 +190,7 @@ Due to the total space of 10 GiB in home, barn and barn-shared, it is best to us
 
 Slurm (used to be Simple Linux Utility for Resource Management) is the cluster management and job scheduler for AiMOS. 
 
-image:AiMOS-allocation.png[]
+image:AiMOS-allocation2.png[]
 
 The fairshare allocation is used in the environment:
 
@@ -546,22 +546,24 @@ alias cmake='cmake3'
 
 ## How to install Jupyter notebook?
 
-It is recommended to link:https://jupyter.org/install.html[install Jupyter notebook] in a miniconda environment which includes a minimal Python and conda installation.  You can install Jupyter notebook via conda install or pip install.
+It is recommended to link:https://jupyter.org/install.html[install Jupyter notebook] in a miniconda environment which includes a minimal Python and conda installation.  You can install Jupyter notebook via conda install or pip install.  If you want to use ML frameworks in your notebook, you need to install jupyter notebook in the wml-ce conda environment, such as wmlce-1.7.0.
 
 ....
+conda activate wmlce-1.7.0
 conda install -c conda-forge notebook
 ....
 
 Or
 
 ....
+conda activate wmlce-1.7.0
 pip install notebook
 ....
 
 For example:
 
 ....
-(base) [BMHRkmkh@dcsfen01 wmlce-1.7.0]$ conda install -c conda-forge notebook
+(wmlce-1.7.0) [BMHRkmkh@dcsfen01 wmlce-1.7.0]$ conda install -c conda-forge notebook
 Collecting package metadata (current_repodata.json): done
 Solving environment: done
 
@@ -581,7 +583,7 @@ The following packages will be downloaded:
 Verify the notebook  installation.
 
 ....
-(base) [BMHRkmkh@dcsfen01 wmlce-1.7.0]$ conda list | grep notebook
+(wmlce-1.7.0) [BMHRkmkh@dcsfen01 wmlce-1.7.0]$ conda list | grep notebook
 notebook                  6.0.3                    py37_0    conda-forge
 ....
 
