@@ -24,7 +24,7 @@ Each compute node has:
 * 1.6 TB NVMe SSD storage
 * Dual, 100 Gb/sec Mellanox IB links
 
-AiMOS uses SLURM for resource management and scheduler tool.  The front end nodes are for developing applications or building the AI frameworks if needed as well as issuing SLURM commands to allocate the compute nodes for testing and running applications.
+AiMOS uses Slurm for resource management and scheduler tool.  The front end nodes are for developing applications or building the AI frameworks if needed as well as issuing SLURM commands to allocate the compute nodes for testing and running applications.
 
 The following sections will provide you the basic steps to get you on-boarded to the AiMOS environment.  If you need any assistance, please post your questions to the https://ibm-research.slack.com/archives/CR271K4M7[aimos slack channel] or send email to kvtran@us.ibm.com and herger@us.ibm.com.
 
@@ -100,13 +100,10 @@ Compute node is node where you execute your application.  There are 252 compute 
 *  First you need to ssh to one of the landing pad nodes. For PIC+Token, enter your chosen PIC that you set above and the token from the Google Authenticator app on your mobile device.  Note, do not enter + and space.  For example:
 
 ....
-$ ssh blp01.ccni.rpi.edu
-login as: BMHRkmkh
-Using keyboard-interactive authentication.
+$ ssh your-id@blp01.ccni.rpi.edu
 PIC+Token:
-Using keyboard-interactive authentication.
 Password:
-Last login: Thu Feb 27 15:21:56 2020 from 70.113.9.236
+Last login: Fri Mar  6 15:41:57 2020 from 70.113.9.236
 
                ** CCI SSH Gateway (Landing pad) **
 **                                                             **
@@ -136,7 +133,7 @@ cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
 * From the landing pad node, you ssh to the one of the front end nodes.  There are two front end nodes: dcsfen01 and dcsfen02.   For example: 
 
 ....
-[BMHRkmkh@blp01 ~]$ ssh dcsfen01
+[your-id@blp01 ~]$ ssh dcsfen01
 Last login: Fri Feb 28 11:43:56 2020 from 172.31.29.1
 
                    ** CCI DCS front-end node **
@@ -180,8 +177,8 @@ This is the general user level filesystem view.
 ....
 
 * Each user is allocated a 10 GiB quota which includes user's home, barn and barn-shared.  This space is intended for long term storage and it will be saved. 
-* home directory contains a link to scratch, the user's personal scratch space.  It also contains a link to scratch-shared, the project's shared scratch space.
-* scratch and scratch-shared are meant as a temporary staging area for performing computation. Performance in this directory will be better than in the home or barn areas. This space does not have a quota. However, it will periodically be purged of files that are not used (either by read or write operation) in the last 56 days.  WARNING: If purging files that are not used in the last 56 days is not  sufficient to maintain enough working space, the RPI team may purge all files with with advance warning.
+* home directory contains a link to scratch, the user's personal scratch space.  It also contains a link to scratch-shared, the project's shared scratch space.
+* scratch and scratch-shared are meant as a temporary staging area for performing computation. Performance in this directory will be better than in the home or barn areas. This space does not have a quota. However, it will periodically be purged of files that are not used (either by read or write operation) in the last 56 days.  WARNING: If purging files that are not used in the last 56 days is not  sufficient to maintain enough working space, the RPI team may purge all files with with advance warning.
 
 Due to the total space of 10 GiB in home, barn and barn-shared, it is best to use these directories to store "dot files", configuration files, scripts, or small programs needed to customize the working environment. You should use scratch and scratch-shared for things that require more space.
 
@@ -194,7 +191,7 @@ image:AiMOS-allocation2.png[]
 
 The fairshare allocation is used in the environment:
 
-* Each key partner (e.g. AI Hardware Center, RPI) is given a fixed slice of AiMOS expressed as a percentage of the whole system
+* Each key partner (e.g., IBM, RPI) is given a fixed slice of AiMOS expressed as a percentage of the whole system
 Within a key partner’s “slice”, group projects are defined. 
 * By default, each project gets a fair share of the overall partner level slice.
 * Inside each project, users accounts are created. 
@@ -229,17 +226,17 @@ The frequently used options for SLURM commands:
 *salloc* – allocate resources for a job in real time and start a shell.
 
 ....
-[BMHRkmkh@dcsfen01 ~]$  salloc -N 1 --gres=gpu:6 -t 15
+[your-id@dcsfen01 ~]$  salloc -N 1 --gres=gpu:6 -t 15
 salloc: Granted job allocation 60780
 ....
 
 *squeue* – reports the state of jobs or job step. By default, it reports the running jobs in priority order and then the pending jobs in priority order.
 
 ....
-[BMHRkmkh@dcsfen01 ~]$ squeue
+[your-id@dcsfen01 ~]$ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-             60780       dcs     bash BMHRkmkh  R       1:07      1 dcs249
-[BMHRkmkh@dcsfen01 ~]$ ssh dcs249
+             60780       dcs     bash 	your-id  R       1:07      1 dcs249
+[your-id@dcsfen01 ~]$ ssh dcs249
 Warning: Permanently added 'dcs249,172.31.236.249' (ECDSA) to the list of known hosts.
 ....
 
@@ -254,7 +251,7 @@ Warning: Permanently added 'dcs249,172.31.236.249' (ECDSA) to the list of known 
 *sinfo* – reports the state of partitions and nodes managed by Slurm.
 
 ....
-[BMHRkmkh@dcs249 ~]$ sinfo
+[your-id@dcs249 ~]$ sinfo
 PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
 debug        up      30:00      5 drain* dcs[213,253-254,266],dcsfen02
 debug        up      30:00     11  down* dcs[040,074,109,119,121,124,126,168-169,173,270]
@@ -274,31 +271,31 @@ rpi          up    6:00:00      2  alloc dcs[223,230]
 ....
 
 
-## How to submit an interactive job via SLURM?
+## How to submit an interactive job via Slurm?
 
-For example, after ssh to one of the front end nodes, run salloc to allocate 1 node with 6 gpu for 15 minutes. After the command returns, you now run squeue command to see which node is allocated for the interactive session.  In the example below, dcs249 is allocated.  Now you can ssh to the node and execute your application.  
+For example, after ssh to one of the front end nodes, run *salloc* to allocate 1 node with 6 gpu for 15 minutes. After the command returns, you now run *squeue* command to see which node is allocated for the interactive session.  In the example below, dcs249 is allocated.  Now you can ssh to the node and execute your application.  
 
 ....
-[BMHRkmkh@dcsfen01 ~]$  salloc -N 1 --gres=gpu:6 -t 15
+[your-id@dcsfen01 ~]$  salloc -N 1 --gres=gpu:6 -t 15
 salloc: Granted job allocation 60780
-[BMHRkmkh@dcsfen01 ~]$ squeue
+[your-id@dcsfen01 ~]$ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-             60780       dcs     bash BMHRkmkh  R       1:07      1 dcs249
-[BMHRkmkh@dcsfen01 ~]$ ssh dcs249
+             60780       dcs     bash your-id  R       1:07      1 dcs249
+[your-id@dcsfen01 ~]$ ssh dcs249
 Warning: Permanently added 'dcs249,172.31.236.249' (ECDSA) to the list of known hosts.
-[BMHRkmkh@dcs249 ~]$ ls
+[your-id@dcs249 ~]$ ls
 barn  barn-shared  etc  Miniconda3-latest-Linux-ppc64le.sh  scratch  scratch-shared  var
-[BMHRkmkh@dcs249 ~]$ hostname -f
+[your-id@dcs249 ~]$ hostname -f
 dcs249.ccni.rpi.edu
 ....
 
 After the specified time, which is 15 minutes in this example, the node is deallocated and you will no longer be allowed to ssh to the node.
 
 ....
-[BMHRkmkh@dcs249 ~]$ salloc: Job 60780 has exceeded its time limit and its allocation has been revoked.
+[your-id@dcs249 ~]$ salloc: Job 60780 has exceeded its time limit and its allocation has been revoked.
    Killed by signal 1.
-[BMHRkmkh@dcsfen01 ~]$ ssh dcs249
-Access denied: user BMHRkmkh (uid=6112) has no active jobs on this node.
+[your-id@dcsfen01 ~]$ ssh dcs249
+Access denied: user yourid (uid=6112) has no active jobs on this node.
 Access denied by pam_slurm_adopt: you have no active jobs on this node
 Authentication failed.
 ....
@@ -306,7 +303,7 @@ Authentication failed.
 
 ## How to submit a batch job via SLURM?
 
-You need to create a script to submit via *sbatch* SLURM command. The script contains a list of SLURM directives (or commands) to tell SLURM what to do. This is a sample script to run a hello_MPI_c program.
+You need to create a script to submit via *sbatch* Slurm command. The script contains a list of SLURM directives (or commands) to tell Slurm what to do. This is a sample script to run a hello_MPI_c program.
 
 ....
 #!/bin/bash -x
@@ -435,31 +432,34 @@ If you'd prefer that conda's base environment not be activated on startup,
 conda config --set auto_activate_base false
 
 Thank you for installing Miniconda3!
-[BMHRkmkh@dcsfen01 ~]$
-[BMHRkmkh@dcsfen01 ~]$ source .bashrc
-(base) [BMHRkmkh@dcsfen01 ~]$
+[your-id@dcsfen01 ~]$
+[your-id@dcsfen01 ~]$ source .bashrc
+(base) [your-idh@dcsfen01 ~]$
 ....
 
 
 ## How to install WML-CE (a.k.a PowerAI)?
 
-Watson Machine Learning Community Edition (WML CE), formerly PowerAI, is a free, enterprise-grade software distribution that combines popular open source deep learning frameworks, efficient AI development tools, and accelerated IBM® Power Systems™ servers to take your deep learning projects to the next level.  For more information, see
+Watson Machine Learning Community Edition (WML CE), formerly PowerAI, is a free, enterprise-grade software distribution that combines popular open source deep learning frameworks, efficient AI development tools, and accelerated IBM® Power Systems™ servers to take your deep learning projects to the next level.  
 
+For more information, see
 https://developer.ibm.com/linuxonpower/deep-learning-powerai/releases/
 
-Set up ~/.condarc if needed.  The example below is the content of .condarc for user *BHMRkmkh*.  You need replace *BHMRkmkh* with your user id.
+Set up ~/.condarc if needed.  Below is the example of .condarc file. You need replace *your-project* with your PROJECT ID and *your-id" with your ID.
 
 ....
 pkgs_dirs:
   - /gpfs/u/software/ppc64le-rhel7/.conda/pkgs
-  - /gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3/pkgs
-  - /gpfs/u/home/BMHR/BMHRkmkh/.conda/pkgs
+  - /gpfs/u/home/your-project/your-id/scratch/miniconda3/pkgs
+  - /gpfs/u/home/your-project/your-id/.conda/pkgs
 channels:
   - https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda
   - defaults
 ....
 
 As a best practice, you should install WML-CE in a new conda environment (i.e. not the base environment).  That would enable you to have different versions of WML-CE.
+
+For more information on how to install WML-CE, see https://www.ibm.com/support/knowledgecenter/SS5SF7_1.7.0/navigation/wmlce_install.htm
 
 Create a new conda environment wmlce-1.7.0 using python version 3.6.
 
@@ -473,12 +473,33 @@ Activate the created conda environment.
 conda activate wmlce-1.7.0
 ....
 
-Install WML-CE version 1.7.0 which is the latest version at the time of this writting.
+Install WML-CE version 1.7.0 which is the latest version at the time of this writting. 
 
-* To install powerai GPU packages in the created conda environment, run:
+For automatically accept the license
+
+....
+export IBM_POWERAI_LICENSE_ACCEPT=yes
+....
+
+* To install the whole powerai GPU packages in the created conda environment, run:
 
 ....
 conda install powerai
+....
+
+* To install the whole powerai GPU packages version 1.6.2
+
+....
+conda install powerai=1.6.2
+....
+
+* To install the individual framework, such as pytorch or tensorflow.  
+
+For complete list of individual framework see https://www.ibm.com/support/knowledgecenter/SS5SF7_1.7.0/navigation/wmlce_install.htm
+
+....
+conda install pytorch
+conda install tensorflow-gpu
 ....
 
 * To install powerai CPU packages in the created conda environment, run:
@@ -491,7 +512,7 @@ conda install powerai-cpu
 
 ....
 conda install powerai-rapids
-....
+.... 
 
 
 ## How to load different modules for your development and testing?
@@ -499,7 +520,7 @@ conda install powerai-rapids
 List the available modules on the node:
 
 ....
-(base) [BMHRkmkh@dcsfen01 ~]$ module available
+(base) [your-id@dcsfen01 ~]$ module available
 
 ------------------------------- /gpfs/u/software/ppc64le-rhel7/modulefiles --------------------------------
    automake/1.16.1 (S)      cmake/3.14.6  (S)    parmetis/4.0.3/xl (T)      xl/1
@@ -531,14 +552,14 @@ Use "module keyword key1 key2 ..." to search for all possible modules matching a
 For example, you want to load cmake module and spectrum_mpi module
 
 ....
-(base) [BMHRkmkh@dcsfen01 ~]$ module load  cmake/3.14.6
-(base) [BMHRkmkh@dcsfen01 ~]$ which cmake
+(base) [your-id@dcsfen01 ~]$ module load  cmake/3.14.6
+(base) [your-id@dcsfen01 ~]$ which cmake
 alias cmake='cmake3'
         /usr/bin/cmake3
-(base) [BMHRkmkh@dcsfen01 ~]$ which cmake3
+(base) [your-id@dcsfen01 ~]$ which cmake3
 /usr/bin/cmake3
-(base) [BMHRkmkh@dcsfen01 ~]$ module load spectrum-mpi
-(base) [BMHRkmkh@dcsfen01 ~]$ which mpirun
+(base) [your-id@dcsfen01 ~]$ module load spectrum-mpi
+(base) [your-id@dcsfen01 ~]$ which mpirun
 /opt/ibm/spectrum_mpi/bin/mpirun
 
 ....
@@ -546,24 +567,22 @@ alias cmake='cmake3'
 
 ## How to install Jupyter notebook?
 
-It is recommended to link:https://jupyter.org/install.html[install Jupyter notebook] in a miniconda environment which includes a minimal Python and conda installation.  You can install Jupyter notebook via conda install or pip install.  If you want to use ML frameworks in your notebook, you need to install jupyter notebook in the wml-ce conda environment, such as wmlce-1.7.0.
+It is recommended to link:https://jupyter.org/install.html[install Jupyter notebook] in a miniconda environment which includes a minimal Python and conda installation.  You can install Jupyter notebook via conda install or pip install.
 
 ....
-conda activate wmlce-1.7.0
 conda install -c conda-forge notebook
 ....
 
 Or
 
 ....
-conda activate wmlce-1.7.0
 pip install notebook
 ....
 
 For example:
 
 ....
-(wmlce-1.7.0) [BMHRkmkh@dcsfen01 wmlce-1.7.0]$ conda install -c conda-forge notebook
+(base) [your-id@dcsfen01 wmlce-1.7.0]$ conda install -c conda-forge notebook
 Collecting package metadata (current_repodata.json): done
 Solving environment: done
 
@@ -583,7 +602,7 @@ The following packages will be downloaded:
 Verify the notebook  installation.
 
 ....
-(wmlce-1.7.0) [BMHRkmkh@dcsfen01 wmlce-1.7.0]$ conda list | grep notebook
+(base) [your-id@dcsfen01 wmlce-1.7.0]$ conda list | grep notebook
 notebook                  6.0.3                    py37_0    conda-forge
 ....
 
@@ -595,7 +614,7 @@ Prerequisite: conda and jupyter notebook are installed on the node. For how to s
 ### Start the jupyter notebook on the allocated compute node. In the following example, starting jupyter notebook on dcs085.
 
 ....
-(wmlce-1.7.0) [BMHRkmkh@dcs085 ~]$ jupyter notebook --ip=0.0.0.0 --no-browser
+(wmlce-1.7.0) [your-id@dcs085 ~]$ jupyter notebook --ip=0.0.0.0 --no-browser
 ....
 
 
@@ -604,7 +623,7 @@ Prerequisite: conda and jupyter notebook are installed on the node. For how to s
 Start the ssh session to one of the landing pad nodes.  For example:
 
 ....
-[tran58@kvt-rhel ~]$ ssh -L8888:dcs085:8888 BMHRkmkh@blp01.ccni.rpi.edu
+[id@kvt-rhel ~]$ ssh -L8888:dcs085:8888 BMHRkmkh@blp01.ccni.rpi.edu
 ....
 
 Go to the browser on the node, enter the following to tunnel to the jupyter notebook running on the compute node.
@@ -643,7 +662,15 @@ image:jupyter-w.png[]
 
 ## How to transfer data in and out of AiMOS environment?
 
-You need to use scp to copy data from/to your laptop/desktop to/from one of the landing pad node. Since the same gpfs file system is mounted on the landing pad nodes, front end nodes and compute nodes, the data will be available and accessible on all the nodes.
+You need to use scp to copy data from/to your laptop/desktop to/from one of the landing pad nodes. Since the same gpfs file system is mounted on the landing pad nodes, front end nodes and compute nodes, the data will be available and accessible on all the nodes.
+
+....
+$ scp multigpu_basic*.ipynb your-id@blp01.ccni.rpi.edu:~/scratch-shared/jupyter-notebooks
+PIC+Token:
+Password:
+multigpu_basic.ipynb                                                                   100% 6330    79.3KB/s   00:00
+multigpu_basics.ipynb                                                                  100% 4258    55.0KB/s   00:00
+....
 
 If your desktop/laptop is running Windows, you use winscp to do the copy.
 
@@ -655,15 +682,15 @@ Note that you MUST initiate the copy operation from your desktop/laptop.
 To request NVMe storage, specify --gres=nvme with your SLURM commands. This can be combined with other requests, such as GPUs. When the first job step starts, the system will initialize the storage and create the path /mnt/nvme/uid_${SLURM_JOB_UID}/job_${SLURM_JOBID}.
 
 ....
-(base) [BMHRkmkh@dcsfen01 ~]$  salloc -N 1 --gres=gpu:6 --gres=nvme -t 30
+(base) [your-id@dcsfen01 ~]$  salloc -N 1 --gres=gpu:6 --gres=nvme -t 30
 salloc: Granted job allocation 64444
-(base) [BMHRkmkh@dcsfen01 ~]$ squeue
+(base) [your-id@dcsfen01 ~]$ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
              64444       dcs     bash BMHRkmkh  R       0:11      1 dcs055
-(base) [BMHRkmkh@dcsfen01 ~]$ ssh dcs055
+(base) [your-id@dcsfen01 ~]$ ssh dcs055
 Warning: Permanently added 'dcs055,172.31.236.55' (ECDSA) to the list of known hosts.
-(base) [BMHRkmkh@dcs055 ~]$
-(base) [BMHRkmkh@dcs055 ~]$ df -h
+(base) [your-id@dcs055 ~]$
+(base) [your-id@dcs055 ~]$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
 devtmpfs        243G     0  243G   0% /dev
 tmpfs           256G   64K  256G   1% /dev/shm
@@ -673,9 +700,8 @@ rootfs          256G  7.6G  249G   3% /
 rw              256G   64K  256G   1% /.sllocal/log
 gpfs.u          1.1P  387T  640T  38% /gpfs/u
 /dev/nvme0n1    1.5T   77M  1.5T   1% /mnt/nvme
-(base) [BMHRkmkh@dcs055 job_64444]$ pwd
+(base) [your-id@dcs055 job_64444]$ pwd
 /mnt/nvme/uid_6112/job_64444
 ....
 
 The NVMe storage is not persistent between allocations.
-
