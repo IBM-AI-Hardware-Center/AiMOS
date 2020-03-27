@@ -33,11 +33,6 @@ The following sections will provide you the basic steps to get you on-boarded to
 
 You need to fill out the following forms, sign and send them to herger@us.ibm.com.
 
-### Project Information 
-A user must belong to one or more projects.  You use the Project Information form to create a new project or to add your name to an existing project.
-
-https://secure.cci.rpi.edu/wiki/images/6/6b/CCI_Project_Information_20140612.pdf
-
 ### CCI User Information  
 https://secure.cci.rpi.edu/wiki/images/b/b1/CCI_User_Information_20140612.pdf
 
@@ -235,9 +230,17 @@ salloc: Granted job allocation 60780
 ....
 [your-id@dcsfen01 ~]$ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-             60780       dcs     bash 	your-id  R       1:07      1 dcs249
+             60780       dcs     bash your-id  R       1:07      1 dcs249
 [your-id@dcsfen01 ~]$ ssh dcs249
 Warning: Permanently added 'dcs249,172.31.236.249' (ECDSA) to the list of known hosts.
+....
+
+To display when your pending job would be started:
+
+....
+[your-id@dcsfen01 ~]$ squeue --start
+             JOBID PARTITION     NAME     USER ST          START_TIME  NODES SCHEDNODES           NODELIST(REASON)
+             93765   dcs,rpi pytorch_ your-id  PD 2020-03-27T12:34:38      2 dcs[235-236]         (Resources)
 ....
 
 *srun* – submits a job for execution or initiates job steps in real time.
@@ -246,7 +249,15 @@ Warning: Permanently added 'dcs249,172.31.236.249' (ECDSA) to the list of known 
 
 *sbatch* – submit a job script for later execution. The script typically contains one or more srun commands to launch parallel tasks.
 
+....
+sbatch ./batch-job.sh
+....
+
 *scancel* – cancel a pending or running job or job step.
+
+....
+ scancel <JOBID>
+....
 
 *sinfo* – reports the state of partitions and nodes managed by Slurm.
 
@@ -308,6 +319,7 @@ You need to create a script to submit via *sbatch* Slurm command. The script con
 ....
 #!/bin/bash -x
 
+# The lines started with SBATCH are directives to sbatch command.  Alternately, they can be specified on the command line.
 #SBATCH -J hello_MPI
 #SBATCH -o hello_MPI_%j.out
 #SBATCH -e hello_MPI_%j.err
@@ -318,7 +330,8 @@ You need to create a script to submit via *sbatch* Slurm command. The script con
 #SBATCH --ntasks-per-node=4
 #SBATCH --time=02:00:00
 
-# SLURM_NPROCS and SLURM_NTASK_PER_NODE env variables are set by the SBATCH directive nodes, ntasks-per-node above.
+# SLURM_NPROCS and SLURM_NTASK_PER_NODE env variables are set by sbatch Slurm commands based on the SBATCH directives above 
+# or options specified on the command line.
 if [ "x$SLURM_NPROCS" = "x" ]
 then
   if [ "x$SLURM_NTASKS_PER_NODE" = "x" ]
@@ -333,14 +346,19 @@ else
   fi
 fi
 
+# Get the host name of the allocated compute node(s) and generate the host list file.
 srun hostname -s | sort -u > ~/tmp/hosts.$SLURM_JOBID
 awk "{ print \$0 \"-ib slots=$SLURM_NTASKS_PER_NODE\"; }" ~/tmp/hosts.$SLURM_JOBID >~/tmp/tmp.$SLURM_JOBID
 mv ~/tmp/tmp.$SLURM_JOBID ~/tmp/hosts.$SLURM_JOBID
 
+# Load the required tools and libraries for the job.
 module load gcc/6.4.0/1
 module load spectrum-mpi
+
+# Submit the job.
 mpirun --bind-to core --report-bindings -hostfile ~/tmp/hosts.$SLURM_JOBID -np $SLURM_NPROCS <PATH>/hello_MPI_c
 
+# Remove the generated host list file
 rm ~/tmp/hosts.$SLURM_JOBID
 ....
 
