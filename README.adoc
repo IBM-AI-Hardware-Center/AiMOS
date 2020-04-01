@@ -154,7 +154,7 @@ Last login: Fri Feb 28 11:43:56 2020 from 172.31.29.1
 
 ### Set up proxy
 
-You need to set up the proxy in order to access the internet.  However, RPI uses the white list to control which site is accessible.  If additional sites are required, please let us know via slack channel that you have access to.
+You need to set up the proxy in order to access the internet.  However, RPI uses the white list to control which site is accessible.  So if there are small files that you need, you can download and scpy them over to the AiMOS environment.  If not, we can send request to add the site to the white list. 
 
 **It is strongly recommended that you set up the proxy by adding the following lines to your .bashrc**.  You only need to do this once.
 
@@ -391,7 +391,7 @@ You should also see the <job name>_<job_id>.out and <job name>_<job_id>.err in y
 
 ## How to install conda environment?
 
-IMPORTANT: Make sure that you set up proxy before you proceed to the next step.  See <<set-up-proxy>> for how to.
+IMPORTANT: Make sure that you set up the proxy before you proceed to the next step.  See <<set-up-proxy>> for how to.
 
 Download the the Miniconda3 installer if needed.
 ....
@@ -479,7 +479,7 @@ Watson Machine Learning Community Edition (WML CE), formerly PowerAI, is a free,
 For more information, see
 https://developer.ibm.com/linuxonpower/deep-learning-powerai/releases/
 
-IMPORTANT: Make sure that you set up proxy before you proceed to the next step.  See <<set-up-proxy>> for how to.
+IMPORTANT: Make sure that you set up the proxy before you proceed to the next step.  See <<set-up-proxy>> for how to.
 
 Set up ~/.condarc if needed.  Below is the example of .condarc file. You need replace *your-project* with your PROJECT ID and *your-id" with your ID.
 
@@ -603,7 +603,7 @@ alias cmake='cmake3'
 
 ## How to install Jupyter notebook?
 
-IMPORTANT: Make sure that you set up proxy before you proceed to the next step.  See <<set-up-proxy>> for how to.
+IMPORTANT: Make sure that you set up the proxy before you proceed to the next step.  See <<set-up-proxy>> for how to.
 
 It is recommended to link:https://jupyter.org/install.html[install Jupyter notebook] in a miniconda environment which includes a minimal Python and conda installation.  You can install Jupyter notebook via conda install or pip install.
 
