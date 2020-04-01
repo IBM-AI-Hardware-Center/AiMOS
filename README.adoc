@@ -92,7 +92,11 @@ Compute node is node where you execute your application.  There are 252 compute 
 
 ## How to login to AiMOS?
 
-*  First you need to ssh to one of the landing pad nodes. For PIC+Token, enter your chosen PIC that you set above and the token from the Google Authenticator app on your mobile device.  Note, do not enter + and space.  For example:
+The steps are ssh to a landing pad node, then from there ssh to a front end node for dcs cluster.
+
+### ssh to a landing pad node
+
+First you need to ssh to one of the landing pad nodes. For PIC+Token, enter your chosen PIC that you set above and the token from the Google Authenticator app on your mobile device.  Note, do not enter + and space.  For example:
 
 ....
 $ ssh your-id@blp01.ccni.rpi.edu
@@ -118,14 +122,18 @@ Last login: Fri Mar  6 15:41:57 2020 from 70.113.9.236
 
 ....
 
-* Set up passwordless to login to the front end nodes and compute nodes.  You only need to do this once. 
+### Set up passwordless 
+
+**It is strongly recommended that you set up the passwordless to login to the front end nodes and compute nodes**.  This is particularly required if you are running MPI workload.  You only need to do this once. 
 
 ....
 ssh-keygen –t rsa
 cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
 ....
 
-* From the landing pad node, you ssh to the one of the front end nodes.  There are two front end nodes: dcsfen01 and dcsfen02.   For example: 
+### ssh to a front end node
+
+From the landing pad node, you ssh to the one of the front end nodes.  There are two front end nodes: dcsfen01 and dcsfen02.   For example: 
 
 ....
 [your-id@blp01 ~]$ ssh dcsfen01
@@ -144,14 +152,16 @@ Last login: Fri Feb 28 11:43:56 2020 from 172.31.29.1
 **                                                             **
 ....
 
-* Set up proxy on the front end node by adding the following lines to your .bashrc.  You only need to do this once.
+### Set up proxy
+
+**It is strongly recommended that you set up the proxy by adding the following lines to your .bashrc**.  You only need to do this once.
 
 ....
 export http_proxy=http://proxy:8888
 export https_proxy=$http_proxy
 ....
 
-Do not forget to source your .bashrc for this to take effect.
+Do not forget to source your .bashrc after you add the lines to the .bashrc for this to take effect.
 
 
 ## What is the disk space on the nodes?
@@ -316,6 +326,8 @@ Authentication failed.
 
 You need to create a script to submit via *sbatch* Slurm command. The script contains a list of SLURM directives (or commands) to tell Slurm what to do. This is a sample script to run a hello_MPI_c program.
 
+IMPORTANT: Passwordless is required for MPI job.  See <<set-up-passwordless>> for how to.
+
 ....
 #!/bin/bash -x
 
@@ -376,6 +388,8 @@ You should also see the <job name>_<job_id>.out and <job name>_<job_id>.err in y
 
 
 ## How to install conda environment?
+
+IMPORTANT: Make sure that you set up proxy before you proceed to the next step.  See <<set-up-proxy>> for how to.
 
 Download the the Miniconda3 installer if needed.
 ....
@@ -462,6 +476,8 @@ Watson Machine Learning Community Edition (WML CE), formerly PowerAI, is a free,
 
 For more information, see
 https://developer.ibm.com/linuxonpower/deep-learning-powerai/releases/
+
+IMPORTANT: Make sure that you set up proxy before you proceed to the next step.  See <<set-up-proxy>> for how to.
 
 Set up ~/.condarc if needed.  Below is the example of .condarc file. You need replace *your-project* with your PROJECT ID and *your-id" with your ID.
 
@@ -585,6 +601,8 @@ alias cmake='cmake3'
 
 ## How to install Jupyter notebook?
 
+IMPORTANT: Make sure that you set up proxy before you proceed to the next step.  See <<set-up-proxy>> for how to.
+
 It is recommended to link:https://jupyter.org/install.html[install Jupyter notebook] in a miniconda environment which includes a minimal Python and conda installation.  You can install Jupyter notebook via conda install or pip install.
 
 ....
@@ -692,7 +710,7 @@ multigpu_basics.ipynb                                                           
 
 If your desktop/laptop is running Windows, you use winscp to do the copy.
 
-Note that you MUST initiate the copy operation from your desktop/laptop.
+NOTE: You MUST initiate the copy operation from your desktop/laptop.
 
 
 ## How to request for NVMe storage on the compute nodes?
@@ -722,4 +740,5 @@ gpfs.u          1.1P  387T  640T  38% /gpfs/u
 /mnt/nvme/uid_6112/job_64444
 ....
 
-The NVMe storage is not persistent between allocations.
+NOTE: The NVMe storage is not persistent between allocations.
+
