@@ -607,6 +607,8 @@ IMPORTANT: Make sure that you set up proxy before you proceed to the next step. 
 
 It is recommended to link:https://jupyter.org/install.html[install Jupyter notebook] in a miniconda environment which includes a minimal Python and conda installation.  You can install Jupyter notebook via conda install or pip install.
 
+If you plan to use the AI framework with your notebook, make sure that you install Jupyter notebook in the conda environment that includes the AI framework.  For example, if you want to use the AI frameworks that are included in the WML-CE, then you need to install Jupyter notebook in the environment that WML-CE was installed.
+
 ....
 conda install -c conda-forge notebook
 ....
