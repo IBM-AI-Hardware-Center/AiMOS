@@ -154,6 +154,8 @@ Last login: Fri Feb 28 11:43:56 2020 from 172.31.29.1
 
 ### Set up proxy
 
+You need to set up the proxy in order to access the internet.  However, RPI uses the white list to control which site is accessible.  If additional sites are required, please let us know via slack channel that you have access to.
+
 **It is strongly recommended that you set up the proxy by adding the following lines to your .bashrc**.  You only need to do this once.
 
 ....
@@ -645,9 +647,13 @@ notebook                  6.0.3                    py37_0    conda-forge
 
 ## How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?
 
-Prerequisite: conda and jupyter notebook are installed on the node. For how to see <<how-to-install-conda-environment>> and <<how-to-install-jupyter-notebook>>
+### Prerequisites
 
-### Start the jupyter notebook on the allocated compute node. In the following example, starting jupyter notebook on dcs085.
+conda and jupyter notebook are installed on the node. For how to see <<how-to-install-conda-environment>> and <<how-to-install-jupyter-notebook>>
+
+### Start the jupyter notebook on the allocated compute node 
+
+In the following example, starting jupyter notebook on dcs085.
 
 ....
 (wmlce-1.7.0) [your-id@dcs085 ~]$ jupyter notebook --ip=0.0.0.0 --no-browser
