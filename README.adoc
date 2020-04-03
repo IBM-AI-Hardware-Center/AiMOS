@@ -79,15 +79,16 @@ The front end nodes (a.k.a. login nodes) are nodes where you find Slurm, compile
 
 There are two front end nodes in AiMOS.
 
-* dcsfen01.ccni.rpi.edu
-* dcsfen02.ccni.rpi.edu
+* dcsfen01
+* dcsfen02
 
 
 ## What is the compute node?
 
 Compute node is node where you execute your application.  There are 252 compute nodes in AiMOS.  They are AC922 with 6 GPU each. You can only log in to the compute nodes that are allocated to you via Slurm commands.
 
-* dcs001.ccni.rpi.edu - dcs252.ccni.rpi.edu
+* dcs001 - dcs216
+* dcs235 - dcs270
 
 
 ## How to login to AiMOS?
