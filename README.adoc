@@ -127,7 +127,7 @@ Last login: Fri Mar  6 15:41:57 2020 from 70.113.9.236
 **It is strongly recommended that you set up the passwordless to login to the front end nodes and compute nodes**.  This is particularly required if you are running MPI workload.  You only need to do this once. 
 
 ....
-ssh-keygen –t rsa
+ssh-keygen -t rsa
 cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
 ....
 
