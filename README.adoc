@@ -42,7 +42,7 @@ https://secure.cci.rpi.edu/wiki/images/b/b3/CCI_User_Responsibility_Agreement_20
 Once the forms are processed, you will receive emails from the system administrators at RPI for your account ID and temporary password. The next step is to <<set-your-password>>.
 
 ### Set your password
-You will receive the link  similar to this, https://secure.cci.rpi.edu/password/?a=XXXXXXXXXXXXXXXX&b=1, where XXXXXXXXXXXXXXXX is your temporary password. You need to use the link to reset your password.
+You will receive the link similar to this, https://secure.cci.rpi.edu/password/?a=XXXXXXXXXXXXXXXX, where XXXXXXXXXXXXXXXX is your reset token. You need to use the link to reset your password.
 
 ### Set the Challenge Word
 The next step is choose and set the Challenge Word: https://secure.cci.rpi.edu/challenge/
