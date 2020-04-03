@@ -129,7 +129,7 @@ Last login: Fri Mar  6 15:41:57 2020 from 70.113.9.236
 
 ....
 ssh-keygen -t rsa
-cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ....
 
 ### ssh to a front end node
