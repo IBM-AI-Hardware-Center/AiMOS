@@ -203,7 +203,7 @@ The fairshare allocation is used in the environment:
 Within a key partner’s “slice”, group projects are defined.
 * By default, each project gets a fair share of the overall partner level slice.
 * Inside each project, users accounts are created.
-* By default, each user gets a fair share of the overall group project level slice
+* Sharing within a project i.e. between user accounts is not governed by the scheduler
 
 NOTE: You need to specify the time limit (-t <number of minutes>) on the Slurm command that you issue.  If not, you will get an error message for that.  The maximum time limit is set to 6 hours (360 mins) on AiMOS.
 
