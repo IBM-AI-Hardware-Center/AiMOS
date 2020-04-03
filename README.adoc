@@ -65,7 +65,7 @@ For more information see https://secure.cci.rpi.edu/wiki/index.php?title=Landing
 
 Landing pad nodes are nodes that have an external IP.  You will need to login to one of the landing pad nodes before you can access the AiMOS systems.
 
-There are 4 landing pad nodes for AiMOS:
+There are 4 landing pad nodes for CCI:
 
 * blp01.ccni.rpi.edu
 * blp02.ccni.rpi.edu
