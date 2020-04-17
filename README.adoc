@@ -24,6 +24,8 @@ Each compute node has:
 * 1.6 TB NVMe SSD storage
 * Dual, 100 Gb/sec Mellanox IB links
 
+For more information see https://secure.cci.rpi.edu/wiki/index.php?title=DCS_Supercomputer
+
 AiMOS uses Slurm for resource management and scheduler tool.  The front end nodes are for developing applications or building the AI frameworks if needed as well as issuing Slurm commands to allocate the compute nodes for testing and running applications.
 
 The following sections will provide you the basic steps to get you on-boarded to the AiMOS environment.  If you need any assistance, please post your questions to the https://ibm-research.slack.com/archives/CR271K4M7[aimos slack channel] or send email to kvtran@us.ibm.com and herger@us.ibm.com.
