@@ -73,7 +73,7 @@ There are 4 landing pad nodes for CCI:
 * blp04.ccni.rpi.edu
 
 
-## What is the frond end node?
+## What is the front end node?
 
 The front end nodes (a.k.a. login nodes) are nodes where you find Slurm, compilers, libraries, headers, development tools, etc.  This is where you build your executables if needed, issue Slurm commands to submit jobs.  In order to see some of the executables, libraries, etc., you may need to use module to load them first. For how to, please see section <<how-to-load-different-modules-for-your-development-and-testing>> section later in this documentation.
 
@@ -188,6 +188,7 @@ This is the general user level filesystem view.
 * home directory contains a link to scratch, the user's personal scratch space.  It also contains a link to scratch-shared, the project's shared scratch space.
 * scratch and scratch-shared are meant as a temporary staging area for performing computation. Performance in this directory will be better than in the home or barn areas. This space does not have a quota. However, it will periodically be purged of files that are not used (either by read or write operation) in the last 56 days.  WARNING: If purging files that are not used in the last 56 days is not sufficient to maintain enough working space, the RPI team may purge all files with advance warning.
 
+For more information see https://secure.cci.rpi.edu/wiki/index.php?title=File_System
 
 ## How is slurm workload manager configured in AiMOS environment?
 
@@ -203,7 +204,10 @@ Within a key partner’s “slice”, group projects are defined.
 * Inside each project, users accounts are created.
 * Sharing within a project i.e. between user accounts is not governed by the scheduler
 
+You can also refer to https://secure.cci.rpi.edu/wiki/index.php?title=Slurm for more information.
+
 NOTE: You need to specify the time limit (-t <number of minutes>) on the Slurm command that you issue.  If not, you will get an error message for that.  The maximum time limit is set to 6 hours (360 mins) on AiMOS.
+
 
 ## What are the Slurm Frequently Used Commands?
 
@@ -325,7 +329,7 @@ Authentication failed.
 
 ## How to submit a batch job via Slurm?
 
-You need to create a script to submit via *sbatch* Slurm command. The script contains a list of SLURM directives (or commands) to tell Slurm what to do. This is a sample script to run a hello_MPI_c program.
+You need to create a script to submit via *sbatch* Slurm command. The script contains a list of Slurm directives (or commands) to tell Slurm what to do. This is a sample script to run a hello_MPI_c program.
 
 IMPORTANT: Passwordless is required for MPI job.  See <<set-up-passwordless>> for how to.
 
