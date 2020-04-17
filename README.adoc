@@ -10,13 +10,13 @@ toc::[]
 
 
 ## What is AiMOS?
-The IBM Research AI Hardware Center is a global research hub headquartered in Albany, New York. 
-The center is focused on enabling next-generation chips and systems that support the tremendous processing power and 
-unprecedented speed that AI requires to realize its full potential.  
-AiMOS (short for **A**rtificial **I**ntelligence **M**ultiprocessing **O**ptimized **S**ystem) serves as the test bed for 
+The IBM Research AI Hardware Center is a global research hub headquartered in Albany, New York.
+The center is focused on enabling next-generation chips and systems that support the tremendous processing power and
+unprecedented speed that AI requires to realize its full potential.
+AiMOS (short for **A**rtificial **I**ntelligence **M**ultiprocessing **O**ptimized **S**ystem) serves as the test bed for
 the IBM Research AI Hardware Center. AiMOS consists of 2 front end nodes and 252 AC922 compute nodes configured in a 14 rack system.
 
-Each compute node has: 
+Each compute node has:
 
 * 2x 20 core POWER9 processors (Summit’s variant)
 * 6x NVIDIA Volta V100 GPUs w/ 32 GB of HBM each
@@ -24,7 +24,7 @@ Each compute node has:
 * 1.6 TB NVMe SSD storage
 * Dual, 100 Gb/sec Mellanox IB links
 
-AiMOS uses Slurm for resource management and scheduler tool.  The front end nodes are for developing applications or building the AI frameworks if needed as well as issuing SLURM commands to allocate the compute nodes for testing and running applications.
+AiMOS uses Slurm for resource management and scheduler tool.  The front end nodes are for developing applications or building the AI frameworks if needed as well as issuing Slurm commands to allocate the compute nodes for testing and running applications.
 
 The following sections will provide you the basic steps to get you on-boarded to the AiMOS environment.  If you need any assistance, please post your questions to the https://ibm-research.slack.com/archives/CR271K4M7[aimos slack channel] or send email to kvtran@us.ibm.com and herger@us.ibm.com.
 
@@ -33,18 +33,18 @@ The following sections will provide you the basic steps to get you on-boarded to
 
 You need to fill out the following forms, sign and send them to herger@us.ibm.com.
 
-### CCI User Information  
+### CCI User Information
 https://secure.cci.rpi.edu/wiki/images/b/b1/CCI_User_Information_20140612.pdf
 
 ### CCI User Responsibility Agreement
 https://secure.cci.rpi.edu/wiki/images/b/b3/CCI_User_Responsibility_Agreement_20140612.pdf
 
-Once the forms are processed, you will receive emails from the system administrators at RPI for your account ID and temporary password. The next step is to <<set-your-password>>. 
+Once the forms are processed, you will receive emails from the system administrators at RPI for your account ID and temporary password. The next step is to <<set-your-password>>.
 
-### Set your password 
-You will receive the link  similar to this, https://secure.cci.rpi.edu/password/?a=XXXXXXXXXXXXXXXX&b=1, where XXXXXXXXXXXXXXXX is your temporary password. You need to use the link to reset your password.
+### Set your password
+You will receive the link similar to this, https://secure.cci.rpi.edu/password/?a=XXXXXXXXXXXXXXXX, where XXXXXXXXXXXXXXXX is your reset token. You need to use the link to reset your password.
 
-### Set the Challenge Word 
+### Set the Challenge Word
 The next step is choose and set the Challenge Word: https://secure.cci.rpi.edu/challenge/
 
 ### Set the Personal Identification Code (PIC)
@@ -65,12 +65,12 @@ For more information see https://secure.cci.rpi.edu/wiki/index.php?title=Landing
 
 Landing pad nodes are nodes that have an external IP.  You will need to login to one of the landing pad nodes before you can access the AiMOS systems.
 
-There are 4 landing pad nodes for AiMOS:
+There are 4 landing pad nodes for CCI:
 
 * blp01.ccni.rpi.edu
 * blp02.ccni.rpi.edu
-* blp03.ccni.rpi.edu 
-* blp04.ccni.rpi.edu 
+* blp03.ccni.rpi.edu
+* blp04.ccni.rpi.edu
 
 
 ## What is the frond end node?
@@ -79,15 +79,16 @@ The front end nodes (a.k.a. login nodes) are nodes where you find Slurm, compile
 
 There are two front end nodes in AiMOS.
 
-* dcsfen01.ccni.rpi.edu
-* dcsfen02.ccni.rpi.edu
+* dcsfen01
+* dcsfen02
 
 
 ## What is the compute node?
 
-Compute node is node where you execute your application.  There are 252 compute nodes in AiMOS.  They are AC922 with 6 GPU each. You can only log in to the compute nodes that are allocated to you via SLURM commands.
+Compute node is node where you execute your application.  There are 252 compute nodes in AiMOS.  They are AC922 with 6 GPU each. You can only log in to the compute nodes that are allocated to you via Slurm commands.
 
-* dcs001.ccni.rpi.edu - dcs252.ccni.rpi.edu
+* dcs001 - dcs216
+* dcs235 - dcs270
 
 
 ## How to login to AiMOS?
@@ -122,18 +123,18 @@ Last login: Fri Mar  6 15:41:57 2020 from 70.113.9.236
 
 ....
 
-### Set up passwordless 
+### Set up passwordless
 
-**It is strongly recommended that you set up the passwordless to login to the front end nodes and compute nodes**.  This is particularly required if you are running MPI workload.  You only need to do this once. 
+**It is strongly recommended that you set up the passwordless to login to the front end nodes and compute nodes**.  This is particularly required if you are running MPI workload.  You only need to do this once.
 
 ....
 ssh-keygen -t rsa
-cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ....
 
 ### ssh to a front end node
 
-From the landing pad node, you ssh to the one of the front end nodes.  There are two front end nodes: dcsfen01 and dcsfen02.   For example: 
+From the landing pad node, you ssh to the one of the front end nodes.  There are two front end nodes: dcsfen01 and dcsfen02.   For example:
 
 ....
 [your-id@blp01 ~]$ ssh dcsfen01
@@ -154,7 +155,7 @@ Last login: Fri Feb 28 11:43:56 2020 from 172.31.29.1
 
 ### Set up proxy
 
-You need to set up the proxy in order to access the internet.  However, RPI uses the white list to control which site is accessible. If the site is not accessible, you may want to download  and scp them over to the AiMOS environment if the files are small enough.  If that is not feasible, we can send a request to add the site to the white list. 
+You need to set up the proxy in order to access the internet.  However, RPI uses the white list to control which site is accessible. If the site is not accessible, you may want to download  and scp them over to the AiMOS environment if the files are small enough.  If that is not feasible, we can send a request to add the site to the white list.
 
 **It is strongly recommended that you set up the proxy by adding the following lines to your .bashrc**.  You only need to do this once.
 
@@ -183,36 +184,34 @@ This is the general user level filesystem view.
 						/scratch-shared
 ....
 
-* Each user is allocated a 10 GiB quota which includes user's home, barn and barn-shared.  This space is intended for long term storage and it will be saved. 
+* Each project is given a 10 GiB quota for barn and a 10 GiB quota for home. Home is intended for long-term storage of configurations, scripts, etc. Barn is intended for medium-term storage.
 * home directory contains a link to scratch, the user's personal scratch space.  It also contains a link to scratch-shared, the project's shared scratch space.
-* scratch and scratch-shared are meant as a temporary staging area for performing computation. Performance in this directory will be better than in the home or barn areas. This space does not have a quota. However, it will periodically be purged of files that are not used (either by read or write operation) in the last 56 days.  WARNING: If purging files that are not used in the last 56 days is not  sufficient to maintain enough working space, the RPI team may purge all files with with advance warning.
-
-Due to the total space of 10 GiB in home, barn and barn-shared, it is best to use these directories to store "dot files", configuration files, scripts, or small programs needed to customize the working environment. You should use scratch and scratch-shared for things that require more space.
+* scratch and scratch-shared are meant as a temporary staging area for performing computation. Performance in this directory will be better than in the home or barn areas. This space does not have a quota. However, it will periodically be purged of files that are not used (either by read or write operation) in the last 56 days.  WARNING: If purging files that are not used in the last 56 days is not sufficient to maintain enough working space, the RPI team may purge all files with advance warning.
 
 
 ## How is slurm workload manager configured in AiMOS environment?
 
-Slurm (used to be Simple Linux Utility for Resource Management) is the cluster management and job scheduler for AiMOS. 
+Slurm (used to be Simple Linux Utility for Resource Management) is the cluster management and job scheduler for AiMOS.
 
 image:AiMOS-allocation2.png[]
 
 The fairshare allocation is used in the environment:
 
 * Each key partner (e.g., IBM, RPI) is given a fixed slice of AiMOS expressed as a percentage of the whole system
-Within a key partner’s “slice”, group projects are defined. 
+Within a key partner’s “slice”, group projects are defined.
 * By default, each project gets a fair share of the overall partner level slice.
-* Inside each project, users accounts are created. 
-* By default, each user gets a fair share of the overall group project level slice
+* Inside each project, users accounts are created.
+* Sharing within a project i.e. between user accounts is not governed by the scheduler
 
-NOTE: You need to specify the time limit (-t <number of minutes>) on the SLURM command that you issue.  If not, you will get an error message for that.  The maximum time limit is set to 6 hours (360 mins) on AiMOS.
+NOTE: You need to specify the time limit (-t <number of minutes>) on the Slurm command that you issue.  If not, you will get an error message for that.  The maximum time limit is set to 6 hours (360 mins) on AiMOS.
 
-## What are the SLURM Frequently Used Commands?
+## What are the Slurm Frequently Used Commands?
 
-For the complete list of SLURM manpage, see https://slurm.schedmd.com/man_index.html
- 
-For the summary for SLURM commands and options, see https://slurm.schedmd.com/pdfs/summary.pdf
+For the complete list of Slurm manpage, see https://slurm.schedmd.com/man_index.html
 
-The frequently used options for SLURM commands:
+For the summary for Slurm commands and options, see https://slurm.schedmd.com/pdfs/summary.pdf
+
+The frequently used options for Slurm commands:
 
 ....
  -n, --ntasks=ntasks         number of tasks to run
@@ -296,7 +295,7 @@ rpi          up    6:00:00      2  alloc dcs[223,230]
 
 ## How to submit an interactive job via Slurm?
 
-For example, after ssh to one of the front end nodes, run *salloc* to allocate 1 node with 6 gpu for 15 minutes. After the command returns, you now run *squeue* command to see which node is allocated for the interactive session.  In the example below, dcs249 is allocated.  Now you can ssh to the node and execute your application.  
+For example, after ssh to one of the front end nodes, run *salloc* to allocate 1 node with 6 gpu for 15 minutes. After the command returns, you now run *squeue* command to see which node is allocated for the interactive session.  In the example below, dcs249 is allocated.  Now you can ssh to the node and execute your application.
 
 ....
 [your-id@dcsfen01 ~]$  salloc -N 1 --gres=gpu:6 -t 15
@@ -324,7 +323,7 @@ Authentication failed.
 ....
 
 
-## How to submit a batch job via SLURM?
+## How to submit a batch job via Slurm?
 
 You need to create a script to submit via *sbatch* Slurm command. The script contains a list of SLURM directives (or commands) to tell Slurm what to do. This is a sample script to run a hello_MPI_c program.
 
@@ -344,7 +343,7 @@ IMPORTANT: Passwordless is required for MPI job.  See <<set-up-passwordless>> fo
 #SBATCH --ntasks-per-node=4
 #SBATCH --time=02:00:00
 
-# SLURM_NPROCS and SLURM_NTASK_PER_NODE env variables are set by sbatch Slurm commands based on the SBATCH directives above 
+# SLURM_NPROCS and SLURM_NTASK_PER_NODE env variables are set by sbatch Slurm commands based on the SBATCH directives above
 # or options specified on the command line.
 if [ "x$SLURM_NPROCS" = "x" ]
 then
@@ -384,7 +383,7 @@ sbatch ./hello_MPI.sh
 
 Note: that you can specify the command options on the *sbatch* command line instead of using #SBATCH directive like in the sample script above.
 
-With #SBATCH --mail-type=ALL, #SBATCH --mail-user=<you email address>, you should receive the email from SLURM when a job starts and ends to your email address.
+With #SBATCH --mail-type=ALL, #SBATCH --mail-user=<you email address>, you should receive the email from Slurm when a job starts and ends to your email address.
 
 You should also see the <job name>_<job_id>.out and <job name>_<job_id>.err in your current directory with #SBATCH -o hello_MPI_%j.out and #SBATCH -e hello_MPI_%j.err after the job completes.
 
@@ -474,7 +473,7 @@ Thank you for installing Miniconda3!
 
 ## How to install WML-CE (a.k.a PowerAI)?
 
-Watson Machine Learning Community Edition (WML CE), formerly PowerAI, is a free, enterprise-grade software distribution that combines popular open source deep learning frameworks, efficient AI development tools, and accelerated IBM® Power Systems™ servers to take your deep learning projects to the next level.  
+Watson Machine Learning Community Edition (WML CE), formerly PowerAI, is a free, enterprise-grade software distribution that combines popular open source deep learning frameworks, efficient AI development tools, and accelerated IBM® Power Systems™ servers to take your deep learning projects to the next level.
 
 For more information, see
 https://developer.ibm.com/linuxonpower/deep-learning-powerai/releases/
@@ -509,7 +508,7 @@ Activate the created conda environment.
 conda activate wmlce-1.7.0
 ....
 
-Install WML-CE version 1.7.0 which is the latest version at the time of this writting. 
+Install WML-CE version 1.7.0 which is the latest version at the time of this writting.
 
 For automatically accept the license
 
@@ -529,7 +528,7 @@ conda install powerai
 conda install powerai=1.6.2
 ....
 
-* To install the individual framework, such as pytorch or tensorflow.  
+* To install the individual framework, such as pytorch or tensorflow.
 
 For complete list of individual framework see https://www.ibm.com/support/knowledgecenter/SS5SF7_1.7.0/navigation/wmlce_install.htm
 
@@ -548,7 +547,7 @@ conda install powerai-cpu
 
 ....
 conda install powerai-rapids
-.... 
+....
 
 
 ## How to load different modules for your development and testing?
@@ -653,7 +652,7 @@ notebook                  6.0.3                    py37_0    conda-forge
 
 conda and jupyter notebook are installed on the node. For how to see <<how-to-install-conda-environment>> and <<how-to-install-jupyter-notebook>>
 
-### Start the jupyter notebook on the allocated compute node 
+### Start the jupyter notebook on the allocated compute node
 
 In the following example, starting jupyter notebook on dcs085.
 
@@ -691,7 +690,7 @@ Go section Connection->SSH->Tunnels, enter the jupyter notebok URL on the comput
 
 image:putty-tunnel.png[]
 
-Start the putty session and login to the landing node as usual.  
+Start the putty session and login to the landing node as usual.
 
 After that, go to your browser and enter the following to tunnel to the jupyter notebook running on the compute node.
 
@@ -723,7 +722,7 @@ NOTE: You MUST initiate the copy operation from your desktop/laptop.
 
 ## How to request for NVMe storage on the compute nodes?
 
-To request NVMe storage, specify --gres=nvme with your SLURM commands. This can be combined with other requests, such as GPUs. When the first job step starts, the system will initialize the storage and create the path /mnt/nvme/uid_${SLURM_JOB_UID}/job_${SLURM_JOBID}.
+To request NVMe storage, specify --gres=nvme with your Slurm commands. This can be combined with other requests, such as GPUs. When the first job step starts, the system will initialize the storage and create the path /mnt/nvme/uid_${SLURM_JOB_UID}/job_${SLURM_JOBID}.
 
 ....
 (base) [your-id@dcsfen01 ~]$  salloc -N 1 --gres=gpu:6 --gres=nvme -t 30
