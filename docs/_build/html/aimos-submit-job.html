@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to submit a job via Slurm &mdash; AiMOS 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How to load different modules for your development and testing?" href="aimos-load-modules.html" />
+    <link rel="prev" title="Slurm Resource Manager and Job Scheduler in AiMOS" href="aimos-slurm-basics.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AiMOS
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">What is AiMOS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">How to get a  user id on AiMOS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-login.html">How to login to AiMOS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-setup-env.html">Setting up the environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-gpfs.html">What is the GPFS disk space on the nodes?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-slurm-basics.html">Slurm Resource Manager and Job Scheduler in AiMOS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to submit a job via Slurm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-submit-an-interactive-job-via-slurm">How to Submit an interactive job via Slurm?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-submit-a-batch-job">How to submit a batch job?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-load-modules.html">How to load different modules for your development and testing?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-conda.html">How to install the conda environment?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-wmlce.html">How to install WML-CE (a.k.a PowerAI)?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-jupyter.html">How to install Jupyter notebook?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-tunneling.html">How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-nvme.html">How to request for NVMe storage on the compute nodes?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-ddlrun.html">Example for using ddlrun to run a distributed job?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AiMOS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>How to submit a job via Slurm</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/aimos-submit-job.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-submit-a-job-via-slurm">
+<h1>How to submit a job via Slurm<a class="headerlink" href="#how-to-submit-a-job-via-slurm" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>You need to specify “–gres=gpu:&lt;value&gt;” option with the <strong>salloc</strong> or <strong>sbatch</strong> command if you want to allocate the compute nodes from AiMOS.  The value is between 1 and 6.  This the number of gpu that you need per node.  If you specify –gres=gpu:6, you are in essence would get the whole node(s) allocated to you.  For more information regarding GPU on AiMOS, see <a class="reference external" href="https://secure.cci.rpi.edu/wiki/index.php?title=DCS_Supercomputer#Using_GPUs">https://secure.cci.rpi.edu/wiki/index.php?title=DCS_Supercomputer#Using_GPUs</a></p></li>
+<li><p>You also need to specify the time required to run your job via option <strong>-t &lt;value&gt;</strong>.  The value is number of minutes.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>At this time the maximum value is 360 which is 6 hours.  It is recommended that you include checkpoint restart in your code to enable your job to restart at the last checkpoint if your job run is longer than 6 hours.</p></li>
+<li><p>The specified time is also used in the calculation of the priority of your job, hence it is recommended that you specify the the best estimated time that you need for your job.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="section" id="how-to-submit-an-interactive-job-via-slurm">
+<h2>How to Submit an interactive job via Slurm?<a class="headerlink" href="#how-to-submit-an-interactive-job-via-slurm" title="Permalink to this headline">¶</a></h2>
+<p>It is assumed that you already ssh to one of the front end nodes.  You use the <strong>salloc</strong> command to allocate 1 node with 6 gpu for 15 minutes. After the command returns, you now run squeue command to see which node is allocated for the interactive session. In the example below, dcs249 is allocated. Now you can ssh to the node and execute your application.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$  salloc -N <span class="m">1</span> --gres<span class="o">=</span>gpu:6 -t <span class="m">15</span>
+salloc: Granted job allocation <span class="m">60780</span>
+<span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$ squeue
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="o">(</span>REASON<span class="o">)</span>
+             <span class="m">60780</span>       dcs     bash your-id  R       <span class="m">1</span>:07      <span class="m">1</span> dcs249
+<span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$ ssh dcs249
+Warning: Permanently added <span class="s1">&#39;dcs249,172.31.236.249&#39;</span> <span class="o">(</span>ECDSA<span class="o">)</span> to the list of known hosts.
+<span class="o">[</span>your-id@dcs249 ~<span class="o">]</span>$ ls
+barn  barn-shared  etc  Miniconda3-latest-Linux-ppc64le.sh  scratch  scratch-shared  var
+<span class="o">[</span>your-id@dcs249 ~<span class="o">]</span>$ hostname -f
+dcs249.ccni.rpi.edu
+</pre></div>
+</div>
+<p>After the specified time, which is 15 minutes in this example, the node is deallocated and you will no longer be allowed to ssh to the node.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>your-id@dcs249 ~<span class="o">]</span>$ salloc: Job <span class="m">60780</span> has exceeded its <span class="nb">time</span> limit and its allocation has been revoked.
+   Killed by signal <span class="m">1</span>.
+<span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$ ssh dcs249
+Access denied: user yourid <span class="o">(</span><span class="nv">uid</span><span class="o">=</span><span class="m">6112</span><span class="o">)</span> has no active <span class="nb">jobs</span> on this node.
+Access denied by pam_slurm_adopt: you have no active <span class="nb">jobs</span> on this node
+Authentication failed.
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-to-submit-a-batch-job">
+<h2>How to submit a batch job?<a class="headerlink" href="#how-to-submit-a-batch-job" title="Permalink to this headline">¶</a></h2>
+<p>You need to create a script to submit via <strong>sbatch</strong> Slurm command. The script contains a list of Slurm directives (or commands) to tell Slurm what to do. This is a sample script to run a hello_MPI_c program.</p>
+<p><strong>IMPORTANT</strong>: Passwordless is required for MPI job.  For how to see <a class="reference internal" href="aimos-setup-env.html#setup-environment"><span class="std std-ref">Setting up the environment</span></a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -x</span>
+
+<span class="c1"># The lines started with SBATCH are directives to sbatch command.  Alternately, they can be specified on the command line.</span>
+<span class="c1">#SBATCH -J hello_MPI</span>
+<span class="c1">#SBATCH -o hello_MPI_%j.out</span>
+<span class="c1">#SBATCH -e hello_MPI_%j.err</span>
+<span class="c1">#SBATCH --mail-type=ALL</span>
+<span class="c1">#SBATCH --mail-user=&lt;you email address&gt;</span>
+<span class="c1">#SBATCH --gres=gpu:6</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --ntasks-per-node=4</span>
+<span class="c1">#SBATCH --time=02:00:00</span>
+
+
+<span class="c1"># SLURM_NPROCS and SLURM_NTASK_PER_NODE env variables are set by sbatch Slurm commands based on the SBATCH directives above</span>
+<span class="c1"># or options specified on the command line.</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;x</span><span class="nv">$SLURM_NPROCS</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;x&quot;</span> <span class="o">]</span>
+<span class="k">then</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;x</span><span class="nv">$SLURM_NTASKS_PER_NODE</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;x&quot;</span> <span class="o">]</span>
+  <span class="k">then</span>
+    <span class="nv">SLURM_NTASKS_PER_NODE</span><span class="o">=</span><span class="m">1</span>
+  <span class="k">fi</span>
+  <span class="nv">SLURM_NPROCS</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$SLURM_JOB_NUM_NODES</span> <span class="se">\*</span> <span class="nv">$SLURM_NTASKS_PER_NODE</span><span class="sb">`</span>
+<span class="k">else</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;x</span><span class="nv">$SLURM_NTASKS_PER_NODE</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;x&quot;</span> <span class="o">]</span>
+  <span class="k">then</span>
+    <span class="nv">SLURM_NTASKS_PER_NODE</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$SLURM_NPROCS</span> / <span class="nv">$SLURM_JOB_NUM_NODES</span><span class="sb">`</span>
+  <span class="k">fi</span>
+<span class="k">fi</span>
+
+<span class="c1"># Get the host name of the allocated compute node(s) and generate the host list file.</span>
+srun hostname -s <span class="p">|</span> sort -u &gt; ~/tmp/hosts.<span class="nv">$SLURM_JOBID</span>
+awk <span class="s2">&quot;{ print \$0 \&quot;-ib slots=</span><span class="nv">$SLURM_NTASKS_PER_NODE</span><span class="s2">\&quot;; }&quot;</span> ~/tmp/hosts.<span class="nv">$SLURM_JOBID</span> &gt;~/tmp/tmp.<span class="nv">$SLURM_JOBID</span>
+mv ~/tmp/tmp.<span class="nv">$SLURM_JOBID</span> ~/tmp/hosts.<span class="nv">$SLURM_JOBID</span>
+
+<span class="c1"># Load the required tools and libraries for the job.</span>
+module load gcc/6.4.0/1
+module load spectrum-mpi
+
+<span class="c1"># Submit the job.</span>
+mpirun --bind-to core --report-bindings -hostfile ~/tmp/hosts.<span class="nv">$SLURM_JOBID</span> -np <span class="nv">$SLURM_NPROCS</span> &lt;PATH&gt;/hello_MPI_c
+
+<span class="c1"># Remove the generated host list file</span>
+rm ~/tmp/hosts.<span class="nv">$SLURM_JOBID</span>
+</pre></div>
+</div>
+<p>Submit the  above sample job via <strong>sbatch</strong> command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch ./hello_MPI.sh
+</pre></div>
+</div>
+<p>Note: that you can specify the command options on the <strong>sbatch</strong> command line instead of using #SBATCH directive like in the sample script above.</p>
+<p>With #SBATCH –mail-type=ALL, #SBATCH –mail-user=&lt;you email address&gt;, you should receive the email from Slurm when a job starts and ends to your email address.</p>
+<p>You should also see the &lt;job name&gt;_&lt;job_id&gt;.out and &lt;job name&gt;_&lt;job_id&gt;.err in your current directory with #SBATCH -o &lt;job name&gt;_%j.out and #SBATCH -e &lt;job name&gt;_%j.err after the job completes.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="aimos-load-modules.html" class="btn btn-neutral float-right" title="How to load different modules for your development and testing?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="aimos-slurm-basics.html" class="btn btn-neutral float-left" title="Slurm Resource Manager and Job Scheduler in AiMOS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, AiMOS
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

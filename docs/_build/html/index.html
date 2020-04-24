@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AiMOS Quick Start Information &mdash; AiMOS 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="What is AiMOS?" href="aimos-basics.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> AiMOS
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">What is AiMOS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">How to get a  user id on AiMOS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-login.html">How to login to AiMOS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-setup-env.html">Setting up the environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-gpfs.html">What is the GPFS disk space on the nodes?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-slurm-basics.html">Slurm Resource Manager and Job Scheduler in AiMOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">How to submit a job via Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-load-modules.html">How to load different modules for your development and testing?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-conda.html">How to install the conda environment?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-wmlce.html">How to install WML-CE (a.k.a PowerAI)?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-jupyter.html">How to install Jupyter notebook?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-tunneling.html">How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-nvme.html">How to request for NVMe storage on the compute nodes?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-ddlrun.html">Example for using ddlrun to run a distributed job?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">AiMOS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>AiMOS Quick Start Information</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aimos-quick-start-information">
+<h1>AiMOS Quick Start Information<a class="headerlink" href="#aimos-quick-start-information" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-default">
+<img alt="_images/AiMOS.png" src="_images/AiMOS.png" />
+</div>
+<p>The IBM Research AI Hardware Center is a global research hub headquartered in Albany, New York. The center is focused on enabling next-generation chips and systems that support the tremendous processing power and unprecedented speed that AI requires to realize its full potential. AiMOS (short for <strong>A</strong>rtificial <strong>I</strong>ntelligence <strong>M</strong>ultiprocessing <strong>O</strong>ptimized System) serves as the test bed for the IBM Research AI Hardware Center.</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">What is AiMOS?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aimos-basics.html#what-are-the-landing-pad-nodes">What are the landing pad nodes?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-basics.html#what-are-the-front-end-nodes">What are the front end nodes?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-basics.html#what-are-the-compute-nodes">What are the compute nodes?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">How to get a  user id on AiMOS?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aimos-userid.html#cci-user-information">CCI User Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-userid.html#cci-user-responsibility-agreement">CCI User Responsibility Agreement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-userid.html#set-your-password">Set your password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-userid.html#set-the-challenge-word">Set the Challenge Word</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-userid.html#set-the-personal-identification-code-pic">Set the Personal Identification Code (PIC)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-login.html">How to login to AiMOS?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aimos-login.html#ssh-to-a-landing-pad-node">ssh to a landing pad node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-login.html#ssh-to-a-front-end-node">ssh to a front end node</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-setup-env.html">Setting up the environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aimos-setup-env.html#setting-up-passwordless">Setting up passwordless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-setup-env.html#setting-up-proxy">Setting up proxy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-gpfs.html">What is the GPFS disk space on the nodes?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-slurm-basics.html">Slurm Resource Manager and Job Scheduler in AiMOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">How to submit a job via Slurm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aimos-submit-job.html#how-to-submit-an-interactive-job-via-slurm">How to Submit an interactive job via Slurm?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-submit-job.html#how-to-submit-a-batch-job">How to submit a batch job?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-load-modules.html">How to load different modules for your development and testing?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-conda.html">How to install the conda environment?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-wmlce.html">How to install WML-CE (a.k.a PowerAI)?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-jupyter.html">How to install Jupyter notebook?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-tunneling.html">How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aimos-tunneling.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-tunneling.html#start-the-jupyter-notebook-on-the-allocated-compute-node">Start the jupyter notebook on the allocated compute node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-tunneling.html#ssh-tunnelling-on-a-linux-or-mac-osx-node">SSH tunnelling on a Linux or MAC OSX node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-tunneling.html#ssh-tunneling-via-putty-on-windows">SSH tunneling via PUTTY on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-nvme.html">How to request for NVMe storage on the compute nodes?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-ddlrun.html">Example for using ddlrun to run a distributed job?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aimos-ddlrun.html#prerequisites">Prerequisites:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-ddlrun.html#create-a-conda-env">Create a conda env</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-ddlrun.html#install-additional-packages">Install additional packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-ddlrun.html#clone-the-horovod-github-repo">Clone the Horovod GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-ddlrun.html#setting-up-the-test-environment">Setting up the test environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-ddlrun.html#create-a-batch-job">Create a batch job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-ddlrun.html#running-the-batch-script">Running the batch script</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="aimos-basics.html" class="btn btn-neutral float-right" title="What is AiMOS?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, AiMOS
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

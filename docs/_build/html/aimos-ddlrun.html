@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Example for using ddlrun to run a distributed job? &mdash; AiMOS 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting Help?" href="aimos-getting-help.html" />
+    <link rel="prev" title="How to request for NVMe storage on the compute nodes?" href="aimos-nvme.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AiMOS
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">What is AiMOS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">How to get a  user id on AiMOS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-login.html">How to login to AiMOS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-setup-env.html">Setting up the environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-gpfs.html">What is the GPFS disk space on the nodes?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-slurm-basics.html">Slurm Resource Manager and Job Scheduler in AiMOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">How to submit a job via Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-load-modules.html">How to load different modules for your development and testing?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-conda.html">How to install the conda environment?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-wmlce.html">How to install WML-CE (a.k.a PowerAI)?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-jupyter.html">How to install Jupyter notebook?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-tunneling.html">How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-nvme.html">How to request for NVMe storage on the compute nodes?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example for using ddlrun to run a distributed job?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-conda-env">Create a conda env</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-additional-packages">Install additional packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clone-the-horovod-github-repo">Clone the Horovod GitHub repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-the-test-environment">Setting up the test environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-batch-job">Create a batch job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-batch-script">Running the batch script</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AiMOS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Example for using ddlrun to run a distributed job?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/aimos-ddlrun.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="example-for-using-ddlrun-to-run-a-distributed-job">
+<span id="distributed-run"></span><h1>Example for using ddlrun to run a distributed job?<a class="headerlink" href="#example-for-using-ddlrun-to-run-a-distributed-job" title="Permalink to this headline">¶</a></h1>
+<p>This is the example for how to run tensorflow2_keras_mnist.py from <a class="reference external" href="https://github.com/horovod/horovod.git">Horovod GitHub repo</a> using <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SS5SF7_1.7.0/navigation/wmlce_ddlrun.html">ddlrun</a></p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites:<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Make sure that you set up the proxy before you proceed to the next step. For how to see <a class="reference internal" href="aimos-setup-env.html#setup-environment"><span class="std std-ref">Setting up the environment</span></a>.</p></li>
+<li><p>Conda is installed and activated. For how to see <a class="reference internal" href="aimos-conda.html#install-conda"><span class="std std-ref">How to install the conda environment?</span></a>.</p></li>
+<li><p>Access to channel <a class="reference external" href="https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda/linux-ppc64le/">https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda/linux-ppc64le/</a> in the ~/.condarc file.  If not, you can use the following command to add it:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda config --add channels https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda/linux-ppc64le/
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-a-conda-env">
+<h2>Create a conda env<a class="headerlink" href="#create-a-conda-env" title="Permalink to this headline">¶</a></h2>
+<p>For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n ddl-env
+</pre></div>
+</div>
+<p>After the ddl-env is created, you should be placed in that env.  If not, you need to run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda activate ddl-env
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-additional-packages">
+<h2>Install additional packages<a class="headerlink" href="#install-additional-packages" title="Permalink to this headline">¶</a></h2>
+<p>For this example, you need tensorflow version 2.x, ddl and horovod</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install tensorflow-gpu ddl horovod
+</pre></div>
+</div>
+</div>
+<div class="section" id="clone-the-horovod-github-repo">
+<h2>Clone the Horovod GitHub repo<a class="headerlink" href="#clone-the-horovod-github-repo" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$HOME</span>/scratch
+git clone https://github.com/horovod/horovod.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-up-the-test-environment">
+<h2>Setting up the test environment<a class="headerlink" href="#setting-up-the-test-environment" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$HOME</span>/scratch/horovod/examples
+mkdir logs
+mkdir hosts
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-a-batch-job">
+<h2>Create a batch job<a class="headerlink" href="#create-a-batch-job" title="Permalink to this headline">¶</a></h2>
+<p>This is the sample script that you can customize to your environment.  This script specifies that you want to have two nodes with 6GPU per node and 6 tasks per node.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -x</span>
+<span class="c1">#SBATCH -J &lt;jobname&gt;</span>
+<span class="c1">#SBATCH -o &lt;jobname&gt;_%j.out</span>
+<span class="c1">#SBATCH -e &lt;jobname&gt;_%j.out</span>
+<span class="c1">#SBATCH --mail-type=ALL</span>
+<span class="c1">#SBATCH --mail-user=&lt;your gmail email&gt;</span>
+<span class="c1">#SBATCH --gres=gpu:6</span>
+<span class="c1">#SBATCH --nodes=2</span>
+<span class="c1">#SBATCH --ntasks-per-node=6</span>
+<span class="c1">#SBATCH --time=00:10:00</span>
+
+<span class="nv">logdir</span><span class="o">=</span>~/scratch/horovod/examples/logs
+<span class="nv">hostdir</span><span class="o">=</span>~/scratch/horovod/examples/hosts
+<span class="nv">codedir</span><span class="o">=</span>~/scratch/horovod/examples
+<span class="nv">codepath</span><span class="o">=</span><span class="nv">$codedir</span>/tensorflow2_keras_mnist.py
+
+srun hostname -s <span class="p">|</span> sort -u &gt; <span class="nv">$hostdir</span>/hosts.<span class="nv">$SLURM_JOBID</span>
+awk <span class="s2">&quot;{ print \$0 \&quot;-ib\&quot;; }&quot;</span> <span class="nv">$hostdir</span>/hosts.<span class="nv">$SLURM_JOBID</span> &gt;<span class="nv">$hostdir</span>/tmp.<span class="nv">$SLURM_JOBID</span>
+mv <span class="nv">$hostdir</span>/tmp.<span class="nv">$SLURM_JOBID</span> <span class="nv">$hostdir</span>/hosts.<span class="nv">$SLURM_JOBID</span>
+
+ddlrun -v  -hostfile <span class="nv">$hostdir</span>/hosts.<span class="nv">$SLURM_JOBID</span>   python <span class="nv">$codepath</span>
+
+rm <span class="nv">$hostdir</span>/hosts.<span class="nv">$SLURM_JOBID</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-the-batch-script">
+<h2>Running the batch script<a class="headerlink" href="#running-the-batch-script" title="Permalink to this headline">¶</a></h2>
+<p>This example will try to download the MNIST dataset from  <a class="reference external" href="https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz">https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz</a>.  However, AiMOS has limited access to the internet, hence this step will fail with the following error:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Exception: URL fetch failure on https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz: None -- Tunnel connection failed: <span class="m">403</span> Filtered
+</pre></div>
+</div>
+<p>To get around this limitation, you need to download and copy mnist.npz to your $HOME/.keras/datasets.  In addition, you need to  emulate this line of code:  tf.keras.datasets.mnist.load_data(path=’mnist-%d.npz’ % hvd.rank()).  In this example, you use two nodes with 6 GPU on each node and one task per GPU. Hence you will have 12 ranks start from 0.  So you need to do the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$HOME</span>/.keras/datasets
+cp mnist.npz mnist-0.npz
+cp mnist.npz mnist-1.npz
+cp mnist.npz mnist-2.npz
+cp mnist.npz mnist-3.npz
+cp mnist.npz mnist-4.npz
+cp mnist.npz mnist-5.npz
+cp mnist.npz mnist-6.npz
+cp mnist.npz mnist-7.npz
+cp mnist.npz mnist-8.npz
+cp mnist.npz mnist-9.npz
+cp mnist.npz mnist-10.npz
+cp mnist.npz mnist-11.npz
+</pre></div>
+</div>
+<p>The next step is to run the script using <strong>sbatch</strong> command.  Make sure that you are in the ddl-env</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/scratch/horovod/examples
+sbatch ./tensorflow2-keras-mnist.py
+</pre></div>
+</div>
+<p>Use the <strong>squeue</strong> command to check if the job is started.  Once it is running, you can tail -f the &lt;jobname&gt;_&lt;jobid&gt;.err for progress.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="aimos-getting-help.html" class="btn btn-neutral float-right" title="Getting Help?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="aimos-nvme.html" class="btn btn-neutral float-left" title="How to request for NVMe storage on the compute nodes?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, AiMOS
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

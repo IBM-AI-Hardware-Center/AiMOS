@@ -1,0 +1,256 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to load different modules for your development and testing? &mdash; AiMOS 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How to install the conda environment?" href="aimos-conda.html" />
+    <link rel="prev" title="How to submit a job via Slurm" href="aimos-submit-job.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AiMOS
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">What is AiMOS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">How to get a  user id on AiMOS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-login.html">How to login to AiMOS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-setup-env.html">Setting up the environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-gpfs.html">What is the GPFS disk space on the nodes?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-slurm-basics.html">Slurm Resource Manager and Job Scheduler in AiMOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">How to submit a job via Slurm</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to load different modules for your development and testing?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-conda.html">How to install the conda environment?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-wmlce.html">How to install WML-CE (a.k.a PowerAI)?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-jupyter.html">How to install Jupyter notebook?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-tunneling.html">How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-nvme.html">How to request for NVMe storage on the compute nodes?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-ddlrun.html">Example for using ddlrun to run a distributed job?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AiMOS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>How to load different modules for your development and testing?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/aimos-load-modules.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-load-different-modules-for-your-development-and-testing">
+<span id="load-module"></span><h1>How to load different modules for your development and testing?<a class="headerlink" href="#how-to-load-different-modules-for-your-development-and-testing" title="Permalink to this headline">¶</a></h1>
+<p>In AiMOS environment, you can use <strong>module</strong> to load the required tools and libraries for your development and testing.</p>
+<p>List the available modules on the node:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$ module available
+
+------------------------------- /gpfs/u/software/ppc64le-rhel7/modulefiles --------------------------------
+   automake/1.16.1 <span class="o">(</span>S<span class="o">)</span>      cmake/3.14.6  <span class="o">(</span>S<span class="o">)</span>    parmetis/4.0.3/xl <span class="o">(</span>T<span class="o">)</span>      xl/16.1.1
+   bazel/0.17.2/1  <span class="o">(</span>T<span class="o">)</span>      gcc/6.4.0/1          pocl/1.2/1        <span class="o">(</span>T<span class="o">)</span>      xl_r/13     <span class="o">(</span>O<span class="o">)</span>
+   bazel/0.18.1/1  <span class="o">(</span>T,D<span class="o">)</span>    gcc/6.5.0/1          spectrum-mpi/10.3 <span class="o">(</span>T<span class="o">)</span>      xl_r/16     <span class="o">(</span>T,D<span class="o">)</span>
+   bazel/0.18.0/1  <span class="o">(</span>T<span class="o">)</span>      gcc/7.4.0/1          swig/3.0.12_1     <span class="o">(</span>T<span class="o">)</span>      xl_r/16.1.1
+   bazel/0.21.0/1  <span class="o">(</span>T<span class="o">)</span>      gcc/8.1.0/1          valgrind/3.15.0   <span class="o">(</span>S<span class="o">)</span>
+   ccache/3.5/1    <span class="o">(</span>T<span class="o">)</span>      gcc/8.2.0/1   <span class="o">(</span>D<span class="o">)</span>    xl/13             <span class="o">(</span>O<span class="o">)</span>
+   clang/7.0.0/1   <span class="o">(</span>T<span class="o">)</span>      hwloc/2.0.2/1 <span class="o">(</span>T<span class="o">)</span>    xl/16             <span class="o">(</span>T,D<span class="o">)</span>
+
+  Where:
+   O:  Obsolete
+   T:  Testing
+   S:  Stable
+   D:  Default Module
+
+Module defaults are chosen based on Find First Rules due to Name/Version/Version modules found in the module tree.
+See https://lmod.readthedocs.io/en/latest/060_locating.html <span class="k">for</span> details.
+
+Use <span class="s2">&quot;module spider&quot;</span> to find all possible modules and extensions.
+Use <span class="s2">&quot;module keyword key1 key2 ...&quot;</span> to search <span class="k">for</span> all possible modules matching any of the <span class="s2">&quot;keys&quot;</span>.
+</pre></div>
+</div>
+<p>For example, you want to load cmake module and spectrum_mpi module</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$ module load  cmake/3.14.6
+<span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$ which cmake
+<span class="nb">alias</span> <span class="nv">cmake</span><span class="o">=</span><span class="s1">&#39;cmake3&#39;</span>
+        /usr/bin/cmake3
+<span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$ which cmake3
+/usr/bin/cmake3
+<span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$ module load spectrum-mpi
+<span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$ which mpirun
+/opt/ibm/spectrum_mpi/bin/mpirun
+</pre></div>
+</div>
+<p>For more information see <a class="reference external" href="https://secure.cci.rpi.edu/wiki/index.php?title=Modules">https://secure.cci.rpi.edu/wiki/index.php?title=Modules</a></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="aimos-conda.html" class="btn btn-neutral float-right" title="How to install the conda environment?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="aimos-submit-job.html" class="btn btn-neutral float-left" title="How to submit a job via Slurm" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, AiMOS
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

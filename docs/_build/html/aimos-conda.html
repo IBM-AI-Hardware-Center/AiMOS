@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to install the conda environment? &mdash; AiMOS 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How to install WML-CE (a.k.a PowerAI)?" href="aimos-wmlce.html" />
+    <link rel="prev" title="How to load different modules for your development and testing?" href="aimos-load-modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AiMOS
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">What is AiMOS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">How to get a  user id on AiMOS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-login.html">How to login to AiMOS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-setup-env.html">Setting up the environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-gpfs.html">What is the GPFS disk space on the nodes?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-slurm-basics.html">Slurm Resource Manager and Job Scheduler in AiMOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">How to submit a job via Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-load-modules.html">How to load different modules for your development and testing?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to install the conda environment?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-wmlce.html">How to install WML-CE (a.k.a PowerAI)?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-jupyter.html">How to install Jupyter notebook?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-tunneling.html">How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-nvme.html">How to request for NVMe storage on the compute nodes?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-ddlrun.html">Example for using ddlrun to run a distributed job?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AiMOS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>How to install the conda environment?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/aimos-conda.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-install-the-conda-environment">
+<span id="install-conda"></span><h1>How to install the conda environment?<a class="headerlink" href="#how-to-install-the-conda-environment" title="Permalink to this headline">¶</a></h1>
+<p>Conda is not installed by default on AiMOS at the system level.  If you need the conda environment for your workload, you will need to install and set up in your environment.</p>
+<p>IMPORTANT: Make sure that you set up the proxy before you proceed to the next step. For how to see <a class="reference internal" href="aimos-setup-env.html#setup-environment"><span class="std std-ref">Setting up the environment</span></a>.</p>
+<p>Download the the Miniconda3 installer if needed.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-ppc64le.sh
+</pre></div>
+</div>
+<p>Install the miniconda environment to scratch directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>BMHRkmkh@dcsfen01 ~<span class="o">]</span>$ bash Miniconda3-latest-Linux-ppc64le.sh -p ~/scratch/miniconda3
+
+Welcome to Miniconda3 <span class="m">4</span>.7.12
+
+In order to <span class="k">continue</span> the installation process, please review the license agreement.
+Please, press ENTER to <span class="k">continue</span>
+&gt;&gt;&gt;
+...
+Do you accept the license terms? <span class="o">[</span>yes<span class="p">|</span>no<span class="o">]</span>
+<span class="o">[</span>no<span class="o">]</span> &gt;&gt;&gt; yes
+
+Miniconda3 will now be installed into this location:
+/gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3
+
+  - Press ENTER to confirm the location
+  - Press CTRL-C to abort the installation
+  - Or specify a different location below
+
+<span class="o">[</span>/gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3<span class="o">]</span> &gt;&gt;&gt;
+<span class="nv">PREFIX</span><span class="o">=</span>/gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3
+Unpacking payload ...
+Collecting package metadata <span class="o">(</span>current_repodata.json<span class="o">)</span>: <span class="k">done</span>
+Solving environment: <span class="k">done</span>
+
+<span class="c1">## Package Plan ##</span>
+
+  environment location: /gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3
+
+  added / updated specs:
+    - <span class="nv">_libgcc_mutex</span><span class="o">==</span><span class="m">0</span>.1<span class="o">=</span>main
+    - <span class="nv">asn1crypto</span><span class="o">==</span><span class="m">1</span>.2.0<span class="o">=</span>py37_0
+    - ca-certificates<span class="o">==</span><span class="m">2019</span>.10.16<span class="o">=</span><span class="m">0</span>
+...
+  yaml               pkgs/main/linux-ppc64le::yaml-0.1.7-h1bed415_2
+  zlib               pkgs/main/linux-ppc64le::zlib-1.2.11-h7b6447c_3
+
+
+Preparing transaction: <span class="k">done</span>
+Executing transaction: <span class="k">done</span>
+installation finished.
+Do you wish the installer to initialize Miniconda3
+by running conda init? <span class="o">[</span>yes<span class="p">|</span>no<span class="o">]</span>
+<span class="o">[</span>no<span class="o">]</span> &gt;&gt;&gt; yes
+no change     /gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3/condabin/conda
+no change     /gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3/bin/conda
+no change     /gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3/bin/conda-env
+no change     /gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3/bin/activate
+no change     /gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3/bin/deactivate
+no change     /gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3/etc/profile.d/conda.sh
+no change     /gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3/etc/fish/conf.d/conda.fish
+no change     /gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3/shell/condabin/Conda.psm1
+no change     /gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3/shell/condabin/conda-hook.ps1
+no change     /gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3/lib/python3.7/site-packages/xontrib/conda.xsh
+no change     /gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3/etc/profile.d/conda.csh
+modified      /gpfs/u/home/BMHR/BMHRkmkh/.bashrc
+
+<span class="o">==</span>&gt; For changes to take effect, close and re-open your current shell. &lt;<span class="o">==</span>
+
+If you<span class="s1">&#39;d prefer that conda&#39;</span>s base environment not be activated on startup,
+   <span class="nb">set</span> the auto_activate_base parameter to false:
+
+conda config --set auto_activate_base <span class="nb">false</span>
+
+Thank you <span class="k">for</span> installing Miniconda3!
+<span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$
+<span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$ <span class="nb">source</span> .bashrc
+<span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>your-idh@dcsfen01 ~<span class="o">]</span>$
+</pre></div>
+</div>
+<p>Now you have the base conda installed and activated in your environment.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="aimos-wmlce.html" class="btn btn-neutral float-right" title="How to install WML-CE (a.k.a PowerAI)?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="aimos-load-modules.html" class="btn btn-neutral float-left" title="How to load different modules for your development and testing?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, AiMOS
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

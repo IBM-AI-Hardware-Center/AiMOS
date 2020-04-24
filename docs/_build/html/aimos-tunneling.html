@@ -1,0 +1,269 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling? &mdash; AiMOS 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How to request for NVMe storage on the compute nodes?" href="aimos-nvme.html" />
+    <link rel="prev" title="How to install Jupyter notebook?" href="aimos-jupyter.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AiMOS
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">What is AiMOS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">How to get a  user id on AiMOS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-login.html">How to login to AiMOS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-setup-env.html">Setting up the environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-gpfs.html">What is the GPFS disk space on the nodes?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-slurm-basics.html">Slurm Resource Manager and Job Scheduler in AiMOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">How to submit a job via Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-load-modules.html">How to load different modules for your development and testing?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-conda.html">How to install the conda environment?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-wmlce.html">How to install WML-CE (a.k.a PowerAI)?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-jupyter.html">How to install Jupyter notebook?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-the-jupyter-notebook-on-the-allocated-compute-node">Start the jupyter notebook on the allocated compute node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssh-tunnelling-on-a-linux-or-mac-osx-node">SSH tunnelling on a Linux or MAC OSX node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssh-tunneling-via-putty-on-windows">SSH tunneling via PUTTY on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-nvme.html">How to request for NVMe storage on the compute nodes?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-ddlrun.html">Example for using ddlrun to run a distributed job?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AiMOS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/aimos-tunneling.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-display-the-webgui-for-a-jupyter-notebook-running-on-a-compute-node-via-ssh-tunnelling">
+<h1>How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?<a class="headerlink" href="#how-to-display-the-webgui-for-a-jupyter-notebook-running-on-a-compute-node-via-ssh-tunnelling" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>Conda and jupyter notebook are installed on the node. For how to see <a class="reference internal" href="aimos-conda.html#install-conda"><span class="std std-ref">How to install the conda environment?</span></a> and <a class="reference internal" href="aimos-jupyter.html#install-jupyter"><span class="std std-ref">How to install Jupyter notebook?</span></a></p>
+</div>
+<div class="section" id="start-the-jupyter-notebook-on-the-allocated-compute-node">
+<h2>Start the jupyter notebook on the allocated compute node<a class="headerlink" href="#start-the-jupyter-notebook-on-the-allocated-compute-node" title="Permalink to this headline">¶</a></h2>
+<p>In the following example, starting jupyter notebook on dcs085.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>wmlce-1.7.0<span class="o">)</span> <span class="o">[</span>your-id@dcs085 ~<span class="o">]</span>$ jupyter notebook --ip<span class="o">=</span><span class="m">0</span>.0.0.0 --no-browser
+</pre></div>
+</div>
+</div>
+<div class="section" id="ssh-tunnelling-on-a-linux-or-mac-osx-node">
+<h2>SSH tunnelling on a Linux or MAC OSX node<a class="headerlink" href="#ssh-tunnelling-on-a-linux-or-mac-osx-node" title="Permalink to this headline">¶</a></h2>
+<p>Start the ssh session to one of the landing pad nodes and map the port 8888 from dcs085 to port 8888 on the local host.  For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>id@kvt-rhel ~<span class="o">]</span>$ ssh -L8888:dcs085:8888 BMHRkmkh@blp01.ccni.rpi.edu
+</pre></div>
+</div>
+<p>Go to the browser on the node, enter the following to tunnel to the jupyter notebook running on the compute node to the localhost.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>http://localhost:8888
+</pre></div>
+</div>
+<p>You should see the jupyter notebook after you enter the token at the login prompt.</p>
+<div class="figure align-default">
+<img alt="_images/jupyter-l.png" src="_images/jupyter-l.png" />
+</div>
+</div>
+<div class="section" id="ssh-tunneling-via-putty-on-windows">
+<h2>SSH tunneling via PUTTY on Windows<a class="headerlink" href="#ssh-tunneling-via-putty-on-windows" title="Permalink to this headline">¶</a></h2>
+<p>Go to the putty entry for the landing pad node.  For example:</p>
+<div class="figure align-default">
+<img alt="_images/putty2.png" src="_images/putty2.png" />
+</div>
+<p>Go section Connection-&gt;SSH-&gt;Tunnels, enter the jupyter notebok URL on the compute node and click <strong>Add</strong>, for example:</p>
+<div class="figure align-default">
+<img alt="_images/putty-tunnel.png" src="_images/putty-tunnel.png" />
+</div>
+<p>Start the putty session and login to the landing node as usual.</p>
+<p>After that, go to your browser and enter the following to tunnel to the jupyter notebook running on the compute node.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>http://localhost:18889
+</pre></div>
+</div>
+<p>You should see the jupyter notebook after you enter the token at the login prompt.</p>
+<div class="figure align-default">
+<img alt="_images/jupyter-w.png" src="_images/jupyter-w.png" />
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="aimos-nvme.html" class="btn btn-neutral float-right" title="How to request for NVMe storage on the compute nodes?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="aimos-jupyter.html" class="btn btn-neutral float-left" title="How to install Jupyter notebook?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, AiMOS
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

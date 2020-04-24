@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to login to AiMOS? &mdash; AiMOS 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Setting up the environment" href="aimos-setup-env.html" />
+    <link rel="prev" title="How to get a user id on AiMOS?" href="aimos-userid.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AiMOS
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">What is AiMOS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">How to get a  user id on AiMOS?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to login to AiMOS?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ssh-to-a-landing-pad-node">ssh to a landing pad node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssh-to-a-front-end-node">ssh to a front end node</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-setup-env.html">Setting up the environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-gpfs.html">What is the GPFS disk space on the nodes?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-slurm-basics.html">Slurm Resource Manager and Job Scheduler in AiMOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">How to submit a job via Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-load-modules.html">How to load different modules for your development and testing?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-conda.html">How to install the conda environment?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-wmlce.html">How to install WML-CE (a.k.a PowerAI)?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-jupyter.html">How to install Jupyter notebook?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-tunneling.html">How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-nvme.html">How to request for NVMe storage on the compute nodes?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-ddlrun.html">Example for using ddlrun to run a distributed job?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AiMOS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>How to login to AiMOS?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/aimos-login.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-login-to-aimos">
+<h1>How to login to AiMOS?<a class="headerlink" href="#how-to-login-to-aimos" title="Permalink to this headline">¶</a></h1>
+<p>The assumption is that you have already obtained your user ID for AiMOS.  If that is not the case,  please see <a class="reference internal" href="aimos-userid.html#get-user-id-section"><span class="std std-ref">How to get a  user id on AiMOS?</span></a></p>
+<p>The steps are ssh to one of the landing pad nodes, then from there ssh to one of the front end nodes.  For the list of the landing pad nodes and front end nodes, please see <a class="reference internal" href="aimos-basics.html#what-is-aimos"><span class="std std-ref">What is AiMOS?</span></a></p>
+<div class="section" id="ssh-to-a-landing-pad-node">
+<h2>ssh to a landing pad node<a class="headerlink" href="#ssh-to-a-landing-pad-node" title="Permalink to this headline">¶</a></h2>
+<p>First you need to ssh to one of the landing pad nodes. There are four(4) landing pad nodes:</p>
+<ul class="simple">
+<li><p>blp01.ccni.rpi.edu</p></li>
+<li><p>blp02.ccni.rpi.edu</p></li>
+<li><p>blp03.ccni.rpi.edu</p></li>
+<li><p>blp04.ccni.rpi.edu.</p></li>
+</ul>
+<p>For PIC+Token, enter your chosen PIC that you have set in the previous step and the token from the Google Authenticator app on your mobile device.</p>
+<p><strong>Note:</strong> do not enter + and space.</p>
+<p>For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ssh your-id@blp01.ccni.rpi.edu
+PIC+Token:
+Password:
+Last login: Fri Mar  <span class="m">6</span> <span class="m">15</span>:41:57 <span class="m">2020</span> from <span class="m">70</span>.113.9.236
+
+             ** CCI SSH Gateway <span class="o">(</span>Landing pad<span class="o">)</span> **
+**                                                             **
+**     Please report all support and operation issues to       **
+**     support@ccni.rpi.edu                                    **
+**                                                             **
+**     On-line documentation <span class="k">for</span> the systems can be found at:  **
+**     https://secure.cci.rpi.edu/wiki                         **
+**                                                             **
+**     CCI does not provide any data backup services. Users    **
+**     are responsible <span class="k">for</span> their own data management and       **
+**     backup.                                                 **
+**                                                             **
+**     Use is subject to the terms of the policy <span class="k">for</span>           **
+**     Acceptable Use of CCI Resources.                        **
+**                                                             **
+</pre></div>
+</div>
+<p>If this is the first time you login to one of the landing pad nodes using your user id, it is strongly recommended that you set up passwordless and proxy.  For how to see <a class="reference internal" href="aimos-setup-env.html#setup-environment"><span class="std std-ref">Setting up the environment</span></a>.</p>
+</div>
+<div class="section" id="ssh-to-a-front-end-node">
+<h2>ssh to a front end node<a class="headerlink" href="#ssh-to-a-front-end-node" title="Permalink to this headline">¶</a></h2>
+<p>From the landing pad node, you ssh to the one of the front end nodes.  There are two front end nodes:</p>
+<ul class="simple">
+<li><p>dcsfen01</p></li>
+<li><p>dcsfen02</p></li>
+</ul>
+<p>If you have set up the passwordless then you can ssh to the front end node without the pasword prompt.
+If you need information on how to set up passwordless, please see <a class="reference internal" href="aimos-setup-env.html#setup-environment"><span class="std std-ref">Setting up the environment</span></a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>your-id@blp01 ~<span class="o">]</span>$ ssh dcsfen01
+Last login: Fri Feb <span class="m">28</span> <span class="m">11</span>:43:56 <span class="m">2020</span> from <span class="m">172</span>.31.29.1
+
+                   ** CCI DCS front-end node **
+**                                                             **
+**     Please report all support and operation issues to       **
+**     support@ccni.rpi.edu                                    **
+**                                                             **
+**     On-line documentation <span class="k">for</span> the systems can be found at:  **
+**     https://secure.cci.rpi.edu/wiki                         **
+**                                                             **
+**     Use is subject to the terms of the policy <span class="k">for</span>           **
+**     Acceptable Use of CCI Resources.                        **
+**                                                             **
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="aimos-setup-env.html" class="btn btn-neutral float-right" title="Setting up the environment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="aimos-userid.html" class="btn btn-neutral float-left" title="How to get a user id on AiMOS?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, AiMOS
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
