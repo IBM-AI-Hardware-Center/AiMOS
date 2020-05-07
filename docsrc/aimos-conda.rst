@@ -5,7 +5,11 @@ How to install the conda environment?
 
 Conda is not installed by default on AiMOS at the system level.  If you need the conda environment for your workload, you will need to install and set up in your environment.
 
-IMPORTANT: Make sure that you set up the proxy before you proceed to the next step. For how to see :ref:`setup-environment`.
+**IMPORTANT:**
+
+* You are logging in to one of the front end nodes. For more information see :ref:`how-to-login`
+
+* proxy was set up. For how to see :ref:`setup-environment`.
 
 Download the the Miniconda3 installer if needed.
 
@@ -14,7 +18,7 @@ Download the the Miniconda3 installer if needed.
   wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-ppc64le.sh
 
 
-Install the miniconda environment to scratch directory.
+Install the miniconda environment to the scratch directory.
 
 .. code:: bash
 

@@ -168,10 +168,11 @@
 <a class="reference external" href="https://developer.ibm.com/linuxonpower/deep-learning-powerai/releases/">https://developer.ibm.com/linuxonpower/deep-learning-powerai/releases/</a></p>
 <p><strong>IMPORTANT:</strong></p>
 <ul class="simple">
-<li><p>Make sure that you set up the proxy before you proceed to the next step.  For how to see</p></li>
-<li><p>Conda is installed and activated. For how to see <a class="reference internal" href="aimos-conda.html#install-conda"><span class="std std-ref">How to install the conda environment?</span></a>.</p></li>
+<li><p>Log in to one of the front end node. For more information see <span class="xref std std-ref">how-to-login</span></p></li>
+<li><p>Make sure that you set up the proxy before you proceed to the next step.  For how to see <a class="reference internal" href="aimos-setup-env.html#setup-environment"><span class="std std-ref">Setting up the environment</span></a>.</p></li>
+<li><p>Conda is installed and activated. For more information see <a class="reference internal" href="aimos-conda.html#install-conda"><span class="std std-ref">How to install the conda environment?</span></a></p></li>
 </ul>
-<p>Set up ~/.condarc if needed.  Below is the example of .condarc file. You need replace <em>your-project</em> with your PROJECT ID and <em>&lt;your-id&gt;</em> with your ID.</p>
+<p>Set up ~/.condarc if needed.  if ~/.condarc does not exist, you can run “conda config” to generate the file. Below is the example of .condarc file. You need replace <em>your-project</em> with your PROJECT ID and <em>&lt;your-id&gt;</em> with your ID.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pkgs_dirs:
   - /gpfs/u/software/ppc64le-rhel7/.conda/pkgs
   - /gpfs/u/home/your-project/&lt;your-id&gt;/scratch/miniconda3/pkgs
@@ -183,7 +184,7 @@ channels:
 </div>
 <p>As a best practice, you should install WML-CE in a new conda environment (i.e. not the base environment).  That would enable you to have different versions of WML-CE.</p>
 <p>For more information on how to install WML-CE, see <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SS5SF7_1.7.0/navigation/wmlce_install.htm">https://www.ibm.com/support/knowledgecenter/SS5SF7_1.7.0/navigation/wmlce_install.htm</a></p>
-<p>Create a new conda environment wmlce-1.7.0 using python version 3.6.</p>
+<p>Here is the example for creating a new conda environment named <strong>wmlce-1.7.0</strong> with python version 3.6. You must be at one of the front end nodes.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create --name wmlce-1.7.0 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6
 </pre></div>
 </div>

@@ -186,7 +186,7 @@
 </div>
 <div class="section" id="create-a-conda-env">
 <h2>Create a conda env<a class="headerlink" href="#create-a-conda-env" title="Permalink to this headline">¶</a></h2>
-<p>For example:</p>
+<p>You can create a new conda environment, for example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n ddl-env
 </pre></div>
 </div>
@@ -194,11 +194,16 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda activate ddl-env
 </pre></div>
 </div>
+<p>Alternately, you can use an existing conda environment.  In that case, you just need to activate to the existing conda environment. You can use <strong>conda info –env</strong> to list the existing conda environments.</p>
 </div>
 <div class="section" id="install-additional-packages">
 <h2>Install additional packages<a class="headerlink" href="#install-additional-packages" title="Permalink to this headline">¶</a></h2>
 <p>For this example, you need tensorflow version 2.x, ddl and horovod</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install tensorflow-gpu ddl horovod
+</pre></div>
+</div>
+<p>If you need pytorch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install pytorch  ddl horovod
 </pre></div>
 </div>
 </div>
@@ -219,7 +224,7 @@ mkdir hosts
 </div>
 <div class="section" id="create-a-batch-job">
 <h2>Create a batch job<a class="headerlink" href="#create-a-batch-job" title="Permalink to this headline">¶</a></h2>
-<p>This is the sample script that you can customize to your environment.  This script specifies that you want to have two nodes with 6GPU per node and 6 tasks per node.</p>
+<p>This is the sample script that you can customize to your environment.  This script specifies that you want to have two nodes with 6GPU per node and 6 tasks per node. You want to run tensorflow2_keras_mnist.py.  Let’s call this script <strong>batch-job.sh</strong>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -x</span>
 <span class="c1">#SBATCH -J &lt;jobname&gt;</span>
 <span class="c1">#SBATCH -o &lt;jobname&gt;_%j.out</span>
@@ -248,7 +253,7 @@ rm <span class="nv">$hostdir</span>/hosts.<span class="nv">$SLURM_JOBID</span>
 </div>
 <div class="section" id="running-the-batch-script">
 <h2>Running the batch script<a class="headerlink" href="#running-the-batch-script" title="Permalink to this headline">¶</a></h2>
-<p>This example will try to download the MNIST dataset from  <a class="reference external" href="https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz">https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz</a>.  However, AiMOS has limited access to the internet, hence this step will fail with the following error:</p>
+<p>This tensorflow2_keras_mnist.py will try to download the MNIST dataset from  <a class="reference external" href="https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz">https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz</a>.  However, AiMOS has limited access to the internet, hence this step will fail with the following error:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Exception: URL fetch failure on https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz: None -- Tunnel connection failed: <span class="m">403</span> Filtered
 </pre></div>
 </div>
@@ -270,7 +275,7 @@ cp mnist.npz mnist-11.npz
 </div>
 <p>The next step is to run the script using <strong>sbatch</strong> command.  Make sure that you are in the ddl-env</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/scratch/horovod/examples
-sbatch ./tensorflow2-keras-mnist.py
+sbatch ./batch-job.sh
 </pre></div>
 </div>
 <p>Use the <strong>squeue</strong> command to check if the job is started.  Once it is running, you can tail -f the &lt;jobname&gt;_&lt;jobid&gt;.err for progress.</p>
