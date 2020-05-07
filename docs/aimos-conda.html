@@ -164,12 +164,16 @@
   <div class="section" id="how-to-install-the-conda-environment">
 <span id="install-conda"></span><h1>How to install the conda environment?<a class="headerlink" href="#how-to-install-the-conda-environment" title="Permalink to this headline">¶</a></h1>
 <p>Conda is not installed by default on AiMOS at the system level.  If you need the conda environment for your workload, you will need to install and set up in your environment.</p>
-<p>IMPORTANT: Make sure that you set up the proxy before you proceed to the next step. For how to see <a class="reference internal" href="aimos-setup-env.html#setup-environment"><span class="std std-ref">Setting up the environment</span></a>.</p>
+<p><strong>IMPORTANT:</strong></p>
+<ul class="simple">
+<li><p>You are logging in to one of the front end nodes. For more information see <span class="xref std std-ref">how-to-login</span></p></li>
+<li><p>proxy was set up. For how to see <a class="reference internal" href="aimos-setup-env.html#setup-environment"><span class="std std-ref">Setting up the environment</span></a>.</p></li>
+</ul>
 <p>Download the the Miniconda3 installer if needed.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-ppc64le.sh
 </pre></div>
 </div>
-<p>Install the miniconda environment to scratch directory.</p>
+<p>Install the miniconda environment to the scratch directory.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>BMHRkmkh@dcsfen01 ~<span class="o">]</span>$ bash Miniconda3-latest-Linux-ppc64le.sh -p ~/scratch/miniconda3
 
 Welcome to Miniconda3 <span class="m">4</span>.7.12

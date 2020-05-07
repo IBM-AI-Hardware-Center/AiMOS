@@ -22,7 +22,7 @@ Prerequisites:
 Create a conda env
 ^^^^^^^^^^^^^^^^^^
 
-For example:
+You can create a new conda environment, for example:
 
 .. code:: bash
 
@@ -34,6 +34,9 @@ After the ddl-env is created, you should be placed in that env.  If not, you nee
 
   conda activate ddl-env
  
+Alternately, you can use an existing conda environment.  In that case, you just need to activate to the existing conda environment. You can use **conda info --env** to list the existing conda environments.
+
+
 Install additional packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -42,6 +45,15 @@ For this example, you need tensorflow version 2.x, ddl and horovod
 .. code:: bash
 
   conda install tensorflow-gpu ddl horovod
+
+
+If you need pytorch:
+
+.. code:: bash
+
+  conda install pytorch  ddl horovod
+
+
   
 Clone the Horovod GitHub repo 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -64,7 +76,7 @@ Setting up the test environment
 Create a batch job
 ^^^^^^^^^^^^^^^^^^
 
-This is the sample script that you can customize to your environment.  This script specifies that you want to have two nodes with 6GPU per node and 6 tasks per node.
+This is the sample script that you can customize to your environment.  This script specifies that you want to have two nodes with 6GPU per node and 6 tasks per node. You want to run tensorflow2_keras_mnist.py.  Let's call this script **batch-job.sh**.
 
 .. code:: bash
 
@@ -95,7 +107,7 @@ This is the sample script that you can customize to your environment.  This scri
 Running the batch script
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-This example will try to download the MNIST dataset from  https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz.  However, AiMOS has limited access to the internet, hence this step will fail with the following error:
+This tensorflow2_keras_mnist.py will try to download the MNIST dataset from  https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz.  However, AiMOS has limited access to the internet, hence this step will fail with the following error:
 
 .. code:: bash
 
@@ -124,7 +136,7 @@ The next step is to run the script using **sbatch** command.  Make sure that you
 .. code:: bash
 
   cd ~/scratch/horovod/examples
-  sbatch ./tensorflow2-keras-mnist.py
+  sbatch ./batch-job.sh
   
 
 Use the **squeue** command to check if the job is started.  Once it is running, you can tail -f the <jobname>_<jobid>.err for progress.

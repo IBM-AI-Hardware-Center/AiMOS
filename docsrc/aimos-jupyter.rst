@@ -3,10 +3,16 @@
 How to install Jupyter notebook?
 ================================
 
-IMPORTANT: Make sure that you set up the proxy before you proceed to the next step.  For how to see :ref:`setup-environment`.
+**IMPORTANT:**
+
+* You are logging in to one of the front end nodes. For more information see :ref:`how-to-login`
+
+* Proxy was set up. For how to see :ref:`setup-environment`.
+
+* Conda is installed and activated. For more information see :ref:`install-conda
 
 
-It is recommended to install `Jupyter notebook <https://jupyter.org/install.html>`_ in a miniconda environment which includes a minimal Python and conda installation.  You can install Jupyter notebook via conda install or pip install. For how to install conda enviroment see :ref:`install-conda`.
+It is recommended to install `Jupyter notebook <https://jupyter.org/install.html>`_ in a miniconda environment which includes a minimal Python and conda installation.  You can install Jupyter notebook via conda install or pip install.
 
 
 If you plan to use the AI framework with your notebook, make sure that you install Jupyter notebook in the conda environment that includes the AI framework.  For example, if you want to use the AI frameworks that are included in the WML-CE, then you need to install Jupyter notebook in the environment that WML-CE was installed.
