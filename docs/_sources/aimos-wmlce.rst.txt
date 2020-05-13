@@ -23,6 +23,7 @@ Set up ~/.condarc if needed.  If ~/.condarc does not exist, you can run the foll
 
 Below is the example of .condarc file. You need replace *your-project* with your PROJECT ID and *<your-id>* with your ID.   
 
+
 .. code:: bash
 
   pkgs_dirs:

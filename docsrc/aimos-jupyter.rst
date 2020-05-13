@@ -9,7 +9,9 @@ How to install Jupyter notebook?
 
 * Proxy was set up. For how to see :ref:`setup-environment`.
 
+
 * Conda is installed and activated. For more information see :ref:`install-conda`.
+
 
 
 It is recommended to install `Jupyter notebook <https://jupyter.org/install.html>`_ in a miniconda environment which includes a minimal Python and conda installation.  You can install Jupyter notebook via conda install or pip install.

@@ -22,7 +22,9 @@ Prerequisites:
 Create a conda env
 ^^^^^^^^^^^^^^^^^^
 
+
 You can create a new conda environment if you want to, for example:
+
 
 .. code:: bash
 
@@ -34,6 +36,7 @@ After the ddl-env is created, you should be placed in that env.  If not, you nee
 
   conda activate ddl-env
  
+
 Alternately, you can use an existing conda environment.  
 
 * To list the existing conda environments:
@@ -47,6 +50,7 @@ Alternately, you can use an existing conda environment.
 .. code:: bash
 
   conda activate <env name>
+
 
 
 Install additional packages
@@ -122,6 +126,7 @@ Running the batch script
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 This tensorflow2_keras_mnist.py will try to download the MNIST dataset from  https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz.  However, AiMOS has limited access to the internet, hence this step will fail with the following error::
+
 
   Exception: URL fetch failure on https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz: None -- Tunnel connection failed: 403 Filtered
 

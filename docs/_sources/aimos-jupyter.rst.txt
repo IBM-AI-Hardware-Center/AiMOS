@@ -9,6 +9,7 @@ How to install Jupyter notebook?
 
 * Proxy was set up. For how to see :ref:`setup-environment`.
 
+
 * Conda is installed and activated. For more information see :ref:`install-conda`.
 
 

@@ -186,7 +186,9 @@
 </div>
 <div class="section" id="create-a-conda-env">
 <h2>Create a conda env<a class="headerlink" href="#create-a-conda-env" title="Permalink to this headline">¶</a></h2>
+
 <p>You can create a new conda environment if you want to, for example:</p>
+
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n ddl-env
 </pre></div>
 </div>
@@ -194,6 +196,7 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda activate ddl-env
 </pre></div>
 </div>
+
 <p>Alternately, you can use an existing conda environment.</p>
 <ul class="simple">
 <li><p>To list the existing conda environments:</p></li>
@@ -207,6 +210,7 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda activate &lt;env name&gt;
 </pre></div>
 </div>
+
 </div>
 <div class="section" id="install-additional-packages">
 <h2>Install additional packages<a class="headerlink" href="#install-additional-packages" title="Permalink to this headline">¶</a></h2>
@@ -216,6 +220,10 @@
 </div>
 <p>If they are not installed, then you need to install them:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">tensorflow</span><span class="o">-</span><span class="n">gpu</span> <span class="n">ddl</span> <span class="n">horovod</span>
+</pre></div>
+</div>
+<p>If you need pytorch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install pytorch  ddl horovod
 </pre></div>
 </div>
 <p>If you need pytorch:</p>
@@ -270,7 +278,9 @@ rm <span class="nv">$hostdir</span>/hosts.<span class="nv">$SLURM_JOBID</span>
 <div class="section" id="running-the-batch-script">
 <h2>Running the batch script<a class="headerlink" href="#running-the-batch-script" title="Permalink to this headline">¶</a></h2>
 <p>This tensorflow2_keras_mnist.py will try to download the MNIST dataset from  <a class="reference external" href="https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz">https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz</a>.  However, AiMOS has limited access to the internet, hence this step will fail with the following error:</p>
+
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">Exception</span><span class="p">:</span> <span class="n">URL</span> <span class="n">fetch</span> <span class="n">failure</span> <span class="n">on</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">storage</span><span class="o">.</span><span class="n">googleapis</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">tf</span><span class="o">-</span><span class="n">keras</span><span class="o">-</span><span class="n">datasets</span><span class="o">/</span><span class="n">mnist</span><span class="o">.</span><span class="n">npz</span><span class="p">:</span> <span class="kc">None</span> <span class="o">--</span> <span class="n">Tunnel</span> <span class="n">connection</span> <span class="n">failed</span><span class="p">:</span> <span class="mi">403</span> <span class="n">Filtered</span>
+
 </pre></div>
 </div>
 <p>To get around this limitation, you need to download and copy mnist.npz to your $HOME/.keras/datasets.  In addition, you need to  emulate this line of code:  tf.keras.datasets.mnist.load_data(path=’mnist-%d.npz’ % hvd.rank()).  In this example, you use two nodes with 6 GPU on each node and one task per GPU. Hence you will have 12 ranks start from 0.  So you need to do the following:</p>

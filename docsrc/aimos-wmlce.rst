@@ -17,11 +17,13 @@ https://developer.ibm.com/linuxonpower/deep-learning-powerai/releases/
 * Conda is installed and activated. For more information see :ref:`install-conda`
 
 
+
 Set up ~/.condarc if needed.  If ~/.condarc does not exist, you can run the following command to generate it::
 
   conda config
 
 Below is the example of .condarc file. You need replace *your-project* with your PROJECT ID and *<your-id>* with your ID.   
+
 
 .. code:: bash
 
