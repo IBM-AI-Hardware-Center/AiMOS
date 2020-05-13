@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="How to request for NVMe storage on the compute nodes?" href="aimos-nvme.html" />
-    <link rel="prev" title="How to install Jupyter notebook?" href="aimos-jupyter.html" /> 
+    <link rel="prev" title="How to Start Jupyter notebook?" href="aimos-startjupyter.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,8 +93,10 @@
 <li class="toctree-l1"><a class="reference internal" href="aimos-conda.html">How to install the conda environment?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-wmlce.html">How to install WML-CE (a.k.a PowerAI)?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-jupyter.html">How to install Jupyter notebook?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-startjupyter.html">How to Start Jupyter notebook?</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#allocate-a-compute-node">Allocate a compute node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#start-the-jupyter-notebook-on-the-allocated-compute-node">Start the jupyter notebook on the allocated compute node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ssh-tunnelling-on-a-linux-or-mac-osx-node">SSH tunnelling on a Linux or MAC OSX node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ssh-tunneling-via-putty-on-windows">SSH tunneling via PUTTY on Windows</a></li>
@@ -173,9 +175,22 @@
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <p>Conda and jupyter notebook are installed on the node. For how to see <a class="reference internal" href="aimos-conda.html#install-conda"><span class="std std-ref">How to install the conda environment?</span></a> and <a class="reference internal" href="aimos-jupyter.html#install-jupyter"><span class="std std-ref">How to install Jupyter notebook?</span></a></p>
 </div>
+<div class="section" id="allocate-a-compute-node">
+<h2>Allocate a compute node<a class="headerlink" href="#allocate-a-compute-node" title="Permalink to this headline">¶</a></h2>
+<p>For example, allocate a compute node for 30 minutes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">salloc</span> <span class="o">-</span><span class="n">N</span> <span class="mi">1</span> <span class="o">--</span><span class="n">salloc</span> <span class="o">-</span><span class="n">N</span> <span class="mi">1</span> <span class="o">--</span><span class="n">gres</span><span class="o">=</span><span class="n">gpu</span><span class="p">:</span><span class="mi">6</span> <span class="o">-</span><span class="n">t</span> <span class="mi">30</span>
+</pre></div>
+</div>
+<p>After the command returns, you can run squeue to find the allocated node.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>squeue
+           JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="o">(</span>REASON<span class="o">)</span>
+          <span class="m">172886</span>       dcs     bash BMHRkmkh  R       <span class="m">0</span>:13      <span class="m">1</span> dcs085
+</pre></div>
+</div>
+</div>
 <div class="section" id="start-the-jupyter-notebook-on-the-allocated-compute-node">
 <h2>Start the jupyter notebook on the allocated compute node<a class="headerlink" href="#start-the-jupyter-notebook-on-the-allocated-compute-node" title="Permalink to this headline">¶</a></h2>
-<p>In the following example, starting jupyter notebook on dcs085.</p>
+<p>You then ssh to the allocated node, activate to the appropriated conda environment, change directory to where the jupyter notebooks are in, then  starting jupyter notebook as follow:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>wmlce-1.7.0<span class="o">)</span> <span class="o">[</span>your-id@dcs085 ~<span class="o">]</span>$ jupyter notebook --ip<span class="o">=</span><span class="m">0</span>.0.0.0 --no-browser
 </pre></div>
 </div>
@@ -228,7 +243,7 @@
         <a href="aimos-nvme.html" class="btn btn-neutral float-right" title="How to request for NVMe storage on the compute nodes?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="aimos-jupyter.html" class="btn btn-neutral float-left" title="How to install Jupyter notebook?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="aimos-startjupyter.html" class="btn btn-neutral float-left" title="How to Start Jupyter notebook?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

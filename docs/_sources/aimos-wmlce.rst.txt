@@ -17,6 +17,7 @@ https://developer.ibm.com/linuxonpower/deep-learning-powerai/releases/
 * Conda is installed and activated. For more information see :ref:`install-conda`
 
 
+
 Set up ~/.condarc if needed.  If ~/.condarc does not exist, you can run the following command to generate it::
 
   conda config

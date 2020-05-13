@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Setting up the environment &mdash; AiMOS 0.0.1 documentation</title>
+  <title>How to Start Jupyter notebook? &mdash; AiMOS 0.0.1 documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="What is the GPFS disk space on the nodes?" href="aimos-gpfs.html" />
-    <link rel="prev" title="How to login to AiMOS?" href="aimos-login.html" /> 
+    <link rel="next" title="How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?" href="aimos-tunneling.html" />
+    <link rel="prev" title="How to install Jupyter notebook?" href="aimos-jupyter.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,11 +85,7 @@
 <li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">What is AiMOS?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">How to get a  user id on AiMOS?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-login.html">How to login to AiMOS?</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Setting up the environment</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#setting-up-passwordless">Setting up passwordless</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#setting-up-proxy">Setting up proxy</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-setup-env.html">Setting up the environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-gpfs.html">What is the GPFS disk space on the nodes?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-slurm-basics.html">Slurm Resource Manager and Job Scheduler in AiMOS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">How to submit a job via Slurm</a></li>
@@ -97,7 +93,11 @@
 <li class="toctree-l1"><a class="reference internal" href="aimos-conda.html">How to install the conda environment?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-wmlce.html">How to install WML-CE (a.k.a PowerAI)?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-jupyter.html">How to install Jupyter notebook?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-startjupyter.html">How to Start Jupyter notebook?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to Start Jupyter notebook?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#allocate-a-compute-node">Allocate a compute node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-jupyter-notebook-on-the-allocated-compute-node">Start Jupyter Notebook on the allocated compute node</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-tunneling.html">How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-nvme.html">How to request for NVMe storage on the compute nodes?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-ddlrun.html">Example for using ddlrun to run a distributed job?</a></li>
@@ -147,13 +147,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Setting up the environment</li>
+      <li>How to Start Jupyter notebook?</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/aimos-setup-env.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/aimos-startjupyter.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -166,55 +166,57 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="setting-up-the-environment">
-<span id="setup-environment"></span><h1>Setting up the environment<a class="headerlink" href="#setting-up-the-environment" title="Permalink to this headline">¶</a></h1>
-<p>The following sections are the steps for setting up your environment.</p>
-<div class="section" id="setting-up-passwordless">
-<span id="setup-passwordless"></span><h2>Setting up passwordless<a class="headerlink" href="#setting-up-passwordless" title="Permalink to this headline">¶</a></h2>
-<p>It is strongly recommended that you set up the passwordless to login to the front end nodes and compute nodes.  This is particularly required if you are running MPI workload.  You only need to do this once.
-The process consists of two steps:</p>
+  <div class="section" id="how-to-start-jupyter-notebook">
+<span id="start-jupyter"></span><h1>How to Start Jupyter notebook?<a class="headerlink" href="#how-to-start-jupyter-notebook" title="Permalink to this headline">¶</a></h1>
+<p><strong>IMPORTANT:</strong></p>
 <ul class="simple">
-<li><p>Generate the key using ssh-keygen command.</p></li>
-<li><p>Concatenate the generated key to the authorized_keys file.</p></li>
+<li><p>You are logging in to one of the front end nodes. For more information see <a class="reference internal" href="aimos-login.html#how-to-login"><span class="std std-ref">How to login to AiMOS?</span></a></p></li>
+<li><p>Conda was installed and activated. For more information see <a class="reference internal" href="aimos-conda.html#install-conda"><span class="std std-ref">How to install the conda environment?</span></a>.</p></li>
+<li><p>Jupyter notebook was installed. For how to  see <a class="reference internal" href="aimos-jupyter.html#install-jupyter"><span class="std std-ref">How to install Jupyter notebook?</span></a>.</p></li>
 </ul>
-<p>The following example assumes you already log in to either one of the landing pad nodes or one of the front end nodes.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ssh-keygen -t rsa
-Generating public/private rsa key pair.
-Enter file in which to save the key (/gpfs/u/home/BMHR/BMHRkmkh/.ssh/id_rsa):
-/gpfs/u/home/BMHR/BMHRkmkh/.ssh/id_rsa already exists.
-Overwrite (y/n)? y
-Enter passphrase (empty for no passphrase):
-Enter same passphrase again:
-Your identification has been saved in /gpfs/u/home/BMHR/BMHRkmkh/.ssh/id_rsa.
-Your public key has been saved in /gpfs/u/home/BMHR/BMHRkmkh/.ssh/id_rsa.pub.
-The key fingerprint is:
-SHA256:I7OYesm4IUs9vHbtXoYi4vy7dAOt9FMPJoQ8ssiibcI
-BMHRkmkh@dcsfen01
-The key&#39;s randomart image is:
-+---[RSA 2048]----+
-|                 |
-|  . .            |
-| . + .           |
-|o o +            |
-|oo o oo+S        |
-|+.+ +o+++.       |
-|+E+XoBo. +       |
-|+=++O.+.o        |
-|.o=B+ oo         |
-+----[SHA256]-----+
+<div class="section" id="allocate-a-compute-node">
+<h2>Allocate a compute node<a class="headerlink" href="#allocate-a-compute-node" title="Permalink to this headline">¶</a></h2>
+<p>For example, allocate a compute node for 30 minutes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>salloc -N <span class="m">1</span> --salloc -N <span class="m">1</span> --gres<span class="o">=</span>gpu:6 -t <span class="m">30</span>
+</pre></div>
+</div>
+<p>After the command returns, you can run squeue to find the allocated node.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>squeue
+         JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="o">(</span>REASON<span class="o">)</span>
+        <span class="m">172886</span>       dcs     bash BMHRkmkh  R       <span class="m">0</span>:13      <span class="m">1</span> dcs085
+</pre></div>
+</div>
+<p>After the command returns, you can run squeue to find the allocated node.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>your-id@dcsfen01 wmlce-1.7.0<span class="o">]</span>$ conda list <span class="p">|</span> grep notebook
+notebook                  <span class="m">6</span>.0.3                    py37_0    conda-forge
+</pre></div>
+</div>
+</div>
+<div class="section" id="start-jupyter-notebook-on-the-allocated-compute-node">
+<h2>Start Jupyter Notebook on the allocated compute node<a class="headerlink" href="#start-jupyter-notebook-on-the-allocated-compute-node" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>SSH to the compute node</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>BMHRkmkh@dcsfen01 ~<span class="o">]</span>$ ssh dcs035
+Warning: Permanently added <span class="s1">&#39;dcs035,172.31.236.35&#39;</span> <span class="o">(</span>ECDSA<span class="o">)</span> to the list of known hosts.
 
-$ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+<span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>BMHRkmkh@dcs035 ~<span class="o">]</span>$
 </pre></div>
 </div>
-</div>
-<div class="section" id="setting-up-proxy">
-<span id="setup-proxy"></span><h2>Setting up proxy<a class="headerlink" href="#setting-up-proxy" title="Permalink to this headline">¶</a></h2>
-<p>It is strongly recommended that you set up the proxy by adding the following lines to your .bashrc. You only need to do this once.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">http_proxy</span><span class="o">=</span>http://proxy:8888
-<span class="nb">export</span> <span class="nv">https_proxy</span><span class="o">=</span><span class="nv">$http_proxy</span>
+<ul class="simple">
+<li><p>Activate to the conda environment that is appropriated for your notebook.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>BMHRkmkh@dcs035 ~<span class="o">]</span>$ conda activate wmlce-1.7.0
+<span class="o">(</span>wmlce-1.7.0<span class="o">)</span> <span class="o">[</span>BMHRkmkh@dcs035 ~<span class="o">]</span>$ toshare
+<span class="o">(</span>wmlce-1.7.0<span class="o">)</span> <span class="o">[</span>BMHRkmkh@dcs035 scratch-shared<span class="o">]</span>$
 </pre></div>
 </div>
-<p>Do not forget to source your .bashrc for this to take affect.</p>
+<ul class="simple">
+<li><p>Start Jupyter Notebook</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>wmlce-1.7.0<span class="o">)</span> <span class="o">[</span>BMHRkmkh@dcs035 scratch-shared<span class="o">]</span>$ jupyter notebook --ip<span class="o">=</span><span class="m">0</span>.0.0.0 --no-browser
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -226,10 +228,10 @@ $ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="aimos-gpfs.html" class="btn btn-neutral float-right" title="What is the GPFS disk space on the nodes?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="aimos-tunneling.html" class="btn btn-neutral float-right" title="How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="aimos-login.html" class="btn btn-neutral float-left" title="How to login to AiMOS?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="aimos-jupyter.html" class="btn btn-neutral float-left" title="How to install Jupyter notebook?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
