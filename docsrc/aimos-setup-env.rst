@@ -18,7 +18,7 @@ The process consists of two steps:
  
 The following example assumes you already log in to either one of the landing pad nodes or one of the front end nodes. 
 
-.. code:: bash
+::
 
    $ ssh-keygen -t rsa
    Generating public/private rsa key pair.
