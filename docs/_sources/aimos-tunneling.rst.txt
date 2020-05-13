@@ -6,10 +6,28 @@ Prerequisites
 
 Conda and jupyter notebook are installed on the node. For how to see :ref:`install-conda` and :ref:`install-jupyter`
 
+Allocate a compute node
+^^^^^^^^^^^^^^^^^^^^^^^
+
+For example, allocate a compute node for 30 minutes:
+
+::
+
+  salloc -N 1 --salloc -N 1 --gres=gpu:6 -t 30
+
+After the command returns, you can run squeue to find the allocated node.
+
+.. code:: bash
+
+  squeue
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+            172886       dcs     bash BMHRkmkh  R       0:13      1 dcs085
+
+
 Start the jupyter notebook on the allocated compute node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In the following example, starting jupyter notebook on dcs085.
+You then ssh to the allocated node, activate to the appropriated conda environment, change directory to where the jupyter notebooks are in, then  starting jupyter notebook as follow:
 
 .. code:: bash
 
