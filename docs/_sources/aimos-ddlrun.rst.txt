@@ -22,7 +22,9 @@ Prerequisites:
 Create a conda env
 ^^^^^^^^^^^^^^^^^^
 
-You can create a new conda environment, for example:
+
+You can create a new conda environment if you want to, for example:
+
 
 .. code:: bash
 
@@ -34,15 +36,31 @@ After the ddl-env is created, you should be placed in that env.  If not, you nee
 
   conda activate ddl-env
  
-Alternately, you can use an existing conda environment.  In that case, you just need to activate to the existing conda environment. You can use **conda info --env** to list the existing conda environments.
+
+Alternately, you can use an existing conda environment.  
+
+* To list the existing conda environments:
+
+.. code:: bash
+
+  conda info --env
+
+* To activate an environment to use:
+
+.. code:: bash
+
+  conda activate <env name>
+
 
 
 Install additional packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For this example, you need tensorflow version 2.x, ddl and horovod
+For this example, you need tensorflow version 2.x, ddl and horovod packages.  They might already be in the environment. You can check by using::
 
-.. code:: bash
+ conda list | grep <package>
+
+If they are not installed, then you need to install them::
 
   conda install tensorflow-gpu ddl horovod
 
@@ -107,9 +125,8 @@ This is the sample script that you can customize to your environment.  This scri
 Running the batch script
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-This tensorflow2_keras_mnist.py will try to download the MNIST dataset from  https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz.  However, AiMOS has limited access to the internet, hence this step will fail with the following error:
+This tensorflow2_keras_mnist.py will try to download the MNIST dataset from  https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz.  However, AiMOS has limited access to the internet, hence this step will fail with the following error::
 
-.. code:: bash
 
   Exception: URL fetch failure on https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz: None -- Tunnel connection failed: 403 Filtered
 

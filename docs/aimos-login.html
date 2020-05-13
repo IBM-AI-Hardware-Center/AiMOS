@@ -166,7 +166,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="how-to-login-to-aimos">
-<h1>How to login to AiMOS?<a class="headerlink" href="#how-to-login-to-aimos" title="Permalink to this headline">¶</a></h1>
+<span id="how-to-login"></span><h1>How to login to AiMOS?<a class="headerlink" href="#how-to-login-to-aimos" title="Permalink to this headline">¶</a></h1>
 <p>The assumption is that you have already obtained your user ID for AiMOS.  If that is not the case,  please see <a class="reference internal" href="aimos-userid.html#get-user-id-section"><span class="std std-ref">How to get a  user id on AiMOS?</span></a></p>
 <p>The steps are ssh to one of the landing pad nodes, then from there ssh to one of the front end nodes.  For the list of the landing pad nodes and front end nodes, please see <a class="reference internal" href="aimos-basics.html#what-is-aimos"><span class="std std-ref">What is AiMOS?</span></a></p>
 <div class="section" id="ssh-to-a-landing-pad-node">
@@ -181,29 +181,29 @@
 <p>For PIC+Token, enter your chosen PIC that you have set in the previous step and the token from the Google Authenticator app on your mobile device.</p>
 <p><strong>Note:</strong> do not enter + and space.</p>
 <p>For example:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ssh your-id@blp01.ccni.rpi.edu
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ssh your-id@blp01.ccni.rpi.edu
 PIC+Token:
 Password:
-Last login: Fri Mar  <span class="m">6</span> <span class="m">15</span>:41:57 <span class="m">2020</span> from <span class="m">70</span>.113.9.236
+Last login: Fri Mar  6 15:41:57 2020 from 70.113.9.236
 
-             ** CCI SSH Gateway <span class="o">(</span>Landing pad<span class="o">)</span> **
+             ** CCI SSH Gateway (Landing pad) **
 **                                                             **
 **     Please report all support and operation issues to       **
 **     support@ccni.rpi.edu                                    **
 **                                                             **
-**     On-line documentation <span class="k">for</span> the systems can be found at:  **
+**     On-line documentation for the systems can be found at:  **
 **     https://secure.cci.rpi.edu/wiki                         **
 **                                                             **
 **     CCI does not provide any data backup services. Users    **
-**     are responsible <span class="k">for</span> their own data management and       **
+**     are responsible for their own data management and       **
 **     backup.                                                 **
 **                                                             **
-**     Use is subject to the terms of the policy <span class="k">for</span>           **
+**     Use is subject to the terms of the policy for           **
 **     Acceptable Use of CCI Resources.                        **
 **                                                             **
 </pre></div>
 </div>
-<p>If this is the first time you login to one of the landing pad nodes using your user id, it is strongly recommended that you set up passwordless and proxy.  For how to see <a class="reference internal" href="aimos-setup-env.html#setup-environment"><span class="std std-ref">Setting up the environment</span></a>.</p>
+<p>If this is the first time you login to one of the landing pad nodes using your user id, it is strongly recommended that you set up passwordless and proxy.  For how to see <a class="reference internal" href="aimos-setup-env.html#setup-environment"><span class="std std-ref">Setting up the environment</span></a>. The next step is to login to a front end node.</p>
 </div>
 <div class="section" id="ssh-to-a-front-end-node">
 <h2>ssh to a front end node<a class="headerlink" href="#ssh-to-a-front-end-node" title="Permalink to this headline">¶</a></h2>

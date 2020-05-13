@@ -168,11 +168,17 @@
 <a class="reference external" href="https://developer.ibm.com/linuxonpower/deep-learning-powerai/releases/">https://developer.ibm.com/linuxonpower/deep-learning-powerai/releases/</a></p>
 <p><strong>IMPORTANT:</strong></p>
 <ul class="simple">
-<li><p>Log in to one of the front end node. For more information see <span class="xref std std-ref">how-to-login</span></p></li>
+
+<li><p>Log in to one of the front end node. For more information see <a class="reference internal" href="aimos-login.html#how-to-login"><span class="std std-ref">How to login to AiMOS?</span></a></p></li>
 <li><p>Make sure that you set up the proxy before you proceed to the next step.  For how to see <a class="reference internal" href="aimos-setup-env.html#setup-environment"><span class="std std-ref">Setting up the environment</span></a>.</p></li>
 <li><p>Conda is installed and activated. For more information see <a class="reference internal" href="aimos-conda.html#install-conda"><span class="std std-ref">How to install the conda environment?</span></a></p></li>
 </ul>
-<p>Set up ~/.condarc if needed.  if ~/.condarc does not exist, you can run “conda config” to generate the file. Below is the example of .condarc file. You need replace <em>your-project</em> with your PROJECT ID and <em>&lt;your-id&gt;</em> with your ID.</p>
+<p>Set up ~/.condarc if needed.  If ~/.condarc does not exist, you can run the following command to generate it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">config</span>
+</pre></div>
+</div>
+<p>Below is the example of .condarc file. You need replace <em>your-project</em> with your PROJECT ID and <em>&lt;your-id&gt;</em> with your ID.</p>
+
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pkgs_dirs:
   - /gpfs/u/software/ppc64le-rhel7/.conda/pkgs
   - /gpfs/u/home/your-project/&lt;your-id&gt;/scratch/miniconda3/pkgs
@@ -184,7 +190,9 @@ channels:
 </div>
 <p>As a best practice, you should install WML-CE in a new conda environment (i.e. not the base environment).  That would enable you to have different versions of WML-CE.</p>
 <p>For more information on how to install WML-CE, see <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SS5SF7_1.7.0/navigation/wmlce_install.htm">https://www.ibm.com/support/knowledgecenter/SS5SF7_1.7.0/navigation/wmlce_install.htm</a></p>
-<p>Here is the example for creating a new conda environment named <strong>wmlce-1.7.0</strong> with python version 3.6. You must be at one of the front end nodes.</p>
+
+<p>Here is an example for creating a new conda environment named <strong>wmlce-1.7.0</strong> with python version 3.6. You must be on one of the front end nodes to run the following command:</p>
+
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create --name wmlce-1.7.0 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6
 </pre></div>
 </div>
@@ -193,24 +201,24 @@ channels:
 </pre></div>
 </div>
 <p>Install WML-CE version 1.7.0 which is the latest version at the time of this writting.</p>
-<p>For automatically accept the license</p>
+<p>For automatically accept the license after the installation:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">IBM_POWERAI_LICENSE_ACCEPT</span><span class="o">=</span>yes
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>To install the whole powerai GPU packages in the created conda environment, run:</p></li>
+<li><p>To install the <strong>whole powerai GPU packages</strong> in the created conda environment, run:</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install powerai
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>To install the whole powerai GPU packages version 1.6.2</p></li>
+<li><p>To install the <strong>whole powerai GPU packages</strong> version 1.6.2</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install <span class="nv">powerai</span><span class="o">=</span><span class="m">1</span>.6.2
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>To install the individual framework, such as pytorch or tensorflow.</p></li>
+<li><p>To install an individual framework, such as <strong>pytorch</strong> or <strong>tensorflow</strong>.</p></li>
 </ul>
 <p>For complete list of individual framework see <a class="reference external" href="https://www.ibm.com/support/knowledgecenter/SS5SF7_1.7.0/navigation/wmlce_install.htm">https://www.ibm.com/support/knowledgecenter/SS5SF7_1.7.0/navigation/wmlce_install.htm</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install pytorch
@@ -221,7 +229,7 @@ channels:
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>To install powerai CPU packages in the created conda environment, run:</p></li>
+<li><p>To install powerai CPU packages only in the created conda environment, run:</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install powerai-cpu
 </pre></div>

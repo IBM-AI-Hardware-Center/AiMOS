@@ -168,6 +168,7 @@
   <div class="section" id="how-to-submit-a-job-via-slurm">
 <h1>How to submit a job via Slurm<a class="headerlink" href="#how-to-submit-a-job-via-slurm" title="Permalink to this headline">¶</a></h1>
 <ul>
+<li><p>You logged in to one of the front end nodes.  For how to <a class="reference internal" href="aimos-login.html#how-to-login"><span class="std std-ref">How to login to AiMOS?</span></a>.</p></li>
 <li><p>You need to specify “–gres=gpu:&lt;value&gt;” option with the <strong>salloc</strong> or <strong>sbatch</strong> command if you want to allocate the compute nodes from AiMOS.  The value is between 1 and 6.  This the number of gpu that you need per node.  If you specify –gres=gpu:6, you are in essence would get the whole node(s) allocated to you.  For more information regarding GPU on AiMOS, see <a class="reference external" href="https://secure.cci.rpi.edu/wiki/index.php?title=DCS_Supercomputer#Using_GPUs">https://secure.cci.rpi.edu/wiki/index.php?title=DCS_Supercomputer#Using_GPUs</a></p></li>
 <li><p>You also need to specify the time required to run your job via option <strong>-t &lt;value&gt;</strong>.  The value is number of minutes.</p>
 <blockquote>

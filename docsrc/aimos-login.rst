@@ -1,3 +1,5 @@
+.. _how-to-login:
+
 How to login to AiMOS?
 ======================
 
@@ -19,9 +21,10 @@ For PIC+Token, enter your chosen PIC that you have set in the previous step and 
 
 **Note:** do not enter + and space.  
 
+
 For example:
 
-.. code:: bash
+::
 
   $ ssh your-id@blp01.ccni.rpi.edu
   PIC+Token:
@@ -44,7 +47,7 @@ For example:
   **     Acceptable Use of CCI Resources.                        **
   **                                                             **
 
-If this is the first time you login to one of the landing pad nodes using your user id, it is strongly recommended that you set up passwordless and proxy.  For how to see :ref:`setup-environment`.
+If this is the first time you login to one of the landing pad nodes using your user id, it is strongly recommended that you set up passwordless and proxy.  For how to see :ref:`setup-environment`. The next step is to login to a front end node.
 
 ssh to a front end node
 ^^^^^^^^^^^^^^^^^^^^^^^
