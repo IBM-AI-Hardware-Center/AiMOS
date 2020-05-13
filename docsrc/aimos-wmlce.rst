@@ -10,12 +10,18 @@ https://developer.ibm.com/linuxonpower/deep-learning-powerai/releases/
 
 **IMPORTANT:** 
 
-* Make sure that you set up the proxy before you proceed to the next step.  For how to see 
+* Log in to one of the front end node. For more information see :ref:`how-to-login`
 
-* Conda is installed and activated. For how to see :ref:`install-conda`.
+* Make sure that you set up the proxy before you proceed to the next step.  For how to see :ref:`setup-environment`.
+
+* Conda is installed and activated. For more information see :ref:`install-conda`
 
 
-Set up ~/.condarc if needed.  Below is the example of .condarc file. You need replace *your-project* with your PROJECT ID and *<your-id>* with your ID.
+Set up ~/.condarc if needed.  If ~/.condarc does not exist, you can run the following command to generate it::
+
+  conda config
+
+Below is the example of .condarc file. You need replace *your-project* with your PROJECT ID and *<your-id>* with your ID.   
 
 .. code:: bash
 
@@ -31,7 +37,7 @@ As a best practice, you should install WML-CE in a new conda environment (i.e. n
 
 For more information on how to install WML-CE, see https://www.ibm.com/support/knowledgecenter/SS5SF7_1.7.0/navigation/wmlce_install.htm
 
-Create a new conda environment wmlce-1.7.0 using python version 3.6.
+Here is an example for creating a new conda environment named **wmlce-1.7.0** with python version 3.6. You must be on one of the front end nodes to run the following command:
 
 .. code:: bash
 
@@ -46,28 +52,28 @@ Activate the created conda environment.
 
 Install WML-CE version 1.7.0 which is the latest version at the time of this writting.
 
-For automatically accept the license
+For automatically accept the license after the installation:
 
 .. code:: bash
 
   export IBM_POWERAI_LICENSE_ACCEPT=yes
 
 
-* To install the whole powerai GPU packages in the created conda environment, run:
+* To install the **whole powerai GPU packages** in the created conda environment, run:
 
 .. code:: bash
 
   conda install powerai
 
 
-* To install the whole powerai GPU packages version 1.6.2
+* To install the **whole powerai GPU packages** version 1.6.2
 
 .. code:: bash
 
   conda install powerai=1.6.2
 
 
-* To install the individual framework, such as pytorch or tensorflow.
+* To install an individual framework, such as **pytorch** or **tensorflow**.
 
 For complete list of individual framework see https://www.ibm.com/support/knowledgecenter/SS5SF7_1.7.0/navigation/wmlce_install.htm
 
@@ -82,7 +88,7 @@ Or
   conda install tensorflow-gpu
 
 
-* To install powerai CPU packages in the created conda environment, run:
+* To install powerai CPU packages only in the created conda environment, run:
 
 .. code:: bash
 

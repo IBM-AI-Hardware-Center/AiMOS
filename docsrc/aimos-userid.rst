@@ -3,7 +3,20 @@
 How to get a  user id on AiMOS?
 ===============================
 
-You need to fill out the following forms, sign and send them to herger@us.ibm.com.
+
+* If you already have an ID on AiMOS and want to be added to another project, you need to request the Project Sponsor/Project Investigator to send an emai to Lorraine Herger at herger@us.ibm.com.  The email should contain your current ID and the project ID that you want to be added.  The email can be used for the list of user id and the list for projects. For example:
+
+::
+  
+  To: herger@us.ibm.com
+  cc: <your email id>
+  Subject: Add existing users to another project
+
+  USER ID: BMHRxxxx, SROMxxxx
+  PROJECT ID: CADS, ADCS
+
+
+* If you are a first time user, you need to fill out the following forms, sign and send them to herger@us.ibm.com.
 
 CCI User Information
 ^^^^^^^^^^^^^^^^^^^^
@@ -16,7 +29,9 @@ CCI User Responsibility Agreement
 https://secure.cci.rpi.edu/wiki/images/b/b3/CCI_User_Responsibility_Agreement_20140612.pdf
 
 
-Once the forms are processed, you will receive emails from HPCman <hpcman@ccni.rpi.edu> for your account ID and password reset token. The next step is to :ref:`set-password`.
+Once the forms are processed, you will receive emails from **HPCman <hpcman@ccni.rpi.edu>** for your account ID and password reset token. The next step is to :ref:`set-password`.
+
+**IMPORTANT:** You have 24 hours to reset your password.  If you miss it, you need to send an email to support@ccni.rpi.edu to request a new password reset token.
 
 .. _set-password:
 
