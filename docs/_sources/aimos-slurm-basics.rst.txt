@@ -14,7 +14,7 @@ The fairshare allocation is used in the environment:
 * By default, each user gets a fair share of the overall group project level slice
 
 For more information of Slurm implementation and frequently used commands see 
-https://secure.cci.rpi.edu/wiki/index.php?title=Slurm
+https://secure.cci.rpi.edu/wiki/Slurm/
 
 For the complete list of SLURM manpage, see https://slurm.schedmd.com/man_index.html
 

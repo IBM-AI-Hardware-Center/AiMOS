@@ -82,8 +82,8 @@ Clone the Horovod GitHub repo
   git clone https://github.com/horovod/horovod.git
 
 
-Setting up the test environment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Set up the test environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: bash
 

@@ -85,7 +85,7 @@
 <li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">What is AiMOS?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">How to get a  user id on AiMOS?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-login.html">How to login to AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-setup-env.html">Setting up the environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-setup-env.html">Set up your  environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-gpfs.html">What is the GPFS disk space on the nodes?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-slurm-basics.html">Slurm Resource Manager and Job Scheduler in AiMOS</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">How to submit a job via Slurm</a><ul>
@@ -171,7 +171,7 @@
 <h1>How to submit a job via Slurm<a class="headerlink" href="#how-to-submit-a-job-via-slurm" title="Permalink to this headline">¶</a></h1>
 <ul>
 <li><p>You logged in to one of the front end nodes.  For how to <a class="reference internal" href="aimos-login.html#how-to-login"><span class="std std-ref">How to login to AiMOS?</span></a>.</p></li>
-<li><p>You need to specify “–gres=gpu:&lt;value&gt;” option with the <strong>salloc</strong> or <strong>sbatch</strong> command if you want to allocate the compute nodes from AiMOS.  The value is between 1 and 6.  This the number of gpu that you need per node.  If you specify –gres=gpu:6, you are in essence would get the whole node(s) allocated to you.  For more information regarding GPU on AiMOS, see <a class="reference external" href="https://secure.cci.rpi.edu/wiki/index.php?title=DCS_Supercomputer#Using_GPUs">https://secure.cci.rpi.edu/wiki/index.php?title=DCS_Supercomputer#Using_GPUs</a></p></li>
+<li><p>You need to specify “–gres=gpu:&lt;value&gt;” option with the <strong>salloc</strong> or <strong>sbatch</strong> command if you want to allocate the compute nodes from AiMOS.  The value is between 1 and 6.  This the number of gpu that you need per node.  If you specify –gres=gpu:6, you are in essence would get the whole node(s) allocated to you.  For more information regarding GPU on AiMOS, see <a class="reference external" href="https://secure.cci.rpi.edu/wiki/clusters/DCS_Supercomputer/#using-gpus">https://secure.cci.rpi.edu/wiki/clusters/DCS_Supercomputer/#using-gpus</a>.</p></li>
 <li><p>You also need to specify the time required to run your job via option <strong>-t &lt;value&gt;</strong>.  The value is number of minutes.</p>
 <blockquote>
 <div><ul class="simple">
@@ -210,7 +210,7 @@ Authentication failed.
 <div class="section" id="how-to-submit-a-batch-job">
 <h2>How to submit a batch job?<a class="headerlink" href="#how-to-submit-a-batch-job" title="Permalink to this headline">¶</a></h2>
 <p>You need to create a script to submit via <strong>sbatch</strong> Slurm command. The script contains a list of Slurm directives (or commands) to tell Slurm what to do. This is a sample script to run a hello_MPI_c program.</p>
-<p><strong>IMPORTANT</strong>: Passwordless is required for MPI job.  For how to see <a class="reference internal" href="aimos-setup-env.html#setup-environment"><span class="std std-ref">Setting up the environment</span></a>.</p>
+<p><strong>IMPORTANT</strong>: Passwordless is required for MPI job.  For how to see <a class="reference internal" href="aimos-setup-env.html#setup-environment"><span class="std std-ref">Set up your  environment</span></a>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -x</span>
 
 <span class="c1"># The lines started with SBATCH are directives to sbatch command.  Alternately, they can be specified on the command line.</span>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Setting up the environment &mdash; AiMOS 0.0.1 documentation</title>
+  <title>Set up your environment &mdash; AiMOS 0.0.1 documentation</title>
   
 
   
@@ -85,9 +85,9 @@
 <li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">What is AiMOS?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">How to get a  user id on AiMOS?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-login.html">How to login to AiMOS?</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Setting up the environment</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#setting-up-passwordless">Setting up passwordless</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#setting-up-proxy">Setting up proxy</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Set up your  environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#set-up-passwordless">Set up passwordless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#set-up-proxy">Set up proxy</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-gpfs.html">What is the GPFS disk space on the nodes?</a></li>
@@ -148,7 +148,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Setting up the environment</li>
+      <li>Set up your  environment</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -167,11 +167,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="setting-up-the-environment">
-<span id="setup-environment"></span><h1>Setting up the environment<a class="headerlink" href="#setting-up-the-environment" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="set-up-your-environment">
+<span id="setup-environment"></span><h1>Set up your  environment<a class="headerlink" href="#set-up-your-environment" title="Permalink to this headline">¶</a></h1>
 <p>The following sections are the steps for setting up your environment.</p>
-<div class="section" id="setting-up-passwordless">
-<span id="setup-passwordless"></span><h2>Setting up passwordless<a class="headerlink" href="#setting-up-passwordless" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="set-up-passwordless">
+<span id="setup-passwordless"></span><h2>Set up passwordless<a class="headerlink" href="#set-up-passwordless" title="Permalink to this headline">¶</a></h2>
 <p>It is strongly recommended that you set up the passwordless to login to the front end nodes and compute nodes.  This is particularly required if you are running MPI workload.  You only need to do this once.
 The process consists of two steps:</p>
 <ul class="simple">
@@ -208,8 +208,8 @@ $ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
 </pre></div>
 </div>
 </div>
-<div class="section" id="setting-up-proxy">
-<span id="setup-proxy"></span><h2>Setting up proxy<a class="headerlink" href="#setting-up-proxy" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="set-up-proxy">
+<span id="setup-proxy"></span><h2>Set up proxy<a class="headerlink" href="#set-up-proxy" title="Permalink to this headline">¶</a></h2>
 <p>It is strongly recommended that you set up the proxy by adding the following lines to your .bashrc. You only need to do this once.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">http_proxy</span><span class="o">=</span>http://proxy:8888
 <span class="nb">export</span> <span class="nv">https_proxy</span><span class="o">=</span><span class="nv">$http_proxy</span>
