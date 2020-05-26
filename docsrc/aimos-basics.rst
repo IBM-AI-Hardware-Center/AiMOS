@@ -14,7 +14,7 @@ Each compute node has:
 * 1.6 TB NVMe SSD storage
 * Dual, 100 Gb/sec Mellanox IB links
 
-For more information see https://secure.cci.rpi.edu/wiki/index.php?title=DCS_Supercomputer
+For more information see https://secure.cci.rpi.edu/wiki/clusters/DCS_Supercomputer
 
 There are the landing pad nodes and the front end nodes in addition to the compute nodes in AiMOS. `Slurm <https://slurm.schedmd.com/overview.html>`_ is used for resource management and job scheduler.
 
@@ -30,12 +30,12 @@ There are 4 landing pad nodes for AiMOS:
 * blp03.ccni.rpi.edu
 * blp04.ccni.rpi.edu
 
-For more information see https://secure.cci.rpi.edu/wiki/index.php?title=Landing_pad
+For more information see https://secure.cci.rpi.edu/wiki/landingpads
 
 What are the front end nodes?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The front end nodes (a.k.a. login nodes) are nodes where you find Slurm, compilers, libraries, headers, development tools, etc. This is where you build your executables if needed, issue Slurm commands to submit jobs. In order to see some of the executables, libraries, etc., you may need to use module to load them first. For how to, please see section How to load different modules for your development and testing? section later in this documentation.
+The front end nodes (a.k.a. login nodes) are nodes where you find Slurm, compilers, libraries, headers, development tools, etc. This is where you build your executables if needed, issue Slurm commands to submit jobs. In order to see some of the executables, libraries, etc., you may need to use module to load them first. For how to, please see :ref:`load-module` section later in this documentation.
 
 There are two front end nodes in AiMOS.
 

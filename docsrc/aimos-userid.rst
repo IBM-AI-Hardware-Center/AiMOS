@@ -21,13 +21,12 @@ How to get a  user id on AiMOS?
 CCI User Information
 ^^^^^^^^^^^^^^^^^^^^
 
-https://secure.cci.rpi.edu/wiki/images/b/b1/CCI_User_Information_20140612.pdf
+https://secure.cci.rpi.edu/wiki/assets/forms/CCI_User_Information.pdf
 
 CCI User Responsibility Agreement
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-https://secure.cci.rpi.edu/wiki/images/b/b3/CCI_User_Responsibility_Agreement_20140612.pdf
-
+https://secure.cci.rpi.edu/wiki/assets/forms/CCI_User_Responsibility_Agreement.pdf
 
 Once the forms are processed, you will receive emails from **HPCman <hpcman@ccni.rpi.edu>** for your account ID and password reset token. The next step is to :ref:`set-password`.
 
@@ -38,7 +37,7 @@ Once the forms are processed, you will receive emails from **HPCman <hpcman@ccni
 Set your password
 ^^^^^^^^^^^^^^^^^
 
-You will receive the link similar to this, https://secure.cci.rpi.edu/password/?a=XXXXXXXXXXXXXXXX, where XXXXXXXXXXXXXXXX is your reset token. You need to use the link to reset your password.  After reset the password, the next step is to :ref:`set-challenge`.
+You will receive the link similar to this, https://secure.cci.rpi.edu/password/?a=XXXXXXXXXXXXXXXX, where XXXXXXXXXXXXXXXX is your reset token. You need to use the link to reset your password. Please note that you have 24 hours to reset your password after you receive the email. If you miss it, you need to send an email to support@ccni.rpi.edu to request for a new password reset token.  After reset the password, the next step is to :ref:`set-challenge`.
 
 .. _set-challenge:
 

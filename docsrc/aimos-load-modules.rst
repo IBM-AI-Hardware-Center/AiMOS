@@ -47,4 +47,4 @@ For example, you want to load cmake module and spectrum_mpi module
   (base) [your-id@dcsfen01 ~]$ which mpirun
   /opt/ibm/spectrum_mpi/bin/mpirun
 
-For more information see https://secure.cci.rpi.edu/wiki/index.php?title=Modules
+For more information see https://secure.cci.rpi.edu/wiki/examples/Modules/

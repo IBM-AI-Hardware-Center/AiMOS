@@ -1,14 +1,14 @@
 .. _setup-environment:
 
-Setting up the environment 
-==========================
+Set up your  environment 
+========================
 
 The following sections are the steps for setting up your environment.
 
 .. _setup-passwordless:
 
-Setting up passwordless
-^^^^^^^^^^^^^^^^^^^^^^^
+Set up passwordless
+^^^^^^^^^^^^^^^^^^^
 
 It is strongly recommended that you set up the passwordless to login to the front end nodes and compute nodes.  This is particularly required if you are running MPI workload.  You only need to do this once.
 The process consists of two steps: 
@@ -50,8 +50,8 @@ The following example assumes you already log in to either one of the landing pa
 
 .. _setup-proxy: 
  
-Setting up proxy
-^^^^^^^^^^^^^^^^
+Set up proxy
+^^^^^^^^^^^^
 
 It is strongly recommended that you set up the proxy by adding the following lines to your .bashrc. You only need to do this once.
 
