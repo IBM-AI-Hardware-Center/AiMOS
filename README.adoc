@@ -10,6 +10,9 @@ toc::[]
 
 
 ## What is AiMOS?
+
+**NOTE:**  For up to date of this documentation, please see https://ibm-ai-hardware-center.github.io/AiMOS/index.html
+
 The IBM Research AI Hardware Center is a global research hub headquartered in Albany, New York.
 The center is focused on enabling next-generation chips and systems that support the tremendous processing power and
 unprecedented speed that AI requires to realize its full potential.
@@ -24,22 +27,39 @@ Each compute node has:
 * 1.6 TB NVMe SSD storage
 * Dual, 100 Gb/sec Mellanox IB links
 
-For more information see https://secure.cci.rpi.edu/wiki/index.php?title=DCS_Supercomputer
+For more information see https://secure.cci.rpi.edu/wiki/clusters/DCS_Supercomputer/
 
 AiMOS uses Slurm for resource management and scheduler tool.  The front end nodes are for developing applications or building the AI frameworks if needed as well as issuing Slurm commands to allocate the compute nodes for testing and running applications.
 
-The following sections will provide you the basic steps to get you on-boarded to the AiMOS environment.  If you need any assistance, please post your questions to the https://ibm-research.slack.com/archives/CR271K4M7[aimos slack channel] or send email to kvtran@us.ibm.com and herger@us.ibm.com.
+## Getting Helps? 
 
+The following sections will provide you the basic steps to get you on-boarded to the AiMOS environment.  
+
+**Support Hours:**
+
+     *   H/W: M-F 8:00 AM - 5:00 PM EDT
+     *   S/W: M-F 9:00 AM - 5:00 PM EDT
+     *   Off hour support for emergency only based on best available.
+     *   Scheduled Maintenance:
+     ** Bi-weekly on Tuesday 8:00 AM - 5:00 PM EDT
+     ** Notification will be sent out to all users.
+     *   Unscheduled Maintenance:
+     ** Facility-related issues such as water, power, etc.
+     ** Security vulnerability with no work-around.
+
+If you do not find the answer for your questions in the documetation, please post your questions to the aimos slack channel that you have access to. If you do not have access to aimos slack channel please send email to herger@us.ibm.com.
+
+For emergency, please call Lorraine Herger by phone. You should find the phone number in the IBM Blue Pages.
 
 ## How to apply for a user id on AiMOS?
 
 You need to fill out the following forms, sign and send them to herger@us.ibm.com.
 
 ### CCI User Information
-https://secure.cci.rpi.edu/wiki/images/b/b1/CCI_User_Information_20140612.pdf
+https://secure.cci.rpi.edu/wiki/assets/forms/CCI_User_Information.pdf
 
 ### CCI User Responsibility Agreement
-https://secure.cci.rpi.edu/wiki/images/b/b3/CCI_User_Responsibility_Agreement_20140612.pdf
+https://secure.cci.rpi.edu/wiki/assets/forms/CCI_User_Responsibility_Agreement.pdf
 
 Once the forms are processed, you will receive emails from the system administrators at RPI for your account ID and temporary password. The next step is to <<set-your-password>>.
 
@@ -63,7 +83,7 @@ You now have everything you need to login to a landing pad node.
 
 ## What is the landing pad nodes?
 
-For more information see https://secure.cci.rpi.edu/wiki/index.php?title=Landing_pad
+For more information see https://secure.cci.rpi.edu/wiki/landingpads/
 
 Landing pad nodes are nodes that have an external IP.  You will need to login to one of the landing pad nodes before you can access the AiMOS systems.
 
@@ -190,7 +210,7 @@ This is the general user level filesystem view.
 * home directory contains a link to scratch, the user's personal scratch space.  It also contains a link to scratch-shared, the project's shared scratch space.
 * scratch and scratch-shared are meant as a temporary staging area for performing computation. Performance in this directory will be better than in the home or barn areas. This space does not have a quota. However, it will periodically be purged of files that are not used (either by read or write operation) in the last 56 days.  WARNING: If purging files that are not used in the last 56 days is not sufficient to maintain enough working space, the RPI team may purge all files with advance warning.
 
-For more information see https://secure.cci.rpi.edu/wiki/index.php?title=File_System
+For more information see https://secure.cci.rpi.edu/wiki/File_System/#home
 
 ## How is slurm workload manager configured in AiMOS environment?
 
@@ -206,7 +226,7 @@ Within a key partner’s “slice”, group projects are defined.
 * Inside each project, users accounts are created.
 * Sharing within a project i.e. between user accounts is not governed by the scheduler
 
-You can also refer to https://secure.cci.rpi.edu/wiki/index.php?title=Slurm for more information.
+You can also refer to https://secure.cci.rpi.edu/wiki/Slurm/ for more information.
 
 NOTE: You need to specify the time limit (-t <number of minutes>) on the Slurm command that you issue.  If not, you will get an error message for that.  The maximum time limit is set to 6 hours (360 mins) on AiMOS.
 
@@ -495,10 +515,12 @@ pkgs_dirs:
   - /gpfs/u/home/your-project/your-id/.conda/pkgs
 channels:
   - https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda
+  - powerai
   - defaults
+  - conda-forge
 ....
 
-As a best practice, you should install WML-CE in a new conda environment (i.e. not the base environment).  That would enable you to have different versions of WML-CE.
+As a best practice, you should install WML-CE in a new conda environment (i.e. not the base environment).  That would enable you to have different versions of WML-CE. **IMPORTANT:** You also need to specify the Python version since WML-CE 1.7.0 only supports python version 3.6 or 3.7.
 
 For more information on how to install WML-CE, see https://www.ibm.com/support/knowledgecenter/SS5SF7_1.7.0/navigation/wmlce_install.htm
 
