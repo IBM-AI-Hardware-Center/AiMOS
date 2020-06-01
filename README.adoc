@@ -11,7 +11,7 @@ toc::[]
 
 ## What is AiMOS?
 
-**NOTE:**  For up to date of this documentation, please see https://ibm-ai-hardware-center.github.io/AiMOS/index.html
+**NOTE:**  For the up to date of this documentation, please see https://ibm-ai-hardware-center.github.io/AiMOS/index.html
 
 The IBM Research AI Hardware Center is a global research hub headquartered in Albany, New York.
 The center is focused on enabling next-generation chips and systems that support the tremendous processing power and
