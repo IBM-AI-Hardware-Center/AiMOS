@@ -16,8 +16,6 @@ https://developer.ibm.com/linuxonpower/deep-learning-powerai/releases/
 
 * Conda is installed and activated. For more information see :ref:`install-conda`
 
-
-
 Set up ~/.condarc if needed.  If ~/.condarc does not exist, you can run the following command to generate it::
 
   conda config
@@ -33,9 +31,13 @@ Below is the example of .condarc file. You need replace *your-project* with your
     - /gpfs/u/home/your-project/<your-id>/.conda/pkgs
   channels:
     - https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda
+    - powerai
     - defaults
+    - conda-forge
 
-As a best practice, you should install WML-CE in a new conda environment (i.e. not the base environment).  That would enable you to have different versions of WML-CE.
+As a best practice, you should install WML-CE in a new conda environment (i.e. not the base environment).  That would enable you to have different versions of WML-CE. 
+
+**IMPORTANT:**  You also need to specify the python version since the only valid Python versions with WML CE are Python 3.6 and 3.7.
 
 For more information on how to install WML-CE, see https://www.ibm.com/support/knowledgecenter/SS5SF7_1.7.0/navigation/wmlce_install.htm
 
