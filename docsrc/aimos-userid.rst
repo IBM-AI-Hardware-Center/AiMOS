@@ -66,3 +66,22 @@ The last step is to choose the Personal Identification code (PIC). The PIC is ca
 
 You now have everything you need to login to a landing pad node.
 
+
+Join aimos slack channel
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+**IMPORTANT:**  Do not forget to join the aimos slack channel for information, questions and answers. Here are the list of the aimos slack channels:
+
+
+* #aimos for IBM Researchers.
+
+* #aimos_cleveland_clinic-guest
+
+* #aimos_kla-guest
+
+* #aimos_tel-guest
+
+* #aimos_synopsys-guest
+
+
+You may need to send an email to Lorraine Herger (herger@us.ibm.com) to request for joining the slack channel.
