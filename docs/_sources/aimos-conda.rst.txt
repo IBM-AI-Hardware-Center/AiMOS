@@ -17,8 +17,9 @@ Download the the Miniconda3 installer if needed.
 
   wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-ppc64le.sh
 
+For more information see https://secure.cci.rpi.edu/wiki/software/Conda/
 
-Install the miniconda environment to the scratch directory.
+This is an example for install the ppc64le miniconda environment to the scratch directory.
 
 .. code:: bash
 

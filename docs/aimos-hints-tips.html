@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How to transfer data in and out of AiMOS? &mdash; AiMOS 0.0.1 documentation</title>
+  <title>Hints and Tips &mdash; AiMOS 0.0.1 documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Example for using ddlrun to run a distributed job?" href="aimos-ddlrun.html" />
-    <link rel="prev" title="How to request for NVMe storage on the compute nodes?" href="aimos-nvme.html" /> 
+    <link rel="next" title="Getting Help?" href="aimos-getting-help.html" />
+    <link rel="prev" title="Example for using ddlrun to run a distributed job?" href="aimos-ddlrun.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,9 +96,14 @@
 <li class="toctree-l1"><a class="reference internal" href="aimos-startjupyter.html">How to Start Jupyter notebook?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-tunneling.html">How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-nvme.html">How to request for NVMe storage on the compute nodes?</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">How to transfer data in and out of AiMOS?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-copydata.html">How to transfer data in and out of AiMOS?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-ddlrun.html">Example for using ddlrun to run a distributed job?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-hints-tips.html">Hints and Tips</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Hints and Tips</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general">General:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dcs-cluster-power">DCS Cluster (Power):</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#npl-cluster-x86">NPL Cluster (X86):</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
 </ul>
 
@@ -145,13 +150,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>How to transfer data in and out of AiMOS?</li>
+      <li>Hints and Tips</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/aimos-copydata.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/aimos-hints-tips.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -164,29 +169,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="how-to-transfer-data-in-and-out-of-aimos">
-<h1>How to transfer data in and out of AiMOS?<a class="headerlink" href="#how-to-transfer-data-in-and-out-of-aimos" title="Permalink to this headline">¶</a></h1>
-<p><strong>IMPORTANT</strong>: You MUST initiate the copy operation from your desktop/laptop.</p>
-<p>You use <strong>scp</strong> command on your desktop/laptop to copy the data from or to the landing pad node.  Since the same gpfs file system is mounted on the landing pad nodes, front end nodes and compute nodes, the data will be available and accessible on all the nodes. For example:</p>
-<ul class="simple">
-<li><p>Copy some jupyter notebooks from a Linux system to the landing pad node blp01.ccni.edu.</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ scp multigpu_basic*.ipynb your-id@blp01.ccni.rpi.edu:~/scratch-shared/jupyter-notebooks
-PIC+Token:
-Password:
-multigpu_basic.ipynb                                                                   <span class="m">100</span>% <span class="m">6330</span>    <span class="m">79</span>.3KB/s   <span class="m">00</span>:00
-multigpu_basics.ipynb                                                                  <span class="m">100</span>% <span class="m">4258</span>    <span class="m">55</span>.0KB/s   <span class="m">00</span>:00
-</pre></div>
+  <div class="section" id="hints-and-tips">
+<span id="id1"></span><h1>Hints and Tips<a class="headerlink" href="#hints-and-tips" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="general">
+<h2>General:<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>You must be in the front end node to set up your system environment.</p></li>
+<li><p>You must be in the front end node to install conda or create a new conda environment.</p></li>
+</ol>
 </div>
-<ul class="simple">
-<li><p>Copy in.lj from the landing pad node blp01.ccni.rpi.edu to a directory on a Windows system.</p></li>
-</ul>
-<p>From a Command Prompt Terminal</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\D</span>-disk<span class="se">\H</span>PC&gt;scp BMHRkmkh@blp01.ccni.rpi.edu:~/scratch-shared/in.lj .
-PIC+Token:
-Password:
-in.lj                                                                                 <span class="m">100</span>%  <span class="m">344</span>     <span class="m">4</span>.1KB/s   <span class="m">00</span>:00
-</pre></div>
+<div class="section" id="dcs-cluster-power">
+<h2>DCS Cluster (Power):<a class="headerlink" href="#dcs-cluster-power" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>If you want to use the  Powers System cluster, i.e. DCS Cluster, log in to the dcsfen01.ccni.rpi.edu node or dcsfen02.ccni.rpi.edu node.</p></li>
+<li><p>Note that spectrum_mpi is installed in the DCS Cluster. You can use <strong>module spider</strong> to find all possible modules and extensions.</p></li>
+</ol>
+</div>
+<div class="section" id="npl-cluster-x86">
+<h2>NPL Cluster (X86):<a class="headerlink" href="#npl-cluster-x86" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>If you want to use the  x86 cluster, i.e. NPL Cluster, log in to the nplfen01.ccni.rpi.edu node.</p></li>
+<li><p>For the NPL cluster, avoid using system memory together with GPU memory since the data transfer is using the PCI bus. It is not the high speed connection.</p></li>
+<li><p>Note that openmpi is installed in the NPL Cluster.  You can use <strong>module spider</strong> to find all possible modules and extensions.</p></li>
+</ol>
 </div>
 </div>
 
@@ -198,10 +203,10 @@ in.lj                                                                           
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="aimos-ddlrun.html" class="btn btn-neutral float-right" title="Example for using ddlrun to run a distributed job?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="aimos-getting-help.html" class="btn btn-neutral float-right" title="Getting Help?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="aimos-nvme.html" class="btn btn-neutral float-left" title="How to request for NVMe storage on the compute nodes?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="aimos-ddlrun.html" class="btn btn-neutral float-left" title="Example for using ddlrun to run a distributed job?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

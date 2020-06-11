@@ -86,7 +86,8 @@
 <li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">How to get a  user id on AiMOS?</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">How to login to AiMOS?</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#ssh-to-a-landing-pad-node">ssh to a landing pad node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ssh-to-a-front-end-node">ssh to a front end node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssh-to-a-dcs-front-end-node">ssh to a DCS front end node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssh-to-the-npl-front-end-node">ssh to the NPL front end node</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-setup-env.html">Set up your  environment</a></li>
@@ -102,6 +103,7 @@
 <li class="toctree-l1"><a class="reference internal" href="aimos-nvme.html">How to request for NVMe storage on the compute nodes?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-copydata.html">How to transfer data in and out of AiMOS?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-ddlrun.html">Example for using ddlrun to run a distributed job?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-hints-tips.html">Hints and Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
 </ul>
 
@@ -169,7 +171,8 @@
             
   <div class="section" id="how-to-login-to-aimos">
 <span id="how-to-login"></span><h1>How to login to AiMOS?<a class="headerlink" href="#how-to-login-to-aimos" title="Permalink to this headline">¶</a></h1>
-<p>The assumption is that you have already obtained your user ID for AiMOS.  If that is not the case,  please see <a class="reference internal" href="aimos-userid.html#get-user-id-section"><span class="std std-ref">How to get a  user id on AiMOS?</span></a></p>
+<p>The assumption is that you have already obtained your user ID for AiMOS.  If that is not the case,  please see <a class="reference internal" href="aimos-userid.html#get-user-id-section"><span class="std std-ref">How to get a  user id on AiMOS?</span></a>.</p>
+<p><strong>Note:</strong> that the list of ID that you have works on both DCS and NPL clusters.</p>
 <p>The steps are ssh to one of the landing pad nodes, then from there ssh to one of the front end nodes.  For the list of the landing pad nodes and front end nodes, please see <a class="reference internal" href="aimos-basics.html#what-is-aimos"><span class="std std-ref">What is AiMOS?</span></a></p>
 <div class="section" id="ssh-to-a-landing-pad-node">
 <h2>ssh to a landing pad node<a class="headerlink" href="#ssh-to-a-landing-pad-node" title="Permalink to this headline">¶</a></h2>
@@ -207,8 +210,8 @@ Last login: Fri Mar  6 15:41:57 2020 from 70.113.9.236
 </div>
 <p>If this is the first time you login to one of the landing pad nodes using your user id, it is strongly recommended that you set up passwordless and proxy.  For how to see <a class="reference internal" href="aimos-setup-env.html#setup-environment"><span class="std std-ref">Set up your  environment</span></a>. The next step is to login to a front end node.</p>
 </div>
-<div class="section" id="ssh-to-a-front-end-node">
-<h2>ssh to a front end node<a class="headerlink" href="#ssh-to-a-front-end-node" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ssh-to-a-dcs-front-end-node">
+<h2>ssh to a DCS front end node<a class="headerlink" href="#ssh-to-a-dcs-front-end-node" title="Permalink to this headline">¶</a></h2>
 <p>From the landing pad node, you ssh to the one of the front end nodes.  There are two front end nodes:</p>
 <ul class="simple">
 <li><p>dcsfen01</p></li>
@@ -230,6 +233,14 @@ Last login: Fri Feb <span class="m">28</span> <span class="m">11</span>:43:56 <s
 **     Use is subject to the terms of the policy <span class="k">for</span>           **
 **     Acceptable Use of CCI Resources.                        **
 **                                                             **
+</pre></div>
+</div>
+</div>
+<div class="section" id="ssh-to-the-npl-front-end-node">
+<h2>ssh to the NPL front end node<a class="headerlink" href="#ssh-to-the-npl-front-end-node" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>BMHRkmkh@blp01 ~<span class="o">]</span>$ ssh nplfen01
+Last login: Thu Jun <span class="m">11</span> <span class="m">14</span>:40:36 <span class="m">2020</span> from blp01.ccni.rpi.edu
+<span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>BMHRkmkh@npl41 ~<span class="o">]</span>$
 </pre></div>
 </div>
 </div>

@@ -3,7 +3,9 @@
 How to login to AiMOS?
 ======================
 
-The assumption is that you have already obtained your user ID for AiMOS.  If that is not the case,  please see :ref:`get-user-id-section`
+The assumption is that you have already obtained your user ID for AiMOS.  If that is not the case,  please see :ref:`get-user-id-section`.
+
+**Note:** that the list of ID that you have works on both DCS and NPL clusters.
 
 The steps are ssh to one of the landing pad nodes, then from there ssh to one of the front end nodes.  For the list of the landing pad nodes and front end nodes, please see :ref:`what-is-aimos`
 
@@ -49,8 +51,8 @@ For example:
 
 If this is the first time you login to one of the landing pad nodes using your user id, it is strongly recommended that you set up passwordless and proxy.  For how to see :ref:`setup-environment`. The next step is to login to a front end node.
 
-ssh to a front end node
-^^^^^^^^^^^^^^^^^^^^^^^
+ssh to a DCS front end node
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 From the landing pad node, you ssh to the one of the front end nodes.  There are two front end nodes:
 
@@ -77,4 +79,13 @@ If you need information on how to set up passwordless, please see :ref:`setup-en
   **     Acceptable Use of CCI Resources.                        **
   **                                                             **
 
+
+ssh to the NPL front end node
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code:: bash
+
+   [BMHRkmkh@blp01 ~]$ ssh nplfen01
+   Last login: Thu Jun 11 14:40:36 2020 from blp01.ccni.rpi.edu
+   (base) [BMHRkmkh@npl41 ~]$
 
