@@ -103,6 +103,7 @@
 <li class="toctree-l1"><a class="reference internal" href="aimos-nvme.html">How to request for NVMe storage on the compute nodes?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-copydata.html">How to transfer data in and out of AiMOS?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-ddlrun.html">Example for using ddlrun to run a distributed job?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-hints-tips.html">Hints and Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
 </ul>
 
@@ -171,16 +172,26 @@
   <div class="section" id="what-is-aimos">
 <span id="id1"></span><h1>What is AiMOS?<a class="headerlink" href="#what-is-aimos" title="Permalink to this headline">¶</a></h1>
 <p>AiMOS (short for <strong>A</strong>rtificial <strong>I</strong>ntelligence <strong>M</strong>ultiprocessing <strong>O</strong>ptimized <strong>S</strong>ystem) serves as the test bed for
-the IBM Research AI Hardware Center. AiMOS consists of two(2) front end nodes and two hundred and fifty two(252) AC922 compute nodes configured in a fourteen(14) rack system.</p>
-<p>Each compute node has:</p>
+the IBM Research AI Hardware Center.  AiMOS consists of two(2) clusters:</p>
 <ul class="simple">
+<li><p><a class="reference external" href="https://secure.cci.rpi.edu/wiki/clusters/DCS_Supercomputer">DCS Cluster</a> has two hundred and fifty two(252) AC922 compute nodes configured in a fourteen(14) rack system. Each compute node has:</p>
+<ul>
 <li><p>2 x 20-core POWER9 processors (Summit’s variant)</p></li>
 <li><p>6 x NVIDIA Volta V100 GPUs with 32 GB of HBM each</p></li>
 <li><p>512 GB of DRAM</p></li>
 <li><p>1.6 TB NVMe SSD storage</p></li>
 <li><p>Dual, 100 Gb/sec Mellanox IB links</p></li>
 </ul>
-<p>For more information see <a class="reference external" href="https://secure.cci.rpi.edu/wiki/clusters/DCS_Supercomputer">https://secure.cci.rpi.edu/wiki/clusters/DCS_Supercomputer</a></p>
+</li>
+<li><p><a class="reference external" href="https://secure.cci.rpi.edu/wiki/clusters/NPL_Cluster">NPL Cluster</a> contains 40 nodes, each with:</p>
+<ul>
+<li><p>2x 20 core 2.5 GHz Intel Xeon Gold 6248</p></li>
+<li><p>8x NVIDIA Tesla V100 GPU each with 32 GiB HBM</p></li>
+<li><p>768 GiB RAM per node</p></li>
+<li><p>Dual 100 Gb EDR Infiniband</p></li>
+</ul>
+</li>
+</ul>
 <p>There are the landing pad nodes and the front end nodes in addition to the compute nodes in AiMOS. <a class="reference external" href="https://slurm.schedmd.com/overview.html">Slurm</a> is used for resource management and job scheduler.</p>
 <div class="section" id="what-are-the-landing-pad-nodes">
 <h2>What are the landing pad nodes?<a class="headerlink" href="#what-are-the-landing-pad-nodes" title="Permalink to this headline">¶</a></h2>
@@ -197,19 +208,20 @@ the IBM Research AI Hardware Center. AiMOS consists of two(2) front end nodes an
 <div class="section" id="what-are-the-front-end-nodes">
 <h2>What are the front end nodes?<a class="headerlink" href="#what-are-the-front-end-nodes" title="Permalink to this headline">¶</a></h2>
 <p>The front end nodes (a.k.a. login nodes) are nodes where you find Slurm, compilers, libraries, headers, development tools, etc. This is where you build your executables if needed, issue Slurm commands to submit jobs. In order to see some of the executables, libraries, etc., you may need to use module to load them first. For how to, please see <a class="reference internal" href="aimos-load-modules.html#load-module"><span class="std std-ref">How to load different modules for your development and testing?</span></a> section later in this documentation.</p>
-<p>There are two front end nodes in AiMOS.</p>
+<p>There are two front end nodes for DCS Cluster:</p>
 <ul class="simple">
 <li><p>dcsfen01.ccni.rpi.edu</p></li>
 <li><p>dcsfen02.ccni.rpi.edu</p></li>
 </ul>
+<p>There is one front end node for NPL Cluster:</p>
+<ul class="simple">
+<li><p>nplfen01.ccni.rpi.edu</p></li>
+</ul>
+<p>For more information see <a class="reference external" href="https://secure.cci.rpi.edu/wiki/clusters/">https://secure.cci.rpi.edu/wiki/clusters/</a></p>
 </div>
 <div class="section" id="what-are-the-compute-nodes">
 <h2>What are the compute nodes?<a class="headerlink" href="#what-are-the-compute-nodes" title="Permalink to this headline">¶</a></h2>
-<p>Compute nodes are nodes where you execute your application.  There are 252 compute nodes in AiMOS.  They are AC922 with 6 GPU each. You can only log in to the compute nodes that are allocated to you via Slurm commands.</p>
-<ul class="simple">
-<li><p>dcs001 - dcs216</p></li>
-<li><p>dcs235 - dcs270</p></li>
-</ul>
+<p>Compute nodes are nodes where you execute your application.  There are 252 compute nodes in DCS Cluster and 40 compute nodes in NPL Cluster in AiMOS. You can only log in to the compute nodes that are allocated to you via Slurm commands.</p>
 </div>
 </div>
 

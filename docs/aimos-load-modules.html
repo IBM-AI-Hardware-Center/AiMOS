@@ -98,6 +98,7 @@
 <li class="toctree-l1"><a class="reference internal" href="aimos-nvme.html">How to request for NVMe storage on the compute nodes?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-copydata.html">How to transfer data in and out of AiMOS?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-ddlrun.html">Example for using ddlrun to run a distributed job?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-hints-tips.html">Hints and Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
 </ul>
 
@@ -166,7 +167,48 @@
   <div class="section" id="how-to-load-different-modules-for-your-development-and-testing">
 <span id="load-module"></span><h1>How to load different modules for your development and testing?<a class="headerlink" href="#how-to-load-different-modules-for-your-development-and-testing" title="Permalink to this headline">¶</a></h1>
 <p>In AiMOS environment, you can use <strong>module</strong> to load the required tools and libraries for your development and testing.</p>
-<p>List the available modules on the node:</p>
+<p>List the complete list of available modules and extenstions, use <strong>module spider</strong>.  For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> <span class="o">[</span>BMHRkmkh@dcsfen01<span class="o">]</span>$ module spider
+
+ -----------------------------------------------------------------------------------------------------------------------------------
+ The following is a list of the modules and extensions currently available:
+ -----------------------------------------------------------------------------------------------------------------------------------
+  automake: automake/1.16.1
+    Automake
+
+  bazel: bazel/0.17.2/1, bazel/0.18.1/1, bazel/0.18.0/1, bazel/0.21.0/1
+    Bazel build system
+
+  ccache: ccache/3.5/1
+    ccache compiler cache
+
+  clang: clang/7.0.0/1
+    LLVM + clang
+
+  cmake: cmake/3.17.2
+    CMake
+
+  cuda: cuda/10.1, cuda/10.2
+    NVIDIA CUDA
+
+  fftw: fftw/3.3.8/1
+    FFTW
+
+  gcc: gcc/6.4.0/1, gcc/6.5.0/1, gcc/7.4.0/1, gcc/8.1.0/1, gcc/8.2.0/1, gcc/8.4.0/1
+    GNU Compiler Collection <span class="o">(</span>gcc<span class="o">)</span>
+
+  git: git/2.25.1
+    git
+
+  hdf5: hdf5/1.10.3/1
+    HDF5
+
+  hwloc: hwloc/2.0.2/1
+    hwloc
+--More--
+</pre></div>
+</div>
+<p>You can also use <strong>module avail</strong> to list the available modules as well.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$ module available
 
 ------------------------------- /gpfs/u/software/ppc64le-rhel7/modulefiles --------------------------------

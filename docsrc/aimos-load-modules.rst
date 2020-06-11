@@ -5,7 +5,51 @@ How to load different modules for your development and testing?
 
 In AiMOS environment, you can use **module** to load the required tools and libraries for your development and testing.
 
-List the available modules on the node:
+List the complete list of available modules and extenstions, use **module spider**.  For example:
+
+.. code:: bash
+
+   [BMHRkmkh@dcsfen01]$ module spider
+
+   -----------------------------------------------------------------------------------------------------------------------------------
+   The following is a list of the modules and extensions currently available:
+   -----------------------------------------------------------------------------------------------------------------------------------
+    automake: automake/1.16.1
+      Automake
+
+    bazel: bazel/0.17.2/1, bazel/0.18.1/1, bazel/0.18.0/1, bazel/0.21.0/1
+      Bazel build system
+
+    ccache: ccache/3.5/1
+      ccache compiler cache
+
+    clang: clang/7.0.0/1
+      LLVM + clang
+
+    cmake: cmake/3.17.2
+      CMake
+
+    cuda: cuda/10.1, cuda/10.2
+      NVIDIA CUDA
+
+    fftw: fftw/3.3.8/1
+      FFTW
+
+    gcc: gcc/6.4.0/1, gcc/6.5.0/1, gcc/7.4.0/1, gcc/8.1.0/1, gcc/8.2.0/1, gcc/8.4.0/1
+      GNU Compiler Collection (gcc)
+
+    git: git/2.25.1
+      git
+
+    hdf5: hdf5/1.10.3/1
+      HDF5
+
+    hwloc: hwloc/2.0.2/1
+      hwloc
+  --More--
+
+
+You can also use **module avail** to list the available modules as well.
 
 .. code:: bash
 
@@ -46,5 +90,7 @@ For example, you want to load cmake module and spectrum_mpi module
   (base) [your-id@dcsfen01 ~]$ module load spectrum-mpi
   (base) [your-id@dcsfen01 ~]$ which mpirun
   /opt/ibm/spectrum_mpi/bin/mpirun
+
+
 
 For more information see https://secure.cci.rpi.edu/wiki/examples/Modules/

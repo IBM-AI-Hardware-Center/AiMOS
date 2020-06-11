@@ -25,6 +25,7 @@ The IBM Research AI Hardware Center is a global research hub headquartered in Al
    aimos-nvme.rst
    aimos-copydata.rst
    aimos-ddlrun.rst
+   aimos-hints-tips.rst
    aimos-getting-help.rst
 
 
