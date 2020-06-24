@@ -3,6 +3,8 @@
 How to request for NVMe storage on the compute nodes?
 =====================================================
 
+**NOTE:** NVMe storage is only available on the DCS cluster.  It is not yet available on the NPL cluster.
+
 To request NVMe storage, specify --gres=nvme with your Slurm commands. This can be combined with other requests, such as GPUs. When the first job step starts, the system will initialize the storage and create the path /mnt/nvme/uid_${SLURM_JOB_UID}/job_${SLURM_JOBID}.
 
 .. code:: bash
