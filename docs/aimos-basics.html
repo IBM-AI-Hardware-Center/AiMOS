@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>What is AiMOS? &mdash; AiMOS 0.0.1 documentation</title>
+  <title>AiMOS Overview &mdash; AiMOS 0.0.1 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="How to get a user id on AiMOS?" href="aimos-userid.html" />
+    <link rel="next" title="Access to AiMOS" href="aimos-userid.html" />
     <link rel="prev" title="AiMOS Quick Start Information" href="index.html" /> 
 </head>
 
@@ -82,27 +82,17 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">What is AiMOS?</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AiMOS Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#what-are-the-landing-pad-nodes">What are the landing pad nodes?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-are-the-front-end-nodes">What are the front end nodes?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-are-the-compute-nodes">What are the compute nodes?</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">How to get a  user id on AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-login.html">How to login to AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-setup-env.html">Set up your  environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-gpfs.html">What is the GPFS disk space on the nodes?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-slurm-basics.html">Slurm Resource Manager and Job Scheduler in AiMOS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">How to submit a job via Slurm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-load-modules.html">How to load different modules for your development and testing?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-conda.html">How to install the conda environment?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-wmlce.html">How to install WML-CE (a.k.a PowerAI)?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-jupyter.html">How to install Jupyter notebook?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-startjupyter.html">How to Start Jupyter notebook?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-tunneling.html">How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-nvme.html">How to request for NVMe storage on the compute nodes?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-copydata.html">How to transfer data in and out of AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-ddlrun.html">Example for using ddlrun to run a distributed job?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">Access to AiMOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-env-basics.html">AiMOS Environment Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-workload.html">Set up the workload environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">Submit jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-benchmark.html">AI Benchmarks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-hints-tips.html">Hints and Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
 </ul>
@@ -150,7 +140,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>What is AiMOS?</li>
+      <li>AiMOS Overview</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -169,12 +159,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="what-is-aimos">
-<span id="id1"></span><h1>What is AiMOS?<a class="headerlink" href="#what-is-aimos" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="aimos-overview">
+<span id="what-is-aimos"></span><h1>AiMOS Overview<a class="headerlink" href="#aimos-overview" title="Permalink to this headline">¶</a></h1>
 <p>AiMOS (short for <strong>A</strong>rtificial <strong>I</strong>ntelligence <strong>M</strong>ultiprocessing <strong>O</strong>ptimized <strong>S</strong>ystem) serves as the test bed for
 the IBM Research AI Hardware Center.  AiMOS consists of two(2) clusters:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://secure.cci.rpi.edu/wiki/clusters/DCS_Supercomputer">DCS Cluster</a> has two hundred and fifty two(252) AC922 compute nodes configured in a fourteen(14) rack system. Each compute node has:</p>
+<li><p><a class="reference external" href="https://secure.cci.rpi.edu/wiki/clusters/DCS_Supercomputer">DCS Cluster</a> has two hundred and fifty two(252) IBM Powers System  AC922 compute nodes configured in a fourteen(14) rack system. Each compute node has:</p>
 <ul>
 <li><p>2 x 20-core POWER9 processors (Summit’s variant)</p></li>
 <li><p>6 x NVIDIA Volta V100 GPUs with 32 GB of HBM each</p></li>
@@ -183,7 +173,7 @@ the IBM Research AI Hardware Center.  AiMOS consists of two(2) clusters:</p>
 <li><p>Dual, 100 Gb/sec Mellanox IB links</p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="https://secure.cci.rpi.edu/wiki/clusters/NPL_Cluster">NPL Cluster</a> contains 40 nodes, each with:</p>
+<li><p><a class="reference external" href="https://secure.cci.rpi.edu/wiki/clusters/NPL_Cluster">NPL Cluster</a>, sometimes referred as AiMOSx, contains 40 x86 HPE nodes, each with:</p>
 <ul>
 <li><p>2x 20 core 2.5 GHz Intel Xeon Gold 6248</p></li>
 <li><p>8x NVIDIA Tesla V100 GPU each with 32 GiB HBM</p></li>
@@ -192,10 +182,10 @@ the IBM Research AI Hardware Center.  AiMOS consists of two(2) clusters:</p>
 </ul>
 </li>
 </ul>
-<p>There are the landing pad nodes and the front end nodes in addition to the compute nodes in AiMOS. <a class="reference external" href="https://slurm.schedmd.com/overview.html">Slurm</a> is used for resource management and job scheduler.</p>
+<p>There are also the landing pad nodes  and the front end nodes in addition to the compute nodes in AiMOS. <a class="reference external" href="https://slurm.schedmd.com/overview.html">Slurm</a> is used for resource management and job scheduler.</p>
 <div class="section" id="what-are-the-landing-pad-nodes">
 <h2>What are the landing pad nodes?<a class="headerlink" href="#what-are-the-landing-pad-nodes" title="Permalink to this headline">¶</a></h2>
-<p>Landing pad nodes are nodes that have an external IP for you to log in. You will need to log in to one of the landing pad nodes before you can access the AiMOS systems.</p>
+<p>Landing pad nodes are nodes that have an external IP for you to log in before you can access the AiMOS environment.</p>
 <p>There are 4 landing pad nodes for AiMOS:</p>
 <ul class="simple">
 <li><p>blp01.ccni.rpi.edu</p></li>
@@ -207,7 +197,7 @@ the IBM Research AI Hardware Center.  AiMOS consists of two(2) clusters:</p>
 </div>
 <div class="section" id="what-are-the-front-end-nodes">
 <h2>What are the front end nodes?<a class="headerlink" href="#what-are-the-front-end-nodes" title="Permalink to this headline">¶</a></h2>
-<p>The front end nodes (a.k.a. login nodes) are nodes where you find Slurm, compilers, libraries, headers, development tools, etc. This is where you build your executables if needed, issue Slurm commands to submit jobs. In order to see some of the executables, libraries, etc., you may need to use module to load them first. For how to, please see <a class="reference internal" href="aimos-load-modules.html#load-module"><span class="std std-ref">How to load different modules for your development and testing?</span></a> section later in this documentation.</p>
+<p>The front end nodes (a.k.a. login nodes) are nodes where you find Slurm commands, compilers, libraries, headers, development tools, etc. This is where you build your executables if needed, issue Slurm commands to submit jobs. In order to see some of the executables, libraries, etc., you may need to use module to load them first. For how to, please see <a class="reference internal" href="aimos-workload.html#load-module"><span class="std std-ref">Load additional tools and libraries via module</span></a> section later in this documentation. There are different front end nodes for DCS and NPL clusters.</p>
 <p>There are two front end nodes for DCS Cluster:</p>
 <ul class="simple">
 <li><p>dcsfen01.ccni.rpi.edu</p></li>
@@ -221,7 +211,7 @@ the IBM Research AI Hardware Center.  AiMOS consists of two(2) clusters:</p>
 </div>
 <div class="section" id="what-are-the-compute-nodes">
 <h2>What are the compute nodes?<a class="headerlink" href="#what-are-the-compute-nodes" title="Permalink to this headline">¶</a></h2>
-<p>Compute nodes are nodes where you execute your application.  There are 252 compute nodes in DCS Cluster and 40 compute nodes in NPL Cluster in AiMOS. You can only log in to the compute nodes that are allocated to you via Slurm commands.</p>
+<p>Compute nodes are nodes where you run your application.  There are 252 compute nodes in DCS Cluster and 40 compute nodes in NPL Cluster in AiMOS. You can only log in to the compute nodes that are allocated to you via Slurm commands.</p>
 </div>
 </div>
 
@@ -233,7 +223,7 @@ the IBM Research AI Hardware Center.  AiMOS consists of two(2) clusters:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="aimos-userid.html" class="btn btn-neutral float-right" title="How to get a user id on AiMOS?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="aimos-userid.html" class="btn btn-neutral float-right" title="Access to AiMOS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="AiMOS Quick Start Information" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

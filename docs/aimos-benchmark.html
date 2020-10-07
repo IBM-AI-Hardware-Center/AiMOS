@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AI Benchmarks &mdash; AiMOS 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Hints and Tips" href="aimos-hints-tips.html" />
+    <link rel="prev" title="Submit jobs" href="aimos-submit-job.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AiMOS
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">AiMOS Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">Access to AiMOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-env-basics.html">AiMOS Environment Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-workload.html">Set up the workload environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">Submit jobs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AI Benchmarks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#common-ai-datasets-cads-repository">Common AI Datasets (CADS) Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-ai-benchmarks-cabs-repository">Common AI Benchmarks (CABS) Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#monitoring-tools">Monitoring Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tensorboard">Tensorboard</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#code-snippets-to-collect-the-data">Code Snippets to collect the data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#visualize-the-data">Visualize the data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#nvidia-smi">nvidia-smi</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Visualize the data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-hints-tips.html">Hints and Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AiMOS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>AI Benchmarks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/aimos-benchmark.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ai-benchmarks">
+<h1>AI Benchmarks<a class="headerlink" href="#ai-benchmarks" title="Permalink to this headline">¶</a></h1>
+<p>This section provides the information and steps that we used to run some of the benchmarks on AiMOS.</p>
+<div class="section" id="common-ai-datasets-cads-repository">
+<h2>Common AI Datasets (CADS) Repository<a class="headerlink" href="#common-ai-datasets-cads-repository" title="Permalink to this headline">¶</a></h2>
+<p>This repository contains a set of open-sourced AI datasets are made available to AiMOS users.  It is for the ease of access for benchmarking and experimentation.</p>
+<p>If you are interested in having access to the repository, you need to place a request in your respective #aimos-xxx slack channel.
+You can request additional data sets to be placed in the repo. Requests can be placed in your respective slack channel.</p>
+<p>The CADS repository is in directory: <strong>/gpfs/u/locker/200/CADS/datasets</strong></p>
+<div class="figure align-default">
+<img alt="_images/ai-datasets.png" src="_images/ai-datasets.png" />
+</div>
+</div>
+<div class="section" id="common-ai-benchmarks-cabs-repository">
+<h2>Common AI Benchmarks (CABS) Repository<a class="headerlink" href="#common-ai-benchmarks-cabs-repository" title="Permalink to this headline">¶</a></h2>
+<p>This repository contains sample scripts, experiment setup, datasets, etc, that were used to run the common benchmarks, such as ResNet-50, MobileNetV2, <a class="reference external" href="https://fairseq.readthedocs.io/en/latest/index.html">Fairseq</a>, etc.</p>
+<p>See the repository at: <a class="reference external" href="https://github.com/IBM-AI-Hardware-Center/AiMOS-CABS">https://github.com/IBM-AI-Hardware-Center/AiMOS-CABS</a></p>
+</div>
+<div class="section" id="monitoring-tools">
+<h2>Monitoring Tools<a class="headerlink" href="#monitoring-tools" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tensorboard">
+<h3>Tensorboard<a class="headerlink" href="#tensorboard" title="Permalink to this headline">¶</a></h3>
+<p>Tensorboard is a data visualization toolkits for machine learning experimentation.  For more information see <a class="reference external" href="https://www.tensorflow.org/tensorboard/get_started">https://www.tensorflow.org/tensorboard/get_started</a>.</p>
+<p>In order to use Tensorboard to visualize the data, you need to collect the data that you want to visualize.  For Pytorch, you can use the integrated Tensorboard to collect Tensorboard data.  For documentation, see <a class="reference external" href="https://pytorch.org/docs/stable/tensorboard.html">https://pytorch.org/docs/stable/tensorboard.html</a>.  For tutorial, see <a class="reference external" href="https://pytorch.org/tutorials/recipes/recipes/tensorboard_with_pytorch.html">https://pytorch.org/tutorials/recipes/recipes/tensorboard_with_pytorch.html</a></p>
+<div class="section" id="code-snippets-to-collect-the-data">
+<h4>Code Snippets to collect the data<a class="headerlink" href="#code-snippets-to-collect-the-data" title="Permalink to this headline">¶</a></h4>
+<p>Define the directory to store the collected data.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>parser.add_argument<span class="o">(</span><span class="s1">&#39;--log-dir&#39;</span>, <span class="nv">default</span><span class="o">=</span><span class="s1">&#39;./logs&#39;</span>,
+                 <span class="nv">help</span><span class="o">=</span><span class="s1">&#39;tensorboard log directory&#39;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Import tensorboard class and set the logwritter.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>try:
+  from torch.utils.tensorboard import SummaryWriter
+  <span class="nv">log_writer</span> <span class="o">=</span> SummaryWriter<span class="o">(</span>args.log_dir<span class="o">)</span> <span class="k">if</span> args.global_rank <span class="o">==</span> <span class="m">0</span> <span class="k">else</span> None
+except ImportError:
+  <span class="nv">log_writer</span> <span class="o">=</span> None
+</pre></div>
+</div>
+<p>In the train loop, collect the data:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> log_writer:
+  log_writer.add_scalar<span class="o">(</span><span class="s1">&#39;train/loss&#39;</span>, losses.avg, epoch<span class="o">)</span>
+  log_writer.add_scalar<span class="o">(</span><span class="s1">&#39;train/accuracy&#39;</span>, top1.avg, epoch<span class="o">)</span>
+</pre></div>
+</div>
+<p>In the validation loop, collect the data:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> log_writer:
+  log_writer.add_scalar<span class="o">(</span><span class="s1">&#39;val/loss&#39;</span>, losses.avg, epoch<span class="o">)</span>
+  log_writer.add_scalar<span class="o">(</span><span class="s1">&#39;val/accuracy&#39;</span>, top1.avg, epoch<span class="o">)</span>
+</pre></div>
+</div>
+<p>You should see the collected data in the ./logs directory as defined above.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>events.out.tfevents.1600877997.dcs049.ccni.rpi.edu.134021.0
+events.out.tfevents.1600903856.dcs003.ccni.rpi.edu.42871.0
+events.out.tfevents.1600904287.dcs026.ccni.rpi.edu.23978.0
+events.out.tfevents.1600907411.dcs009.ccni.rpi.edu.16523.0
+</pre></div>
+</div>
+</div>
+<div class="section" id="visualize-the-data">
+<h4>Visualize the data<a class="headerlink" href="#visualize-the-data" title="Permalink to this headline">¶</a></h4>
+<p>Install tensorboard package if it was not installed.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install tensorboard
+</pre></div>
+</div>
+<p>After tensorboard is installed, you start tensorboard to  plot multiple experiments together, use –logdir_spec, for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tensorboard --logdir_spec<span class="o">=</span><span class="s2">&quot;1node&quot;</span>:/gpfs/u/home/BMHR/BMHRkmkh/scratch/mob2/logs/test_mobnetv2_1,<span class="s2">&quot;2nodes&quot;</span>:/gpfs/u/home/BMHR/BMHRkmkh/scratch/mob2/logs/test_mobnetv2,<span class="s2">&quot;4nodes&quot;</span>:/gpfs/u/home/BMHR/BMHRkmkh/scratch/mob2/logs/test_mobnetv2_4,<span class="s2">&quot;8nodes&quot;</span>:/gpfs/u/home/BMHR/BMHRkmkh/scratch/mob2/logs/test_mobnetv2_8:<span class="s2">&quot;16nodes&quot;</span>:/gpfs/u/home/BMHR/BMHRkmkh/scratch/mob2/logs/test_mobnetv2_16 --host <span class="s2">&quot;0.0.0.0&quot;</span> --port <span class="m">6006</span>
+</pre></div>
+</div>
+<p>Or if you only have a single experiment, use –logdir, for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tensorboard --logdir /gpfs/u/home/BMHR/BMHRkmkh/scratch/logs/test_mobnetv2_2  --host <span class="s2">&quot;0.0.0.0&quot;</span> --port <span class="m">6006</span>
+</pre></div>
+</div>
+<p>Now you can use ssh tunneling to display the graphs on your destop.  For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>id@kvt-rhel ~<span class="o">]</span>$ ssh -L6006:dcsfen01:6006 &lt;your-id&gt;@blp01.ccni.rpi.edu
+</pre></div>
+</div>
+<p>Now point your brower to localhost:6006.  For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>http://localhost:6006
+</pre></div>
+</div>
+<div class="figure align-default">
+<img alt="_images/tensorboard.png" src="_images/tensorboard.png" />
+</div>
+</div>
+</div>
+<div class="section" id="nvidia-smi">
+<h3>nvidia-smi<a class="headerlink" href="#nvidia-smi" title="Permalink to this headline">¶</a></h3>
+<p>You can use <a class="reference external" href="https://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf">nvidia-smi</a> command to collect GPU data such as gpu utilization, memory utilization, power used, fan speed, etc.</p>
+<p>For the list of valid properties to query for switch “–query-gpu=” see <a class="reference external" href="https://briot-jerome.developpez.com/fichiers/blog/nvidia-smi/list.txt">https://briot-jerome.developpez.com/fichiers/blog/nvidia-smi/list.txt</a></p>
+<p>For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nvidia-smi --query-gpu<span class="o">=</span>timestamp,gpu_uuid,pstate,temperature.gpu,utilization.gpu,utilization.memory,memory.total,memory.free,memory.used,power.draw,fan.speed --format<span class="o">=</span>csv -l <span class="m">10</span> <span class="p">|</span>tee nvidia_2nodes.txt
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h4>Visualize the data<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>You can download a sample jupyter notebook at <a class="reference external" href="https://github.com/IBM-AI-Hardware-Center/AiMOS/plot_nvidia-smi.ipynb">https://github.com/IBM-AI-Hardware-Center/AiMOS/plot_nvidia-smi.ipynb</a> and modify it accordingly to plot the data.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="aimos-hints-tips.html" class="btn btn-neutral float-right" title="Hints and Tips" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="aimos-submit-job.html" class="btn btn-neutral float-left" title="Submit jobs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, AiMOS
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

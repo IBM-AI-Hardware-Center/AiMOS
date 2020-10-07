@@ -1,0 +1,14 @@
+﻿Data Set,Description,Size
+ImageNet ,"1,281,167 images for training and 50,000 images for validation.",150 GB
+COCO,"Large-scale object detection, segmentation, and captioning dataset with 80 classes, 80,00 training image and 40,000 validation images.",42.7 GB
+MNIST,"60K small 28x28 pixel grayscale images of handwritten single digits between 0 and 9, and 10K images for validation.",21 MB
+Fashion-MNIST,60K small 28x28 pixel grayscale  of Zalando's article images for training and 10K images for validation.,200 MB
+CIFAR-10,consists of 50K 32x32 color images containing 10 object classes for training and 10K images for validation.,132 MB
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,

@@ -34,9 +34,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Set up your environment" href="aimos-setup-env.html" />
-    <link rel="prev" title="How to get a user id on AiMOS?" href="aimos-userid.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -81,20 +79,11 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">What is AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">How to get a  user id on AiMOS?</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">How to login to AiMOS?</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ssh-to-a-landing-pad-node">ssh to a landing pad node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ssh-to-a-dcs-front-end-node">ssh to a DCS front end node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ssh-to-the-npl-front-end-node">ssh to the NPL front end node</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-setup-env.html">Set up your  environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-gpfs.html">What is the GPFS disk space on the nodes?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-slurm-basics.html">Slurm Resource Manager and Job Scheduler in AiMOS</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">AiMOS Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">Access to AiMOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-env-basics.html">AiMOS environment Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">How to submit a job via Slurm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-load-modules.html">How to load different modules for your development and testing?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-conda.html">How to install the conda environment?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-wmlce.html">How to install WML-CE (a.k.a PowerAI)?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-jupyter.html">How to install Jupyter notebook?</a></li>
@@ -171,9 +160,9 @@
             
   <div class="section" id="how-to-login-to-aimos">
 <span id="how-to-login"></span><h1>How to login to AiMOS?<a class="headerlink" href="#how-to-login-to-aimos" title="Permalink to this headline">¶</a></h1>
-<p>The assumption is that you have already obtained your user ID for AiMOS.  If that is not the case,  please see <a class="reference internal" href="aimos-userid.html#get-user-id-section"><span class="std std-ref">How to get a  user id on AiMOS?</span></a>.</p>
+<p>The assumption is that you have already obtained your user ID for AiMOS.  If that is not the case,  please see <a class="reference internal" href="aimos-userid.html#get-user-id-section"><span class="std std-ref">How to apply for a user ID on AiMOS?</span></a>.</p>
 <p><strong>Note:</strong> that the list of ID that you have works on both DCS and NPL clusters.</p>
-<p>The steps are ssh to one of the landing pad nodes, then from there ssh to one of the front end nodes.  For the list of the landing pad nodes and front end nodes, please see <a class="reference internal" href="aimos-basics.html#what-is-aimos"><span class="std std-ref">What is AiMOS?</span></a></p>
+<p>The steps are ssh to one of the landing pad nodes, then from there ssh to one of the front end nodes.  For the list of the landing pad nodes and front end nodes, please see <a class="reference internal" href="aimos-basics.html#what-is-aimos"><span class="std std-ref">AiMOS Overview</span></a></p>
 <div class="section" id="ssh-to-a-landing-pad-node">
 <h2>ssh to a landing pad node<a class="headerlink" href="#ssh-to-a-landing-pad-node" title="Permalink to this headline">¶</a></h2>
 <p>First you need to ssh to one of the landing pad nodes. There are four(4) landing pad nodes:</p>
@@ -208,7 +197,7 @@ Last login: Fri Mar  6 15:41:57 2020 from 70.113.9.236
 **                                                             **
 </pre></div>
 </div>
-<p>If this is the first time you login to one of the landing pad nodes using your user id, it is strongly recommended that you set up passwordless and proxy.  For how to see <a class="reference internal" href="aimos-setup-env.html#setup-environment"><span class="std std-ref">Set up your  environment</span></a>. The next step is to login to a front end node.</p>
+<p>If this is the first time you login to one of the landing pad nodes using your user id, it is strongly recommended that you set up passwordless and proxy.  For how to see <a class="reference internal" href="aimos-env-basics.html#setup-environment"><span class="std std-ref">Set up your  environment</span></a>. The next step is to login to a front end node.</p>
 </div>
 <div class="section" id="ssh-to-a-dcs-front-end-node">
 <h2>ssh to a DCS front end node<a class="headerlink" href="#ssh-to-a-dcs-front-end-node" title="Permalink to this headline">¶</a></h2>
@@ -218,7 +207,7 @@ Last login: Fri Mar  6 15:41:57 2020 from 70.113.9.236
 <li><p>dcsfen02</p></li>
 </ul>
 <p>If you have set up the passwordless then you can ssh to the front end node without the pasword prompt.
-If you need information on how to set up passwordless, please see <a class="reference internal" href="aimos-setup-env.html#setup-environment"><span class="std std-ref">Set up your  environment</span></a>.</p>
+If you need information on how to set up passwordless, please see <a class="reference internal" href="aimos-env-basics.html#setup-environment"><span class="std std-ref">Set up your  environment</span></a>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>your-id@blp01 ~<span class="o">]</span>$ ssh dcsfen01
 Last login: Fri Feb <span class="m">28</span> <span class="m">11</span>:43:56 <span class="m">2020</span> from <span class="m">172</span>.31.29.1
 
@@ -251,15 +240,6 @@ Last login: Thu Jun <span class="m">11</span> <span class="m">14</span>:40:36 <s
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="aimos-setup-env.html" class="btn btn-neutral float-right" title="Set up your environment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="aimos-userid.html" class="btn btn-neutral float-left" title="How to get a user id on AiMOS?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

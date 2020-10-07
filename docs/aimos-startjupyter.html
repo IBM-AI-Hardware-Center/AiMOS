@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?" href="aimos-tunneling.html" />
-    <link rel="prev" title="How to install Jupyter notebook?" href="aimos-jupyter.html" /> 
+    <link rel="prev" title="How to submit a job via Slurm" href="aimos-submit-job.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,17 +82,11 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">What is AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">How to get a  user id on AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-login.html">How to login to AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-setup-env.html">Set up your  environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-gpfs.html">What is the GPFS disk space on the nodes?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-slurm-basics.html">Slurm Resource Manager and Job Scheduler in AiMOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">AiMOS Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">Access to AiMOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-env-basics.html">AiMOS Environment Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-workload.html">Set up the workload environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">How to submit a job via Slurm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-load-modules.html">How to load different modules for your development and testing?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-conda.html">How to install the conda environment?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-wmlce.html">How to install WML-CE (a.k.a PowerAI)?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-jupyter.html">How to install Jupyter notebook?</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">How to Start Jupyter notebook?</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#allocate-a-compute-node">Allocate a compute node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#start-jupyter-notebook-on-the-allocated-compute-node">Start Jupyter Notebook on the allocated compute node</a></li>
@@ -172,9 +166,9 @@
 <span id="start-jupyter"></span><h1>How to Start Jupyter notebook?<a class="headerlink" href="#how-to-start-jupyter-notebook" title="Permalink to this headline">¶</a></h1>
 <p><strong>IMPORTANT:</strong></p>
 <ul class="simple">
-<li><p>You are logging in to one of the front end nodes. For more information see <a class="reference internal" href="aimos-login.html#how-to-login"><span class="std std-ref">How to login to AiMOS?</span></a></p></li>
-<li><p>Conda was installed and activated. For more information see <a class="reference internal" href="aimos-conda.html#install-conda"><span class="std std-ref">How to install the conda environment?</span></a>.</p></li>
-<li><p>Jupyter notebook was installed. For how to  see <a class="reference internal" href="aimos-jupyter.html#install-jupyter"><span class="std std-ref">How to install Jupyter notebook?</span></a>.</p></li>
+<li><p>You are logging in to one of the front end nodes. For more information see <a class="reference internal" href="aimos-userid.html#how-to-login"><span class="std std-ref">How to login to AiMOS?</span></a></p></li>
+<li><p>Conda was installed and activated. For more information see <a class="reference internal" href="aimos-workload.html#install-conda"><span class="std std-ref">Install Anaconda</span></a>.</p></li>
+<li><p>Jupyter notebook was installed. For how to  see <a class="reference internal" href="aimos-workload.html#install-jupyter"><span class="std std-ref">Install Jupyter notebook</span></a>.</p></li>
 </ul>
 <div class="section" id="allocate-a-compute-node">
 <h2>Allocate a compute node<a class="headerlink" href="#allocate-a-compute-node" title="Permalink to this headline">¶</a></h2>
@@ -233,7 +227,7 @@ Warning: Permanently added <span class="s1">&#39;dcs035,172.31.236.35&#39;</span
         <a href="aimos-tunneling.html" class="btn btn-neutral float-right" title="How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="aimos-jupyter.html" class="btn btn-neutral float-left" title="How to install Jupyter notebook?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="aimos-submit-job.html" class="btn btn-neutral float-left" title="How to submit a job via Slurm" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

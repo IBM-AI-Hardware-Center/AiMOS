@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="What is AiMOS?" href="aimos-basics.html" /> 
+    <link rel="next" title="AiMOS Overview" href="aimos-basics.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -81,22 +81,12 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">What is AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">How to get a  user id on AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-login.html">How to login to AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-setup-env.html">Set up your  environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-gpfs.html">What is the GPFS disk space on the nodes?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-slurm-basics.html">Slurm Resource Manager and Job Scheduler in AiMOS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">How to submit a job via Slurm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-load-modules.html">How to load different modules for your development and testing?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-conda.html">How to install the conda environment?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-wmlce.html">How to install WML-CE (a.k.a PowerAI)?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-jupyter.html">How to install Jupyter notebook?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-startjupyter.html">How to Start Jupyter notebook?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-tunneling.html">How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-nvme.html">How to request for NVMe storage on the compute nodes?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-copydata.html">How to transfer data in and out of AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-ddlrun.html">Example for using ddlrun to run a distributed job?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">AiMOS Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">Access to AiMOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-env-basics.html">AiMOS Environment Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-workload.html">Set up the workload environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">Submit jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-benchmark.html">AI Benchmarks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-hints-tips.html">Hints and Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
 </ul>
@@ -172,77 +162,56 @@
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">What is AiMOS?</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">AiMOS Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="aimos-basics.html#what-are-the-landing-pad-nodes">What are the landing pad nodes?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aimos-basics.html#what-are-the-front-end-nodes">What are the front end nodes?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aimos-basics.html#what-are-the-compute-nodes">What are the compute nodes?</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">How to get a  user id on AiMOS?</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="aimos-userid.html#cci-user-information">CCI User Information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-userid.html#cci-user-responsibility-agreement">CCI User Responsibility Agreement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-userid.html#set-your-password">Set your password</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-userid.html#set-the-challenge-word">Set the Challenge Word</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-userid.html#set-the-personal-identification-code-pic">Set the Personal Identification Code (PIC)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-userid.html#join-aimos-slack-channel">Join aimos slack channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">Access to AiMOS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aimos-userid.html#apply-for-a-user-id-on-aimos">Apply for a user ID on AiMOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-userid.html#login-to-aimos">Login to AiMOS</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-login.html">How to login to AiMOS?</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="aimos-login.html#ssh-to-a-landing-pad-node">ssh to a landing pad node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-login.html#ssh-to-a-dcs-front-end-node">ssh to a DCS front end node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-login.html#ssh-to-the-npl-front-end-node">ssh to the NPL front end node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-env-basics.html">AiMOS Environment Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aimos-env-basics.html#initial-environment-setup">Initial Environment Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-env-basics.html#the-gpfs-shared-file-systems">The GPFS shared file systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-env-basics.html#slurm-resource-manager-and-job-scheduler-in-aimos">Slurm Resource Manager and Job Scheduler in AiMOS</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-setup-env.html">Set up your  environment</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="aimos-setup-env.html#set-up-passwordless">Set up passwordless</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-setup-env.html#set-up-proxy">Set up proxy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-workload.html">Set up the workload environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aimos-workload.html#load-additional-tools-and-libraries-via-module">Load additional tools and libraries via module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-workload.html#install-anaconda">Install Anaconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-workload.html#frequently-used-conda-commands">Frequently Used conda commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-workload.html#create-a-new-conda-environment-for-your-workload">Create a new conda environment for your workload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-workload.html#install-wml-ce-a-k-a-powerai">Install WML-CE (a.k.a PowerAI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-workload.html#install-jupyter-notebook">Install Jupyter notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-workload.html#start-jupyter-notebook">Start Jupyter Notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-workload.html#display-the-webgui-for-a-jupyter-notebook-via-tunneling">Display the WebGUI for a Jupyter notebook via Tunneling</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-gpfs.html">What is the GPFS disk space on the nodes?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-slurm-basics.html">Slurm Resource Manager and Job Scheduler in AiMOS</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="aimos-slurm-basics.html#job-scheduler-details">Job Scheduler Details</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-slurm-basics.html#job-queue-limits">Job Queue Limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-slurm-basics.html#slurm-frequently-used-commands">Slurm Frequently Used Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">Submit jobs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aimos-submit-job.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-submit-job.html#interactive-job">Interactive Job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-submit-job.html#batch-job">Batch job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-submit-job.html#request-for-up-to-48-hours-run-time">Request for up to 48 hours run time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-submit-job.html#request-for-nvme-storage-on-the-compute-nodes">Request for NVMe storage on the compute nodes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">How to submit a job via Slurm</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="aimos-submit-job.html#how-to-submit-an-interactive-job-via-slurm">How to Submit an interactive job via Slurm?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-submit-job.html#how-to-submit-a-batch-job">How to submit a batch job?</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-load-modules.html">How to load different modules for your development and testing?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-conda.html">How to install the conda environment?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-wmlce.html">How to install WML-CE (a.k.a PowerAI)?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-jupyter.html">How to install Jupyter notebook?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-startjupyter.html">How to Start Jupyter notebook?</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="aimos-startjupyter.html#allocate-a-compute-node">Allocate a compute node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-startjupyter.html#start-jupyter-notebook-on-the-allocated-compute-node">Start Jupyter Notebook on the allocated compute node</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-tunneling.html">How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="aimos-tunneling.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-tunneling.html#allocate-a-compute-node">Allocate a compute node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-tunneling.html#start-the-jupyter-notebook-on-the-allocated-compute-node">Start the jupyter notebook on the allocated compute node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-tunneling.html#ssh-tunnelling-on-a-linux-or-mac-osx-node">SSH tunnelling on a Linux or MAC OSX node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-tunneling.html#ssh-tunneling-via-putty-on-windows">SSH tunneling via PUTTY on Windows</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-nvme.html">How to request for NVMe storage on the compute nodes?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-copydata.html">How to transfer data in and out of AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-ddlrun.html">Example for using ddlrun to run a distributed job?</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="aimos-ddlrun.html#prerequisites">Prerequisites:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-ddlrun.html#create-a-conda-env">Create a conda env</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-ddlrun.html#install-additional-packages">Install additional packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-ddlrun.html#clone-the-horovod-github-repo">Clone the Horovod GitHub repo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-ddlrun.html#set-up-the-test-environment">Set up the test environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-ddlrun.html#create-a-batch-job">Create a batch job</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-ddlrun.html#running-the-batch-script">Running the batch script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-benchmark.html">AI Benchmarks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="aimos-benchmark.html#common-ai-datasets-cads-repository">Common AI Datasets (CADS) Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-benchmark.html#common-ai-benchmarks-cabs-repository">Common AI Benchmarks (CABS) Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-benchmark.html#monitoring-tools">Monitoring Tools</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-hints-tips.html">Hints and Tips</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="aimos-hints-tips.html#general">General:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-hints-tips.html#dcs-cluster-power">DCS Cluster (Power):</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aimos-hints-tips.html#npl-cluster-x86">NPL Cluster (X86):</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-hints-tips.html#general">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-hints-tips.html#dcs-cluster-power">DCS Cluster (Power)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-hints-tips.html#npl-cluster-x86">NPL Cluster (X86)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-hints-tips.html#transfer-data-in-and-out-of-aimos">Transfer data in and out of AiMOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-hints-tips.html#conda-init-in-bashrc">Conda Init in .bashrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-hints-tips.html#sample-condarc">Sample .condarc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aimos-hints-tips.html#troubleshooting-tips">Troubleshooting Tips</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
@@ -258,7 +227,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="aimos-basics.html" class="btn btn-neutral float-right" title="What is AiMOS?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="aimos-basics.html" class="btn btn-neutral float-right" title="AiMOS Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>

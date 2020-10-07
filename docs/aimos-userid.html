@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How to get a user id on AiMOS? &mdash; AiMOS 0.0.1 documentation</title>
+  <title>Access to AiMOS &mdash; AiMOS 0.0.1 documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="How to login to AiMOS?" href="aimos-login.html" />
-    <link rel="prev" title="What is AiMOS?" href="aimos-basics.html" /> 
+    <link rel="next" title="AiMOS Environment Basics" href="aimos-env-basics.html" />
+    <link rel="prev" title="AiMOS Overview" href="aimos-basics.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,30 +82,28 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">What is AiMOS?</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">How to get a  user id on AiMOS?</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#cci-user-information">CCI User Information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cci-user-responsibility-agreement">CCI User Responsibility Agreement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#set-your-password">Set your password</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#set-the-challenge-word">Set the Challenge Word</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#set-the-personal-identification-code-pic">Set the Personal Identification Code (PIC)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#join-aimos-slack-channel">Join aimos slack channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">AiMOS Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Access to AiMOS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#apply-for-a-user-id-on-aimos">Apply for a user ID on AiMOS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cci-user-information">CCI User Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cci-user-responsibility-agreement">CCI User Responsibility Agreement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-your-password">Set your password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-the-challenge-word">Set the Challenge Word</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-the-personal-identification-code-pic">Set the Personal Identification Code (PIC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#join-aimos-slack-channel">Join aimos slack channel</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-login.html">How to login to AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-setup-env.html">Set up your  environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-gpfs.html">What is the GPFS disk space on the nodes?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-slurm-basics.html">Slurm Resource Manager and Job Scheduler in AiMOS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">How to submit a job via Slurm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-load-modules.html">How to load different modules for your development and testing?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-conda.html">How to install the conda environment?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-wmlce.html">How to install WML-CE (a.k.a PowerAI)?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-jupyter.html">How to install Jupyter notebook?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-startjupyter.html">How to Start Jupyter notebook?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-tunneling.html">How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-nvme.html">How to request for NVMe storage on the compute nodes?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-copydata.html">How to transfer data in and out of AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-ddlrun.html">Example for using ddlrun to run a distributed job?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login-to-aimos">Login to AiMOS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ssh-to-a-landing-pad-node">ssh to a landing pad node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ssh-to-a-front-end-node">ssh to a front end node</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-env-basics.html">AiMOS Environment Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-workload.html">Set up the workload environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">Submit jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-benchmark.html">AI Benchmarks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-hints-tips.html">Hints and Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
 </ul>
@@ -153,7 +151,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>How to get a  user id on AiMOS?</li>
+      <li>Access to AiMOS</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -172,8 +170,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="how-to-get-a-user-id-on-aimos">
-<span id="get-user-id-section"></span><h1>How to get a  user id on AiMOS?<a class="headerlink" href="#how-to-get-a-user-id-on-aimos" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="access-to-aimos">
+<span id="access-aimos"></span><h1>Access to AiMOS<a class="headerlink" href="#access-to-aimos" title="Permalink to this headline">¶</a></h1>
+<p>This section describes the steps for you to apply for a user ID and the process for log in to AiMOS.</p>
+<div class="section" id="apply-for-a-user-id-on-aimos">
+<span id="get-user-id-section"></span><h2>Apply for a user ID on AiMOS<a class="headerlink" href="#apply-for-a-user-id-on-aimos" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>If you already have an ID on AiMOS and want to be added to another project, you need to request the Project Sponsor/Project Investigator to send an emai to Lorraine Herger at <a class="reference external" href="mailto:herger&#37;&#52;&#48;us&#46;ibm&#46;com">herger<span>&#64;</span>us<span>&#46;</span>ibm<span>&#46;</span>com</a>.  The email should contain your current ID and the project ID that you want to be added.  The email can be used for the list of user id and the list for projects. For example:</p></li>
 </ul>
@@ -189,26 +190,26 @@
 <li><p>If you are a first time user, you need to fill out the following forms, sign and send them to <a class="reference external" href="mailto:herger&#37;&#52;&#48;us&#46;ibm&#46;com">herger<span>&#64;</span>us<span>&#46;</span>ibm<span>&#46;</span>com</a>.</p></li>
 </ul>
 <div class="section" id="cci-user-information">
-<h2>CCI User Information<a class="headerlink" href="#cci-user-information" title="Permalink to this headline">¶</a></h2>
+<h3>CCI User Information<a class="headerlink" href="#cci-user-information" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://secure.cci.rpi.edu/wiki/assets/forms/CCI_User_Information.pdf">https://secure.cci.rpi.edu/wiki/assets/forms/CCI_User_Information.pdf</a></p>
 </div>
 <div class="section" id="cci-user-responsibility-agreement">
-<h2>CCI User Responsibility Agreement<a class="headerlink" href="#cci-user-responsibility-agreement" title="Permalink to this headline">¶</a></h2>
+<h3>CCI User Responsibility Agreement<a class="headerlink" href="#cci-user-responsibility-agreement" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://secure.cci.rpi.edu/wiki/assets/forms/CCI_User_Responsibility_Agreement.pdf">https://secure.cci.rpi.edu/wiki/assets/forms/CCI_User_Responsibility_Agreement.pdf</a></p>
 <p>Once the forms are processed, you will receive emails from <strong>HPCman &lt;hpcman&#64;ccni.rpi.edu&gt;</strong> for your account ID and password reset token. The next step is to <a class="reference internal" href="#set-password"><span class="std std-ref">Set your password</span></a>.</p>
 <p><strong>IMPORTANT:</strong> You have 24 hours to reset your password.  If you miss it, you need to send an email to <a class="reference external" href="mailto:support&#37;&#52;&#48;ccni&#46;rpi&#46;edu">support<span>&#64;</span>ccni<span>&#46;</span>rpi<span>&#46;</span>edu</a> to request a new password reset token.</p>
 </div>
 <div class="section" id="set-your-password">
-<span id="set-password"></span><h2>Set your password<a class="headerlink" href="#set-your-password" title="Permalink to this headline">¶</a></h2>
+<span id="set-password"></span><h3>Set your password<a class="headerlink" href="#set-your-password" title="Permalink to this headline">¶</a></h3>
 <p>You will receive the link similar to this, <a class="reference external" href="https://secure.cci.rpi.edu/password/?a=XXXXXXXXXXXXXXXX">https://secure.cci.rpi.edu/password/?a=XXXXXXXXXXXXXXXX</a>, where XXXXXXXXXXXXXXXX is your reset token. You need to use the link to reset your password. Please note that you have 24 hours to reset your password after you receive the email. If you miss it, you need to send an email to <a class="reference external" href="mailto:support&#37;&#52;&#48;ccni&#46;rpi&#46;edu">support<span>&#64;</span>ccni<span>&#46;</span>rpi<span>&#46;</span>edu</a> to request for a new password reset token.  After reset the password, the next step is to <a class="reference internal" href="#set-challenge"><span class="std std-ref">Set the Challenge Word</span></a>.</p>
 </div>
 <div class="section" id="set-the-challenge-word">
-<span id="set-challenge"></span><h2>Set the Challenge Word<a class="headerlink" href="#set-the-challenge-word" title="Permalink to this headline">¶</a></h2>
+<span id="set-challenge"></span><h3>Set the Challenge Word<a class="headerlink" href="#set-the-challenge-word" title="Permalink to this headline">¶</a></h3>
 <p>The next step is choose and set the Challenge Word: <a class="reference external" href="https://secure.cci.rpi.edu/challenge/">https://secure.cci.rpi.edu/challenge/</a></p>
 <p>Enter your User ID, your newly reset password, and the challenge word twice, then click “Set Challenge Word”.  You are ready for the next step <a class="reference internal" href="#set-pic"><span class="std std-ref">Set the Personal Identification Code (PIC)</span></a>.</p>
 </div>
 <div class="section" id="set-the-personal-identification-code-pic">
-<span id="set-pic"></span><h2>Set the Personal Identification Code (PIC)<a class="headerlink" href="#set-the-personal-identification-code-pic" title="Permalink to this headline">¶</a></h2>
+<span id="set-pic"></span><h3>Set the Personal Identification Code (PIC)<a class="headerlink" href="#set-the-personal-identification-code-pic" title="Permalink to this headline">¶</a></h3>
 <p>The last step is to choose the Personal Identification code (PIC). The PIC is case-sensitive and is made up of at least 4 numbers and/or letters. No special characters may be used. Do not use your bank PIN, account name, first or last name, or organization.</p>
 <ul>
 <li><p>Install “Google Authenticator” app on your mobil device.</p></li>
@@ -225,7 +226,7 @@
 <p>You now have everything you need to login to a landing pad node.</p>
 </div>
 <div class="section" id="join-aimos-slack-channel">
-<h2>Join aimos slack channel<a class="headerlink" href="#join-aimos-slack-channel" title="Permalink to this headline">¶</a></h2>
+<h3>Join aimos slack channel<a class="headerlink" href="#join-aimos-slack-channel" title="Permalink to this headline">¶</a></h3>
 <p><strong>IMPORTANT:</strong>  Do not forget to join the aimos slack channel for information, questions and answers. Here are the list of the aimos slack channels:</p>
 <ul class="simple">
 <li><p>#aimos for IBM Researchers.</p></li>
@@ -237,6 +238,88 @@
 <p>You may need to send an email to Lorraine Herger (<a class="reference external" href="mailto:herger&#37;&#52;&#48;us&#46;ibm&#46;com">herger<span>&#64;</span>us<span>&#46;</span>ibm<span>&#46;</span>com</a>) to request for joining the slack channel.</p>
 </div>
 </div>
+<div class="section" id="login-to-aimos">
+<span id="how-to-login"></span><h2>Login to AiMOS<a class="headerlink" href="#login-to-aimos" title="Permalink to this headline">¶</a></h2>
+<p>The assumption is that you have already obtained your user ID for AiMOS.  If that is not the case,  please see <a class="reference internal" href="#get-user-id-section"><span class="std std-ref">Apply for a user ID on AiMOS</span></a>.</p>
+<p>The steps are ssh to one of the landing pad nodes, then from there ssh to one of the front end nodes.  For the list of the landing pad nodes and front end nodes, please see <a class="reference internal" href="aimos-basics.html#what-is-aimos"><span class="std std-ref">AiMOS Overview</span></a></p>
+<div class="section" id="ssh-to-a-landing-pad-node">
+<h3>ssh to a landing pad node<a class="headerlink" href="#ssh-to-a-landing-pad-node" title="Permalink to this headline">¶</a></h3>
+<p>First you need to ssh to one of the landing pad nodes. There are four(4) landing pad nodes:</p>
+<ul class="simple">
+<li><p>blp01.ccni.rpi.edu</p></li>
+<li><p>blp02.ccni.rpi.edu</p></li>
+<li><p>blp03.ccni.rpi.edu</p></li>
+<li><p>blp04.ccni.rpi.edu.</p></li>
+</ul>
+<p>For PIC+Token, enter your chosen PIC that you have set in the previous step and the token from the Google Authenticator app on your mobile device. For example:</p>
+<div class="figure align-default">
+<img alt="_images/authenticator.png" src="_images/authenticator.png" />
+</div>
+<p><strong>Note:</strong> do not enter + and space.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ssh your-id@blp01.ccni.rpi.edu
+PIC+Token:
+Password:
+Last login: Fri Mar  6 15:41:57 2020 from 70.113.9.236
+
+             ** CCI SSH Gateway (Landing pad) **
+**                                                             **
+**     Please report all support and operation issues to       **
+**     support@ccni.rpi.edu                                    **
+**                                                             **
+**     On-line documentation for the systems can be found at:  **
+**     https://secure.cci.rpi.edu/wiki                         **
+**                                                             **
+**     CCI does not provide any data backup services. Users    **
+**     are responsible for their own data management and       **
+**     backup.                                                 **
+**                                                             **
+**     Use is subject to the terms of the policy for           **
+**     Acceptable Use of CCI Resources.                        **
+**                                                             **
+</pre></div>
+</div>
+<p>If this is the first time you login to one of the landing pad nodes using your user id, it is strongly recommended that you set up passwordless and proxy.  For how to see <a class="reference internal" href="aimos-env-basics.html#setup-environment"><span class="std std-ref">Initial Environment Setup</span></a>. The next step is to login to a front end node.</p>
+</div>
+<div class="section" id="ssh-to-a-front-end-node">
+<h3>ssh to a front end node<a class="headerlink" href="#ssh-to-a-front-end-node" title="Permalink to this headline">¶</a></h3>
+<p>From the landing pad node, you ssh to either the DCS front end node or the NPL front end note.  There are two DCS front end nodes:</p>
+<ul class="simple">
+<li><p>dcsfen01</p></li>
+<li><p>dcsfen02</p></li>
+</ul>
+<p>There is only one NPL front end node:</p>
+<ul class="simple">
+<li><p>nplfen01</p></li>
+</ul>
+<p>If you have set up the passwordless then you can ssh to the front end node without the pasword prompt.
+If you need information on how to set up passwordless, please see <a class="reference internal" href="aimos-env-basics.html#setup-environment"><span class="std std-ref">Initial Environment Setup</span></a>.</p>
+<p>For example, you ssh to the dcsfen01:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>your-id@blp01 ~<span class="o">]</span>$ ssh dcsfen01
+Last login: Fri Feb <span class="m">28</span> <span class="m">11</span>:43:56 <span class="m">2020</span> from <span class="m">172</span>.31.29.1
+
+                   ** CCI DCS front-end node **
+**                                                             **
+**     Please report all support and operation issues to       **
+**     support@ccni.rpi.edu                                    **
+**                                                             **
+**     On-line documentation <span class="k">for</span> the systems can be found at:  **
+**     https://secure.cci.rpi.edu/wiki                         **
+**                                                             **
+**     Use is subject to the terms of the policy <span class="k">for</span>           **
+**     Acceptable Use of CCI Resources.                        **
+**                                                             **
+</pre></div>
+</div>
+<p>Or you ssh to the nplfen01 node.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>BMHRkmkh@blp01 ~<span class="o">]</span>$ ssh nplfen01
+Last login: Thu Jun <span class="m">11</span> <span class="m">14</span>:40:36 <span class="m">2020</span> from blp01.ccni.rpi.edu
+<span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>BMHRkmkh@npl41 ~<span class="o">]</span>$
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 
 
            </div>
@@ -246,10 +329,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="aimos-login.html" class="btn btn-neutral float-right" title="How to login to AiMOS?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="aimos-env-basics.html" class="btn btn-neutral float-right" title="AiMOS Environment Basics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="aimos-basics.html" class="btn btn-neutral float-left" title="What is AiMOS?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="aimos-basics.html" class="btn btn-neutral float-left" title="AiMOS Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
