@@ -1,1 +1,3 @@
-For documentation please see https://ibm-ai-hardware-center.github.io/AiMOS/index.html
+
+
+Updated documentation is at:  https://ibm-ai-hardware-center.github.io/AiMOS/index.html

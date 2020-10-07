@@ -34,9 +34,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Hints and Tips" href="aimos-hints-tips.html" />
-    <link rel="prev" title="How to transfer data in and out of AiMOS?" href="aimos-copydata.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -81,32 +79,12 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">What is AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">How to get a  user id on AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-login.html">How to login to AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-setup-env.html">Set up your  environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-gpfs.html">What is the GPFS disk space on the nodes?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-slurm-basics.html">Slurm Resource Manager and Job Scheduler in AiMOS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">How to submit a job via Slurm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-load-modules.html">How to load different modules for your development and testing?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-conda.html">How to install the conda environment?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-wmlce.html">How to install WML-CE (a.k.a PowerAI)?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-jupyter.html">How to install Jupyter notebook?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-startjupyter.html">How to Start Jupyter notebook?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-tunneling.html">How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-nvme.html">How to request for NVMe storage on the compute nodes?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-copydata.html">How to transfer data in and out of AiMOS?</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Example for using ddlrun to run a distributed job?</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#create-a-conda-env">Create a conda env</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#install-additional-packages">Install additional packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#clone-the-horovod-github-repo">Clone the Horovod GitHub repo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#set-up-the-test-environment">Set up the test environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#create-a-batch-job">Create a batch job</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#running-the-batch-script">Running the batch script</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">AiMOS Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">Access to AiMOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-env-basics.html">AiMOS Environment Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-workload.html">Set up the workload environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">Submit jobs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-hints-tips.html">Hints and Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
 </ul>
@@ -179,8 +157,8 @@
 <div class="section" id="prerequisites">
 <h2>Prerequisites:<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Make sure that you set up the proxy before you proceed to the next step. For how to see <a class="reference internal" href="aimos-setup-env.html#setup-environment"><span class="std std-ref">Set up your  environment</span></a>.</p></li>
-<li><p>Conda is installed and activated. For how to see <a class="reference internal" href="aimos-conda.html#install-conda"><span class="std std-ref">How to install the conda environment?</span></a>.</p></li>
+<li><p>Make sure that you set up the proxy before you proceed to the next step. For how to see <a class="reference internal" href="aimos-env-basics.html#setup-environment"><span class="std std-ref">Initial Environment Setup</span></a>.</p></li>
+<li><p>Conda is installed and activated. For how to see <a class="reference internal" href="aimos-workload.html#install-conda"><span class="std std-ref">Install Anaconda</span></a>.</p></li>
 <li><p>Access to channel <a class="reference external" href="https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda/linux-ppc64le/">https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda/linux-ppc64le/</a> in the ~/.condarc file.  If not, you can use the following command to add it:</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda config --add channels https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda/linux-ppc64le/
@@ -306,15 +284,6 @@ sbatch ./batch-job.sh
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="aimos-hints-tips.html" class="btn btn-neutral float-right" title="Hints and Tips" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="aimos-copydata.html" class="btn btn-neutral float-left" title="How to transfer data in and out of AiMOS?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

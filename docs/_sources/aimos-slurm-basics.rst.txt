@@ -42,7 +42,7 @@ You need to specify the time required to run your job via option -t <value>. The
 
    #SBATCH --qos=dcs-48hr
 
-**IMPORTANT:** remember that time limit and number of nodes are counted in the project's allocaton. This means that subsequent jobs are impacted in their scheduling, since the project will have used a large number of nodes and time in this queue.
+**IMPORTANT:** remember that time limit and number of nodes are counted in the project's allocation. This means that subsequent jobs are impacted in their scheduling, since the project will have used a large number of nodes and time in this queue.
 
 Slurm Frequently Used Commands
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

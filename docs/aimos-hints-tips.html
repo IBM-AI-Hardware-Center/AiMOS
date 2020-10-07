@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Getting Help?" href="aimos-getting-help.html" />
-    <link rel="prev" title="Example for using ddlrun to run a distributed job?" href="aimos-ddlrun.html" /> 
+    <link rel="prev" title="AI Benchmarks" href="aimos-benchmark.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,26 +82,20 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">What is AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">How to get a  user id on AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-login.html">How to login to AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-setup-env.html">Set up your  environment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-gpfs.html">What is the GPFS disk space on the nodes?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-slurm-basics.html">Slurm Resource Manager and Job Scheduler in AiMOS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">How to submit a job via Slurm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-load-modules.html">How to load different modules for your development and testing?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-conda.html">How to install the conda environment?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-wmlce.html">How to install WML-CE (a.k.a PowerAI)?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-jupyter.html">How to install Jupyter notebook?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-startjupyter.html">How to Start Jupyter notebook?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-tunneling.html">How to display the WebGUI for a jupyter notebook running on a compute node via ssh tunnelling?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-nvme.html">How to request for NVMe storage on the compute nodes?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-copydata.html">How to transfer data in and out of AiMOS?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aimos-ddlrun.html">Example for using ddlrun to run a distributed job?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">AiMOS Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">Access to AiMOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-env-basics.html">AiMOS Environment Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-workload.html">Set up the workload environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">Submit jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-benchmark.html">AI Benchmarks</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Hints and Tips</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#general">General:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dcs-cluster-power">DCS Cluster (Power):</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#npl-cluster-x86">NPL Cluster (X86):</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dcs-cluster-power">DCS Cluster (Power)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#npl-cluster-x86">NPL Cluster (X86)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transfer-data-in-and-out-of-aimos">Transfer data in and out of AiMOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conda-init-in-bashrc">Conda Init in .bashrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sample-condarc">Sample .condarc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting-tips">Troubleshooting Tips</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
@@ -172,26 +166,134 @@
   <div class="section" id="hints-and-tips">
 <span id="id1"></span><h1>Hints and Tips<a class="headerlink" href="#hints-and-tips" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="general">
-<h2>General:<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>You must be in the front end node to set up your system environment.</p></li>
 <li><p>You must be in the front end node to install conda or create a new conda environment.</p></li>
 </ol>
 </div>
 <div class="section" id="dcs-cluster-power">
-<h2>DCS Cluster (Power):<a class="headerlink" href="#dcs-cluster-power" title="Permalink to this headline">¶</a></h2>
+<h2>DCS Cluster (Power)<a class="headerlink" href="#dcs-cluster-power" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>If you want to use the  Powers System cluster, i.e. DCS Cluster, log in to the dcsfen01.ccni.rpi.edu node or dcsfen02.ccni.rpi.edu node.</p></li>
 <li><p>Note that spectrum_mpi is installed in the DCS Cluster. You can use <strong>module spider</strong> to find all possible modules and extensions.</p></li>
 </ol>
 </div>
 <div class="section" id="npl-cluster-x86">
-<h2>NPL Cluster (X86):<a class="headerlink" href="#npl-cluster-x86" title="Permalink to this headline">¶</a></h2>
+<h2>NPL Cluster (X86)<a class="headerlink" href="#npl-cluster-x86" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>If you want to use the  x86 cluster, i.e. NPL Cluster, log in to the nplfen01.ccni.rpi.edu node.</p></li>
 <li><p>For the NPL cluster, avoid using system memory together with GPU memory since the data transfer is using the PCI bus. It is not the high speed connection.</p></li>
 <li><p>Note that openmpi is installed in the NPL Cluster.  You can use <strong>module spider</strong> to find all possible modules and extensions.</p></li>
 </ol>
+</div>
+<div class="section" id="transfer-data-in-and-out-of-aimos">
+<h2>Transfer data in and out of AiMOS<a class="headerlink" href="#transfer-data-in-and-out-of-aimos" title="Permalink to this headline">¶</a></h2>
+<p><strong>IMPORTANT</strong>: You MUST initiate the copy operation from your desktop/laptop.</p>
+<p>You use <strong>scp</strong> command on your desktop/laptop to copy the data from or to the landing pad node.  Since the same gpfs file system is mounted on the landing pad nodes, front end nodes and compute nodes, the data will be available and accessible on all the nodes. For example:</p>
+<ul class="simple">
+<li><p>Copy some jupyter notebooks from a Linux system to the landing pad node blp01.ccni.edu.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ scp multigpu_basic*.ipynb your-id@blp01.ccni.rpi.edu:~/scratch-shared/jupyter-notebooks
+PIC+Token:
+Password:
+multigpu_basic.ipynb                                                                   <span class="m">100</span>% <span class="m">6330</span>    <span class="m">79</span>.3KB/s   <span class="m">00</span>:00
+multigpu_basics.ipynb                                                                  <span class="m">100</span>% <span class="m">4258</span>    <span class="m">55</span>.0KB/s   <span class="m">00</span>:00
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Copy in.lj from the landing pad node blp01.ccni.rpi.edu to a directory on a Windows system.</p></li>
+</ul>
+<p>From a Command Prompt Terminal</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\D</span>-disk<span class="se">\H</span>PC&gt;scp BMHRkmkh@blp01.ccni.rpi.edu:~/scratch-shared/in.lj .
+PIC+Token:
+Password:
+in.lj                                                                                 <span class="m">100</span>%  <span class="m">344</span>     <span class="m">4</span>.1KB/s   <span class="m">00</span>:00
+</pre></div>
+</div>
+<p>For transferring a large file see  <a class="reference external" href="https://secure.cci.rpi.edu/wiki/landingpads/Transferring_Large_Files/">https://secure.cci.rpi.edu/wiki/landingpads/Transferring_Large_Files/</a></p>
+</div>
+<div class="section" id="conda-init-in-bashrc">
+<span id="conda-init-bashrc"></span><h2>Conda Init in .bashrc<a class="headerlink" href="#conda-init-in-bashrc" title="Permalink to this headline">¶</a></h2>
+<p>This snippet of .bashrc bases on the hardware architecture of the node and execute the applicable conda init code.  It also assumes that the anaconda is installed in ~/scratch/miniconda3 for Power environment (i.e. DCS cluster) and in ~/scratch/miniconda3-x86 for X86 environment (i.e. NPL cluster).  Please modify the project name BMHR to your project, BMHRkmkh  to your user ID, and the PATH of your conda root.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">arch</span><span class="o">=</span><span class="sb">`</span>uname -m<span class="sb">`</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$arch</span> <span class="o">==</span> <span class="s2">&quot;ppc64le&quot;</span> <span class="o">]]</span>
+<span class="k">then</span>
+        <span class="c1"># &gt;&gt;&gt; conda initialize &gt;&gt;&gt;</span>
+        <span class="c1"># !! Contents within this block are managed by &#39;conda init&#39; !!</span>
+        <span class="nv">__conda_setup</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="s1">&#39;/gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3/bin/conda&#39;</span> <span class="s1">&#39;shell.bash&#39;</span> <span class="s1">&#39;hook&#39;</span> <span class="m">2</span>&gt; /dev/null<span class="k">)</span><span class="s2">&quot;</span>
+        <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+            <span class="nb">eval</span> <span class="s2">&quot;</span><span class="nv">$__conda_setup</span><span class="s2">&quot;</span>
+        <span class="k">else</span>
+            <span class="k">if</span> <span class="o">[</span> -f <span class="s2">&quot;/gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3/etc/profile.d/conda.sh&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+                . <span class="s2">&quot;/gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3/etc/profile.d/conda.sh&quot;</span>
+            <span class="k">else</span>
+                <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+            <span class="k">fi</span>
+        <span class="k">fi</span>
+        <span class="nb">unset</span> __conda_setup
+        <span class="c1"># &lt;&lt;&lt; conda initialize &lt;&lt;&lt;</span>
+
+<span class="k">else</span>
+        <span class="nv">host_name</span><span class="o">=</span><span class="sb">`</span>hostname -s <span class="p">|</span> cut -c <span class="m">1</span>-3<span class="sb">`</span>
+        <span class="k">if</span> <span class="o">[[</span> <span class="nv">$host_name</span> !<span class="o">=</span> <span class="s2">&quot;blp&quot;</span> <span class="o">]]</span>
+        <span class="k">then</span>
+          <span class="c1"># &gt;&gt;&gt; conda initialize &gt;&gt;&gt;</span>
+          <span class="c1"># !! Contents within this block are managed by &#39;conda init&#39; !!</span>
+          <span class="nv">__conda_setup</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="s1">&#39;/gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3-x86/bin/conda&#39;</span> <span class="s1">&#39;shell.bash&#39;</span> <span class="s1">&#39;hook&#39;</span> <span class="m">2</span>&gt; /dev/null<span class="k">)</span><span class="s2">&quot;</span>
+          <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+              <span class="nb">eval</span> <span class="s2">&quot;</span><span class="nv">$__conda_setup</span><span class="s2">&quot;</span>
+          <span class="k">else</span>
+              <span class="k">if</span> <span class="o">[</span> -f <span class="s2">&quot;/gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3-x86/etc/profile.d/conda.sh&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+                  . <span class="s2">&quot;/gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3-x86/etc/profile.d/conda.sh&quot;</span>
+              <span class="k">else</span>
+                  <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/gpfs/u/home/BMHR/BMHRkmkh/scratch/miniconda3-x86/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+              <span class="k">fi</span>
+          <span class="k">fi</span>
+          <span class="nb">unset</span> __conda_setup
+          <span class="c1"># &lt;&lt;&lt; conda initialize &lt;&lt;&lt;</span>
+        <span class="k">fi</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sample-condarc">
+<span id="id2"></span><h2>Sample .condarc<a class="headerlink" href="#sample-condarc" title="Permalink to this headline">¶</a></h2>
+<p>There is a runtime configuration file, .condarc, in Anaconda.  You can use this file to specify the channels where conda looks for packages, etc.</p>
+<p>For more information see <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html">https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html</a></p>
+<p>IBM provides some repositories which contain packages built specifically for linux-ppc64le, linux-64 and noarch.</p>
+<ul class="simple">
+<li><p>WML-CE Conda repository at <a class="reference external" href="https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda">https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda</a></p></li>
+<li><p>WML-CE Early Access repository at <a class="reference external" href="https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda-early-access/">https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda-early-access/</a></p></li>
+</ul>
+<p>For anaconda default repositories see <a class="reference external" href="https://docs.anaconda.com/anaconda/user-guide/tasks/using-repositories/">https://docs.anaconda.com/anaconda/user-guide/tasks/using-repositories/</a></p>
+<p>Depending on your AI workload, you may want to use IBM provided repositories to search for prebuilt packages before the default conda repositories.</p>
+<p>For example, the following sample .condarc is for conda to search for packages in the early-access channel before go to the default conda repositories.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>channels:
+- https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda-early-access/
+- defaults
+</pre></div>
+</div>
+<p>The following .condarc is specifying that conda searches the wml-ce early access, the wml-ce, the powerai, the defaults and conda-forge in order for packages.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>channels:
+- https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda-early-access/
+- https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda/
+- powerai
+- defaults
+- conda-forge
+</pre></div>
+</div>
+</div>
+<div class="section" id="troubleshooting-tips">
+<h2>Troubleshooting Tips<a class="headerlink" href="#troubleshooting-tips" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>When you get a disk I/O error, check disk quota for $HOME and barn. See <a class="reference external" href="https://secure.cci.rpi.edu/wiki/Frequently_Asked_Questions/#how-do-i-check-my-gpfs-quota-usage">https://secure.cci.rpi.edu/wiki/Frequently_Asked_Questions/#how-do-i-check-my-gpfs-quota-usage</a> for how to.  For example, you want to know the quote of $HOME and the size of the files in $HOME:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~
+df -h .
+du -d1 -k
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -206,7 +308,7 @@
         <a href="aimos-getting-help.html" class="btn btn-neutral float-right" title="Getting Help?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="aimos-ddlrun.html" class="btn btn-neutral float-left" title="Example for using ddlrun to run a distributed job?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="aimos-benchmark.html" class="btn btn-neutral float-left" title="AI Benchmarks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

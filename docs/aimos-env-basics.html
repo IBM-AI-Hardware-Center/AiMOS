@@ -1,0 +1,446 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AiMOS Environment Basics &mdash; AiMOS 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Set up the workload environment" href="aimos-workload.html" />
+    <link rel="prev" title="Access to AiMOS" href="aimos-userid.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AiMOS
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">AiMOS Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">Access to AiMOS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AiMOS Environment Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#initial-environment-setup">Initial Environment Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-passwordless">Set up passwordless</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-proxy">Set up proxy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-gpfs-shared-file-systems">The GPFS shared file systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#slurm-resource-manager-and-job-scheduler-in-aimos">Slurm Resource Manager and Job Scheduler in AiMOS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fairshare-allocation-policy">Fairshare Allocation Policy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#job-scheduler-details">Job Scheduler Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#job-queue-limits">Job Queue Limits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slurm-frequently-used-commands">Slurm Frequently Used Commands</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#frequently-used-options-for-slurm-commands">Frequently Used options for Slurm commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#salloc">salloc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#squeue">squeue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbatch">sbatch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scancel">scancel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sinfo">sinfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sshared">sshared</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-workload.html">Set up the workload environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">Submit jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-benchmark.html">AI Benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-hints-tips.html">Hints and Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AiMOS</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>AiMOS Environment Basics</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/aimos-env-basics.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aimos-environment-basics">
+<span id="environment-basics"></span><h1>AiMOS Environment Basics<a class="headerlink" href="#aimos-environment-basics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="initial-environment-setup">
+<span id="setup-environment"></span><h2>Initial Environment Setup<a class="headerlink" href="#initial-environment-setup" title="Permalink to this headline">¶</a></h2>
+<p>The following sections are the steps for setting up your environment.</p>
+<div class="section" id="set-up-passwordless">
+<span id="setup-passwordless"></span><h3>Set up passwordless<a class="headerlink" href="#set-up-passwordless" title="Permalink to this headline">¶</a></h3>
+<p>It is strongly recommended that you set up the passwordless to login to the front end nodes and compute nodes.  This is particularly required if you are running MPI workload.  You only need to do this once.
+The process consists of two steps:</p>
+<ul class="simple">
+<li><p>Generate the key using ssh-keygen command.</p></li>
+<li><p>Concatenate the generated key to the authorized_keys file.</p></li>
+</ul>
+<p>The following example assumes you already log in to either one of the landing pad nodes or one of the front end nodes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/gpfs/u/home/BMHR/BMHRkmkh/.ssh/id_rsa):
+/gpfs/u/home/BMHR/BMHRkmkh/.ssh/id_rsa already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /gpfs/u/home/BMHR/BMHRkmkh/.ssh/id_rsa.
+Your public key has been saved in /gpfs/u/home/BMHR/BMHRkmkh/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:I7OYesm4IUs9vHbtXoYi4vy7dAOt9FMPJoQ8ssiibcI
+BMHRkmkh@dcsfen01
+The key&#39;s randomart image is:
++---[RSA 2048]----+
+|                 |
+|  . .            |
+| . + .           |
+|o o +            |
+|oo o oo+S        |
+|+.+ +o+++.       |
+|+E+XoBo. +       |
+|+=++O.+.o        |
+|.o=B+ oo         |
++----[SHA256]-----+
+
+$ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+</pre></div>
+</div>
+</div>
+<div class="section" id="set-up-proxy">
+<span id="setup-proxy"></span><h3>Set up proxy<a class="headerlink" href="#set-up-proxy" title="Permalink to this headline">¶</a></h3>
+<p>It is strongly recommended that you set up the proxy by adding the following lines to your .bashrc. You only need to do this once.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">http_proxy</span><span class="o">=</span>http://proxy:8888
+<span class="nb">export</span> <span class="nv">https_proxy</span><span class="o">=</span><span class="nv">$http_proxy</span>
+</pre></div>
+</div>
+<p>Do not forget to source your .bashrc for this to take affect.</p>
+</div>
+</div>
+<div class="section" id="the-gpfs-shared-file-systems">
+<h2>The GPFS shared file systems<a class="headerlink" href="#the-gpfs-shared-file-systems" title="Permalink to this headline">¶</a></h2>
+<p>The same GPFS filesystems are mounted on all the landing pad nodes, the front end nodes and the compute nodes in AiMOS.</p>
+<ul class="simple">
+<li><p>Each project is given a 10 GiB quota for barn and a 10 GiB quota for home. Home is intended for long-term storage of configurations, scripts, etc. Barn is intended for medium-term storage.</p></li>
+<li><p>home directory contains a link to scratch, the user’s personal scratch space.  It also contains a link to scratch-shared, the project’s shared scratch space.</p></li>
+<li><p>scratch and scratch-shared are meant as a temporary staging area for performing computation. Performance in this directory will be better than in the home or barn areas. This space does not have a quota. However, it will periodically be purged of files that are not used (either by read or write operation) in the last 56 days.  WARNING: If purging files that are not used in the last 56 days is not sufficient to maintain enough working space, the RPI team may purge all files with advance warning.</p></li>
+</ul>
+<p>For more information see <a class="reference external" href="https://secure.cci.rpi.edu/wiki/File_System/#home">https://secure.cci.rpi.edu/wiki/File_System/#home</a></p>
+<p>Due to the default limit space of 10 GiB for $HOME, 10G for $HOME/barn and $HOME/barn-shared combined, it is best to use these directories to store configuration files, scripts, or small programs needed to customize the working environment. You should use $HOME/scratch and $HOME/scratch-shared for things that require more space. <strong>NOTE:</strong> $HOME/scratch-shared are visible and shared among the users in the same project.</p>
+<p>If you need additional space for barn and barn-shared, please send an email to Lorraine Herger (<a class="reference external" href="mailto:herger&#37;&#52;&#48;us&#46;ibm&#46;com">herger<span>&#64;</span>us<span>&#46;</span>ibm<span>&#46;</span>com</a>) with the justification for increase the space and the requested space.  If Lorraine approves your request, she will forward the email to RPI for processing.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/gpfs
+   /u
+     /home
+        /&lt;PROJ&gt;
+            /&lt;USER&gt;
+                /barn
+                /barn-shared
+                /scratch
+                /scratch-shared
+</pre></div>
+</div>
+</div>
+<div class="section" id="slurm-resource-manager-and-job-scheduler-in-aimos">
+<h2>Slurm Resource Manager and Job Scheduler in AiMOS<a class="headerlink" href="#slurm-resource-manager-and-job-scheduler-in-aimos" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://slurm.schedmd.com/overview.html">Slurm</a> (used to be <strong>S</strong>imple <strong>L</strong>inux <strong>U</strong>tility for <strong>R</strong>esource <strong>Ma</strong>nagement) is the cluster management and job scheduler for AiMOS.</p>
+<div class="section" id="fairshare-allocation-policy">
+<h3>Fairshare Allocation Policy<a class="headerlink" href="#fairshare-allocation-policy" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-default">
+<img alt="_images/AiMOS-allocation2.png" src="_images/AiMOS-allocation2.png" />
+</div>
+<ul class="simple">
+<li><p>Each partner (e.g., IBM, RPI) is given a fixed slice of AiMOS expressed as a percentage of the whole system.</p></li>
+<li><p>Within a partner’s “slice”, group projects are defined.</p></li>
+<li><p>By default, each project receives a fair share of the overall partner level slice.</p></li>
+<li><p>Inside each project, user accounts are created, and each user receives a fair share of the overall group project level slice.</p></li>
+</ul>
+<p>Fairshare is calculated at the project level.  For example, let’s say there are 5 projects in the AI Hardware Center slice of the total systems.  This means each project would get 20% of the share. Everyone in the same project would share this 20%, on a ‘first come, first serve’ basis.</p>
+<p>For more information on Slurm implementation and frequently used commands see:
+<a class="reference external" href="https://secure.cci.rpi.edu/wiki/Slurm/">https://secure.cci.rpi.edu/wiki/Slurm/</a></p>
+</div>
+<div class="section" id="job-scheduler-details">
+<h3>Job Scheduler Details<a class="headerlink" href="#job-scheduler-details" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>The primary input to Slurm is a changing set of jobs that each have a set of constraints: <strong>hardware requirements</strong>, <strong>time limits</strong>, <strong>layout</strong>, etc.  Its only output is an ordered queue of jobs.</p></li>
+<li><p>On the first pass, Slurm is attempting to pack/fit those jobs (with their constraints) into a set of system constraints: <strong>what hardware is available</strong>, <strong>who has access to a node</strong>, <strong>if jobs can share a node</strong>, <strong>how long jobs can run on a node</strong>, etc.</p></li>
+<li><p>Another set of constraints is included in the calculation of job priority and ordering: the <strong>size of the job</strong>, <strong>the quality of service (QoS)</strong>, the <strong>job’s age</strong> (time in queue), its <strong>resource requirements</strong>, and <strong>group share</strong> (fairshare).</p></li>
+<li><p>These factors are all significant and weighted appropriately because they affect the overall performance of the scheduler and its ability to manage tangible effects like <strong>average queue time</strong>, <strong>job throughput</strong>, <strong>meet the sharing requirements</strong>, and <strong>system utilization</strong>.</p></li>
+<li><p>Since all the input are changing regularly - jobs are added, removed, hardware fails, etc - priority is recalculated <strong>continuously</strong> to reorder the queue as the state of the system changes.</p></li>
+</ul>
+<p><strong>IMPORTANT:</strong> Given that time limit, and number of nodes are included in the calculation of the priority of your jobs, you should try to be as accurate as you can with these two requirements of your job.  A shorter runtime and fewer number of nodes requested would enable Slurm to fit your job in between the jobs that require longer hours or/and more nodes to run. Hence if you need to debug your code, you should request 1 node and time limit of 1 hour or less.  Hopefully that would enable Slurm to allocate a node for you to develop and debug your code.</p>
+</div>
+<div class="section" id="job-queue-limits">
+<span id="job-queue"></span><h3>Job Queue Limits<a class="headerlink" href="#job-queue-limits" title="Permalink to this headline">¶</a></h3>
+<p>You need to specify the time required to run your job via option -t &lt;value&gt;. The value is number of minutes. The specified time is also used in the calculation of the priority of your job, hence it is recommended that you specify an accurate estimated time for your job.</p>
+<ul class="simple">
+<li><p>The default maximum value is 360 which is 6 hours. It is recommended that you include checkpoint restart in your code to enable your job to restart at the last checkpoint if your job run is longer than 6 hours.</p></li>
+<li><p>DCS cluster now has a capability for a 48 hour job time limit.  This option is not available on the NPL cluster.  There are maximum 18 nodes available for the 48 hour time limit. To request this capability, you need to include the following line in your sbatch script:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH --qos=dcs-48hr</span>
+</pre></div>
+</div>
+<p><strong>IMPORTANT:</strong> remember that time limit and number of nodes are counted in the project’s allocation. This means that subsequent jobs are impacted in their scheduling, since the project will have used a large number of nodes and time in this queue.</p>
+</div>
+<div class="section" id="slurm-frequently-used-commands">
+<h3>Slurm Frequently Used Commands<a class="headerlink" href="#slurm-frequently-used-commands" title="Permalink to this headline">¶</a></h3>
+<p>For the complete list of SLURM manpages, see <a class="reference external" href="https://slurm.schedmd.com/man_index.html">https://slurm.schedmd.com/man_index.html</a></p>
+<p>For the summary for SLURM commands and options, see <a class="reference external" href="https://slurm.schedmd.com/pdfs/summary.pdf">https://slurm.schedmd.com/pdfs/summary.pdf</a></p>
+<div class="section" id="frequently-used-options-for-slurm-commands">
+<h4>Frequently Used options for Slurm commands<a class="headerlink" href="#frequently-used-options-for-slurm-commands" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-n, --ntasks=ntasks         number of tasks to run
+-N, --nodes=N               number of nodes on which to run (N = min[-max])
+-c, --cpus-per-task=ncpus   number of cpus required per task
+--ntasks-per-node=n     number of tasks to invoke on each node
+-i, --input=in              file for batch script&#39;s standard input
+-o, --output=out            file for batch script&#39;s standard output
+-e, --error=err             file for batch script&#39;s standard error
+-p, --partition=partition   partition requested
+-t, --time=minutes          time limit
+-D, --chdir=path            change remote current working directory
+-D, --workdir=directory     set working directory for batch script
+--mail-type=type        notify on state change: BEGIN, END, FAIL or ALL
+--mail-user=user        who to send email notification for job state changes
+</pre></div>
+</div>
+</div>
+<div class="section" id="salloc">
+<h4>salloc<a class="headerlink" href="#salloc" title="Permalink to this headline">¶</a></h4>
+<p>Allocate resources for a job in real time and start a shell.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$  salloc -N <span class="m">1</span> --gres<span class="o">=</span>gpu:6 -t <span class="m">15</span>
+salloc: Granted job allocation <span class="m">60780</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="squeue">
+<h4>squeue<a class="headerlink" href="#squeue" title="Permalink to this headline">¶</a></h4>
+<p>Report the state of jobs or job steps. By default, it reports the running jobs in priority order and then the pending jobs in priority order.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$ squeue
+          JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="o">(</span>REASON<span class="o">)</span>
+          <span class="m">60780</span>       dcs     bash your-id  R       <span class="m">1</span>:07      <span class="m">1</span> dcs249
+<span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$ ssh dcs249
+Warning: Permanently added <span class="s1">&#39;dcs249,172.31.236.249&#39;</span> <span class="o">(</span>ECDSA<span class="o">)</span> to the list of known hosts.
+</pre></div>
+</div>
+<p>To display when your pending job will be started:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$ squeue --start
+             JOBID PARTITION     NAME     USER ST          START_TIME  NODES SCHEDNODES           NODELIST<span class="o">(</span>REASON<span class="o">)</span>
+             <span class="m">93765</span>   dcs,rpi pytorch_ your-id  PD <span class="m">2020</span>-03-27T12:34:38      <span class="m">2</span> dcs<span class="o">[</span><span class="m">235</span>-236<span class="o">]</span>         <span class="o">(</span>Resources<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sbatch">
+<h4>sbatch<a class="headerlink" href="#sbatch" title="Permalink to this headline">¶</a></h4>
+<p>submit a job script for later execution. The script typically contains one or more srun commands to launch parallel tasks.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch ./batch-job.sh
+</pre></div>
+</div>
+</div>
+<div class="section" id="scancel">
+<h4>scancel<a class="headerlink" href="#scancel" title="Permalink to this headline">¶</a></h4>
+<p>Cancel a pending or running job or job step.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scancel &lt;JOBID&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="sinfo">
+<h4>sinfo<a class="headerlink" href="#sinfo" title="Permalink to this headline">¶</a></h4>
+<p>Report the state of partitions and nodes managed by Slurm.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>your-id@dcs249 ~<span class="o">]</span>$ sinfo
+PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
+debug        up      <span class="m">30</span>:00      <span class="m">5</span> drain* dcs<span class="o">[</span><span class="m">213</span>,253-254,266<span class="o">]</span>,dcsfen02
+debug        up      <span class="m">30</span>:00     <span class="m">11</span>  down* dcs<span class="o">[</span><span class="m">040</span>,074,109,119,121,124,126,168-169,173,270<span class="o">]</span>
+debug        up      <span class="m">30</span>:00     <span class="m">20</span>  drain dcs<span class="o">[</span><span class="m">026</span>,068,086,154,194,199,206,209-211,216,236,242,246,250,255,257,259-260,269<span class="o">]</span>
+debug        up      <span class="m">30</span>:00     <span class="m">78</span>  alloc dcs<span class="o">[</span><span class="m">023</span>-025,027-030,032-036,039,069-073,110-118,120,125,165,170-172,174-193,198,200-205,212,237-241,243-245,247-249,256,261-265<span class="o">]</span>
+debug        up      <span class="m">30</span>:00    <span class="m">136</span>   idle dcs<span class="o">[</span><span class="m">001</span>-012,014-022,037-038,041-067,075-085,087-108,122-123,127-153,155-164,166-167,195-196,207-208,214-215,235,251-252,258,267-268<span class="o">]</span>
+debug        up      <span class="m">30</span>:00      <span class="m">3</span>   down dcs<span class="o">[</span><span class="m">013</span>,031,197<span class="o">]</span>
+dcs          up    <span class="m">6</span>:00:00      <span class="m">4</span> drain* dcs<span class="o">[</span><span class="m">213</span>,253-254,266<span class="o">]</span>
+dcs          up    <span class="m">6</span>:00:00     <span class="m">11</span>  down* dcs<span class="o">[</span><span class="m">040</span>,074,109,119,121,124,126,168-169,173,270<span class="o">]</span>
+dcs          up    <span class="m">6</span>:00:00     <span class="m">20</span>  drain dcs<span class="o">[</span><span class="m">026</span>,068,086,154,194,199,206,209-211,216,236,242,246,250,255,257,259-260,269<span class="o">]</span>
+dcs          up    <span class="m">6</span>:00:00     <span class="m">78</span>  alloc dcs<span class="o">[</span><span class="m">023</span>-025,027-030,032-036,039,069-073,110-118,120,125,165,170-172,174-193,198,200-205,212,237-241,243-245,247-249,256,261-265<span class="o">]</span>
+dcs          up    <span class="m">6</span>:00:00    <span class="m">136</span>   idle dcs<span class="o">[</span><span class="m">001</span>-012,014-022,037-038,041-067,075-085,087-108,122-123,127-153,155-164,166-167,195-196,207-208,214-215,235,251-252,258,267-268<span class="o">]</span>
+dcs          up    <span class="m">6</span>:00:00      <span class="m">3</span>   down dcs<span class="o">[</span><span class="m">013</span>,031,197<span class="o">]</span>
+rpi          up    <span class="m">6</span>:00:00      <span class="m">1</span> drain* dcs218
+rpi          up    <span class="m">6</span>:00:00     <span class="m">13</span>  drain dcs<span class="o">[</span><span class="m">217</span>,219-222,224-229,231-232<span class="o">]</span>
+rpi          up    <span class="m">6</span>:00:00      <span class="m">2</span>  alloc dcs<span class="o">[</span><span class="m">223</span>,230<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sshared">
+<h4>sshared<a class="headerlink" href="#sshared" title="Permalink to this headline">¶</a></h4>
+<p>list the project usage.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sshare
+             Account       User  RawShares  NormShares    RawUsage  EffectvUsage  FairShare
+-------------------- ---------- ---------- ----------- ----------- ------------- ----------
+bmhr                   bmhrkmkh     parent    <span class="m">0</span>.037129   <span class="m">106127556</span>      <span class="m">0</span>.023950   <span class="m">0</span>.639472
+</pre></div>
+</div>
+<p>If the ‘EffectvUsage’ is greater than 0.5, then your project’s fairshare has been used up, hence the job queue time will be longer unless there are idle nodes.  In  that case your job uses the resources from some other projects’ fairshare because they don’t have any jobs scheduled.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="aimos-workload.html" class="btn btn-neutral float-right" title="Set up the workload environment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="aimos-userid.html" class="btn btn-neutral float-left" title="Access to AiMOS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, AiMOS
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
