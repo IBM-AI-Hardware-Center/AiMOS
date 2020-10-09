@@ -82,6 +82,13 @@ For more information see https://secure.cci.rpi.edu/wiki/File_System/#home
 
 Due to the default limit space of 10 GiB for $HOME, 10G for $HOME/barn and $HOME/barn-shared combined, it is best to use these directories to store configuration files, scripts, or small programs needed to customize the working environment. You should use $HOME/scratch and $HOME/scratch-shared for things that require more space. **NOTE:** $HOME/scratch-shared are visible and shared among the users in the same project.
 
+**HINT:** You can use df command to check the quota of a filesystem such as $HOME. 
+
+.. code:: bash
+
+   cd $HOME
+   df -h .
+
 If you need additional space for barn and barn-shared, please send an email to Lorraine Herger (herger@us.ibm.com) with the justification for increase the space and the requested space.  If Lorraine approves your request, she will forward the email to RPI for processing.
 
 .. code:: bash
@@ -145,7 +152,7 @@ You need to specify the time required to run your job via option -t <value>. The
 
    #SBATCH --qos=dcs-48hr
 
-**IMPORTANT:** remember that time limit and number of nodes are counted in the project's allocation. This means that subsequent jobs are impacted in their scheduling, since the project will have used a large number of nodes and time in this queue.
+**IMPORTANT:** remember that time limit and number of nodes are counted in the project's allocation. This means that subsequent jobs are impacted in their scheduling, since the project would have used a large number of nodes and time in the queue.
 
 Slurm Frequently Used Commands
 ++++++++++++++++++++++++++++++

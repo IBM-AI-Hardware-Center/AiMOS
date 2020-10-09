@@ -3,7 +3,7 @@
 Access to AiMOS
 ===============
 
-This section describes the steps for you to apply for a user ID and the process for log in to AiMOS.
+This section describes the steps for you to apply for a user ID and the process for log in to AiMOS. Access to AiMOS is limited to AI Hardware center members and partners.
 
 .. _get-user-id-section:
 
@@ -11,7 +11,7 @@ This section describes the steps for you to apply for a user ID and the process 
 Apply for a user ID on AiMOS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* If you already have an ID on AiMOS and want to be added to another project, you need to request the Project Sponsor/Project Investigator to send an emai to Lorraine Herger at herger@us.ibm.com.  The email should contain your current ID and the project ID that you want to be added.  The email can be used for the list of user id and the list for projects. For example:
+* If you already have an ID on AiMOS and want to be added to another project, you need to request the Project Sponsor/Project Investigator to send an email to Lorraine Herger at herger@us.ibm.com.  The email should contain your current ID and the project ID that you want to be added.  The email can be used for the list of user ids and the list for projects. For example:
 
 ::
   

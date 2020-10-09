@@ -241,6 +241,11 @@ $ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
 </ul>
 <p>For more information see <a class="reference external" href="https://secure.cci.rpi.edu/wiki/File_System/#home">https://secure.cci.rpi.edu/wiki/File_System/#home</a></p>
 <p>Due to the default limit space of 10 GiB for $HOME, 10G for $HOME/barn and $HOME/barn-shared combined, it is best to use these directories to store configuration files, scripts, or small programs needed to customize the working environment. You should use $HOME/scratch and $HOME/scratch-shared for things that require more space. <strong>NOTE:</strong> $HOME/scratch-shared are visible and shared among the users in the same project.</p>
+<p><strong>HINT:</strong> You can use df command to check the quota of a filesystem such as $HOME.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$HOME</span>
+df -h .
+</pre></div>
+</div>
 <p>If you need additional space for barn and barn-shared, please send an email to Lorraine Herger (<a class="reference external" href="mailto:herger&#37;&#52;&#48;us&#46;ibm&#46;com">herger<span>&#64;</span>us<span>&#46;</span>ibm<span>&#46;</span>com</a>) with the justification for increase the space and the requested space.  If Lorraine approves your request, she will forward the email to RPI for processing.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/gpfs
    /u
@@ -293,7 +298,7 @@ $ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH --qos=dcs-48hr</span>
 </pre></div>
 </div>
-<p><strong>IMPORTANT:</strong> remember that time limit and number of nodes are counted in the project’s allocation. This means that subsequent jobs are impacted in their scheduling, since the project will have used a large number of nodes and time in this queue.</p>
+<p><strong>IMPORTANT:</strong> remember that time limit and number of nodes are counted in the project’s allocation. This means that subsequent jobs are impacted in their scheduling, since the project would have used a large number of nodes and time in the queue.</p>
 </div>
 <div class="section" id="slurm-frequently-used-commands">
 <h3>Slurm Frequently Used Commands<a class="headerlink" href="#slurm-frequently-used-commands" title="Permalink to this headline">¶</a></h3>

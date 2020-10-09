@@ -17,7 +17,7 @@ DCS Cluster (Power)
 NPL Cluster (X86)
 ^^^^^^^^^^^^^^^^^^
 
-#. If you want to use the  x86 cluster, i.e. NPL Cluster, log in to the nplfen01.ccni.rpi.edu node.
+#. If you want to use the  X86 cluster, i.e. NPL Cluster, log in to the nplfen01.ccni.rpi.edu node.
 #. For the NPL cluster, avoid using system memory together with GPU memory since the data transfer is using the PCI bus. It is not the high speed connection.
 #. Note that openmpi is installed in the NPL Cluster.  You can use **module spider** to find all possible modules and extensions.
 
@@ -142,7 +142,7 @@ The following .condarc is specifying that conda searches the wml-ce early access
 Troubleshooting Tips
 ^^^^^^^^^^^^^^^^^^^^
 
-* When you get a disk I/O error, check disk quota for $HOME and barn. See https://secure.cci.rpi.edu/wiki/Frequently_Asked_Questions/#how-do-i-check-my-gpfs-quota-usage for how to.  For example, you want to know the quote of $HOME and the size of the files in $HOME:
+* When you get a disk I/O error, check disk quota for $HOME and barn. See https://secure.cci.rpi.edu/wiki/Frequently_Asked_Questions/#how-do-i-check-my-gpfs-quota-usage for how to.  For example, you want to know the quota of $HOME and the size of the files in $HOME:
 
 .. code:: bash
 
