@@ -15,7 +15,7 @@ the IBM Research AI Hardware Center.  AiMOS consists of two(2) clusters:
   * Dual, 100 Gb/sec Mellanox IB links
 
 
-* `NPL Cluster <https://secure.cci.rpi.edu/wiki/clusters/NPL_Cluster>`_, sometimes referred as AiMOSx, contains 40 x86 HPE nodes, each with:
+* `NPL Cluster <https://secure.cci.rpi.edu/wiki/clusters/NPL_Cluster>`_, sometimes referred as AiMOSx, contains 40 X86 HPE nodes, each with:
 
   * 2x 20 core 2.5 GHz Intel Xeon Gold 6248
   * 8x NVIDIA Tesla V100 GPU each with 32 GiB HBM

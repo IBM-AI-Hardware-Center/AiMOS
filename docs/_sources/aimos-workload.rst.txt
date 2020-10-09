@@ -80,7 +80,7 @@ For more information see https://secure.cci.rpi.edu/wiki/examples/Modules/
 Install Anaconda
 ^^^^^^^^^^^^^^^^^
 
-Anaconda is not installed by default on AiMOS at the system level.  If you need the conda environment for your workload, you will need to install and set up in your environment.
+Anaconda is not installed by default on AiMOS at the system level.  If you need the conda environment for your workload, you will need to install and set it up in your environment.
 
 **Prerequisites**
 
@@ -88,23 +88,23 @@ Anaconda is not installed by default on AiMOS at the system level.  If you need 
 
 * Proxy was set up. For how to see :ref:`setup-environment`.
 
-Download the Anaconda or  Miniconda3 installer applicable for the hardware architecture, i.e. ppc64le for DCS cluster or x86_64 for NPL cluster, as needed.  For example:
+Download the Anaconda or  Miniconda3 installer applicable for the hardware architecture, i.e. ppc64le for DCS cluster or X86_64 for NPL cluster, as needed.  For example:
+
+*  DCS Cluster:
 
 .. code:: bash
 
   wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-ppc64le.sh
 
-Or 
+* NPL Cluster: 
 
 .. code:: bash
 
-   wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh
+   wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-X86_64.sh
 
 For more information see https://secure.cci.rpi.edu/wiki/software/Conda/
 
-**IMPORTANT NOTE**
-
-The same GPFS filesystem is mounted on all the nodes in both DCS(Power) and NPL(x86) cluster.  You need to consider that if you include conda init in your ~/.bashrc as well as the .condarc.  You do not want things intended to run on Power running on X86 or vice versa. You may want to refer to :ref:`conda-init-bashrc` for example of setting up .bashrc to run the appropriate conda init for the environment.
+**IMPORTANT NOTE:** the same GPFS filesystem is mounted on all the nodes in both DCS(Power) and NPL(X86) cluster.  You need to consider that if you include conda init in your ~/.bashrc as well as the .condarc.  You do not want things intended to run on Power running on X86 or vice versa. You may want to refer to :ref:`conda-init-bashrc` for example of setting up .bashrc to run the appropriate conda init for the environment.
 
 
 This following example is to install the ppc64le miniconda environment to the scratch directory.
