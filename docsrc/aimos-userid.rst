@@ -11,19 +11,28 @@ This section describes the steps for you to apply for a user ID and the process 
 Apply for a user ID on AiMOS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* If you already have an ID on AiMOS and want to be added to another project, you need to request the Project Sponsor/Project Investigator to send an email to Lorraine Herger at herger@us.ibm.com.  The email should contain your current ID and the project ID that you want to be added.  The email can be used for the list of user ids and the list for projects. For example:
+* If you are a first time user, you need to fill out the following forms, sign and send them to herger@us.ibm.com.  Also, provide the following:
+
+  * If you are joining an existing project, please provide the 4 letter ID of the project, and the approval of the project leader/ PI.  CC'ing the PI on the email is sufficient.
+  * If you are requesting a new project, then provide the following information in your email, along with your two completed forms:
+
+      - Project Title:
+      - Short Project Description:
+
+* If you already have an AiMOS ID, and are requesting access to an existing project, only provide the following:
+
+  * 4 letter ID of the project you wish to join.
+  * Approval of the project lead / PI to join the project.  CC'ing the PI on the email is sufficient.  For example:
 
 ::
   
   To: herger@us.ibm.com
-  cc: <your email id>
+  cc: <PI email id>
   Subject: Add existing users to another project
 
   USER ID: BMHRxxxx, SROMxxxx
   PROJECT ID: CADS, ADCS
 
-
-* If you are a first time user, you need to fill out the following forms, sign and send them to herger@us.ibm.com.
 
 CCI User Information
 ++++++++++++++++++++
@@ -62,7 +71,7 @@ Set the Personal Identification Code (PIC)
 
 The last step is to choose the Personal Identification code (PIC). The PIC is case-sensitive and is made up of at least 4 numbers and/or letters. No special characters may be used. Do not use your bank PIN, account name, first or last name, or organization.
 
-* Install "Google Authenticator" app on your mobil device.
+* Install "Google Authenticator" app on your mobile device.
 
 * Go to https://secure.cci.rpi.edu/totp.
 
@@ -90,8 +99,7 @@ Join aimos slack channel
 
 * #aimos_synopsys-guest
 
-
-You may need to send an email to Lorraine Herger (herger@us.ibm.com) to request for joining the slack channel.
+All IBM users who are not in the IBM Research Division, or users who are external to IBM,  will need to send a request to join email to Lorraine Herger (herger@us.bm.com).
 
 .. _how-to-login:
 

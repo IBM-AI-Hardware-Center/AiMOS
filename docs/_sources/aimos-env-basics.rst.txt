@@ -89,7 +89,7 @@ Due to the default limit space of 10 GiB for $HOME, 10G for $HOME/barn and $HOME
    cd $HOME
    df -h .
 
-If you need additional space for barn and barn-shared, please send an email to Lorraine Herger (herger@us.ibm.com) with the justification for increase the space and the requested space.  If Lorraine approves your request, she will forward the email to RPI for processing.
+If you need additional space for barn and barn-shared, please send an email to Lorraine Herger (herger@us.ibm.com) with the justification for increasing the space and the requested space.  If Lorraine approves your request, she will forward the email to RPI for processing.
 
 .. code:: bash
 
@@ -120,6 +120,8 @@ Fairshare Allocation Policy
 * Inside each project, user accounts are created, and each user receives a fair share of the overall group project level slice.
 
 Fairshare is calculated at the project level.  For example, let's say there are 5 projects in the AI Hardware Center slice of the total systems.  This means each project would get 20% of the share. Everyone in the same project would share this 20%, on a 'first come, first serve' basis.
+
+Inside each project, user accounts are created, and each user receives a fair share of the overall group project level slice.  Fair share is determined as an average over a period of time (month).  If the fair share has been consumed within the average time slice, the users in that project will experience longer wait times in the queues, if the system is busy.
 
 For more information on Slurm implementation and frequently used commands see: 
 https://secure.cci.rpi.edu/wiki/Slurm/
@@ -164,7 +166,7 @@ For the summary for SLURM commands and options, see https://slurm.schedmd.com/pd
 Frequently Used options for Slurm commands
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-.. code:: bash
+::
 
    -n, --ntasks=ntasks         number of tasks to run
    -N, --nodes=N               number of nodes on which to run (N = min[-max])

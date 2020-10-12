@@ -246,7 +246,7 @@ $ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
 df -h .
 </pre></div>
 </div>
-<p>If you need additional space for barn and barn-shared, please send an email to Lorraine Herger (<a class="reference external" href="mailto:herger&#37;&#52;&#48;us&#46;ibm&#46;com">herger<span>&#64;</span>us<span>&#46;</span>ibm<span>&#46;</span>com</a>) with the justification for increase the space and the requested space.  If Lorraine approves your request, she will forward the email to RPI for processing.</p>
+<p>If you need additional space for barn and barn-shared, please send an email to Lorraine Herger (<a class="reference external" href="mailto:herger&#37;&#52;&#48;us&#46;ibm&#46;com">herger<span>&#64;</span>us<span>&#46;</span>ibm<span>&#46;</span>com</a>) with the justification for increasing the space and the requested space.  If Lorraine approves your request, she will forward the email to RPI for processing.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/gpfs
    /u
      /home
@@ -274,6 +274,7 @@ df -h .
 <li><p>Inside each project, user accounts are created, and each user receives a fair share of the overall group project level slice.</p></li>
 </ul>
 <p>Fairshare is calculated at the project level.  For example, let’s say there are 5 projects in the AI Hardware Center slice of the total systems.  This means each project would get 20% of the share. Everyone in the same project would share this 20%, on a ‘first come, first serve’ basis.</p>
+<p>Inside each project, user accounts are created, and each user receives a fair share of the overall group project level slice.  Fair share is determined as an average over a period of time (month).  If the fair share has been consumed within the average time slice, the users in that project will experience longer wait times in the queues, if the system is busy.</p>
 <p>For more information on Slurm implementation and frequently used commands see:
 <a class="reference external" href="https://secure.cci.rpi.edu/wiki/Slurm/">https://secure.cci.rpi.edu/wiki/Slurm/</a></p>
 </div>
@@ -306,19 +307,19 @@ df -h .
 <p>For the summary for SLURM commands and options, see <a class="reference external" href="https://slurm.schedmd.com/pdfs/summary.pdf">https://slurm.schedmd.com/pdfs/summary.pdf</a></p>
 <div class="section" id="frequently-used-options-for-slurm-commands">
 <h4>Frequently Used options for Slurm commands<a class="headerlink" href="#frequently-used-options-for-slurm-commands" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-n, --ntasks=ntasks         number of tasks to run
--N, --nodes=N               number of nodes on which to run (N = min[-max])
--c, --cpus-per-task=ncpus   number of cpus required per task
---ntasks-per-node=n     number of tasks to invoke on each node
--i, --input=in              file for batch script&#39;s standard input
--o, --output=out            file for batch script&#39;s standard output
--e, --error=err             file for batch script&#39;s standard error
--p, --partition=partition   partition requested
--t, --time=minutes          time limit
--D, --chdir=path            change remote current working directory
--D, --workdir=directory     set working directory for batch script
---mail-type=type        notify on state change: BEGIN, END, FAIL or ALL
---mail-user=user        who to send email notification for job state changes
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">n</span><span class="p">,</span> <span class="o">--</span><span class="n">ntasks</span><span class="o">=</span><span class="n">ntasks</span>         <span class="n">number</span> <span class="n">of</span> <span class="n">tasks</span> <span class="n">to</span> <span class="n">run</span>
+<span class="o">-</span><span class="n">N</span><span class="p">,</span> <span class="o">--</span><span class="n">nodes</span><span class="o">=</span><span class="n">N</span>               <span class="n">number</span> <span class="n">of</span> <span class="n">nodes</span> <span class="n">on</span> <span class="n">which</span> <span class="n">to</span> <span class="n">run</span> <span class="p">(</span><span class="n">N</span> <span class="o">=</span> <span class="nb">min</span><span class="p">[</span><span class="o">-</span><span class="nb">max</span><span class="p">])</span>
+<span class="o">-</span><span class="n">c</span><span class="p">,</span> <span class="o">--</span><span class="n">cpus</span><span class="o">-</span><span class="n">per</span><span class="o">-</span><span class="n">task</span><span class="o">=</span><span class="n">ncpus</span>   <span class="n">number</span> <span class="n">of</span> <span class="n">cpus</span> <span class="n">required</span> <span class="n">per</span> <span class="n">task</span>
+<span class="o">--</span><span class="n">ntasks</span><span class="o">-</span><span class="n">per</span><span class="o">-</span><span class="n">node</span><span class="o">=</span><span class="n">n</span>     <span class="n">number</span> <span class="n">of</span> <span class="n">tasks</span> <span class="n">to</span> <span class="n">invoke</span> <span class="n">on</span> <span class="n">each</span> <span class="n">node</span>
+<span class="o">-</span><span class="n">i</span><span class="p">,</span> <span class="o">--</span><span class="nb">input</span><span class="o">=</span><span class="ow">in</span>              <span class="n">file</span> <span class="k">for</span> <span class="n">batch</span> <span class="n">script</span><span class="s1">&#39;s standard input</span>
+<span class="o">-</span><span class="n">o</span><span class="p">,</span> <span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">out</span>            <span class="n">file</span> <span class="k">for</span> <span class="n">batch</span> <span class="n">script</span><span class="s1">&#39;s standard output</span>
+<span class="o">-</span><span class="n">e</span><span class="p">,</span> <span class="o">--</span><span class="n">error</span><span class="o">=</span><span class="n">err</span>             <span class="n">file</span> <span class="k">for</span> <span class="n">batch</span> <span class="n">script</span><span class="s1">&#39;s standard error</span>
+<span class="o">-</span><span class="n">p</span><span class="p">,</span> <span class="o">--</span><span class="n">partition</span><span class="o">=</span><span class="n">partition</span>   <span class="n">partition</span> <span class="n">requested</span>
+<span class="o">-</span><span class="n">t</span><span class="p">,</span> <span class="o">--</span><span class="n">time</span><span class="o">=</span><span class="n">minutes</span>          <span class="n">time</span> <span class="n">limit</span>
+<span class="o">-</span><span class="n">D</span><span class="p">,</span> <span class="o">--</span><span class="n">chdir</span><span class="o">=</span><span class="n">path</span>            <span class="n">change</span> <span class="n">remote</span> <span class="n">current</span> <span class="n">working</span> <span class="n">directory</span>
+<span class="o">-</span><span class="n">D</span><span class="p">,</span> <span class="o">--</span><span class="n">workdir</span><span class="o">=</span><span class="n">directory</span>     <span class="nb">set</span> <span class="n">working</span> <span class="n">directory</span> <span class="k">for</span> <span class="n">batch</span> <span class="n">script</span>
+<span class="o">--</span><span class="n">mail</span><span class="o">-</span><span class="nb">type</span><span class="o">=</span><span class="nb">type</span>        <span class="n">notify</span> <span class="n">on</span> <span class="n">state</span> <span class="n">change</span><span class="p">:</span> <span class="n">BEGIN</span><span class="p">,</span> <span class="n">END</span><span class="p">,</span> <span class="n">FAIL</span> <span class="ow">or</span> <span class="n">ALL</span>
+<span class="o">--</span><span class="n">mail</span><span class="o">-</span><span class="n">user</span><span class="o">=</span><span class="n">user</span>        <span class="n">who</span> <span class="n">to</span> <span class="n">send</span> <span class="n">email</span> <span class="n">notification</span> <span class="k">for</span> <span class="n">job</span> <span class="n">state</span> <span class="n">changes</span>
 </pre></div>
 </div>
 </div>
