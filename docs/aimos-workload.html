@@ -99,8 +99,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#display-the-webgui-for-a-jupyter-notebook-via-tunneling">Display the WebGUI for a Jupyter notebook via Tunneling</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Allocate a compute node</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#start-the-jupyter-notebook-on-the-allocated-compute-node">Start the jupyter notebook on the allocated compute node</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ssh-tunnelling-on-a-linux-or-mac-osx-node">SSH tunnelling on a Linux or MAC OSX node</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ssh-tunneling-via-putty-on-windows">SSH tunneling via PUTTY on Windows</a></li>
 </ul>
@@ -528,18 +526,13 @@ notebook                  <span class="m">6</span>.0.3                    py37_0
 <div class="section" id="allocate-a-compute-node">
 <h3>Allocate a compute node<a class="headerlink" href="#allocate-a-compute-node" title="Permalink to this headline">¶</a></h3>
 <p>For example, allocate a compute node for 30 minutes:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>salloc -N <span class="m">1</span> --salloc -N <span class="m">1</span> --gres<span class="o">=</span>gpu:6 -t <span class="m">30</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>salloc -N <span class="m">1</span> --gres<span class="o">=</span>gpu:1 -t <span class="m">30</span>
 </pre></div>
 </div>
 <p>After the command returns, you can run squeue to find the allocated node.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>squeue
-         JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="o">(</span>REASON<span class="o">)</span>
-        <span class="m">172886</span>       dcs     bash BMHRkmkh  R       <span class="m">0</span>:13      <span class="m">1</span> dcs085
-</pre></div>
-</div>
-<p>After the command returns, you can run squeue to find the allocated node.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>your-id@dcsfen01 wmlce-1.7.0<span class="o">]</span>$ conda list <span class="p">|</span> grep notebook
-notebook                  <span class="m">6</span>.0.3                    py37_0    conda-forge
+       JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="o">(</span>REASON<span class="o">)</span>
+      <span class="m">387824</span>       dcs     bash BMHRkmkh  R       <span class="m">1</span>:29      <span class="m">1</span> dcs123
 </pre></div>
 </div>
 </div>
@@ -548,22 +541,24 @@ notebook                  <span class="m">6</span>.0.3                    py37_0
 <ul class="simple">
 <li><p>SSH to the compute node</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>BMHRkmkh@dcsfen01 ~<span class="o">]</span>$ ssh dcs035
-Warning: Permanently added <span class="s1">&#39;dcs035,172.31.236.35&#39;</span> <span class="o">(</span>ECDSA<span class="o">)</span> to the list of known hosts.
-
-<span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>BMHRkmkh@dcs035 ~<span class="o">]</span>$
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>BMHRkmkh@dcsfen01 ~<span class="o">]</span>$ ssh dcs123
+Warning: Permanently added <span class="s1">&#39;dcs123,172.31.236.123&#39;</span> <span class="o">(</span>ECDSA<span class="o">)</span> to the list of known hosts.
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Activate to the conda environment that is appropriated for your notebook.</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>BMHRkmkh@dcs035 ~<span class="o">]</span>$ conda activate wmlce-1.7.0
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>BMHRkmkh@dcs123 ~<span class="o">]</span>$ conda activate wmlce-1.7.0
+<span class="o">(</span>wmlce-1.7.0<span class="o">)</span> <span class="o">[</span>BMHRkmkh@dcs123 ~<span class="o">]</span>$
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Start Jupyter Notebook and set the notebook directory to the barn directory.  <strong>NOTE:</strong> you need to specify the absolute path for the notebook-dir.</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>wmlce-1.7.0<span class="o">)</span> <span class="o">[</span>BMHRkmkh@dcs035 scratch-shared<span class="o">]</span>$ jupyter notebook --ip<span class="o">=</span><span class="m">0</span>.0.0.0 --no-browser --notebook-dir<span class="o">=</span>/gpfs/u/home/BMHR/BMHRkmkh/barn
+<span class="o">(</span>wmlce-1.7.0<span class="o">)</span> <span class="o">[</span>BMHRkmkh@dcs123 ~<span class="o">]</span>$ jupyter notebook --ip<span class="o">=</span><span class="m">0</span>.0.0.0 --no-browser --notebook-dir<span class="o">=</span>/gpfs/u/home/BMHR/BMHRkmkh/barn
+<span class="o">[</span>I <span class="m">10</span>:37:36.643 NotebookApp<span class="o">]</span> Serving notebooks from <span class="nb">local</span> directory: /gpfs/u/home/BMHR/BMHRkmkh/barn
+<span class="o">[</span>I <span class="m">10</span>:37:36.643 NotebookApp<span class="o">]</span> The Jupyter Notebook is running at:
 </pre></div>
 </div>
 </div>
@@ -572,35 +567,16 @@ Warning: Permanently added <span class="s1">&#39;dcs035,172.31.236.35&#39;</span
 <h2>Display the WebGUI for a Jupyter notebook via Tunneling<a class="headerlink" href="#display-the-webgui-for-a-jupyter-notebook-via-tunneling" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="prerequisites">
 <h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
-<p>Conda and jupyter notebook are installed on the node. For how to see <a class="reference internal" href="#install-conda"><span class="std std-ref">Install Anaconda</span></a> and <a class="reference internal" href="#install-jupyter"><span class="std std-ref">Install Jupyter notebook</span></a></p>
-</div>
-<div class="section" id="id2">
-<h3>Allocate a compute node<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<p>For example, allocate a compute node for 30 minutes:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">salloc</span> <span class="o">-</span><span class="n">N</span> <span class="mi">1</span> <span class="o">--</span><span class="n">salloc</span> <span class="o">-</span><span class="n">N</span> <span class="mi">1</span> <span class="o">--</span><span class="n">gres</span><span class="o">=</span><span class="n">gpu</span><span class="p">:</span><span class="mi">6</span> <span class="o">-</span><span class="n">t</span> <span class="mi">30</span>
-</pre></div>
-</div>
-<p>After the command returns, you can run squeue to find the allocated node.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>squeue
-           JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="o">(</span>REASON<span class="o">)</span>
-          <span class="m">172886</span>       dcs     bash BMHRkmkh  R       <span class="m">0</span>:13      <span class="m">1</span> dcs085
-</pre></div>
-</div>
-</div>
-<div class="section" id="start-the-jupyter-notebook-on-the-allocated-compute-node">
-<h3>Start the jupyter notebook on the allocated compute node<a class="headerlink" href="#start-the-jupyter-notebook-on-the-allocated-compute-node" title="Permalink to this headline">¶</a></h3>
-<p>You then ssh to the allocated node, activate to the appropriated conda environment, change directory to where the jupyter notebooks are in, then  starting jupyter notebook as follow:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>wmlce-1.7.0<span class="o">)</span> <span class="o">[</span>your-id@dcs085 ~<span class="o">]</span>$ jupyter notebook --ip<span class="o">=</span><span class="m">0</span>.0.0.0 --no-browser
-</pre></div>
-</div>
+<p>Jupyter notebook was started on a compute node. For how to see <a class="reference internal" href="#start-jupyter"><span class="std std-ref">Start Jupyter Notebook</span></a>.</p>
+<p>As with the above example,  Jupyter notebook was started on the node dcs123.</p>
 </div>
 <div class="section" id="ssh-tunnelling-on-a-linux-or-mac-osx-node">
 <h3>SSH tunnelling on a Linux or MAC OSX node<a class="headerlink" href="#ssh-tunnelling-on-a-linux-or-mac-osx-node" title="Permalink to this headline">¶</a></h3>
-<p>Start the ssh session to one of the landing pad nodes and map the port 8888 from dcs085 to port 8888 on the local host.  For example:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>id@kvt-rhel ~<span class="o">]</span>$ ssh -L8888:dcs085:8888 BMHRkmkh@blp01.ccni.rpi.edu
+<p>Start the ssh session to one of the landing pad nodes and map the port 8888 from dcs123 to port 8888 on the local host.  For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>id@kvt-rhel ~<span class="o">]</span>$ ssh -L8888:dcs123 BMHRkmkh@blp01.ccni.rpi.edu
 </pre></div>
 </div>
-<p>Go to the browser on the node, enter the following to tunnel to the jupyter notebook running on the compute node to the localhost.</p>
+<p>Go to your browser, enter the following to display the jupyter notebook running on the compute node dcs085.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>http://localhost:8888
 </pre></div>
 </div>
@@ -611,17 +587,18 @@ Warning: Permanently added <span class="s1">&#39;dcs035,172.31.236.35&#39;</span
 </div>
 <div class="section" id="ssh-tunneling-via-putty-on-windows">
 <h3>SSH tunneling via PUTTY on Windows<a class="headerlink" href="#ssh-tunneling-via-putty-on-windows" title="Permalink to this headline">¶</a></h3>
-<p>Go to the putty entry for the landing pad node.  For example:</p>
+<p>Go to the “Change Setting…” of the current putty session, then go to section “Connection-&gt;SSH-&gt;Tunnels”.</p>
 <div class="figure align-default">
 <img alt="_images/putty2.png" src="_images/putty2.png" />
 </div>
-<p>Go section Connection-&gt;SSH-&gt;Tunnels, enter the jupyter notebok URL on the compute node and click <strong>Add</strong>, for example:</p>
+<p>Enter the jupyter notebok URL on the compute node and click <strong>Add</strong>, for example:</p>
 <div class="figure align-default">
 <img alt="_images/putty-tunnel.png" src="_images/putty-tunnel.png" />
 </div>
-<p>Start the putty session and login to the landing node as usual.</p>
+<p>Click “Apply” button to apply the change the  putty session.</p>
+<p><strong>NOTE:</strong> this is a temporary change setting to the putty session.  Once you terminate the putty session, the change will go away.</p>
 <p>After that, go to your browser and enter the following to tunnel to the jupyter notebook running on the compute node.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>http://localhost:18889
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>http://localhost:8888
 </pre></div>
 </div>
 <p>You should see the jupyter notebook after you enter the token at the login prompt.</p>
