@@ -447,22 +447,17 @@ For example, allocate a compute node for 30 minutes:
 
 .. code:: bash
 
-  salloc -N 1 --salloc -N 1 --gres=gpu:6 -t 30
+  salloc -N 1 --gres=gpu:1 -t 30
+
 
 After the command returns, you can run squeue to find the allocated node.
 
 .. code:: bash
 
-  squeue
-           JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-          172886       dcs     bash BMHRkmkh  R       0:13      1 dcs085
+   squeue
+          JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+         387824       dcs     bash BMHRkmkh  R       1:29      1 dcs123
 
-After the command returns, you can run squeue to find the allocated node.
-
-.. code:: bash
-
-  (base) [your-id@dcsfen01 wmlce-1.7.0]$ conda list | grep notebook
-  notebook                  6.0.3                    py37_0    conda-forge
 
 Start Jupyter Notebook on the allocated compute node
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -471,23 +466,27 @@ Start Jupyter Notebook on the allocated compute node
 
 .. code:: bash
 
-  (base) [BMHRkmkh@dcsfen01 ~]$ ssh dcs035
-  Warning: Permanently added 'dcs035,172.31.236.35' (ECDSA) to the list of known hosts.
+  (base) [BMHRkmkh@dcsfen01 ~]$ ssh dcs123
+  Warning: Permanently added 'dcs123,172.31.236.123' (ECDSA) to the list of known hosts.
 
-  (base) [BMHRkmkh@dcs035 ~]$
   
 * Activate to the conda environment that is appropriated for your notebook.
 
 .. code:: bash
 
-  (base) [BMHRkmkh@dcs035 ~]$ conda activate wmlce-1.7.0
+  (base) [BMHRkmkh@dcs123 ~]$ conda activate wmlce-1.7.0
+  (wmlce-1.7.0) [BMHRkmkh@dcs123 ~]$
+
 
 * Start Jupyter Notebook and set the notebook directory to the barn directory.  **NOTE:** you need to specify the absolute path for the notebook-dir.
 
 .. code:: bash
 
   (wmlce-1.7.0) [BMHRkmkh@dcs035 scratch-shared]$ jupyter notebook --ip=0.0.0.0 --no-browser --notebook-dir=/gpfs/u/home/BMHR/BMHRkmkh/barn
-
+  (wmlce-1.7.0) [BMHRkmkh@dcs123 ~]$ jupyter notebook --ip=0.0.0.0 --no-browser --notebook-dir=/gpfs/u/home/BMHR/BMHRkmkh/barn
+  [I 10:37:36.643 NotebookApp] Serving notebooks from local directory: /gpfs/u/home/BMHR/BMHRkmkh/barn
+  [I 10:37:36.643 NotebookApp] The Jupyter Notebook is running at:
+  
 
 Display the WebGUI for a Jupyter notebook via Tunneling
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -495,48 +494,21 @@ Display the WebGUI for a Jupyter notebook via Tunneling
 Prerequisites
 +++++++++++++
 
-Conda and jupyter notebook are installed on the node. For how to see :ref:`install-conda` and :ref:`install-jupyter`
+Jupyter notebook was started on a compute node. For how to see :ref:`start-jupyter`. 
 
-Allocate a compute node
-+++++++++++++++++++++++
-
-For example, allocate a compute node for 30 minutes:
-
-::
-
-  salloc -N 1 --salloc -N 1 --gres=gpu:6 -t 30
-
-After the command returns, you can run squeue to find the allocated node.
-
-.. code:: bash
-
-  squeue
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-            172886       dcs     bash BMHRkmkh  R       0:13      1 dcs085
-
-
-Start the jupyter notebook on the allocated compute node
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-You then ssh to the allocated node, activate to the appropriated conda environment, change directory to where the jupyter notebooks are in, then  starting jupyter notebook as follow:
-
-.. code:: bash
-
-  (wmlce-1.7.0) [your-id@dcs085 ~]$ jupyter notebook --ip=0.0.0.0 --no-browser
-
-
+As with the above example,  Jupyter notebook was started on the node dcs123.
 
 SSH tunnelling on a Linux or MAC OSX node
 +++++++++++++++++++++++++++++++++++++++++
 
-Start the ssh session to one of the landing pad nodes and map the port 8888 from dcs085 to port 8888 on the local host.  For example:
+Start the ssh session to one of the landing pad nodes and map the port 8888 from dcs123 to port 8888 on the local host.  For example:
 
 .. code:: bash
 
-  [id@kvt-rhel ~]$ ssh -L8888:dcs085:8888 BMHRkmkh@blp01.ccni.rpi.edu
+  [id@kvt-rhel ~]$ ssh -L8888:dcs123 BMHRkmkh@blp01.ccni.rpi.edu
 
 
-Go to the browser on the node, enter the following to tunnel to the jupyter notebook running on the compute node to the localhost.
+Go to your browser, enter the following to display the jupyter notebook running on the compute node dcs085.
 
 .. code:: bash
 
@@ -551,21 +523,23 @@ You should see the jupyter notebook after you enter the token at the login promp
 SSH tunneling via PUTTY on Windows
 ++++++++++++++++++++++++++++++++++
 
-Go to the putty entry for the landing pad node.  For example:
+Go to the "Change Setting..." of the current putty session, then go to section "Connection->SSH->Tunnels".
 
 .. figure:: putty2.png
 
-Go section Connection->SSH->Tunnels, enter the jupyter notebok URL on the compute node and click **Add**, for example:
+Enter the jupyter notebok URL on the compute node and click **Add**, for example:
 
 .. figure:: putty-tunnel.png
 
-Start the putty session and login to the landing node as usual.
+Click "Apply" button to apply the change the  putty session.
+
+**NOTE:** this is a temporary change setting to the putty session.  Once you terminate the putty session, the change will go away.
 
 After that, go to your browser and enter the following to tunnel to the jupyter notebook running on the compute node.
 
 .. code:: bash
 
-  http://localhost:18889
+  http://localhost:8888
 
 
 You should see the jupyter notebook after you enter the token at the login prompt.
