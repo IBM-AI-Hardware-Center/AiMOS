@@ -482,7 +482,6 @@ Start Jupyter Notebook on the allocated compute node
 
 .. code:: bash
 
-  (wmlce-1.7.0) [BMHRkmkh@dcs035 scratch-shared]$ jupyter notebook --ip=0.0.0.0 --no-browser --notebook-dir=/gpfs/u/home/BMHR/BMHRkmkh/barn
   (wmlce-1.7.0) [BMHRkmkh@dcs123 ~]$ jupyter notebook --ip=0.0.0.0 --no-browser --notebook-dir=/gpfs/u/home/BMHR/BMHRkmkh/barn
   [I 10:37:36.643 NotebookApp] Serving notebooks from local directory: /gpfs/u/home/BMHR/BMHRkmkh/barn
   [I 10:37:36.643 NotebookApp] The Jupyter Notebook is running at:
@@ -494,9 +493,7 @@ Display the WebGUI for a Jupyter notebook via Tunneling
 Prerequisites
 +++++++++++++
 
-Jupyter notebook was started on a compute node. For how to see :ref:`start-jupyter`. 
-
-As with the above example,  Jupyter notebook was started on the node dcs123.
+Jupyter notebook was started on the allocated compute node, such as dcs123. For how to see :ref:`start-jupyter`. 
 
 SSH tunnelling on a Linux or MAC OSX node
 +++++++++++++++++++++++++++++++++++++++++
@@ -508,7 +505,7 @@ Start the ssh session to one of the landing pad nodes and map the port 8888 from
   [id@kvt-rhel ~]$ ssh -L8888:dcs123 BMHRkmkh@blp01.ccni.rpi.edu
 
 
-Go to your browser, enter the following to display the jupyter notebook running on the compute node dcs085.
+Go to your browser, enter the following to display the jupyter notebook running on the compute node dcs123.
 
 .. code:: bash
 
@@ -527,7 +524,7 @@ Go to the "Change Setting..." of the current putty session, then go to section "
 
 .. figure:: putty2.png
 
-Enter the jupyter notebok URL on the compute node and click **Add**, for example:
+Enter the jupyter notebok URL on the compute node and click **Add** button to add.
 
 .. figure:: putty-tunnel.png
 
@@ -535,7 +532,7 @@ Click "Apply" button to apply the change the  putty session.
 
 **NOTE:** this is a temporary change setting to the putty session.  Once you terminate the putty session, the change will go away.
 
-After that, go to your browser and enter the following to tunnel to the jupyter notebook running on the compute node.
+Now go to your browser and enter the following to tunnel to the jupyter notebook running on the compute node.
 
 .. code:: bash
 

@@ -555,8 +555,7 @@ Warning: Permanently added <span class="s1">&#39;dcs123,172.31.236.123&#39;</spa
 <ul class="simple">
 <li><p>Start Jupyter Notebook and set the notebook directory to the barn directory.  <strong>NOTE:</strong> you need to specify the absolute path for the notebook-dir.</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>wmlce-1.7.0<span class="o">)</span> <span class="o">[</span>BMHRkmkh@dcs035 scratch-shared<span class="o">]</span>$ jupyter notebook --ip<span class="o">=</span><span class="m">0</span>.0.0.0 --no-browser --notebook-dir<span class="o">=</span>/gpfs/u/home/BMHR/BMHRkmkh/barn
-<span class="o">(</span>wmlce-1.7.0<span class="o">)</span> <span class="o">[</span>BMHRkmkh@dcs123 ~<span class="o">]</span>$ jupyter notebook --ip<span class="o">=</span><span class="m">0</span>.0.0.0 --no-browser --notebook-dir<span class="o">=</span>/gpfs/u/home/BMHR/BMHRkmkh/barn
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>wmlce-1.7.0<span class="o">)</span> <span class="o">[</span>BMHRkmkh@dcs123 ~<span class="o">]</span>$ jupyter notebook --ip<span class="o">=</span><span class="m">0</span>.0.0.0 --no-browser --notebook-dir<span class="o">=</span>/gpfs/u/home/BMHR/BMHRkmkh/barn
 <span class="o">[</span>I <span class="m">10</span>:37:36.643 NotebookApp<span class="o">]</span> Serving notebooks from <span class="nb">local</span> directory: /gpfs/u/home/BMHR/BMHRkmkh/barn
 <span class="o">[</span>I <span class="m">10</span>:37:36.643 NotebookApp<span class="o">]</span> The Jupyter Notebook is running at:
 </pre></div>
@@ -567,8 +566,7 @@ Warning: Permanently added <span class="s1">&#39;dcs123,172.31.236.123&#39;</spa
 <h2>Display the WebGUI for a Jupyter notebook via Tunneling<a class="headerlink" href="#display-the-webgui-for-a-jupyter-notebook-via-tunneling" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="prerequisites">
 <h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
-<p>Jupyter notebook was started on a compute node. For how to see <a class="reference internal" href="#start-jupyter"><span class="std std-ref">Start Jupyter Notebook</span></a>.</p>
-<p>As with the above example,  Jupyter notebook was started on the node dcs123.</p>
+<p>Jupyter notebook was started on the allocated compute node, such as dcs123. For how to see <a class="reference internal" href="#start-jupyter"><span class="std std-ref">Start Jupyter Notebook</span></a>.</p>
 </div>
 <div class="section" id="ssh-tunnelling-on-a-linux-or-mac-osx-node">
 <h3>SSH tunnelling on a Linux or MAC OSX node<a class="headerlink" href="#ssh-tunnelling-on-a-linux-or-mac-osx-node" title="Permalink to this headline">¶</a></h3>
@@ -576,7 +574,7 @@ Warning: Permanently added <span class="s1">&#39;dcs123,172.31.236.123&#39;</spa
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>id@kvt-rhel ~<span class="o">]</span>$ ssh -L8888:dcs123 BMHRkmkh@blp01.ccni.rpi.edu
 </pre></div>
 </div>
-<p>Go to your browser, enter the following to display the jupyter notebook running on the compute node dcs085.</p>
+<p>Go to your browser, enter the following to display the jupyter notebook running on the compute node dcs123.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>http://localhost:8888
 </pre></div>
 </div>
@@ -591,13 +589,13 @@ Warning: Permanently added <span class="s1">&#39;dcs123,172.31.236.123&#39;</spa
 <div class="figure align-default">
 <img alt="_images/putty2.png" src="_images/putty2.png" />
 </div>
-<p>Enter the jupyter notebok URL on the compute node and click <strong>Add</strong>, for example:</p>
+<p>Enter the jupyter notebok URL on the compute node and click <strong>Add</strong> button to add.</p>
 <div class="figure align-default">
 <img alt="_images/putty-tunnel.png" src="_images/putty-tunnel.png" />
 </div>
 <p>Click “Apply” button to apply the change the  putty session.</p>
 <p><strong>NOTE:</strong> this is a temporary change setting to the putty session.  Once you terminate the putty session, the change will go away.</p>
-<p>After that, go to your browser and enter the following to tunnel to the jupyter notebook running on the compute node.</p>
+<p>Now go to your browser and enter the following to tunnel to the jupyter notebook running on the compute node.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>http://localhost:8888
 </pre></div>
 </div>
