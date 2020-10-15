@@ -305,7 +305,7 @@ For automatically accept the license after the installation:
 
   export IBM_POWERAI_LICENSE_ACCEPT=yes
 
-Create a new environment named "wmlce-1.7.0" with python version is set at 3.7/
+Create a new environment named "wmlce-1.7.0" with python version is set at 3.7.
 
 .. code:: bash
 
@@ -502,7 +502,7 @@ Start the ssh session to one of the landing pad nodes and map the port 8888 from
 
 .. code:: bash
 
-  [id@kvt-rhel ~]$ ssh -L8888:dcs123 BMHRkmkh@blp01.ccni.rpi.edu
+  [id@kvt-rhel ~]$ ssh -L8888:dcs123:8888 BMHRkmkh@blp01.ccni.rpi.edu
 
 
 Go to your browser, enter the following to display the jupyter notebook running on the compute node dcs123.

@@ -136,5 +136,5 @@ For example:
 Visualize the data
 %%%%%%%%%%%%%%%%%%
 
-You can download a sample jupyter notebook at https://github.com/IBM-AI-Hardware-Center/AiMOS/blob/master/plot_nvidia-smi.ipynb and modify it accordingly to plot the data.
+You can download a sample jupyter notebook "plot_nvidia-smi.ipynb" at https://github.com/IBM-AI-Hardware-Center/AiMOS and modify it accordingly to plot the data.
 
