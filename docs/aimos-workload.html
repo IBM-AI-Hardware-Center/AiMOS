@@ -427,7 +427,7 @@ Thank you <span class="k">for</span> installing Miniconda3!
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">IBM_POWERAI_LICENSE_ACCEPT</span><span class="o">=</span>yes
 </pre></div>
 </div>
-<p>Create a new environment named “wmlce-1.7.0” with python version is set at 3.7/</p>
+<p>Create a new environment named “wmlce-1.7.0” with python version is set at 3.7.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create --name wmlce-1.7.0 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7
 </pre></div>
 </div>
@@ -571,7 +571,7 @@ Warning: Permanently added <span class="s1">&#39;dcs123,172.31.236.123&#39;</spa
 <div class="section" id="ssh-tunnelling-on-a-linux-or-mac-osx-node">
 <h3>SSH tunnelling on a Linux or MAC OSX node<a class="headerlink" href="#ssh-tunnelling-on-a-linux-or-mac-osx-node" title="Permalink to this headline">¶</a></h3>
 <p>Start the ssh session to one of the landing pad nodes and map the port 8888 from dcs123 to port 8888 on the local host.  For example:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>id@kvt-rhel ~<span class="o">]</span>$ ssh -L8888:dcs123 BMHRkmkh@blp01.ccni.rpi.edu
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>id@kvt-rhel ~<span class="o">]</span>$ ssh -L8888:dcs123:8888 BMHRkmkh@blp01.ccni.rpi.edu
 </pre></div>
 </div>
 <p>Go to your browser, enter the following to display the jupyter notebook running on the compute node dcs123.</p>
