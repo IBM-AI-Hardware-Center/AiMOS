@@ -21,6 +21,7 @@ Apply for a user ID on AiMOS
 
 * If you already have an AiMOS ID, and are requesting access to an existing project, only provide the following:
 
+  * Your current AiMOS user ID.
   * 4 letter ID of the project you wish to join.
   * Approval of the project lead / PI to join the project.  CC'ing the PI on the email is sufficient.  For example:
 
@@ -43,6 +44,9 @@ CCI User Responsibility Agreement
 +++++++++++++++++++++++++++++++++
 
 https://secure.cci.rpi.edu/wiki/assets/forms/CCI_User_Responsibility_Agreement.pdf
+
+**IMPORTANT:** Please include your first name initial and last name in the name of all files that you send to Lorrain Herger.  For example: CCI_User_Information_KTran.pdf, CCI_User_Responsibility_Agreement_KTran.pdf.
+
 
 Once the forms are processed, you will receive emails from **HPCman <hpcman@ccni.rpi.edu>** for your account ID and password reset token. The next step is to :ref:`set-password`.
 
