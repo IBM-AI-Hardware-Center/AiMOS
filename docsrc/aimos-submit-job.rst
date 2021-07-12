@@ -121,10 +121,19 @@ With #SBATCH --mail-type=ALL, #SBATCH --mail-user=<you email address>, you shoul
 
 You should also see the <job name>_<job_id>.out and <job name>_<job_id>.err in your current directory with #SBATCH -o <job name>_%j.out and #SBATCH -e <job name>_%j.err after the job completes.
 
+Build the job dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can use ``--dependency`` flag of sbatch to build a list of jobs to run in order.  For more information see  https://slurm.schedmd.com/sbatch.html.
+
+You can find examples for how to use this flag at the `link <https://hpc.nih.gov/docs/job_dependencies.html#intro>`_.
+
 Request for up to 48 hours run time
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-DCS cluster now has a capability for a 48 hour job time limit.  This option is not available on the NPL cluster.  There are maximum 18 nodes available for the 48 hour time limit. To request this capability, you must include the following line in your salloc or sbatch command.
+The default maximum time limit is 360 minutes  which is 6 hours. It is recommended that you include checkpoint restart in your code to enable your job to restart at the last checkpoint if your job run is longer than 6 hours. For information on how to implement the checkpoint in pytorch, you can refer to https://pytorch.org/tutorials/recipes/recipes/saving_and_loading_a_general_checkpoint.html 
+
+However, DCS cluster now has a capability for a 48 hour job time limit.  There are maximum 18 nodes available for the 48 hour time limit. This option is NOT available on the NPL cluster. To request this capability, you must include the following line in your salloc or sbatch command.
 
 .. code:: bash
   
@@ -147,7 +156,7 @@ To request NVMe storage, specify --gres=nvme with your Slurm commands. This can 
 
 .. code:: bash
 
-  (base) [your-id@dcsfen01 ~]$  salloc -N 1 --gres=gpu:6 --gres=nvme -t 30
+  (base) [your-id@dcsfen01 ~]$  salloc -N 1 --gres=gpu:6,nvme -t 30
   salloc: Granted job allocation 64444
   (base) [your-id@dcsfen01 ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
