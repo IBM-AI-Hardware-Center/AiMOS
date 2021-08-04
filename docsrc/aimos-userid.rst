@@ -11,6 +11,11 @@ This section describes the steps for you to apply for a user ID and the process 
 Apply for a user ID on AiMOS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+**IMPORTANT:** Please include your **first name initial** and **last name** in the name of all files that you send to Lorraine Herger.  For example:
+
+   - **CCI_User_Information_KTran**.pdf
+   - **CCI_User_Responsibility_Agreement_KTran**.pdf
+
 * If you are a first time user, you need to fill out the following forms, sign and send them to herger@us.ibm.com.  Also, provide the following:
 
   * If you are joining an existing project, please provide the 4 letter ID of the project, and the approval of the project leader/ PI.  CC'ing the PI on the email is sufficient.
@@ -45,7 +50,10 @@ CCI User Responsibility Agreement
 
 https://secure.cci.rpi.edu/wiki/assets/forms/CCI_User_Responsibility_Agreement.pdf
 
-**IMPORTANT:** Please include your first name initial and last name in the name of all files that you send to Lorrain Herger.  For example: CCI_User_Information_KTran.pdf, CCI_User_Responsibility_Agreement_KTran.pdf.
+**IMPORTANT:** Please include your **first name initial** and **last name** in the name of all files that you send to Lorraine Herger.  For example:
+
+* **CCI_User_Information_KTran**.pdf 
+* **CCI_User_Responsibility_Agreement_KTran**.pdf
 
 
 Once the forms are processed, you will receive emails from **HPCman <hpcman@ccni.rpi.edu>** for your account ID and password reset token. The next step is to :ref:`set-password`.
