@@ -133,17 +133,34 @@ Request for up to 48 hours run time
 
 The default maximum time limit is 360 minutes  which is 6 hours. It is recommended that you include checkpoint restart in your code to enable your job to restart at the last checkpoint if your job run is longer than 6 hours. For information on how to implement the checkpoint in pytorch, you can refer to https://pytorch.org/tutorials/recipes/recipes/saving_and_loading_a_general_checkpoint.html 
 
-However, DCS cluster now has a capability for a 48 hour job time limit.  There are maximum 18 nodes available for the 48 hour time limit. This option is NOT available on the NPL cluster. To request this capability, you must include the following line in your salloc or sbatch command.
+However, Both NPL and DCS clusters now have a capability for a 48 hour job time limit.  There are maximum 18 nodes that you can request for the 48 hour time limit in DCS cluster. There are maximum of 4 nodes that you can request for this option in NPL cluster. To request this capability, you must include the following line in your salloc or sbatch command.
+
+On DCS cluster:
 
 .. code:: bash
   
    --qos=dcs-48hr
 
+On NPL cluster:
+
+.. code:: bash
+
+   --qos=npl-48hr
+
+
 Or the following line in your batch script:
+
+On DCS cluster:
 
 .. code:: bash
 
    #SBATCH --qos=dcs-48hr
+
+On NPL cluster:
+
+.. code:: bash
+
+   #SBATCH --qos=npl-48hr
 
 .. _request-nvme:
 
