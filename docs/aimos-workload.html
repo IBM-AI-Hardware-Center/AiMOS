@@ -110,6 +110,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#ssh-tunneling-via-putty-on-windows">SSH tunneling via PUTTY on Windows</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#remote-port-forwarding-via-ssh-tunneling">Remote Port Forwarding via SSH Tunneling</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">Submit jobs</a></li>
@@ -614,6 +615,33 @@ Warning: Permanently added <span class="s1">&#39;dcs123,172.31.236.123&#39;</spa
 <img alt="_images/jupyter-w.png" src="_images/jupyter-w.png" />
 </div>
 </div>
+</div>
+<div class="section" id="remote-port-forwarding-via-ssh-tunneling">
+<h2>Remote Port Forwarding via SSH Tunneling<a class="headerlink" href="#remote-port-forwarding-via-ssh-tunneling" title="Permalink to this headline">¶</a></h2>
+<p>Let’s say that you have  an application running on your local environment to which a process running on AiMOS needs to send a message. In order to accomplish that, you need to  use SSH remote port forwarding and  <a class="reference external" href="https://www.redhat.com/sysadmin/getting-started-socat">socat</a> command.</p>
+<p>For demonstration purpose, we are going to use the sample python code “echo-server.py” and “echo-client.py” provided at this <a class="reference external" href="https://realpython.com/python-sockets">link</a></p>
+<ul>
+<li><p>On the local system</p>
+<ul>
+<li><p>Run “echo-server.py”.</p></li>
+<li><p>Run the ssh remote port forwarding command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh -T -N -R :65432:localhost:65432  &lt;your user ID&gt;@blp01.ccni.rpi.edu
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>On the allocated compute node.</p>
+<ul>
+<li><p>Run <a class="reference external" href="https://www.redhat.com/sysadmin/getting-started-socat">socat</a>  command to forward data from port 65432 to blp01 at port 65432, such as:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>socat tcp-listen:65432,reuseaddr,fork tcp:blp01:65432
+</pre></div>
+</div>
+</li>
+<li><p>Run the “echo_client.py”.</p></li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 

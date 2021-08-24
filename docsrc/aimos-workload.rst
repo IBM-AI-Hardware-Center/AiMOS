@@ -543,3 +543,30 @@ You should see the jupyter notebook after you enter the token at the login promp
 
 .. figure:: jupyter-w.png
 
+
+Remote Port Forwarding via SSH Tunneling
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Let's say that you have  an application running on your local environment to which a process running on AiMOS needs to send a message. In order to accomplish that, you need to  use SSH remote port forwarding and  `socat <https://www.redhat.com/sysadmin/getting-started-socat>`_ command.
+
+For demonstration purpose, we are going to use the sample python code "echo-server.py" and "echo-client.py" provided at this `link <https://realpython.com/python-sockets>`_
+
+* On the local system
+
+  * Run "echo-server.py".
+  * Run the ssh remote port forwarding command:
+
+    .. code:: bash
+
+       ssh -T -N -R :65432:localhost:65432  <your user ID>@blp01.ccni.rpi.edu
+
+
+* On the allocated compute node.
+  
+  * Run `socat <https://www.redhat.com/sysadmin/getting-started-socat>`_  command to forward data from port 65432 to blp01 at port 65432, such as:
+
+    .. code:: bash
+
+       socat tcp-listen:65432,reuseaddr,fork tcp:blp01:65432
+
+  * Run the "echo_client.py".
