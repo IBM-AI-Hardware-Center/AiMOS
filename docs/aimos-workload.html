@@ -49,8 +49,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#create-a-new-conda-environment-for-your-workload">Create a new conda environment for your workload</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-wml-ce-a-k-a-powerai">Install WML-CE (a.k.a PowerAI)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-open-ce">Install Open-CE</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#supported-versions">Supported Versions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#open-ce-current-release-1-2-2">Open-CE Current Release 1.2.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#open-ce-release-1-2-2">Open-CE Release 1.2.2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#what-s-new">What’s new</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#installing-the-open-ce-repository-and-frameworks">Installing the Open-CE Repository and Frameworks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#uninstalling-the-open-ce-mldl-frameworks">Uninstalling the Open-CE MLDL frameworks</a></li>
@@ -404,38 +403,8 @@ Thank you <span class="k">for</span> installing Miniconda3!
 <span id="id1"></span><h2>Install Open-CE<a class="headerlink" href="#install-open-ce" title="Permalink to this headline"></a></h2>
 <p>Open Cognitive Environment(Open-CE) provides the latest and greatest AI package and framework versions pre-integrated in an easy-to-consume and use Conda environment. The main <a class="reference external" href="https://github.com/open-ce">Open-CE GitHub page</a> focusses on providing feedstock to developers, and groups, such as Open Source Lab (OSL). The Center for Genome Research and Biocomputing (CGRB) at the <a class="reference external" href="https://osuosl.org/services/powerdev/opence">Oregon State University</a> provides precompiled Conda packages <a class="footnote-reference brackets" href="#id7" id="id2">1</a>. This install section are consolidated from both reference below <a class="footnote-reference brackets" href="#id8" id="id3">2</a> <a class="footnote-reference brackets" href="#id9" id="id4">3</a>.</p>
 <p>This repository contains a collection of Open-CE files that can be used to create a conda channel. The conda channel will contain packages for every feedstock listed within the Open-CE files. Different variants of Python and CUDA can be specified at build time. Open-CE currently supports the following:</p>
-<section id="supported-versions">
-<h3>Supported Versions<a class="headerlink" href="#supported-versions" title="Permalink to this headline"></a></h3>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 43%" />
-<col style="width: 57%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>Architecture</p></td>
-<td><p>Power, x86, s390x</p></td>
-</tr>
-<tr class="row-even"><td><p>Python</p></td>
-<td><p>3.7, 3.8, 3.9</p></td>
-</tr>
-<tr class="row-odd"><td><p>CUDA</p></td>
-<td><p>10.2, 11.0, 11.2</p></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Requirements</strong></p>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt>conda &gt;= 3.8.3</dt><dd><p>The conda tool can either be installed through Anaconda or Miniconda.</p>
-</dd>
-</dl>
-</li>
-</ul>
-</div></blockquote>
-</section>
-<section id="open-ce-current-release-1-2-2">
-<h3>Open-CE Current Release 1.2.2<a class="headerlink" href="#open-ce-current-release-1-2-2" title="Permalink to this headline"></a></h3>
+<section id="open-ce-release-1-2-2">
+<h3>Open-CE Release 1.2.2<a class="headerlink" href="#open-ce-release-1-2-2" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>Release date: 06/16/2021</p></li>
 </ul>
@@ -471,8 +440,8 @@ This is bug fix 2 of release 1.2 of Open Cognitive Environment (Open-CE), code n
 </div>
 <p>Note: It is recommended that you specify the Python version when creating a new environment. If you do not specify the version, Python 3.7 is installed when any package that requires Python are installed.</p>
 <p>The only valid Python versions with Open-CE are Python 3.6, 3.7 and 3.8.</p>
-<p>For example, to create an environment named opence_env with Python 3.6:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create --name opence_env <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 conda activate opence_env
+<p>For example, to create an environment named opence_env with Python 3.7:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create --name opence_env <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7 conda activate opence_env
 </pre></div>
 </div>
 <p>For more information on what you can do with conda environment see <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html</a>.</p>
