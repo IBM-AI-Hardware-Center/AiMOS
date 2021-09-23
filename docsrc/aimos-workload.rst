@@ -373,24 +373,10 @@ Open Cognitive Environment(Open-CE) provides the latest and greatest AI package 
 
 This repository contains a collection of Open-CE files that can be used to create a conda channel. The conda channel will contain packages for every feedstock listed within the Open-CE files. Different variants of Python and CUDA can be specified at build time. Open-CE currently supports the following:
 
-Supported Versions
-++++++++++++++++++
-+----------------+---------------------+
-| Architecture   |  Power, x86, s390x  | 
-+----------------+---------------------+
-| Python         |  3.7, 3.8, 3.9      |
-+----------------+---------------------+
-| CUDA           |  10.2, 11.0, 11.2   |
-+----------------+---------------------+
 
+Open-CE Release 1.2.2
++++++++++++++++++++++
 
-**Requirements**
-
-    * conda >= 3.8.3
-        The conda tool can either be installed through Anaconda or Miniconda.
-
-Open-CE Current Release 1.2.2
-+++++++++++++++++++++++++++++
 * Release date: 06/16/2021
 
 What's new
@@ -441,11 +427,11 @@ Note: It is recommended that you specify the Python version when creating a new 
 
 The only valid Python versions with Open-CE are Python 3.6, 3.7 and 3.8.
 
-For example, to create an environment named opence_env with Python 3.6:
+For example, to create an environment named opence_env with Python 3.7:
 
 .. code:: bash 
 
-    conda create --name opence_env python=3.6 conda activate opence_env
+    conda create --name opence_env python=3.7 conda activate opence_env
 
 
 For more information on what you can do with conda environment see https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html.
