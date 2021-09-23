@@ -258,6 +258,7 @@ For example that you want to create an environment named pytorch-env and install
 
 **NOTE:**  you can specify additional packages in the command line.  You can also specify a specific version for the packages.
 
+
 .. _install-wmlce:
 
 Install WML-CE (a.k.a PowerAI)
@@ -362,6 +363,185 @@ Or
 .. code:: bash
 
   conda install powerai-rapids
+
+.. _install-open-ce:
+
+Install Open-CE
+^^^^^^^^^^^^^^^
+
+Open Cognitive Environment(Open-CE) provides the latest and greatest AI package and framework versions pre-integrated in an easy-to-consume and use Conda environment. The main `Open-CE GitHub page <https://github.com/open-ce>`_ focusses on providing feedstock to developers, and groups, such as Open Source Lab (OSL). The Center for Genome Research and Biocomputing (CGRB) at the `Oregon State University <https://osuosl.org/services/powerdev/opence>`_ provides precompiled Conda packages [1]_. This install section are consolidated from both reference below [2]_ [3]_.
+
+This repository contains a collection of Open-CE files that can be used to create a conda channel. The conda channel will contain packages for every feedstock listed within the Open-CE files. Different variants of Python and CUDA can be specified at build time. Open-CE currently supports the following:
+
+Supported Versions
+++++++++++++++++++
++----------------+---------------------+
+| Architecture   |  Power, x86, s390x  | 
++----------------+---------------------+
+| Python         |  3.7, 3.8, 3.9      |
++----------------+---------------------+
+| CUDA           |  10.2, 11.0, 11.2   |
++----------------+---------------------+
+
+
+**Requirements**
+
+    * conda >= 3.8.3
+        The conda tool can either be installed through Anaconda or Miniconda.
+
+Open-CE Current Release 1.2.2
++++++++++++++++++++++++++++++
+* Release date: 06/16/2021
+
+What's new
+++++++++++
+
+This is release 1.2.2 of Open Cognitive Environment (Open-CE).
+This is bug fix 2 of release 1.2 of Open Cognitive Environment (Open-CE), code named Prairiedog.
+
+**Bug Fix Changes**
+
+    * libgcc and libstdc++ were pinned to cos6 versions to allow for compilation with GCC 7.2/7.3 #433
+
+    * TensorFlow was updated to version 2.4.2
+
+    * Dependency pins were loosened for networkx, requests, scipy and werkzeug #439
+
+    * Changed PyArrow to build with -O2 optimizations to avoid a compiler error in GCC 7.x
+
+    * Add patch to PyArrow to fix handling of decimal types with negative scale in C data import
+
+Installing the Open-CE Repository and Frameworks
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+Setting up the software repository
+
+The Open-CE MLDL packages are distributed as conda packages in an online conda repository. Conda must be configured to give priority to installing packages from this channel.
+
+Add the Open-CE channel to the conda configuration by running the following command:
+
+.. code:: bash
+
+    conda config --prepend channels https://ftp.osuosl.org/pub/open-ce/current/
+
+
+
+Creating conda environments (recommended)
+
+With conda, you can create environments that have different versions of Python or packages installed in them. Conda environments are optional but recommended. If not used, packages are installed in the default environment called base, which often has a higher risk of containing conflicting packages or dependencies. Switching between environments is called activating the environment.
+
+The syntax to create and activate a conda environment is:
+
+.. code:: bash
+
+    conda create --name <environment name> python=<python version> conda activate <environment name>
+
+
+Note: It is recommended that you specify the Python version when creating a new environment. If you do not specify the version, Python 3.7 is installed when any package that requires Python are installed.
+
+The only valid Python versions with Open-CE are Python 3.6, 3.7 and 3.8.
+
+For example, to create an environment named opence_env with Python 3.6:
+
+.. code:: bash 
+
+    conda create --name opence_env python=3.6 conda activate opence_env
+
+
+For more information on what you can do with conda environment see https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html.
+
+Note: Open-CE should be run as a non-privileged user and not root. The Open-CE components are designed to be usable by normal users, and the pre-installed docker images provide a non-root user by default. Some of the Open-CE components will give warnings or will fail when run as root.
+Installing frameworks individually
+
+Install MLDL Frameworks Individually.
+The framework packages (Open-CE 1.2.2) include the following versions.
+
++--------------------------------+----------+----------+-------+ 
+| Package                        |  Version | ppc64le  | x86_64|
++================================+==========+==========+=======+
+| tensorflow                     | 2.4.2    | X        | X     |
++--------------------------------+----------+----------+-------+
+| tensorflow-estimators          | 2.4.0    | X        | X     |
++--------------------------------+----------+----------+-------+
+| tensorflow-probability         | 0.12.1   | X        | X     |
++--------------------------------+----------+----------+-------+  
+| tensorboard                    | 2.4.1    | X        | X     |
++--------------------------------+----------+----------+-------+
+| tensorflow-text                | 2.4.1    | X        | X     |
++--------------------------------+----------+----------+-------+
+| tensorflow-model-optimizations | 0.5.0    | X        | X     |
++--------------------------------+----------+----------+-------+
+| tensorflow-addons              | 0.12.1   | X        | X     |
++--------------------------------+----------+----------+-------+
+| Tensorflow-datasets            | 4.1.0    | X        | X     |
++--------------------------------+----------+----------+-------+
+| tensorflow-hub                 | 0.10.0   | X        | X     |
++--------------------------------+----------+----------+-------+
+| tensorflow-metadata            | 0.26.0   | X        | X     |
++--------------------------------+----------+----------+-------+
+| pytorch                        | 1.7.1    | X        | X     |
++--------------------------------+----------+----------+-------+
+| torchtext                      | 0.8.1    | X        | X     |
++--------------------------------+----------+----------+-------+
+| torchvision                    | 0.8.2    | X        | X     |
++--------------------------------+----------+----------+-------+
+| pytorch-lightning              | 1.1.0    | X        | X     |
++--------------------------------+----------+----------+-------+
+| pyTorch-lightning-bolts        | 0.2.5    | X        | X     |
++--------------------------------+----------+----------+-------+
+| xgboost                        | 1.3.3    | X        | X     |
++--------------------------------+----------+----------+-------+
+| transformers                   | 3.5.1    | X        | X     |
++--------------------------------+----------+----------+-------+
+| tokenizers                     | 0.9.3    | X        | X     |
++--------------------------------+----------+----------+-------+
+| sentencepiece                  | 0.1.91   | X        | X     |
++--------------------------------+----------+----------+-------+
+| spacy                          | 2.3.4    | X        | X     |
++--------------------------------+----------+----------+-------+
+| thinc                          | 7.4.1    | X        | X     |
++--------------------------------+----------+----------+-------+
+| dali                           | 0.28.0   | X        | X     |
++--------------------------------+----------+----------+-------+
+| opencv                         | 3.4.10   | X        | X     |
++--------------------------------+----------+----------+-------+
+| horovod                        | 0.21.0   | X        | X     |
++--------------------------------+----------+----------+-------+
+| lightgbm                       | 3.1.1    | X        | X     |
++--------------------------------+----------+----------+-------+
+| pyarrow                        | 3.0.0    | X        | X     |
++--------------------------------+----------+----------+-------+
+| grpc                           | 1.29.1   | X        | X     |
++--------------------------------+----------+----------+-------+
+
+With the conda environment activated, run the following command:
+
+.. code:: bash
+
+    conda install <package name>
+
+
+Uninstalling the Open-CE MLDL frameworks
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+Find information about uninstalling machine learning and deep learning MLDL frameworks.
+
+The MLDL framework packages can be uninstalled individually, or you can uninstall all of the MLDL packages at the same time.
+
+If the frameworks are installed into a separate conda environment, all of the frameworks can be removed by simply deleting the environment:
+
+.. code:: bash
+
+    conda env remove -n <environment name>
+
+Individual frameworks (and any packages that depend on them) can be removed by removing the individual package:
+
+.. code:: bash
+
+    conda remove <package name>
+
+Important: This command removes the specified packages and any packages that depend on any of the specified packages. If you want to skip this dependency checking and remove just the requested packages, add the --force option. However, this may break your environment, so use this option with caution.
+
 
 .. _install-jupyter:
 
@@ -570,3 +750,7 @@ For demonstration purpose, we are going to use the sample python code "echo-serv
        socat tcp-listen:65432,reuseaddr,fork tcp:blp01:65432
 
   * Run the "echo_client.py".
+
+.. [1] https://openpowerfoundation.org/open-cognitive-environment-open-ce-a-valuable-tool-for-ai-researchers/
+.. [2] https://github.com/open-ce/open-ce#
+.. [3] https://osuosl.org/services/powerdev/opence/

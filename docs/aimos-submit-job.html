@@ -1,73 +1,34 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Submit jobs &mdash; AiMOS 0.0.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="AI Benchmarks" href="aimos-benchmark.html" />
     <link rel="prev" title="Set up the workload environment" href="aimos-workload.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="index.html" class="icon icon-home"> AiMOS
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -75,18 +36,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">AiMOS Overview</a></li>
@@ -107,82 +57,41 @@
 <li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">AiMOS</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>Submit jobs</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/aimos-submit-job.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="submit-jobs">
-<h1>Submit jobs<a class="headerlink" href="#submit-jobs" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="submit-jobs">
+<h1>Submit jobs<a class="headerlink" href="#submit-jobs" title="Permalink to this headline"></a></h1>
 <p>You use Slurm commands to submit jobs to AiMOS.</p>
-<div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>You logged in to one of the front end nodes.  For how to see <a class="reference internal" href="aimos-userid.html#how-to-login"><span class="std std-ref">Login to AiMOS</span></a>.</p></li>
 </ul>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="_images/aimos-overview.png" src="_images/aimos-overview.png" />
-</div>
+</figure>
 <ul>
 <li><p>You must specify “–gres=gpu:&lt;value&gt;” option with the <strong>salloc</strong> or <strong>sbatch</strong> command if you want to allocate the compute nodes from AiMOS.</p>
 <blockquote>
@@ -195,9 +104,9 @@
 <li><p>This the number of gpu that you want per node.  If you specify –gres=gpu:6 for DCS cluster or –gres=gpu:8 for NPL cluster, you are in essence would get the whole node(s) allocated to you.  For more information regarding GPU on AiMOS, see <a class="reference external" href="https://secure.cci.rpi.edu/wiki/clusters/DCS_Supercomputer/#using-gpus">https://secure.cci.rpi.edu/wiki/clusters/DCS_Supercomputer/#using-gpus</a>.</p></li>
 <li><p>You also must specify the time required to run your job via option <strong>-t &lt;value&gt;</strong>.  The value is number of minutes. See <a class="reference internal" href="aimos-env-basics.html#job-queue"><span class="std std-ref">Job Queue Limits</span></a> for more information.</p></li>
 </ul>
-</div>
-<div class="section" id="interactive-job">
-<h2>Interactive Job<a class="headerlink" href="#interactive-job" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="interactive-job">
+<h2>Interactive Job<a class="headerlink" href="#interactive-job" title="Permalink to this headline"></a></h2>
 <p>It is assumed that you already ssh to one of the front end nodes.  You use the <strong>salloc</strong> command to allocate 1 node with 6 gpu for 15 minutes. After the command returns, you now run squeue command to see which node is allocated for the interactive session. In the example below, dcs249 is allocated. Now you can ssh to the node and execute your application.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$  salloc -N <span class="m">1</span> --gres<span class="o">=</span>gpu:6 -t <span class="m">15</span>
 salloc: Granted job allocation <span class="m">60780</span>
@@ -221,9 +130,9 @@ Access denied by pam_slurm_adopt: you have no active <span class="nb">jobs</span
 Authentication failed.
 </pre></div>
 </div>
-</div>
-<div class="section" id="batch-job">
-<h2>Batch job<a class="headerlink" href="#batch-job" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="batch-job">
+<h2>Batch job<a class="headerlink" href="#batch-job" title="Permalink to this headline"></a></h2>
 <p>You use <strong>sbatch</strong> Slurm command to submit a batch job.  You can create a scriptthat contains a list of Slurm directives (or commands) to tell Slurm what to do. This is a sample script to run a hello_MPI_c program.</p>
 <p><strong>PREREQUISITE:</strong> Passwordless is required for MPI job.  For how to see <a class="reference internal" href="aimos-env-basics.html#setup-environment"><span class="std std-ref">Initial Environment Setup</span></a>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -x</span>
@@ -279,14 +188,14 @@ rm ~/tmp/hosts.<span class="nv">$SLURM_JOBID</span>
 <p>Note: that you can specify the command options on the <strong>sbatch</strong> command line instead of using #SBATCH directive like in the sample script above.</p>
 <p>With #SBATCH –mail-type=ALL, #SBATCH –mail-user=&lt;you email address&gt;, you should receive the email from Slurm when a job starts and ends to your email address.</p>
 <p>You should also see the &lt;job name&gt;_&lt;job_id&gt;.out and &lt;job name&gt;_&lt;job_id&gt;.err in your current directory with #SBATCH -o &lt;job name&gt;_%j.out and #SBATCH -e &lt;job name&gt;_%j.err after the job completes.</p>
-</div>
-<div class="section" id="build-the-job-dependencies">
-<h2>Build the job dependencies<a class="headerlink" href="#build-the-job-dependencies" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="build-the-job-dependencies">
+<h2>Build the job dependencies<a class="headerlink" href="#build-the-job-dependencies" title="Permalink to this headline"></a></h2>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">--dependency</span></code> flag of sbatch to build a list of jobs to run in order.  For more information see  <a class="reference external" href="https://slurm.schedmd.com/sbatch.html">https://slurm.schedmd.com/sbatch.html</a>.</p>
 <p>You can find examples for how to use this flag at the <a class="reference external" href="https://hpc.nih.gov/docs/job_dependencies.html#intro">link</a>.</p>
-</div>
-<div class="section" id="request-for-up-to-48-hours-run-time">
-<h2>Request for up to 48 hours run time<a class="headerlink" href="#request-for-up-to-48-hours-run-time" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="request-for-up-to-48-hours-run-time">
+<h2>Request for up to 48 hours run time<a class="headerlink" href="#request-for-up-to-48-hours-run-time" title="Permalink to this headline"></a></h2>
 <p>The default maximum time limit is 360 minutes  which is 6 hours. It is recommended that you include checkpoint restart in your code to enable your job to restart at the last checkpoint if your job run is longer than 6 hours. For information on how to implement the checkpoint in pytorch, you can refer to <a class="reference external" href="https://pytorch.org/tutorials/recipes/recipes/saving_and_loading_a_general_checkpoint.html">https://pytorch.org/tutorials/recipes/recipes/saving_and_loading_a_general_checkpoint.html</a></p>
 <p>However, Both NPL and DCS clusters now have a capability for a 48 hour job time limit.  There are maximum 18 nodes that you can request for the 48 hour time limit in DCS cluster. There are maximum of 4 nodes that you can request for this option in NPL cluster. To request this capability, you must include the following line in your salloc or sbatch command.</p>
 <p>On DCS cluster:</p>
@@ -306,9 +215,9 @@ rm ~/tmp/hosts.<span class="nv">$SLURM_JOBID</span>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#SBATCH --qos=npl-48hr</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="request-for-nvme-storage-on-the-compute-nodes">
-<span id="request-nvme"></span><h2>Request for NVMe storage on the compute nodes<a class="headerlink" href="#request-for-nvme-storage-on-the-compute-nodes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="request-for-nvme-storage-on-the-compute-nodes">
+<span id="request-nvme"></span><h2>Request for NVMe storage on the compute nodes<a class="headerlink" href="#request-for-nvme-storage-on-the-compute-nodes" title="Permalink to this headline"></a></h2>
 <p><strong>NOTE:</strong> NVMe storage is only available on the DCS cluster.  It is not yet available on the NPL cluster.</p>
 <p>To request NVMe storage, specify –gres=nvme with your Slurm commands. This can be combined with other requests, such as GPUs. When the first job step starts, the system will initialize the storage and create the path /mnt/nvme/uid_${SLURM_JOB_UID}/job_${SLURM_JOBID}.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$  salloc -N <span class="m">1</span> --gres<span class="o">=</span>gpu:6,nvme -t <span class="m">30</span>
@@ -334,55 +243,38 @@ gpfs.u          <span class="m">1</span>.1P  387T  640T  <span class="m">38</spa
 </pre></div>
 </div>
 <p><strong>NOTE:</strong> The NVMe storage is not persistent between allocations.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="aimos-benchmark.html" class="btn btn-neutral float-right" title="AI Benchmarks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="aimos-workload.html" class="btn btn-neutral float-left" title="Set up the workload environment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="aimos-benchmark.html" class="btn btn-neutral float-right" title="AI Benchmarks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2020, AiMOS.
-
-    </p>
+    <p>&#169; Copyright 2020, AiMOS.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
