@@ -516,7 +516,7 @@ The framework packages (Open-CE 1.2.2) include the following versions.
 | grpc-cpp                         | 1.29.1   | X        | X     |
 +----------------------------------+----------+----------+-------+
 
-Note, there was a type error in `original document <https://github.com/open-ce/open-ce>`_ 
+Note, there were type errors in `original document <https://github.com/open-ce/open-ce>`_ 
 
 --  * Tensorflow-estimators -> tensorflow-estimator
 
