@@ -435,13 +435,15 @@ This is bug fix 2 of release 1.2 of Open Cognitive Environment (Open-CE), code n
 <p>Creating conda environments (recommended)</p>
 <p>With conda, you can create environments that have different versions of Python or packages installed in them. Conda environments are optional but recommended. If not used, packages are installed in the default environment called base, which often has a higher risk of containing conflicting packages or dependencies. Switching between environments is called activating the environment.</p>
 <p>The syntax to create and activate a conda environment is:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create --name &lt;environment name&gt; <span class="nv">python</span><span class="o">=</span>&lt;python version&gt; conda activate &lt;environment name&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create --name &lt;environment name&gt; <span class="nv">python</span><span class="o">=</span>&lt;python version&gt;
+conda activate &lt;environment name&gt;
 </pre></div>
 </div>
 <p>Note: It is recommended that you specify the Python version when creating a new environment. If you do not specify the version, Python 3.7 is installed when any package that requires Python are installed.</p>
 <p>The only valid Python versions with Open-CE are Python 3.6, 3.7 and 3.8.</p>
 <p>For example, to create an environment named opence_env with Python 3.7:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create --name opence_env <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7 conda activate opence_env
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create --name opence_env <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7
+conda activate opence_env
 </pre></div>
 </div>
 <p>For more information on what you can do with conda environment see <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html</a>.</p>
@@ -451,10 +453,10 @@ Installing frameworks individually</p>
 The framework packages (Open-CE 1.2.2) include the following versions.</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 54%" />
-<col style="width: 17%" />
-<col style="width: 17%" />
-<col style="width: 12%" />
+<col style="width: 56%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 11%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Package</p></th>
@@ -469,7 +471,7 @@ The framework packages (Open-CE 1.2.2) include the following versions.</p>
 <td><p>X</p></td>
 <td><p>X</p></td>
 </tr>
-<tr class="row-odd"><td><p>tensorflow-estimators</p></td>
+<tr class="row-odd"><td><p>tensorflow-estimator*</p></td>
 <td><p>2.4.0</p></td>
 <td><p>X</p></td>
 <td><p>X</p></td>
@@ -489,7 +491,7 @@ The framework packages (Open-CE 1.2.2) include the following versions.</p>
 <td><p>X</p></td>
 <td><p>X</p></td>
 </tr>
-<tr class="row-odd"><td><p>tensorflow-model-optimizations</p></td>
+<tr class="row-odd"><td><p>tensorflow-model-optimization*</p></td>
 <td><p>0.5.0</p></td>
 <td><p>X</p></td>
 <td><p>X</p></td>
@@ -539,68 +541,110 @@ The framework packages (Open-CE 1.2.2) include the following versions.</p>
 <td><p>X</p></td>
 <td><p>X</p></td>
 </tr>
-<tr class="row-odd"><td><p>xgboost</p></td>
+<tr class="row-odd"><td><p>onnx</p></td>
+<td><p>1.7</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>onnxruntime*</p></td>
+<td><p>1.7.2</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>keras2onnx</p></td>
+<td><p>1.7.0</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>skl2onnx</p></td>
+<td><p>0.9.0</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>tf2onnx</p></td>
+<td><p>1.8.5</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>onnxmltools</p></td>
+<td><p>1.8.0</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-odd"><td><p>onnxconverter-common</p></td>
+<td><p>1.8.1</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p>xgboost</p></td>
 <td><p>1.3.3</p></td>
 <td><p>X</p></td>
 <td><p>X</p></td>
 </tr>
-<tr class="row-even"><td><p>transformers</p></td>
+<tr class="row-odd"><td><p>transformers</p></td>
 <td><p>3.5.1</p></td>
 <td><p>X</p></td>
 <td><p>X</p></td>
 </tr>
-<tr class="row-odd"><td><p>tokenizers</p></td>
+<tr class="row-even"><td><p>tokenizers</p></td>
 <td><p>0.9.3</p></td>
 <td><p>X</p></td>
 <td><p>X</p></td>
 </tr>
-<tr class="row-even"><td><p>sentencepiece</p></td>
+<tr class="row-odd"><td><p>sentencepiece</p></td>
 <td><p>0.1.91</p></td>
 <td><p>X</p></td>
 <td><p>X</p></td>
 </tr>
-<tr class="row-odd"><td><p>spacy</p></td>
+<tr class="row-even"><td><p>spacy</p></td>
 <td><p>2.3.4</p></td>
 <td><p>X</p></td>
 <td><p>X</p></td>
 </tr>
-<tr class="row-even"><td><p>thinc</p></td>
+<tr class="row-odd"><td><p>thinc</p></td>
 <td><p>7.4.1</p></td>
 <td><p>X</p></td>
 <td><p>X</p></td>
 </tr>
-<tr class="row-odd"><td><p>dali</p></td>
+<tr class="row-even"><td><p>dali*</p></td>
 <td><p>0.28.0</p></td>
 <td><p>X</p></td>
 <td><p>X</p></td>
 </tr>
-<tr class="row-even"><td><p>opencv</p></td>
+<tr class="row-odd"><td><p>opencv</p></td>
 <td><p>3.4.10</p></td>
 <td><p>X</p></td>
 <td><p>X</p></td>
 </tr>
-<tr class="row-odd"><td><p>horovod</p></td>
+<tr class="row-even"><td><p>horovod</p></td>
 <td><p>0.21.0</p></td>
 <td><p>X</p></td>
 <td><p>X</p></td>
 </tr>
-<tr class="row-even"><td><p>lightgbm</p></td>
+<tr class="row-odd"><td><p>lightgbm</p></td>
 <td><p>3.1.1</p></td>
 <td><p>X</p></td>
 <td><p>X</p></td>
 </tr>
-<tr class="row-odd"><td><p>pyarrow</p></td>
+<tr class="row-even"><td><p>pyarrow</p></td>
 <td><p>3.0.0</p></td>
 <td><p>X</p></td>
 <td><p>X</p></td>
 </tr>
-<tr class="row-even"><td><p>grpc</p></td>
+<tr class="row-odd"><td><p>grpc-cpp</p></td>
 <td><p>1.29.1</p></td>
 <td><p>X</p></td>
 <td><p>X</p></td>
 </tr>
 </tbody>
 </table>
+<p>Note, there was a type error in <a class="reference external" href="https://github.com/open-ce/open-ce">original document</a></p>
+<p>–  * Tensorflow-estimators -&gt; tensorflow-estimator</p>
+<p>–  * Tensorflow-model-optimizations -&gt; tensorflow-model-optimization</p>
+<p>–  * Tensorflow-estimators -&gt; tensorflow-estimators</p>
+<p>–  * Onnx-runtime  -&gt;  onnx-runtime</p>
+<p>–  * Grpc  -&gt; grpc</p>
+<p>–  * Dali had some build issues on ppc. Disabled in v1.3 and v1.4, will be renable in v1.5.</p>
 <p>With the conda environment activated, run the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install &lt;package name&gt;
 </pre></div>
