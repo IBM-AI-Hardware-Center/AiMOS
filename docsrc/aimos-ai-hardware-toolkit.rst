@@ -124,3 +124,7 @@ Test Losses
 Test Error
 
 .. figure:: test_error.png
+
+More Examples
+^^^^^^^^^^^^^
+For more examples, please visit `github <https://github.com/IBM/aihwkit/tree/master/examples>`_
