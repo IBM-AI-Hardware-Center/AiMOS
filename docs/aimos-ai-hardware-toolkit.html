@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analog AI Hardware Toolkit &mdash; AiMOS 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Hints and Tips" href="aimos-hints-tips.html" />
+    <link rel="prev" title="AI Benchmarks" href="aimos-benchmark.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> AiMOS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="aimos-basics.html">AiMOS Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-userid.html">Access to AiMOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-env-basics.html">AiMOS Environment Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-workload.html">Set up the workload environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">Submit jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-benchmark.html">AI Benchmarks</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Analog AI Hardware Toolkit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#training-analog-model">Training Analog Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-hints-tips.html">Hints and Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aimos-getting-help.html">Getting Help?</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AiMOS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Analog AI Hardware Toolkit</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/aimos-ai-hardware-toolkit.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="analog-ai-hardware-toolkit">
+<span id="ai-hardware-toolkit"></span><h1>Analog AI Hardware Toolkit<a class="headerlink" href="#analog-ai-hardware-toolkit" title="Permalink to this headline"></a></h1>
+<p>In traditional hardware architecture, computation and memory are siloed in different locations. Information is moved back and forth between computation and memory units every time an operation is performed, creating a limitation called the von Neumann bottleneck.</p>
+<p>IBM Research has created phase-change memory (PCM) elements that allow computations to happen in the same location where data is stored. This new type of memory eliminates the need to move data from storage to compute. The memory is also non-volatile, meaning that no power is necessary to keep the data stored. For more information, please read <a class="reference external" href="https://analog-ai-demo.mybluemix.net/">here</a></p>
+<p>IBM Analog Hardware Acceleration Kit is an open source Python toolkit for exploring and using the capabilities of in-memory computing devices in the context of artificial intelligence. The toolkit consists of two main components:</p>
+<ul class="simple" id="pytorch-integration">
+<li><p><strong>Pytorch integration</strong></p></li>
+</ul>
+<p>A series of primitives and features that allow using the toolkit within PyTorch</p>
+<ul class="simple" id="analog-devices-simulator">
+<li><p><strong>Analog devices simulatoion</strong></p></li>
+</ul>
+<p>A high-performant (CUDA-capable) C++ simulator that allows for simulating a wide range of analog devices and crossbar configurations by using abstract functional models of material characteristics with adjustable parameters.</p>
+<section id="getting-started">
+<span id="id1"></span><h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline"></a></h2>
+<p>Install Analog Hardware Acceleration Kit</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>BMHRkmkh@dcsfen01<span class="o">]</span>$ pip install aihwkit
+</pre></div>
+</div>
+</section>
+<section id="training-analog-model">
+<h2>Training Analog Model<a class="headerlink" href="#training-analog-model" title="Permalink to this headline"></a></h2>
+<p>Copy Sample Code</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir ~/scratch/analog-ai
+mkdir ~/scratch/analog-ai/results
+</pre></div>
+</div>
+<p>Load Aihwkit Environment Variables</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp /gpfs/u/locker/201/CABS/analog-aihwkit/aihwkit/0.2.1/examples/* ~/scratch/analog-ai/
+</pre></div>
+</div>
+<p>Run Ai Training Sample Code</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>BMHRmksg@npl06 analog-ai<span class="o">]</span>$ conda activate /gpfs/u/software/npl-conda/aihwkit_v3_67abd25
+
+<span class="o">(</span>/gpfs/u/software/npl-conda/aihwkit_v3_67abd25<span class="o">)</span> <span class="o">[</span>BMHRmksg@npl41 analog-ai<span class="o">]</span>$ python 04_lenet5_training.py
+LeNet5<span class="o">(</span>
+  <span class="o">(</span>feature_extractor<span class="o">)</span>: Sequential<span class="o">(</span>
+    <span class="o">(</span><span class="m">0</span><span class="o">)</span>: AnalogConv2d<span class="o">(</span><span class="m">1</span>, <span class="m">16</span>, <span class="nv">kernel_size</span><span class="o">=(</span><span class="m">5</span>, <span class="m">5</span><span class="o">)</span>, <span class="nv">stride</span><span class="o">=(</span><span class="m">1</span>, <span class="m">1</span><span class="o">))</span>
+    <span class="o">(</span><span class="m">1</span><span class="o">)</span>: Tanh<span class="o">()</span>
+    <span class="o">(</span><span class="m">2</span><span class="o">)</span>: MaxPool2d<span class="o">(</span><span class="nv">kernel_size</span><span class="o">=</span><span class="m">2</span>, <span class="nv">stride</span><span class="o">=</span><span class="m">2</span>, <span class="nv">padding</span><span class="o">=</span><span class="m">0</span>, <span class="nv">dilation</span><span class="o">=</span><span class="m">1</span>, <span class="nv">ceil_mode</span><span class="o">=</span>False<span class="o">)</span>
+    <span class="o">(</span><span class="m">3</span><span class="o">)</span>: AnalogConv2d<span class="o">(</span><span class="m">16</span>, <span class="m">32</span>, <span class="nv">kernel_size</span><span class="o">=(</span><span class="m">5</span>, <span class="m">5</span><span class="o">)</span>, <span class="nv">stride</span><span class="o">=(</span><span class="m">1</span>, <span class="m">1</span><span class="o">))</span>
+    <span class="o">(</span><span class="m">4</span><span class="o">)</span>: Tanh<span class="o">()</span>
+    <span class="o">(</span><span class="m">5</span><span class="o">)</span>: MaxPool2d<span class="o">(</span><span class="nv">kernel_size</span><span class="o">=</span><span class="m">2</span>, <span class="nv">stride</span><span class="o">=</span><span class="m">2</span>, <span class="nv">padding</span><span class="o">=</span><span class="m">0</span>, <span class="nv">dilation</span><span class="o">=</span><span class="m">1</span>, <span class="nv">ceil_mode</span><span class="o">=</span>False<span class="o">)</span>
+    <span class="o">(</span><span class="m">6</span><span class="o">)</span>: Tanh<span class="o">()</span>
+  <span class="o">)</span>
+  <span class="o">(</span>classifier<span class="o">)</span>: Sequential<span class="o">(</span>
+    <span class="o">(</span><span class="m">0</span><span class="o">)</span>: AnalogLinear<span class="o">(</span><span class="nv">in_features</span><span class="o">=</span><span class="m">512</span>, <span class="nv">out_features</span><span class="o">=</span><span class="m">128</span>, <span class="nv">bias</span><span class="o">=</span>True, <span class="nv">is_cuda</span><span class="o">=</span>True<span class="o">)</span>
+    <span class="o">(</span><span class="m">1</span><span class="o">)</span>: Tanh<span class="o">()</span>
+    <span class="o">(</span><span class="m">2</span><span class="o">)</span>: AnalogLinear<span class="o">(</span><span class="nv">in_features</span><span class="o">=</span><span class="m">128</span>, <span class="nv">out_features</span><span class="o">=</span><span class="m">10</span>, <span class="nv">bias</span><span class="o">=</span>True, <span class="nv">is_cuda</span><span class="o">=</span>True<span class="o">)</span>
+  <span class="o">)</span>
+<span class="o">)</span>
+
+<span class="m">14</span>:33:19 --- Started LeNet5 Example
+
+<span class="m">14</span>:33:19 --- Started LeNet5 Example
+<span class="m">14</span>:33:39 --- Epoch: <span class="m">0</span>   Train loss: <span class="m">1</span>.9726      Valid loss: <span class="m">1</span>.6097      Test error: <span class="m">10</span>.00%      Accuracy: <span class="m">90</span>.00%
+<span class="m">14</span>:33:59 --- Epoch: <span class="m">1</span>   Train loss: <span class="m">1</span>.5619      Valid loss: <span class="m">1</span>.5278      Test error: <span class="m">5</span>.07%       Accuracy: <span class="m">94</span>.93%
+<span class="m">14</span>:34:19 --- Epoch: <span class="m">2</span>   Train loss: <span class="m">1</span>.5214      Valid loss: <span class="m">1</span>.5083      Test error: <span class="m">3</span>.42%       Accuracy: <span class="m">96</span>.58%
+<span class="m">14</span>:34:42 --- Epoch: <span class="m">3</span>   Train loss: <span class="m">1</span>.5066      Valid loss: <span class="m">1</span>.5001      Test error: <span class="m">2</span>.90%       Accuracy: <span class="m">97</span>.10%
+<span class="m">14</span>:35:02 --- Epoch: <span class="m">4</span>   Train loss: <span class="m">1</span>.4995      Valid loss: <span class="m">1</span>.4950      Test error: <span class="m">2</span>.51%       Accuracy: <span class="m">97</span>.49%
+<span class="m">14</span>:35:22 --- Epoch: <span class="m">5</span>   Train loss: <span class="m">1</span>.4950      Valid loss: <span class="m">1</span>.4911      Test error: <span class="m">2</span>.33%       Accuracy: <span class="m">97</span>.67%
+<span class="m">14</span>:35:42 --- Epoch: <span class="m">6</span>   Train loss: <span class="m">1</span>.4915      Valid loss: <span class="m">1</span>.4884      Test error: <span class="m">2</span>.11%       Accuracy: <span class="m">97</span>.89%
+<span class="m">14</span>:36:02 --- Epoch: <span class="m">7</span>   Train loss: <span class="m">1</span>.4889      Valid loss: <span class="m">1</span>.4875      Test error: <span class="m">2</span>.12%       Accuracy: <span class="m">97</span>.88%
+<span class="m">14</span>:36:22 --- Epoch: <span class="m">8</span>   Train loss: <span class="m">1</span>.4866      Valid loss: <span class="m">1</span>.4847      Test error: <span class="m">1</span>.85%       Accuracy: <span class="m">98</span>.15%
+<span class="m">14</span>:36:42 --- Epoch: <span class="m">9</span>   Train loss: <span class="m">1</span>.4846      Valid loss: <span class="m">1</span>.4835      Test error: <span class="m">1</span>.76%       Accuracy: <span class="m">98</span>.24%
+<span class="m">14</span>:37:04 --- Epoch: <span class="m">10</span>  Train loss: <span class="m">1</span>.4834      Valid loss: <span class="m">1</span>.4849      Test error: <span class="m">1</span>.93%       Accuracy: <span class="m">98</span>.07%
+<span class="m">14</span>:37:24 --- Epoch: <span class="m">11</span>  Train loss: <span class="m">1</span>.4822      Valid loss: <span class="m">1</span>.4820      Test error: <span class="m">1</span>.69%       Accuracy: <span class="m">98</span>.31%
+<span class="m">14</span>:37:49 --- Epoch: <span class="m">12</span>  Train loss: <span class="m">1</span>.4811      Valid loss: <span class="m">1</span>.4818      Test error: <span class="m">1</span>.64%       Accuracy: <span class="m">98</span>.36%
+<span class="m">14</span>:38:14 --- Epoch: <span class="m">13</span>  Train loss: <span class="m">1</span>.4803      Valid loss: <span class="m">1</span>.4808      Test error: <span class="m">1</span>.62%       Accuracy: <span class="m">98</span>.38%
+<span class="m">14</span>:38:38 --- Epoch: <span class="m">14</span>  Train loss: <span class="m">1</span>.4795      Valid loss: <span class="m">1</span>.4801      Test error: <span class="m">1</span>.58%       Accuracy: <span class="m">98</span>.42%
+<span class="m">14</span>:39:02 --- Epoch: <span class="m">15</span>  Train loss: <span class="m">1</span>.4785      Valid loss: <span class="m">1</span>.4794      Test error: <span class="m">1</span>.35%       Accuracy: <span class="m">98</span>.65%
+<span class="m">14</span>:39:26 --- Epoch: <span class="m">16</span>  Train loss: <span class="m">1</span>.4777      Valid loss: <span class="m">1</span>.4797      Test error: <span class="m">1</span>.42%       Accuracy: <span class="m">98</span>.58%
+<span class="m">14</span>:39:51 --- Epoch: <span class="m">17</span>  Train loss: <span class="m">1</span>.4771      Valid loss: <span class="m">1</span>.4790      Test error: <span class="m">1</span>.43%       Accuracy: <span class="m">98</span>.57%
+<span class="m">14</span>:40:15 --- Epoch: <span class="m">18</span>  Train loss: <span class="m">1</span>.4767      Valid loss: <span class="m">1</span>.4797      Test error: <span class="m">1</span>.51%       Accuracy: <span class="m">98</span>.49%
+<span class="m">14</span>:40:40 --- Epoch: <span class="m">19</span>  Train loss: <span class="m">1</span>.4763      Valid loss: <span class="m">1</span>.4787      Test error: <span class="m">1</span>.37%       Accuracy: <span class="m">98</span>.63%
+<span class="m">14</span>:41:05 --- Epoch: <span class="m">20</span>  Train loss: <span class="m">1</span>.4756      Valid loss: <span class="m">1</span>.4791      Test error: <span class="m">1</span>.44%       Accuracy: <span class="m">98</span>.56%
+<span class="m">14</span>:41:29 --- Epoch: <span class="m">21</span>  Train loss: <span class="m">1</span>.4752      Valid loss: <span class="m">1</span>.4788      Test error: <span class="m">1</span>.48%       Accuracy: <span class="m">98</span>.52%
+<span class="m">14</span>:41:55 --- Epoch: <span class="m">22</span>  Train loss: <span class="m">1</span>.4746      Valid loss: <span class="m">1</span>.4779      Test error: <span class="m">1</span>.37%       Accuracy: <span class="m">98</span>.63%
+<span class="m">14</span>:42:20 --- Epoch: <span class="m">23</span>  Train loss: <span class="m">1</span>.4742      Valid loss: <span class="m">1</span>.4777      Test error: <span class="m">1</span>.41%       Accuracy: <span class="m">98</span>.59%
+<span class="m">14</span>:42:44 --- Epoch: <span class="m">24</span>  Train loss: <span class="m">1</span>.4742      Valid loss: <span class="m">1</span>.4777      Test error: <span class="m">1</span>.36%       Accuracy: <span class="m">98</span>.64%
+<span class="m">14</span>:43:06 --- Epoch: <span class="m">25</span>  Train loss: <span class="m">1</span>.4738      Valid loss: <span class="m">1</span>.4774      Test error: <span class="m">1</span>.29%       Accuracy: <span class="m">98</span>.71%
+<span class="m">14</span>:43:30 --- Epoch: <span class="m">26</span>  Train loss: <span class="m">1</span>.4732      Valid loss: <span class="m">1</span>.4775      Test error: <span class="m">1</span>.42%       Accuracy: <span class="m">98</span>.58%
+<span class="m">14</span>:43:55 --- Epoch: <span class="m">27</span>  Train loss: <span class="m">1</span>.4729      Valid loss: <span class="m">1</span>.4776      Test error: <span class="m">1</span>.40%       Accuracy: <span class="m">98</span>.60%
+<span class="m">14</span>:44:18 --- Epoch: <span class="m">28</span>  Train loss: <span class="m">1</span>.4727      Valid loss: <span class="m">1</span>.4793      Test error: <span class="m">1</span>.56%       Accuracy: <span class="m">98</span>.44%
+<span class="m">14</span>:44:41 --- Epoch: <span class="m">29</span>  Train loss: <span class="m">1</span>.4724      Valid loss: <span class="m">1</span>.4781      Test error: <span class="m">1</span>.50%       Accuracy: <span class="m">98</span>.50%
+<span class="m">14</span>:44:42 --- Completed LeNet5 Example
+</pre></div>
+</div>
+<p>Copy results to your workstation</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp BMHRmksg@blp01.ccni.rpi.edu:/gpfs/u/home/BMHR/BMHRmksg/scratch/analog-ai/results/LENET5/* .
+</pre></div>
+</div>
+<p>Test Losses</p>
+<figure class="align-default">
+<img alt="_images/test_losses.png" src="_images/test_losses.png" />
+</figure>
+<p>Test Error</p>
+<figure class="align-default">
+<img alt="_images/test_error.png" src="_images/test_error.png" />
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="aimos-benchmark.html" class="btn btn-neutral float-left" title="AI Benchmarks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="aimos-hints-tips.html" class="btn btn-neutral float-right" title="Hints and Tips" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, AiMOS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
