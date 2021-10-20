@@ -35,6 +35,11 @@ Install Analog Hardware Acceleration Kit
    [BMHRkmkh@dcsfen01]$ pip install aihwkit
 
 
+**Inatalation Verification** 
+
+    Please follow `IBM Analog Hardware Acceleration Kit’s documentation <https://aihwkit.readthedocs.io/en/latest/install.html>`_ 
+
+   
 Training Analog Model
 ^^^^^^^^^^^^^^^^^^^^^
 
