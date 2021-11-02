@@ -1,7 +1,7 @@
 .. _AI_Hardware_Toolkit:
    
-Analog AI Hardware Toolkit
-==========================
+Analog AI Hardware Toolkit(AIHW)
+================================
 
 In traditional hardware architecture, computation and memory are siloed in different locations. Information is moved back and forth between computation and memory units every time an operation is performed, creating a limitation called the von Neumann bottleneck.
 
