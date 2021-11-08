@@ -1,9 +1,15 @@
 .. _AI_Hardware_Toolkit:
    
-Analog AI Hardware Toolkit(AIHW)
+IBM Research AI Hardware Toolkit
 ================================
 
+.. _Analog_AI_Hardware_Toolkit:
+
+* **Analog AI Hardware Toolkit(AIHWKIT)**
+
 In traditional hardware architecture, computation and memory are siloed in different locations. Information is moved back and forth between computation and memory units every time an operation is performed, creating a limitation called the von Neumann bottleneck.
+
+.. figure:: digitalvsanalog.png
 
 IBM Research has created phase-change memory (PCM) elements that allow computations to happen in the same location where data is stored. This new type of memory eliminates the need to move data from storage to compute. The memory is also non-volatile, meaning that no power is necessary to keep the data stored. For more information, please read `here <https://analog-ai-demo.mybluemix.net/>`_ 
 
@@ -25,17 +31,19 @@ A high-performant (CUDA-capable) C++ simulator that allows for simulating a wide
 
 .. _getting_started:
 
-Getting Started
-^^^^^^^^^^^^^^^
+Overview Analog AI Hardware Toolkit(AIHWKIT)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Install Analog Hardware Acceleration Kit
+**Getting Started with AIHWKIT on AiMOS**
+
+AIHWKIT is aready installed in AiMOS environment. Currently we only support in NPL cluster and aihwkit_0.4.0 is the latest version. Log in to NPL cluster and change directory to /gpfs/u/software/npl-conda/, select the latest AIHWKIT version to activate conda environment so that you can run some examples. Issue the following command to install IBM Analog Hardware Acceleration Kit if running outside NPL cluster.
 
 .. code:: bash
 
    [BMHRkmkh@dcsfen01]$ pip install aihwkit
 
 
-**Inatalation Verification** 
+**Installation Verification** 
 
     Please follow `IBM Analog Hardware Acceleration Kit’s documentation <https://aihwkit.readthedocs.io/en/latest/install.html>`_ 
 
@@ -56,13 +64,13 @@ Load Aihwkit Environment Variables
 
    cp /gpfs/u/locker/201/CABS/analog-aihwkit/aihwkit/0.2.1/examples/* ~/scratch/analog-ai/
 
-Run Ai Training Sample Code
+Run AI Training Sample Code
 
 .. code:: bash
 
-   [BMHRmksg@npl06 analog-ai]$ conda activate /gpfs/u/software/npl-conda/aihwkit_v3_67abd25
+   [BMHRmksg@npl06 analog-ai]$ conda activate /gpfs/u/software/npl-conda/aihwkit_0.4.0
 
-   (/gpfs/u/software/npl-conda/aihwkit_v3_67abd25) [BMHRmksg@npl41 analog-ai]$ python 04_lenet5_training.py
+   (/gpfs/u/software/npl-conda/aihwkit_0.4.0) [BMHRmksg@npl41 analog-ai]$ python 04_lenet5_training.py
    LeNet5(
      (feature_extractor): Sequential(
        (0): AnalogConv2d(1, 16, kernel_size=(5, 5), stride=(1, 1))
