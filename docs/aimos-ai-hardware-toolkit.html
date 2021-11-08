@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Analog AI Hardware Toolkit &mdash; AiMOS 0.0.1 documentation</title>
+  <title>IBM Research AI Hardware Toolkit &mdash; AiMOS 0.0.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -45,8 +45,8 @@
 <li class="toctree-l1"><a class="reference internal" href="aimos-workload.html">Set up the workload environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-submit-job.html">Submit jobs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aimos-benchmark.html">AI Benchmarks</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Analog AI Hardware Toolkit</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">IBM Research AI Hardware Toolkit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview-analog-ai-hardware-toolkit-aihwkit">Overview Analog AI Hardware Toolkit(AIHWKIT)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#training-analog-model">Training Analog Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-examples">More Examples</a></li>
 </ul>
@@ -69,7 +69,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Analog AI Hardware Toolkit</li>
+      <li>IBM Research AI Hardware Toolkit</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/aimos-ai-hardware-toolkit.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -79,9 +79,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="analog-ai-hardware-toolkit">
-<span id="ai-hardware-toolkit"></span><h1>Analog AI Hardware Toolkit<a class="headerlink" href="#analog-ai-hardware-toolkit" title="Permalink to this headline"></a></h1>
+  <section id="ibm-research-ai-hardware-toolkit">
+<span id="ai-hardware-toolkit"></span><h1>IBM Research AI Hardware Toolkit<a class="headerlink" href="#ibm-research-ai-hardware-toolkit" title="Permalink to this headline"></a></h1>
+<ul class="simple" id="analog-ai-hardware-toolkit">
+<li><p><strong>Analog AI Hardware Toolkit(AIHWKIT)</strong></p></li>
+</ul>
 <p>In traditional hardware architecture, computation and memory are siloed in different locations. Information is moved back and forth between computation and memory units every time an operation is performed, creating a limitation called the von Neumann bottleneck.</p>
+<figure class="align-default">
+<img alt="_images/digitalvsanalog.png" src="_images/digitalvsanalog.png" />
+</figure>
 <p>IBM Research has created phase-change memory (PCM) elements that allow computations to happen in the same location where data is stored. This new type of memory eliminates the need to move data from storage to compute. The memory is also non-volatile, meaning that no power is necessary to keep the data stored. For more information, please read <a class="reference external" href="https://analog-ai-demo.mybluemix.net/">here</a></p>
 <p>IBM Analog Hardware Acceleration Kit is an open source Python toolkit for exploring and using the capabilities of in-memory computing devices in the context of artificial intelligence. The toolkit consists of two main components:</p>
 <ul class="simple" id="pytorch-integration">
@@ -92,13 +98,14 @@
 <li><p><strong>Analog devices simulatoion</strong></p></li>
 </ul>
 <p>A high-performant (CUDA-capable) C++ simulator that allows for simulating a wide range of analog devices and crossbar configurations by using abstract functional models of material characteristics with adjustable parameters.</p>
-<section id="getting-started">
-<span id="id1"></span><h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline"></a></h2>
-<p>Install Analog Hardware Acceleration Kit</p>
+<section id="overview-analog-ai-hardware-toolkit-aihwkit">
+<span id="getting-started"></span><h2>Overview Analog AI Hardware Toolkit(AIHWKIT)<a class="headerlink" href="#overview-analog-ai-hardware-toolkit-aihwkit" title="Permalink to this headline"></a></h2>
+<p><strong>Getting Started with AIHWKIT on AiMOS</strong></p>
+<p>AIHWKIT is aready installed in AiMOS environment. Currently we only support in NPL cluster and aihwkit_0.4.0 is the latest version. Log in to NPL cluster and change directory to /gpfs/u/software/npl-conda/, select the latest AIHWKIT version to activate conda environment so that you can run some examples. Issue the following command to install IBM Analog Hardware Acceleration Kit if running outside NPL cluster.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>BMHRkmkh@dcsfen01<span class="o">]</span>$ pip install aihwkit
 </pre></div>
 </div>
-<p><strong>Inatalation Verification</strong></p>
+<p><strong>Installation Verification</strong></p>
 <blockquote>
 <div><p>Please follow <a class="reference external" href="https://aihwkit.readthedocs.io/en/latest/install.html">IBM Analog Hardware Acceleration Kit’s documentation</a></p>
 </div></blockquote>
@@ -114,10 +121,10 @@ mkdir ~/scratch/analog-ai/results
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp /gpfs/u/locker/201/CABS/analog-aihwkit/aihwkit/0.2.1/examples/* ~/scratch/analog-ai/
 </pre></div>
 </div>
-<p>Run Ai Training Sample Code</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>BMHRmksg@npl06 analog-ai<span class="o">]</span>$ conda activate /gpfs/u/software/npl-conda/aihwkit_v3_67abd25
+<p>Run AI Training Sample Code</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>BMHRmksg@npl06 analog-ai<span class="o">]</span>$ conda activate /gpfs/u/software/npl-conda/aihwkit_0.4.0
 
-<span class="o">(</span>/gpfs/u/software/npl-conda/aihwkit_v3_67abd25<span class="o">)</span> <span class="o">[</span>BMHRmksg@npl41 analog-ai<span class="o">]</span>$ python 04_lenet5_training.py
+<span class="o">(</span>/gpfs/u/software/npl-conda/aihwkit_0.4.0<span class="o">)</span> <span class="o">[</span>BMHRmksg@npl41 analog-ai<span class="o">]</span>$ python 04_lenet5_training.py
 LeNet5<span class="o">(</span>
   <span class="o">(</span>feature_extractor<span class="o">)</span>: Sequential<span class="o">(</span>
     <span class="o">(</span><span class="m">0</span><span class="o">)</span>: AnalogConv2d<span class="o">(</span><span class="m">1</span>, <span class="m">16</span>, <span class="nv">kernel_size</span><span class="o">=(</span><span class="m">5</span>, <span class="m">5</span><span class="o">)</span>, <span class="nv">stride</span><span class="o">=(</span><span class="m">1</span>, <span class="m">1</span><span class="o">))</span>
