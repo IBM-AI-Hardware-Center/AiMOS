@@ -94,6 +94,27 @@ The last step is to choose the Personal Identification code (PIC). The PIC is ca
 
 You now have everything you need to login to a landing pad node.
 
+.. _Re_Activate_User_Account:
+
+Re-activate User Account
+++++++++++++++++++++++++
+
+Users need to re-activate their account in one of the following scenarios
+
+  * Deactivated account.  A user account will be deactivated after 3 months without using.
+
+  * Changing a new phone. 
+
+**Re-activate Account** 
+
+Step 1) Send an email to support@ccni.rpi.edu to request for a new password reset token.
+
+Step 2) Set the Challenge Word
+
+Step 3) Set the PIC. Reinstall "Google Authenticator" if changed a new phone.
+
+
+.. _Join_AiMOS_Slack_Channel:
 
 Join aimos slack channel
 ++++++++++++++++++++++++
