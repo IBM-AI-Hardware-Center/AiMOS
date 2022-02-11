@@ -48,6 +48,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">IBM Research AI Hardware Toolkit</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview-analog-ai-hardware-toolkit-aihwkit">Overview Analog AI Hardware Toolkit(AIHWKIT)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#training-analog-model">Training Analog Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mnist-training-example">MNIST Training Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-examples">More Examples</a></li>
 </ul>
 </li>
@@ -101,7 +102,7 @@
 <section id="overview-analog-ai-hardware-toolkit-aihwkit">
 <span id="getting-started"></span><h2>Overview Analog AI Hardware Toolkit(AIHWKIT)<a class="headerlink" href="#overview-analog-ai-hardware-toolkit-aihwkit" title="Permalink to this headline"></a></h2>
 <p><strong>Getting Started with AIHWKIT on AiMOS</strong></p>
-<p>AIHWKIT is aready installed in AiMOS environment. Currently we only support in NPL cluster and aihwkit_0.4.0 is the latest version. Log in to NPL cluster and change directory to /gpfs/u/software/npl-conda/, select the latest AIHWKIT version to activate conda environment so that you can run some examples. Issue the following command to install IBM Analog Hardware Acceleration Kit if running outside NPL cluster.</p>
+<p>AIHWKIT is aready installed in AiMOS environment. Currently we only support in NPL cluster and aihwkit_0.5.1 is the latest version. Log in to NPL cluster and change directory to /gpfs/u/software/npl-conda/, select the latest AIHWKIT version to activate conda environment so that you can run some examples. Issue the following command to install IBM Analog Hardware Acceleration Kit if running outside NPL cluster.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>BMHRkmkh@dcsfen01<span class="o">]</span>$ pip install aihwkit
 </pre></div>
 </div>
@@ -122,9 +123,9 @@ mkdir ~/scratch/analog-ai/results
 </pre></div>
 </div>
 <p>Run AI Training Sample Code</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>BMHRmksg@npl06 analog-ai<span class="o">]</span>$ conda activate /gpfs/u/software/npl-conda/aihwkit_0.4.0
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>BMHRmksg@npl06 analog-ai<span class="o">]</span>$ conda activate /gpfs/u/software/npl-conda/aihwkit_0.5.1
 
-<span class="o">(</span>/gpfs/u/software/npl-conda/aihwkit_0.4.0<span class="o">)</span> <span class="o">[</span>BMHRmksg@npl41 analog-ai<span class="o">]</span>$ python 04_lenet5_training.py
+<span class="o">(</span>/gpfs/u/software/npl-conda/aihwkit_0.5.1<span class="o">)</span> <span class="o">[</span>BMHRmksg@npl41 analog-ai<span class="o">]</span>$ python 04_lenet5_training.py
 LeNet5<span class="o">(</span>
   <span class="o">(</span>feature_extractor<span class="o">)</span>: Sequential<span class="o">(</span>
     <span class="o">(</span><span class="m">0</span><span class="o">)</span>: AnalogConv2d<span class="o">(</span><span class="m">1</span>, <span class="m">16</span>, <span class="nv">kernel_size</span><span class="o">=(</span><span class="m">5</span>, <span class="m">5</span><span class="o">)</span>, <span class="nv">stride</span><span class="o">=(</span><span class="m">1</span>, <span class="m">1</span><span class="o">))</span>
@@ -190,6 +191,40 @@ LeNet5<span class="o">(</span>
 <figure class="align-default">
 <img alt="_images/test_error.png" src="_images/test_error.png" />
 </figure>
+</section>
+<section id="mnist-training-example">
+<h2>MNIST Training Example<a class="headerlink" href="#mnist-training-example" title="Permalink to this headline"></a></h2>
+<p>This example is based on <a class="reference external" href="https://www.frontiersin.org/articles/10.3389/fnins.2016.00333/full">this paper</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>BMHRmksg@npl25 analog-ai<span class="o">]</span>$ conda activate /gpfs/u/software/npl-conda/aihwkit_0.5.1
+
+<span class="o">(</span>/gpfs/u/software/npl-conda/aihwkit_0.5.1<span class="o">)</span> <span class="o">[</span>BMHRmksg@npl25 analog-ai<span class="o">]</span>$ python 20_mnist_ddp.py
+Device count:  <span class="m">2</span>
+Process:  <span class="m">0</span>
+Process:  <span class="m">1</span>
+init process:  <span class="m">1</span>
+init process:  <span class="m">0</span>
+AnalogSequential<span class="o">(</span>
+  <span class="o">(</span><span class="m">0</span><span class="o">)</span>: AnalogLinear<span class="o">(</span><span class="nv">in_features</span><span class="o">=</span><span class="m">784</span>, <span class="nv">out_features</span><span class="o">=</span><span class="m">256</span>, <span class="nv">bias</span><span class="o">=</span>True, digital bias<span class="o">)</span>
+  <span class="o">(</span><span class="m">1</span><span class="o">)</span>: Sigmoid<span class="o">()</span>
+  <span class="o">(</span><span class="m">2</span><span class="o">)</span>: AnalogLinear<span class="o">(</span><span class="nv">in_features</span><span class="o">=</span><span class="m">256</span>, <span class="nv">out_features</span><span class="o">=</span><span class="m">128</span>, <span class="nv">bias</span><span class="o">=</span>True, digital bias<span class="o">)</span>
+  <span class="o">(</span><span class="m">3</span><span class="o">)</span>: Sigmoid<span class="o">()</span>
+  <span class="o">(</span><span class="m">4</span><span class="o">)</span>: AnalogLinearMapped<span class="o">(</span><span class="nv">in_features</span><span class="o">=</span><span class="m">128</span>, <span class="nv">out_features</span><span class="o">=</span><span class="m">10</span>, <span class="nv">bias</span><span class="o">=</span>True, digital bias, <span class="nv">mapping</span><span class="o">=(</span><span class="m">1</span>, <span class="m">1</span><span class="o">))</span>
+  <span class="o">(</span><span class="m">5</span><span class="o">)</span>: LogSoftmax<span class="o">(</span><span class="nv">dim</span><span class="o">=</span><span class="m">1</span><span class="o">)</span>
+<span class="o">)</span>
+Epoch <span class="m">0</span> - Training loss: <span class="m">2</span>.2970604166666666
+Epoch <span class="m">1</span> - Training loss: <span class="m">2</span>.2595020833333335
+Epoch <span class="m">2</span> - Training loss: <span class="m">2</span>.0136195312499998
+...
+Epoch <span class="m">27</span> - Training loss: <span class="m">0</span>.3384201171875000
+Epoch <span class="m">28</span> - Training loss: <span class="m">0</span>.3366046875000000
+Epoch <span class="m">29</span> - Training loss: <span class="m">0</span>.3348065104166666
+
+Average Training Time <span class="o">(</span>s<span class="o">)</span> <span class="o">=</span> <span class="m">125</span>.90985107421875
+
+Number Of Images <span class="nv">Tested</span> <span class="o">=</span> <span class="m">10000</span>
+Model <span class="nv">Accuracy</span> <span class="o">=</span> <span class="m">0</span>.9045500159263611
+</pre></div>
+</div>
 </section>
 <section id="more-examples">
 <h2>More Examples<a class="headerlink" href="#more-examples" title="Permalink to this headline"></a></h2>
