@@ -36,7 +36,7 @@ Overview Analog AI Hardware Toolkit(AIHWKIT)
 
 **Getting Started with AIHWKIT on AiMOS**
 
-AIHWKIT is aready installed in AiMOS environment. Currently we only support in NPL cluster and aihwkit_0.4.0 is the latest version. Log in to NPL cluster and change directory to /gpfs/u/software/npl-conda/, select the latest AIHWKIT version to activate conda environment so that you can run some examples. Issue the following command to install IBM Analog Hardware Acceleration Kit if running outside NPL cluster.
+AIHWKIT is aready installed in AiMOS environment. Currently we only support in NPL cluster and aihwkit_0.5.1 is the latest version. Log in to NPL cluster and change directory to /gpfs/u/software/npl-conda/, select the latest AIHWKIT version to activate conda environment so that you can run some examples. Issue the following command to install IBM Analog Hardware Acceleration Kit if running outside NPL cluster.
 
 .. code:: bash
 
@@ -68,9 +68,9 @@ Run AI Training Sample Code
 
 .. code:: bash
 
-   [BMHRmksg@npl06 analog-ai]$ conda activate /gpfs/u/software/npl-conda/aihwkit_0.4.0
+   [BMHRmksg@npl06 analog-ai]$ conda activate /gpfs/u/software/npl-conda/aihwkit_0.5.1
 
-   (/gpfs/u/software/npl-conda/aihwkit_0.4.0) [BMHRmksg@npl41 analog-ai]$ python 04_lenet5_training.py
+   (/gpfs/u/software/npl-conda/aihwkit_0.5.1) [BMHRmksg@npl41 analog-ai]$ python 04_lenet5_training.py
    LeNet5(
      (feature_extractor): Sequential(
        (0): AnalogConv2d(1, 16, kernel_size=(5, 5), stride=(1, 1))
@@ -137,6 +137,43 @@ Test Losses
 Test Error
 
 .. figure:: test_error.png
+
+
+MNIST Training Example
+^^^^^^^^^^^^^^^^^^^^^^
+This example is based on `this paper <https://www.frontiersin.org/articles/10.3389/fnins.2016.00333/full>`_
+
+.. code:: bash
+
+        [BMHRmksg@npl25 analog-ai]$ conda activate /gpfs/u/software/npl-conda/aihwkit_0.5.1
+
+        (/gpfs/u/software/npl-conda/aihwkit_0.5.1) [BMHRmksg@npl25 analog-ai]$ python 20_mnist_ddp.py 
+        Device count:  2
+        Process:  0
+        Process:  1
+        init process:  1
+        init process:  0
+        AnalogSequential(
+          (0): AnalogLinear(in_features=784, out_features=256, bias=True, digital bias)
+          (1): Sigmoid()
+          (2): AnalogLinear(in_features=256, out_features=128, bias=True, digital bias)
+          (3): Sigmoid()
+          (4): AnalogLinearMapped(in_features=128, out_features=10, bias=True, digital bias, mapping=(1, 1))
+          (5): LogSoftmax(dim=1)
+        )
+        Epoch 0 - Training loss: 2.2970604166666666
+        Epoch 1 - Training loss: 2.2595020833333335
+        Epoch 2 - Training loss: 2.0136195312499998
+        ...
+        Epoch 27 - Training loss: 0.3384201171875000
+        Epoch 28 - Training loss: 0.3366046875000000
+        Epoch 29 - Training loss: 0.3348065104166666
+
+        Average Training Time (s) = 125.90985107421875
+
+        Number Of Images Tested = 10000
+        Model Accuracy = 0.9045500159263611
+
 
 More Examples
 ^^^^^^^^^^^^^
