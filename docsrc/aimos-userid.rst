@@ -101,17 +101,27 @@ Re-activate User Account
 
 Users need to re-activate their account in one of the following scenarios
 
-  * Deactivated account.  A user account will be deactivated after 3 months without using.
+**Re-activate Account**
 
-  * Changing a new phone. 
-
-**Re-activate Account** 
+* Deactivated account.  A user account will be deactivated after 3 months without using.
 
 Step 1) Send an email to support@ccni.rpi.edu to request for a new password reset token.
 
 Step 2) Set the Challenge Word
 
 Step 3) Set the PIC. Reinstall "Google Authenticator" if changed a new phone.
+
+**Changing a New Phone**
+
+Google Authenticator needs to rescan the 2D bar code after new app installed. Here are the steps when after you switching to a new phone.
+
+Step 1) Send an email to support@ccni.rpi.edu to request setup new TOTP (Time-based One-time Password) by providing you user ID, exmaple BMHRxxxx
+
+Step 2) Support will send you an email after they removing the old two factor on your account. 
+
+Step 3) You can now set it up again at https://secure.cci.rpi.edu/wiki/other/totp/. Providing your password, challange word, it will generat a new 2D bar code if password and challange word are accepted. Now you can scan it using your Google Authenticator app. 
+
+.. figure:: TOTP.jpg
 
 
 .. _Join_AiMOS_Slack_Channel:
