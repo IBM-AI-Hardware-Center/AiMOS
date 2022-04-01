@@ -89,7 +89,7 @@ Due to the default limit space of 10 GiB for $HOME, 10G for $HOME/barn and $HOME
    cd $HOME
    df -h .
 
-If you need additional space for barn and barn-shared, please send an email to Lorraine Herger (herger@us.ibm.com) with the justification for increasing the space and the requested space.  If Lorraine approves your request, she will forward the email to RPI for processing.
+If you need additional space for barn and barn-shared, please send an email to Mickey Song (msong@us.ibm.com) with the justification for increasing the space and the requested space.  If Lorraine approves your request, she will forward the email to RPI for processing.
 
 .. code:: bash
 
