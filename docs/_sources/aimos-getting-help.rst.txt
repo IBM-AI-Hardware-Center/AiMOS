@@ -21,6 +21,6 @@ Getting Help?
 
       * Security vulnerability with no work-around.
 
-If you do not find the answer for your questions in the documetation, please post your questions to the aimos slack channel that you have access to.  If you do not have access to aimos slack channel please send email to herger@us.ibm.com.
+If you do not find the answer for your questions in the documetation, please post your questions to the aimos slack channel that you have access to.  If you do not have access to aimos slack channel please send email to msong@us.ibm.com.
 
-For emergency, please call Lorraine Herger by phone.  You should find the phone number in the IBM Blue Pages.
+For emergency, please call Mickey Song by phone.  You should find the phone number in the IBM Blue Pages.
