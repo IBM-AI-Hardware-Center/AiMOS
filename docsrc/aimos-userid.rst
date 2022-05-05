@@ -11,12 +11,13 @@ This section describes the steps for you to apply for a user ID and the process 
 Apply for a user ID on AiMOS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**IMPORTANT:** Please include your **first name initial** and **last name** in the name of all files that you send to Mickey Song.  For example:
+**IMPORTANT:** Please include your **first name initial** and **last name** in the name of all files that you send to Kaoutar El maghraoui and Mickey Song.  For example:
 
    - **CCI_User_Information_KTran**.pdf
    - **CCI_User_Responsibility_Agreement_KTran**.pdf
+   - **CCI_Project_Information.pdf**.pdf
 
-* If you are a first time user, you need to fill out the following forms, sign and send them to msong@us.ibm.com.  Also, provide the following:
+* If you are a first time user, you need to fill out the following forms, sign and send them to Kaoutar El maghraoui(Email: kelmaghr@us.ibm.com) for approval and cc to Mickey Song(Email: msong@us.ibm.com).  Also, provide the following:
 
   * If you are joining an existing project, please provide the 4 letter ID of the project, and the approval of the project leader/ PI.  CC'ing the PI on the email is sufficient.
   * If you are requesting a new project, then provide the following information in your email, along with your two completed forms:
@@ -32,7 +33,7 @@ Apply for a user ID on AiMOS
 
 ::
   
-  To: msong@us.ibm.com
+  To: kelmaghr@us.ibm.com
   cc: <PI email id>
   Subject: Add existing users to another project
 
@@ -42,19 +43,22 @@ Apply for a user ID on AiMOS
 
 CCI User Information
 ++++++++++++++++++++
-
 https://secure.cci.rpi.edu/wiki/assets/forms/CCI_User_Information.pdf
 
 CCI User Responsibility Agreement
 +++++++++++++++++++++++++++++++++
-
 https://secure.cci.rpi.edu/wiki/assets/forms/CCI_User_Responsibility_Agreement.pdf
 
-**IMPORTANT:** Please include your **first name initial** and **last name** in the name of all files that you send to Lorraine Herger.  For example:
+CCI Project Information
++++++++++++++++++++++++++++++++++
+https://secure.cci.rpi.edu/wiki/assets/forms/CCI_Project_Information.pdf
+
+
+**IMPORTANT:** Please include your **first name initial** and **last name** in the name of all files that you send to Kaoutar El maghraoui for approval.  For example:
 
 * **CCI_User_Information_KTran**.pdf 
 * **CCI_User_Responsibility_Agreement_KTran**.pdf
-
+* **CCI_Project_Information.pdf**.pdf
 
 Once the forms are processed, you will receive emails from **HPCman <hpcman@ccni.rpi.edu>** for your account ID and password reset token. The next step is to :ref:`set-password`.
 
@@ -142,7 +146,7 @@ Join aimos slack channel
 
 * #aimos_synopsys-guest
 
-All IBM users who are not in the IBM Research Division, or users who are external to IBM,  will need to send a request to join email to Mickey Song (msong@us.bm.com).
+All IBM users who are not in the IBM Research Division, or users who are external to IBM,  will need to send a request to join email to Kaoutar El maghraoui(Email: kelmaghr@us.ibm.com).
 
 .. _how-to-login:
 
@@ -238,5 +242,3 @@ Or you ssh to the nplfen01 node.
 
    [BMHRkmkh@blp01 ~]$ ssh nplfen01
    Last login: Thu Jun 11 14:40:36 2020 from blp01.ccni.rpi.edu
-   (base) [BMHRkmkh@npl41 ~]$
-
