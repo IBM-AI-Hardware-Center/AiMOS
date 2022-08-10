@@ -50,7 +50,7 @@ From a Command Prompt Terminal
   Password:
   in.lj                                                                                 100%  344     4.1KB/s   00:00
 
-For transferring a large file see  https://secure.cci.rpi.edu/wiki/landingpads/Transferring_Large_Files/
+For transferring a large file see  https://docs.cci.rpi.edu/landingpads/Transferring_Large_Files/
 
 
 .. _conda-init-bashrc:
@@ -142,7 +142,7 @@ The following .condarc is specifying that conda searches the wml-ce early access
 Troubleshooting Tips
 ^^^^^^^^^^^^^^^^^^^^
 
-* When you get a disk I/O error, check disk quota for $HOME and barn. See https://secure.cci.rpi.edu/wiki/Frequently_Asked_Questions/#how-do-i-check-my-gpfs-quota-usage for how to.  For example, you want to know the quota of $HOME and the size of the files in $HOME:
+* When you get a disk I/O error, check disk quota for $HOME and barn. See https://docs.cci.rpi.edu/Frequently_Asked_Questions/#how-do-i-check-my-gpfs-quota-usage for how to.  For example, you want to know the quota of $HOME and the size of the files in $HOME:
 
 .. code:: bash
 

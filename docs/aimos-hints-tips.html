@@ -14,6 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -84,23 +85,23 @@
            <div itemprop="articleBody">
              
   <section id="hints-and-tips">
-<span id="id1"></span><h1>Hints and Tips<a class="headerlink" href="#hints-and-tips" title="Permalink to this headline"></a></h1>
+<span id="id1"></span><h1>Hints and Tips<a class="headerlink" href="#hints-and-tips" title="Permalink to this heading"></a></h1>
 <section id="general">
-<h2>General<a class="headerlink" href="#general" title="Permalink to this headline"></a></h2>
+<h2>General<a class="headerlink" href="#general" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>You must be in the front end node to set up your system environment.</p></li>
 <li><p>You must be in the front end node to install conda or create a new conda environment.</p></li>
 </ol>
 </section>
 <section id="dcs-cluster-power">
-<h2>DCS Cluster (Power)<a class="headerlink" href="#dcs-cluster-power" title="Permalink to this headline"></a></h2>
+<h2>DCS Cluster (Power)<a class="headerlink" href="#dcs-cluster-power" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>If you want to use the  Powers System cluster, i.e. DCS Cluster, log in to the dcsfen01.ccni.rpi.edu node or dcsfen02.ccni.rpi.edu node.</p></li>
 <li><p>Note that spectrum_mpi is installed in the DCS Cluster. You can use <strong>module spider</strong> to find all possible modules and extensions.</p></li>
 </ol>
 </section>
 <section id="npl-cluster-x86">
-<h2>NPL Cluster (X86)<a class="headerlink" href="#npl-cluster-x86" title="Permalink to this headline"></a></h2>
+<h2>NPL Cluster (X86)<a class="headerlink" href="#npl-cluster-x86" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>If you want to use the  X86 cluster, i.e. NPL Cluster, log in to the nplfen01.ccni.rpi.edu node.</p></li>
 <li><p>For the NPL cluster, avoid using system memory together with GPU memory since the data transfer is using the PCI bus. It is not the high speed connection.</p></li>
@@ -108,7 +109,7 @@
 </ol>
 </section>
 <section id="transfer-data-in-and-out-of-aimos">
-<h2>Transfer data in and out of AiMOS<a class="headerlink" href="#transfer-data-in-and-out-of-aimos" title="Permalink to this headline"></a></h2>
+<h2>Transfer data in and out of AiMOS<a class="headerlink" href="#transfer-data-in-and-out-of-aimos" title="Permalink to this heading"></a></h2>
 <p><strong>IMPORTANT</strong>: You MUST initiate the copy operation from your desktop/laptop.</p>
 <p>You use <strong>scp</strong> command on your desktop/laptop to copy the data from or to the landing pad node.  Since the same gpfs file system is mounted on the landing pad nodes, front end nodes and compute nodes, the data will be available and accessible on all the nodes. For example:</p>
 <ul class="simple">
@@ -131,10 +132,10 @@ Password:
 <span class="k">in</span>.lj                                                                                 <span class="m">100</span>%  <span class="m">344</span>     <span class="m">4</span>.1KB/s   <span class="m">00</span>:00
 </pre></div>
 </div>
-<p>For transferring a large file see  <a class="reference external" href="https://secure.cci.rpi.edu/wiki/landingpads/Transferring_Large_Files/">https://secure.cci.rpi.edu/wiki/landingpads/Transferring_Large_Files/</a></p>
+<p>For transferring a large file see  <a class="reference external" href="https://docs.cci.rpi.edu/landingpads/Transferring_Large_Files/">https://docs.cci.rpi.edu/landingpads/Transferring_Large_Files/</a></p>
 </section>
 <section id="conda-init-in-bashrc">
-<span id="conda-init-bashrc"></span><h2>Conda Init in .bashrc<a class="headerlink" href="#conda-init-in-bashrc" title="Permalink to this headline"></a></h2>
+<span id="conda-init-bashrc"></span><h2>Conda Init in .bashrc<a class="headerlink" href="#conda-init-in-bashrc" title="Permalink to this heading"></a></h2>
 <p>This snippet of .bashrc bases on the hardware architecture of the node and execute the applicable conda init code.  It also assumes that the anaconda is installed in ~/scratch/miniconda3 for Power environment (i.e. DCS cluster) and in ~/scratch/miniconda3-x86 for X86 environment (i.e. NPL cluster).  Please modify the project name BMHR to your project, BMHRkmkh  to your user ID, and the PATH of your conda root.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">arch</span><span class="o">=</span><span class="sb">`</span>uname -m<span class="sb">`</span>
 <span class="k">if</span> <span class="o">[[</span> <span class="nv">$arch</span> <span class="o">==</span> <span class="s2">&quot;ppc64le&quot;</span> <span class="o">]]</span>
@@ -178,7 +179,7 @@ Password:
 </div>
 </section>
 <section id="sample-condarc">
-<span id="id2"></span><h2>Sample .condarc<a class="headerlink" href="#sample-condarc" title="Permalink to this headline"></a></h2>
+<span id="id2"></span><h2>Sample .condarc<a class="headerlink" href="#sample-condarc" title="Permalink to this heading"></a></h2>
 <p>There is a runtime configuration file, .condarc, in Anaconda.  You can use this file to specify the channels where conda looks for packages, etc.</p>
 <p>For more information see <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html">https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html</a></p>
 <p>IBM provides some repositories which contain packages built specifically for linux-ppc64le, linux-64 and noarch.</p>
@@ -205,9 +206,9 @@ Password:
 </div>
 </section>
 <section id="troubleshooting-tips">
-<h2>Troubleshooting Tips<a class="headerlink" href="#troubleshooting-tips" title="Permalink to this headline"></a></h2>
+<h2>Troubleshooting Tips<a class="headerlink" href="#troubleshooting-tips" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p>When you get a disk I/O error, check disk quota for $HOME and barn. See <a class="reference external" href="https://secure.cci.rpi.edu/wiki/Frequently_Asked_Questions/#how-do-i-check-my-gpfs-quota-usage">https://secure.cci.rpi.edu/wiki/Frequently_Asked_Questions/#how-do-i-check-my-gpfs-quota-usage</a> for how to.  For example, you want to know the quota of $HOME and the size of the files in $HOME:</p></li>
+<li><p>When you get a disk I/O error, check disk quota for $HOME and barn. See <a class="reference external" href="https://docs.cci.rpi.edu/Frequently_Asked_Questions/#how-do-i-check-my-gpfs-quota-usage">https://docs.cci.rpi.edu/Frequently_Asked_Questions/#how-do-i-check-my-gpfs-quota-usage</a> for how to.  For example, you want to know the quota of $HOME and the size of the files in $HOME:</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~
 df -h .

@@ -14,6 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -99,12 +100,12 @@
            <div itemprop="articleBody">
              
   <section id="aimos-environment-basics">
-<span id="environment-basics"></span><h1>AiMOS Environment Basics<a class="headerlink" href="#aimos-environment-basics" title="Permalink to this headline"></a></h1>
+<span id="environment-basics"></span><h1>AiMOS Environment Basics<a class="headerlink" href="#aimos-environment-basics" title="Permalink to this heading"></a></h1>
 <section id="initial-environment-setup">
-<span id="setup-environment"></span><h2>Initial Environment Setup<a class="headerlink" href="#initial-environment-setup" title="Permalink to this headline"></a></h2>
+<span id="setup-environment"></span><h2>Initial Environment Setup<a class="headerlink" href="#initial-environment-setup" title="Permalink to this heading"></a></h2>
 <p>The following sections are the steps for setting up your environment.</p>
 <section id="set-up-passwordless">
-<span id="setup-passwordless"></span><h3>Set up passwordless<a class="headerlink" href="#set-up-passwordless" title="Permalink to this headline"></a></h3>
+<span id="setup-passwordless"></span><h3>Set up passwordless<a class="headerlink" href="#set-up-passwordless" title="Permalink to this heading"></a></h3>
 <p>It is strongly recommended that you set up the passwordless to login to the front end nodes and compute nodes.  This is particularly required if you are running MPI workload.  You only need to do this once.
 The process consists of two steps:</p>
 <ul class="simple">
@@ -142,7 +143,7 @@ $ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
 </div>
 </section>
 <section id="set-up-proxy">
-<span id="setup-proxy"></span><h3>Set up proxy<a class="headerlink" href="#set-up-proxy" title="Permalink to this headline"></a></h3>
+<span id="setup-proxy"></span><h3>Set up proxy<a class="headerlink" href="#set-up-proxy" title="Permalink to this heading"></a></h3>
 <p>It is strongly recommended that you set up the proxy by adding the following lines to your .bashrc. You only need to do this once.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">http_proxy</span><span class="o">=</span>http://proxy:8888
 <span class="nb">export</span> <span class="nv">https_proxy</span><span class="o">=</span><span class="nv">$http_proxy</span>
@@ -152,14 +153,14 @@ $ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
 </section>
 </section>
 <section id="the-gpfs-shared-file-systems">
-<h2>The GPFS shared file systems<a class="headerlink" href="#the-gpfs-shared-file-systems" title="Permalink to this headline"></a></h2>
+<h2>The GPFS shared file systems<a class="headerlink" href="#the-gpfs-shared-file-systems" title="Permalink to this heading"></a></h2>
 <p>The same GPFS filesystems are mounted on all the landing pad nodes, the front end nodes and the compute nodes in AiMOS.</p>
 <ul class="simple">
 <li><p>Each project is given a 10 GiB quota for barn and a 10 GiB quota for home. Home is intended for long-term storage of configurations, scripts, etc. Barn is intended for medium-term storage.</p></li>
 <li><p>home directory contains a link to scratch, the user’s personal scratch space.  It also contains a link to scratch-shared, the project’s shared scratch space.</p></li>
 <li><p>scratch and scratch-shared are meant as a temporary staging area for performing computation. Performance in this directory will be better than in the home or barn areas. This space does not have a quota. However, it will periodically be purged of files that are not used (either by read or write operation) in the last 56 days.  WARNING: If purging files that are not used in the last 56 days is not sufficient to maintain enough working space, the RPI team may purge all files with advance warning.</p></li>
 </ul>
-<p>For more information see <a class="reference external" href="https://secure.cci.rpi.edu/wiki/File_System/#home">https://secure.cci.rpi.edu/wiki/File_System/#home</a></p>
+<p>For more information see <a class="reference external" href="https://docs.cci.rpi.edu/File_System/#home">https://docs.cci.rpi.edu/File_System/#home</a></p>
 <p>Due to the default limit space of 10 GiB for $HOME, 10G for $HOME/barn and $HOME/barn-shared combined, it is best to use these directories to store configuration files, scripts, or small programs needed to customize the working environment. You should use $HOME/scratch and $HOME/scratch-shared for things that require more space. <strong>NOTE:</strong> $HOME/scratch-shared are visible and shared among the users in the same project.</p>
 <p><strong>HINT:</strong> You can use df command to check the quota of a filesystem such as $HOME.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="nv">$HOME</span>
@@ -180,10 +181,10 @@ df -h .
 </div>
 </section>
 <section id="slurm-resource-manager-and-job-scheduler-in-aimos">
-<h2>Slurm Resource Manager and Job Scheduler in AiMOS<a class="headerlink" href="#slurm-resource-manager-and-job-scheduler-in-aimos" title="Permalink to this headline"></a></h2>
+<h2>Slurm Resource Manager and Job Scheduler in AiMOS<a class="headerlink" href="#slurm-resource-manager-and-job-scheduler-in-aimos" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://slurm.schedmd.com/overview.html">Slurm</a> (used to be <strong>S</strong>imple <strong>L</strong>inux <strong>U</strong>tility for <strong>R</strong>esource <strong>Ma</strong>nagement) is the cluster management and job scheduler for AiMOS.</p>
 <section id="fairshare-allocation-policy">
-<h3>Fairshare Allocation Policy<a class="headerlink" href="#fairshare-allocation-policy" title="Permalink to this headline"></a></h3>
+<h3>Fairshare Allocation Policy<a class="headerlink" href="#fairshare-allocation-policy" title="Permalink to this heading"></a></h3>
 <figure class="align-default">
 <img alt="_images/AiMOS-allocation2.png" src="_images/AiMOS-allocation2.png" />
 </figure>
@@ -196,10 +197,10 @@ df -h .
 <p>Fairshare is calculated at the project level.  For example, let’s say there are 5 projects in the AI Hardware Center slice of the total systems.  This means each project would get 20% of the share. Everyone in the same project would share this 20%, on a ‘first come, first serve’ basis.</p>
 <p>Inside each project, user accounts are created, and each user receives a fair share of the overall group project level slice.  Fair share is determined as an average over a period of time (month).  If the fair share has been consumed within the average time slice, the users in that project will experience longer wait times in the queues, if the system is busy.</p>
 <p>For more information on Slurm implementation and frequently used commands see:
-<a class="reference external" href="https://secure.cci.rpi.edu/wiki/Slurm/">https://secure.cci.rpi.edu/wiki/Slurm/</a></p>
+<a class="reference external" href="https://docs.cci.rpi.edu/Slurm/">https://docs.cci.rpi.edu/Slurm/</a></p>
 </section>
 <section id="job-scheduler-details">
-<h3>Job Scheduler Details<a class="headerlink" href="#job-scheduler-details" title="Permalink to this headline"></a></h3>
+<h3>Job Scheduler Details<a class="headerlink" href="#job-scheduler-details" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>The primary input to Slurm is a changing set of jobs that each have a set of constraints: <strong>hardware requirements</strong>, <strong>time limits</strong>, <strong>layout</strong>, etc.  Its only output is an ordered queue of jobs.</p></li>
 <li><p>On the first pass, Slurm is attempting to pack/fit those jobs (with their constraints) into a set of system constraints: <strong>what hardware is available</strong>, <strong>who has access to a node</strong>, <strong>if jobs can share a node</strong>, <strong>how long jobs can run on a node</strong>, etc.</p></li>
@@ -210,7 +211,7 @@ df -h .
 <p><strong>IMPORTANT:</strong> Given that time limit, and number of nodes are included in the calculation of the priority of your jobs, you should try to be as accurate as you can with these two requirements of your job.  A shorter runtime and fewer number of nodes requested would enable Slurm to fit your job in between the jobs that require longer hours or/and more nodes to run. Hence if you need to debug your code, you should request 1 node and time limit of 1 hour or less.  Hopefully that would enable Slurm to allocate a node for you to develop and debug your code.</p>
 </section>
 <section id="job-queue-limits">
-<span id="job-queue"></span><h3>Job Queue Limits<a class="headerlink" href="#job-queue-limits" title="Permalink to this headline"></a></h3>
+<span id="job-queue"></span><h3>Job Queue Limits<a class="headerlink" href="#job-queue-limits" title="Permalink to this heading"></a></h3>
 <p>You need to specify the time required to run your job via option -t &lt;value&gt;. The value is number of minutes. The specified time is also used in the calculation of the priority of your job, hence it is recommended that you specify an accurate estimated time for your job.</p>
 <ul class="simple">
 <li><p>The default maximum value is 360 which is 6 hours. It is recommended that you include checkpoint restart in your code to enable your job to restart at the last checkpoint if your job run is longer than 6 hours.</p></li>
@@ -222,11 +223,11 @@ df -h .
 <p><strong>IMPORTANT:</strong> remember that time limit and number of nodes are counted in the project’s allocation. This means that subsequent jobs are impacted in their scheduling, since the project would have used a large number of nodes and time in the queue.</p>
 </section>
 <section id="slurm-frequently-used-commands">
-<h3>Slurm Frequently Used Commands<a class="headerlink" href="#slurm-frequently-used-commands" title="Permalink to this headline"></a></h3>
+<h3>Slurm Frequently Used Commands<a class="headerlink" href="#slurm-frequently-used-commands" title="Permalink to this heading"></a></h3>
 <p>For the complete list of SLURM manpages, see <a class="reference external" href="https://slurm.schedmd.com/man_index.html">https://slurm.schedmd.com/man_index.html</a></p>
 <p>For the summary for SLURM commands and options, see <a class="reference external" href="https://slurm.schedmd.com/pdfs/summary.pdf">https://slurm.schedmd.com/pdfs/summary.pdf</a></p>
 <section id="frequently-used-options-for-slurm-commands">
-<h4>Frequently Used options for Slurm commands<a class="headerlink" href="#frequently-used-options-for-slurm-commands" title="Permalink to this headline"></a></h4>
+<h4>Frequently Used options for Slurm commands<a class="headerlink" href="#frequently-used-options-for-slurm-commands" title="Permalink to this heading"></a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">n</span><span class="p">,</span> <span class="o">--</span><span class="n">ntasks</span><span class="o">=</span><span class="n">ntasks</span>         <span class="n">number</span> <span class="n">of</span> <span class="n">tasks</span> <span class="n">to</span> <span class="n">run</span>
 <span class="o">-</span><span class="n">N</span><span class="p">,</span> <span class="o">--</span><span class="n">nodes</span><span class="o">=</span><span class="n">N</span>               <span class="n">number</span> <span class="n">of</span> <span class="n">nodes</span> <span class="n">on</span> <span class="n">which</span> <span class="n">to</span> <span class="n">run</span> <span class="p">(</span><span class="n">N</span> <span class="o">=</span> <span class="nb">min</span><span class="p">[</span><span class="o">-</span><span class="nb">max</span><span class="p">])</span>
 <span class="o">-</span><span class="n">c</span><span class="p">,</span> <span class="o">--</span><span class="n">cpus</span><span class="o">-</span><span class="n">per</span><span class="o">-</span><span class="n">task</span><span class="o">=</span><span class="n">ncpus</span>   <span class="n">number</span> <span class="n">of</span> <span class="n">cpus</span> <span class="n">required</span> <span class="n">per</span> <span class="n">task</span>
@@ -244,7 +245,7 @@ df -h .
 </div>
 </section>
 <section id="salloc">
-<h4>salloc<a class="headerlink" href="#salloc" title="Permalink to this headline"></a></h4>
+<h4>salloc<a class="headerlink" href="#salloc" title="Permalink to this heading"></a></h4>
 <p>Allocate resources for a job in real time and start a shell.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$  salloc -N <span class="m">1</span> --gres<span class="o">=</span>gpu:6 -t <span class="m">15</span>
 salloc: Granted job allocation <span class="m">60780</span>
@@ -252,7 +253,7 @@ salloc: Granted job allocation <span class="m">60780</span>
 </div>
 </section>
 <section id="squeue">
-<h4>squeue<a class="headerlink" href="#squeue" title="Permalink to this headline"></a></h4>
+<h4>squeue<a class="headerlink" href="#squeue" title="Permalink to this heading"></a></h4>
 <p>Report the state of jobs or job steps. By default, it reports the running jobs in priority order and then the pending jobs in priority order.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$ squeue
           JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST<span class="o">(</span>REASON<span class="o">)</span>
@@ -269,21 +270,21 @@ Warning: Permanently added <span class="s1">&#39;dcs249,172.31.236.249&#39;</spa
 </div>
 </section>
 <section id="sbatch">
-<h4>sbatch<a class="headerlink" href="#sbatch" title="Permalink to this headline"></a></h4>
+<h4>sbatch<a class="headerlink" href="#sbatch" title="Permalink to this heading"></a></h4>
 <p>submit a job script for later execution. The script typically contains one or more srun commands to launch parallel tasks.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch ./batch-job.sh
 </pre></div>
 </div>
 </section>
 <section id="scancel">
-<h4>scancel<a class="headerlink" href="#scancel" title="Permalink to this headline"></a></h4>
+<h4>scancel<a class="headerlink" href="#scancel" title="Permalink to this heading"></a></h4>
 <p>Cancel a pending or running job or job step.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scancel &lt;JOBID&gt;
 </pre></div>
 </div>
 </section>
 <section id="sinfo">
-<h4>sinfo<a class="headerlink" href="#sinfo" title="Permalink to this headline"></a></h4>
+<h4>sinfo<a class="headerlink" href="#sinfo" title="Permalink to this heading"></a></h4>
 <p>Report the state of partitions and nodes managed by Slurm.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>your-id@dcs249 ~<span class="o">]</span>$ sinfo
 PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
@@ -306,7 +307,7 @@ rpi          up    <span class="m">6</span>:00:00      <span class="m">2</span> 
 </div>
 </section>
 <section id="sshared">
-<h4>sshared<a class="headerlink" href="#sshared" title="Permalink to this headline"></a></h4>
+<h4>sshared<a class="headerlink" href="#sshared" title="Permalink to this heading"></a></h4>
 <p>list the project usage.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sshare
              Account       User  RawShares  NormShares    RawUsage  EffectvUsage  FairShare

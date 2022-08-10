@@ -14,6 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -91,10 +92,10 @@
            <div itemprop="articleBody">
              
   <section id="ai-benchmarks">
-<h1>AI Benchmarks<a class="headerlink" href="#ai-benchmarks" title="Permalink to this headline"></a></h1>
+<h1>AI Benchmarks<a class="headerlink" href="#ai-benchmarks" title="Permalink to this heading"></a></h1>
 <p>This section provides the information and steps that we used to run some of the benchmarks on AiMOS.</p>
 <section id="common-ai-datasets-cads-repository">
-<h2>Common AI Datasets (CADS) Repository<a class="headerlink" href="#common-ai-datasets-cads-repository" title="Permalink to this headline"></a></h2>
+<h2>Common AI Datasets (CADS) Repository<a class="headerlink" href="#common-ai-datasets-cads-repository" title="Permalink to this heading"></a></h2>
 <p>This repository contains a set of open-sourced AI datasets are made available to AiMOS users.  It is for the ease of access for benchmarking and experimentation.</p>
 <p>If you are interested in having access to the repository, you need to place a request in your respective #aimos-xxx slack channel.
 You can request additional data sets to be placed in the repo. Requests can be placed in your respective slack channel.</p>
@@ -104,18 +105,18 @@ You can request additional data sets to be placed in the repo. Requests can be p
 </figure>
 </section>
 <section id="common-ai-benchmarks-cabs-repository">
-<h2>Common AI Benchmarks (CABS) Repository<a class="headerlink" href="#common-ai-benchmarks-cabs-repository" title="Permalink to this headline"></a></h2>
+<h2>Common AI Benchmarks (CABS) Repository<a class="headerlink" href="#common-ai-benchmarks-cabs-repository" title="Permalink to this heading"></a></h2>
 <p>This repository contains sample scripts, experiment setup, datasets, etc, that were used to run the common benchmarks, such as ResNet-50, MobileNetV2, <a class="reference external" href="https://fairseq.readthedocs.io/en/latest/index.html">Fairseq</a>, etc.</p>
 <p>See the repository at: <a class="reference external" href="https://github.com/IBM-AI-Hardware-Center/AiMOS-CABS">https://github.com/IBM-AI-Hardware-Center/AiMOS-CABS</a></p>
 </section>
 <section id="monitoring-tools">
-<h2>Monitoring Tools<a class="headerlink" href="#monitoring-tools" title="Permalink to this headline"></a></h2>
+<h2>Monitoring Tools<a class="headerlink" href="#monitoring-tools" title="Permalink to this heading"></a></h2>
 <section id="tensorboard">
-<h3>Tensorboard<a class="headerlink" href="#tensorboard" title="Permalink to this headline"></a></h3>
+<h3>Tensorboard<a class="headerlink" href="#tensorboard" title="Permalink to this heading"></a></h3>
 <p>Tensorboard is a data visualization toolkits for machine learning experimentation.  For more information see <a class="reference external" href="https://www.tensorflow.org/tensorboard/get_started">https://www.tensorflow.org/tensorboard/get_started</a>.</p>
 <p>In order to use Tensorboard to visualize the data, you need to collect the data that you want to visualize.  For Pytorch, you can use the integrated Tensorboard to collect Tensorboard data.  For documentation, see <a class="reference external" href="https://pytorch.org/docs/stable/tensorboard.html">https://pytorch.org/docs/stable/tensorboard.html</a>.  For tutorial, see <a class="reference external" href="https://pytorch.org/tutorials/recipes/recipes/tensorboard_with_pytorch.html">https://pytorch.org/tutorials/recipes/recipes/tensorboard_with_pytorch.html</a></p>
 <section id="code-snippets-to-collect-the-data">
-<h4>Code Snippets to collect the data<a class="headerlink" href="#code-snippets-to-collect-the-data" title="Permalink to this headline"></a></h4>
+<h4>Code Snippets to collect the data<a class="headerlink" href="#code-snippets-to-collect-the-data" title="Permalink to this heading"></a></h4>
 <p>Define the directory to store the collected data.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>parser.add_argument<span class="o">(</span><span class="s1">&#39;--log-dir&#39;</span>, <span class="nv">default</span><span class="o">=</span><span class="s1">&#39;./logs&#39;</span>,
                  <span class="nv">help</span><span class="o">=</span><span class="s1">&#39;tensorboard log directory&#39;</span><span class="o">)</span>
@@ -150,7 +151,7 @@ events.out.tfevents.1600907411.dcs009.ccni.rpi.edu.16523.0
 </div>
 </section>
 <section id="visualize-the-data">
-<h4>Visualize the data<a class="headerlink" href="#visualize-the-data" title="Permalink to this headline"></a></h4>
+<h4>Visualize the data<a class="headerlink" href="#visualize-the-data" title="Permalink to this heading"></a></h4>
 <p>Install tensorboard package if it was not installed.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install tensorboard
 </pre></div>
@@ -177,7 +178,7 @@ events.out.tfevents.1600907411.dcs009.ccni.rpi.edu.16523.0
 </section>
 </section>
 <section id="nvidia-smi">
-<h3>nvidia-smi<a class="headerlink" href="#nvidia-smi" title="Permalink to this headline"></a></h3>
+<h3>nvidia-smi<a class="headerlink" href="#nvidia-smi" title="Permalink to this heading"></a></h3>
 <p>You can use <a class="reference external" href="https://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf">nvidia-smi</a> command to collect GPU data such as gpu utilization, memory utilization, power used, fan speed, etc.</p>
 <p>For the list of valid properties to query for switch “–query-gpu=” see <a class="reference external" href="https://briot-jerome.developpez.com/fichiers/blog/nvidia-smi/list.txt">https://briot-jerome.developpez.com/fichiers/blog/nvidia-smi/list.txt</a></p>
 <p>For example:</p>
@@ -185,7 +186,7 @@ events.out.tfevents.1600907411.dcs009.ccni.rpi.edu.16523.0
 </pre></div>
 </div>
 <section id="id2">
-<h4>Visualize the data<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h4>
+<h4>Visualize the data<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h4>
 <p>You can download a sample jupyter notebook “plot_nvidia-smi.ipynb” at <a class="reference external" href="https://github.com/IBM-AI-Hardware-Center/AiMOS">https://github.com/IBM-AI-Hardware-Center/AiMOS</a> and modify it accordingly to plot the data.</p>
 </section>
 </section>
