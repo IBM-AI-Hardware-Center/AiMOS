@@ -78,7 +78,7 @@ The same GPFS filesystems are mounted on all the landing pad nodes, the front en
 * home directory contains a link to scratch, the user's personal scratch space.  It also contains a link to scratch-shared, the project's shared scratch space.
 * scratch and scratch-shared are meant as a temporary staging area for performing computation. Performance in this directory will be better than in the home or barn areas. This space does not have a quota. However, it will periodically be purged of files that are not used (either by read or write operation) in the last 56 days.  WARNING: If purging files that are not used in the last 56 days is not sufficient to maintain enough working space, the RPI team may purge all files with advance warning.
 
-For more information see https://secure.cci.rpi.edu/wiki/File_System/#home
+For more information see https://docs.cci.rpi.edu/File_System/#home
 
 Due to the default limit space of 10 GiB for $HOME, 10G for $HOME/barn and $HOME/barn-shared combined, it is best to use these directories to store configuration files, scripts, or small programs needed to customize the working environment. You should use $HOME/scratch and $HOME/scratch-shared for things that require more space. **NOTE:** $HOME/scratch-shared are visible and shared among the users in the same project.
 
@@ -124,7 +124,7 @@ Fairshare is calculated at the project level.  For example, let's say there are 
 Inside each project, user accounts are created, and each user receives a fair share of the overall group project level slice.  Fair share is determined as an average over a period of time (month).  If the fair share has been consumed within the average time slice, the users in that project will experience longer wait times in the queues, if the system is busy.
 
 For more information on Slurm implementation and frequently used commands see: 
-https://secure.cci.rpi.edu/wiki/Slurm/
+https://docs.cci.rpi.edu/Slurm/
 
 
 Job Scheduler Details

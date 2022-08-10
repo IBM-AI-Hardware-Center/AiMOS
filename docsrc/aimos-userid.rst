@@ -43,15 +43,15 @@ Apply for a user ID on AiMOS
 
 CCI User Information
 ++++++++++++++++++++
-https://secure.cci.rpi.edu/wiki/assets/forms/CCI_User_Information.pdf
+https://docs.cci.rpi.edu/assets/forms/CCI_User_Information.pdf
 
 CCI User Responsibility Agreement
 +++++++++++++++++++++++++++++++++
-https://secure.cci.rpi.edu/wiki/assets/forms/CCI_User_Responsibility_Agreement.pdf
+https://docs.cci.rpi.edu/assets/forms/CCI_User_Responsibility_Agreement.pdf
 
 CCI Project Information
 +++++++++++++++++++++++++++++++++
-https://secure.cci.rpi.edu/wiki/assets/forms/CCI_Project_Information.pdf
+https://docs.cci.rpi.edu/assets/forms/CCI_Project_Information.pdf
 
 
 **IMPORTANT:** Please include your **first name initial** and **last name** in the name of all files that you send to Kaoutar El maghraoui for approval.  For example:
@@ -123,7 +123,7 @@ Step 1) Send an email to support@ccni.rpi.edu to request setup new TOTP (Time-ba
 
 Step 2) Support will send you an email after they removing the old two factor on your account. 
 
-Step 3) You can now set it up again at https://secure.cci.rpi.edu/wiki/other/totp/. Providing your password, challange word and PIC, it will generat a new 2D bar code if password and challange word are accepted. Now you can scan it using your Google Authenticator app. 
+Step 3) You can now set it up again at https://docs.cci.rpi.edu/other/totp/. Providing your password, challange word and PIC, it will generat a new 2D bar code if password and challange word are accepted. Now you can scan it using your Google Authenticator app. 
 
 .. figure:: totp.jpg
 
@@ -189,7 +189,7 @@ For example:
   **     support@ccni.rpi.edu                                    **
   **                                                             **
   **     On-line documentation for the systems can be found at:  **
-  **     https://secure.cci.rpi.edu/wiki                         **
+  **     https://docs.cci.rpi.edu                         **
   **                                                             **
   **     CCI does not provide any data backup services. Users    **
   **     are responsible for their own data management and       **
@@ -229,7 +229,7 @@ For example, you ssh to the dcsfen01:
   **     support@ccni.rpi.edu                                    **
   **                                                             **
   **     On-line documentation for the systems can be found at:  **
-  **     https://secure.cci.rpi.edu/wiki                         **
+  **     https://docs.cci.rpi.edu                         **
   **                                                             **
   **     Use is subject to the terms of the policy for           **
   **     Acceptable Use of CCI Resources.                        **

@@ -6,7 +6,7 @@ AiMOS Overview
 AiMOS (short for \ **A**\rtificial \ **I**\ntelligence \ **M**\ultiprocessing \ **O**\ptimized \ **S**\ystem) serves as the test bed for 
 the IBM Research AI Hardware Center.  AiMOS consists of two(2) clusters:
 
-* `DCS Cluster <https://secure.cci.rpi.edu/wiki/clusters/DCS_Supercomputer>`_ has two hundred and fifty two(252) IBM Powers System  AC922 compute nodes configured in a fourteen(14) rack system. Each compute node has:
+* `DCS Cluster <https://docs.cci.rpi.edu/clusters/DCS_Supercomputer>`_ has two hundred and fifty two(252) IBM Powers System  AC922 compute nodes configured in a fourteen(14) rack system. Each compute node has:
 
   * 2 x 20-core POWER9 processors (Summit’s variant)
   * 6 x NVIDIA Volta V100 GPUs with 32 GB of HBM each
@@ -15,7 +15,7 @@ the IBM Research AI Hardware Center.  AiMOS consists of two(2) clusters:
   * Dual, 100 Gb/sec Mellanox IB links
 
 
-* `NPL Cluster <https://secure.cci.rpi.edu/wiki/clusters/NPL_Cluster>`_, sometimes referred as AiMOSx, contains 40 X86 HPE nodes, each with:
+* `NPL Cluster <https://docs.cci.rpi.edu/clusters/NPL_Cluster>`_, sometimes referred as AiMOSx, contains 40 X86 HPE nodes, each with:
 
   * 2x 20 core 2.5 GHz Intel Xeon Gold 6248
   * 8x NVIDIA Tesla V100 GPU each with 32 GiB HBM
@@ -36,7 +36,7 @@ There are 4 landing pad nodes for AiMOS:
 * blp03.ccni.rpi.edu
 * blp04.ccni.rpi.edu
 
-For more information see https://secure.cci.rpi.edu/wiki/landingpads
+For more information see https://docs.cci.rpi.edu/landingpads
 
 What are the front end nodes?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -52,7 +52,7 @@ There is one front end node for NPL Cluster:
 
 * nplfen01.ccni.rpi.edu
 
-For more information see https://secure.cci.rpi.edu/wiki/clusters/
+For more information see https://docs.cci.rpi.edu/clusters/
 
 What are the compute nodes?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^

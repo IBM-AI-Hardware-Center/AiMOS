@@ -14,6 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -102,10 +103,10 @@
            <div itemprop="articleBody">
              
   <section id="set-up-the-workload-environment">
-<span id="setup-workload-env"></span><h1>Set up the workload environment<a class="headerlink" href="#set-up-the-workload-environment" title="Permalink to this headline"></a></h1>
+<span id="setup-workload-env"></span><h1>Set up the workload environment<a class="headerlink" href="#set-up-the-workload-environment" title="Permalink to this heading"></a></h1>
 <p>The following sections describe various steps to set up the environment for your workload.  For example, install anaconda, create a conda environment for a specific workload, install jupyter notebook server, etc.</p>
 <section id="load-additional-tools-and-libraries-via-module">
-<span id="load-module"></span><h2>Load additional tools and libraries via module<a class="headerlink" href="#load-additional-tools-and-libraries-via-module" title="Permalink to this headline"></a></h2>
+<span id="load-module"></span><h2>Load additional tools and libraries via module<a class="headerlink" href="#load-additional-tools-and-libraries-via-module" title="Permalink to this heading"></a></h2>
 <p>In AiMOS environment, the available tools are not in your PATH by default. If you need additional development tool and libraries, you can use <strong>module</strong> to display what is available and load the required tools and libraries for your development and testing.</p>
 <p>List the complete list of available modules and extenstions, use <strong>module spider</strong>.  For example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> <span class="o">[</span>BMHRkmkh@dcsfen01<span class="o">]</span>$ module spider
@@ -160,10 +161,10 @@
 /opt/ibm/spectrum_mpi/bin/mpirun
 </pre></div>
 </div>
-<p>For more information see <a class="reference external" href="https://secure.cci.rpi.edu/wiki/examples/Modules/">https://secure.cci.rpi.edu/wiki/examples/Modules/</a></p>
+<p>For more information see <a class="reference external" href="https://docs.cci.rpi.edu/examples/Modules/">https://docs.cci.rpi.edu/examples/Modules/</a></p>
 </section>
 <section id="install-anaconda">
-<span id="install-conda"></span><h2>Install Anaconda<a class="headerlink" href="#install-anaconda" title="Permalink to this headline"></a></h2>
+<span id="install-conda"></span><h2>Install Anaconda<a class="headerlink" href="#install-anaconda" title="Permalink to this heading"></a></h2>
 <p>Anaconda is not installed by default on AiMOS at the system level.  If you need the conda environment for your workload, you will need to install and set it up in your environment.</p>
 <p><strong>Prerequisites</strong></p>
 <ul class="simple">
@@ -183,7 +184,7 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 </pre></div>
 </div>
-<p>For more information see <a class="reference external" href="https://secure.cci.rpi.edu/wiki/software/Conda/">https://secure.cci.rpi.edu/wiki/software/Conda/</a></p>
+<p>For more information see <a class="reference external" href="https://docs.cci.rpi.edu/software/Conda/">https://docs.cci.rpi.edu/software/Conda/</a></p>
 <p><strong>IMPORTANT NOTE:</strong> the same GPFS filesystem is mounted on all the nodes in both DCS(Power) and NPL(X86) cluster.  You need to consider that if you include conda init in your ~/.bashrc as well as the .condarc.  You do not want things intended to run on Power running on X86 or vice versa. You may want to refer to <a class="reference internal" href="aimos-hints-tips.html#conda-init-bashrc"><span class="std std-ref">Conda Init in .bashrc</span></a> for example of setting up .bashrc to run the appropriate conda init for the environment.</p>
 <p>This following example is to install the ppc64le miniconda environment to the scratch directory.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>BMHRkmkh@dcsfen01 ~<span class="o">]</span>$ bash Miniconda3-latest-Linux-ppc64le.sh -p ~/scratch/miniconda3
@@ -258,7 +259,7 @@ Thank you <span class="k">for</span> installing Miniconda3!
 <p>Now you have the base conda installed and activated in your environment.</p>
 </section>
 <section id="frequently-used-conda-commands">
-<h2>Frequently Used conda commands<a class="headerlink" href="#frequently-used-conda-commands" title="Permalink to this headline"></a></h2>
+<h2>Frequently Used conda commands<a class="headerlink" href="#frequently-used-conda-commands" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Display conda information</p></li>
 </ul>
@@ -316,7 +317,7 @@ Thank you <span class="k">for</span> installing Miniconda3!
 <p>For more information see Conda cheatsheet at <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf">https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf</a></p>
 </section>
 <section id="create-a-new-conda-environment-for-your-workload">
-<h2>Create a new conda environment for your workload<a class="headerlink" href="#create-a-new-conda-environment-for-your-workload" title="Permalink to this headline"></a></h2>
+<h2>Create a new conda environment for your workload<a class="headerlink" href="#create-a-new-conda-environment-for-your-workload" title="Permalink to this heading"></a></h2>
 <p>It is strongly recommended that you create a separate environment for your workload than the default base environment which comes with the installation of Anaconda.</p>
 <p>For example that you want to create an environment named pytorch-env and install pytorch on to environment.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n pytorch-env pytorch
@@ -325,7 +326,7 @@ Thank you <span class="k">for</span> installing Miniconda3!
 <p><strong>NOTE:</strong>  you can specify additional packages in the command line.  You can also specify a specific version for the packages.</p>
 </section>
 <section id="install-wml-ce-a-k-a-powerai">
-<span id="install-wmlce"></span><h2>Install WML-CE (a.k.a PowerAI)<a class="headerlink" href="#install-wml-ce-a-k-a-powerai" title="Permalink to this headline"></a></h2>
+<span id="install-wmlce"></span><h2>Install WML-CE (a.k.a PowerAI)<a class="headerlink" href="#install-wml-ce-a-k-a-powerai" title="Permalink to this heading"></a></h2>
 <p>Watson Machine Learning Community Edition (WML-CE), formerly PowerAI, is a free, enterprise-grade software distribution that combines popular open source deep learning frameworks, efficient AI development tools, and accelerated IBM® Power Systems™ servers to take your deep learning projects to the next level.</p>
 <p>For more information, see
 <a class="reference external" href="https://developer.ibm.com/linuxonpower/deep-learning-powerai/releases/">https://developer.ibm.com/linuxonpower/deep-learning-powerai/releases/</a></p>
@@ -401,17 +402,17 @@ Thank you <span class="k">for</span> installing Miniconda3!
 </div>
 </section>
 <section id="install-open-ce">
-<span id="id1"></span><h2>Install Open-CE<a class="headerlink" href="#install-open-ce" title="Permalink to this headline"></a></h2>
+<span id="id1"></span><h2>Install Open-CE<a class="headerlink" href="#install-open-ce" title="Permalink to this heading"></a></h2>
 <p>Open Cognitive Environment(Open-CE) provides the latest and greatest AI package and framework versions pre-integrated in an easy-to-consume and use Conda environment. The main <a class="reference external" href="https://github.com/open-ce">Open-CE GitHub page</a> focusses on providing feedstock to developers, and groups, such as Open Source Lab (OSL). The Center for Genome Research and Biocomputing (CGRB) at the <a class="reference external" href="https://osuosl.org/services/powerdev/opence">Oregon State University</a> provides precompiled Conda packages <a class="footnote-reference brackets" href="#id7" id="id2">1</a>. This install section are consolidated from both reference below <a class="footnote-reference brackets" href="#id8" id="id3">2</a> <a class="footnote-reference brackets" href="#id9" id="id4">3</a>.</p>
 <p>This repository contains a collection of Open-CE files that can be used to create a conda channel. The conda channel will contain packages for every feedstock listed within the Open-CE files. Different variants of Python and CUDA can be specified at build time. Open-CE currently supports the following:</p>
 <section id="open-ce-release-1-2-2">
-<h3>Open-CE Release 1.2.2<a class="headerlink" href="#open-ce-release-1-2-2" title="Permalink to this headline"></a></h3>
+<h3>Open-CE Release 1.2.2<a class="headerlink" href="#open-ce-release-1-2-2" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Release date: 06/16/2021</p></li>
 </ul>
 </section>
 <section id="what-s-new">
-<h3>What’s new<a class="headerlink" href="#what-s-new" title="Permalink to this headline"></a></h3>
+<h3>What’s new<a class="headerlink" href="#what-s-new" title="Permalink to this heading"></a></h3>
 <p>This is release 1.2.2 of Open Cognitive Environment (Open-CE).
 This is bug fix 2 of release 1.2 of Open Cognitive Environment (Open-CE), code named Prairiedog.</p>
 <p><strong>Bug Fix Changes</strong></p>
@@ -426,7 +427,7 @@ This is bug fix 2 of release 1.2 of Open Cognitive Environment (Open-CE), code n
 </div></blockquote>
 </section>
 <section id="installing-the-open-ce-repository-and-frameworks">
-<h3>Installing the Open-CE Repository and Frameworks<a class="headerlink" href="#installing-the-open-ce-repository-and-frameworks" title="Permalink to this headline"></a></h3>
+<h3>Installing the Open-CE Repository and Frameworks<a class="headerlink" href="#installing-the-open-ce-repository-and-frameworks" title="Permalink to this heading"></a></h3>
 <p>Setting up the software repository</p>
 <p>The Open-CE MLDL packages are distributed as conda packages in an online conda repository. Conda must be configured to give priority to installing packages from this channel.</p>
 <p>Add the Open-CE channel to the conda configuration by running the following command:</p>
@@ -652,7 +653,7 @@ The framework packages (Open-CE 1.2.2) include the following versions.</p>
 </div>
 </section>
 <section id="uninstalling-the-open-ce-mldl-frameworks">
-<h3>Uninstalling the Open-CE MLDL frameworks<a class="headerlink" href="#uninstalling-the-open-ce-mldl-frameworks" title="Permalink to this headline"></a></h3>
+<h3>Uninstalling the Open-CE MLDL frameworks<a class="headerlink" href="#uninstalling-the-open-ce-mldl-frameworks" title="Permalink to this heading"></a></h3>
 <p>Find information about uninstalling machine learning and deep learning MLDL frameworks.</p>
 <p>The MLDL framework packages can be uninstalled individually, or you can uninstall all of the MLDL packages at the same time.</p>
 <p>If the frameworks are installed into a separate conda environment, all of the frameworks can be removed by simply deleting the environment:</p>
@@ -667,7 +668,7 @@ The framework packages (Open-CE 1.2.2) include the following versions.</p>
 </section>
 </section>
 <section id="install-jupyter-notebook">
-<span id="install-jupyter"></span><h2>Install Jupyter notebook<a class="headerlink" href="#install-jupyter-notebook" title="Permalink to this headline"></a></h2>
+<span id="install-jupyter"></span><h2>Install Jupyter notebook<a class="headerlink" href="#install-jupyter-notebook" title="Permalink to this heading"></a></h2>
 <p>The <a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a> is an open-source web application.  It allows you to create and execute  notebook documents that contain code, visualizations and  text.  For more information see <a class="reference external" href="https://jupyter.org/">https://jupyter.org/</a></p>
 <p>It is recommended to <a class="reference external" href="https://jupyter.org/install.html">install Jupyter notebook</a> in a miniconda environment which includes a minimal Python and conda installation.</p>
 <p><strong>Prerequisites</strong></p>
@@ -710,7 +711,7 @@ notebook                  <span class="m">6</span>.0.3                    py37_0
 </div>
 </section>
 <section id="start-jupyter-notebook">
-<span id="start-jupyter"></span><h2>Start Jupyter Notebook<a class="headerlink" href="#start-jupyter-notebook" title="Permalink to this headline"></a></h2>
+<span id="start-jupyter"></span><h2>Start Jupyter Notebook<a class="headerlink" href="#start-jupyter-notebook" title="Permalink to this heading"></a></h2>
 <p><strong>Prerequisites:</strong></p>
 <ul class="simple">
 <li><p>You are logging in to one of the front end nodes. For more information see <a class="reference internal" href="aimos-userid.html#how-to-login"><span class="std std-ref">Login to AiMOS</span></a></p></li>
@@ -718,7 +719,7 @@ notebook                  <span class="m">6</span>.0.3                    py37_0
 <li><p>Jupyter notebook was installed. For how to  see <a class="reference internal" href="#install-jupyter"><span class="std std-ref">Install Jupyter notebook</span></a>.</p></li>
 </ul>
 <section id="allocate-a-compute-node">
-<h3>Allocate a compute node<a class="headerlink" href="#allocate-a-compute-node" title="Permalink to this headline"></a></h3>
+<h3>Allocate a compute node<a class="headerlink" href="#allocate-a-compute-node" title="Permalink to this heading"></a></h3>
 <p>For example, allocate a compute node for 30 minutes:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>salloc -N <span class="m">1</span> --gres<span class="o">=</span>gpu:1 -t <span class="m">30</span>
 </pre></div>
@@ -731,7 +732,7 @@ notebook                  <span class="m">6</span>.0.3                    py37_0
 </div>
 </section>
 <section id="start-jupyter-notebook-on-the-allocated-compute-node">
-<h3>Start Jupyter Notebook on the allocated compute node<a class="headerlink" href="#start-jupyter-notebook-on-the-allocated-compute-node" title="Permalink to this headline"></a></h3>
+<h3>Start Jupyter Notebook on the allocated compute node<a class="headerlink" href="#start-jupyter-notebook-on-the-allocated-compute-node" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>SSH to the compute node</p></li>
 </ul>
@@ -757,13 +758,13 @@ Warning: Permanently added <span class="s1">&#39;dcs123,172.31.236.123&#39;</spa
 </section>
 </section>
 <section id="display-the-webgui-for-a-jupyter-notebook-via-tunneling">
-<h2>Display the WebGUI for a Jupyter notebook via Tunneling<a class="headerlink" href="#display-the-webgui-for-a-jupyter-notebook-via-tunneling" title="Permalink to this headline"></a></h2>
+<h2>Display the WebGUI for a Jupyter notebook via Tunneling<a class="headerlink" href="#display-the-webgui-for-a-jupyter-notebook-via-tunneling" title="Permalink to this heading"></a></h2>
 <section id="prerequisites">
-<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"></a></h3>
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h3>
 <p>Jupyter notebook was started on the allocated compute node, such as dcs123. For how to see <a class="reference internal" href="#start-jupyter"><span class="std std-ref">Start Jupyter Notebook</span></a>.</p>
 </section>
 <section id="ssh-tunnelling-on-a-linux-or-mac-osx-node">
-<h3>SSH tunnelling on a Linux or MAC OSX node<a class="headerlink" href="#ssh-tunnelling-on-a-linux-or-mac-osx-node" title="Permalink to this headline"></a></h3>
+<h3>SSH tunnelling on a Linux or MAC OSX node<a class="headerlink" href="#ssh-tunnelling-on-a-linux-or-mac-osx-node" title="Permalink to this heading"></a></h3>
 <p>Start the ssh session to one of the landing pad nodes and map the port 8888 from dcs123 to port 8888 on the local host.  For example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>id@kvt-rhel ~<span class="o">]</span>$ ssh -L8888:dcs123:8888 BMHRkmkh@blp01.ccni.rpi.edu
 </pre></div>
@@ -778,7 +779,7 @@ Warning: Permanently added <span class="s1">&#39;dcs123,172.31.236.123&#39;</spa
 </figure>
 </section>
 <section id="ssh-tunneling-via-putty-on-windows">
-<h3>SSH tunneling via PUTTY on Windows<a class="headerlink" href="#ssh-tunneling-via-putty-on-windows" title="Permalink to this headline"></a></h3>
+<h3>SSH tunneling via PUTTY on Windows<a class="headerlink" href="#ssh-tunneling-via-putty-on-windows" title="Permalink to this heading"></a></h3>
 <p>Go to the “Change Setting…” of the current putty session, then go to section “Connection-&gt;SSH-&gt;Tunnels”.</p>
 <figure class="align-default">
 <img alt="_images/putty2.png" src="_images/putty2.png" />
@@ -800,7 +801,7 @@ Warning: Permanently added <span class="s1">&#39;dcs123,172.31.236.123&#39;</spa
 </section>
 </section>
 <section id="remote-port-forwarding-via-ssh-tunneling">
-<h2>Remote Port Forwarding via SSH Tunneling<a class="headerlink" href="#remote-port-forwarding-via-ssh-tunneling" title="Permalink to this headline"></a></h2>
+<h2>Remote Port Forwarding via SSH Tunneling<a class="headerlink" href="#remote-port-forwarding-via-ssh-tunneling" title="Permalink to this heading"></a></h2>
 <p>Let’s say that you have  an application running on your local environment to which a process running on AiMOS needs to send a message. In order to accomplish that, you need to  use SSH remote port forwarding and  <a class="reference external" href="https://www.redhat.com/sysadmin/getting-started-socat">socat</a> command.</p>
 <p>For demonstration purpose, we are going to use the sample python code “echo-server.py” and “echo-client.py” provided at this <a class="reference external" href="https://realpython.com/python-sockets">link</a></p>
 <ul>

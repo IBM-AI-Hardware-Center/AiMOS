@@ -14,6 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -83,10 +84,10 @@
            <div itemprop="articleBody">
              
   <section id="submit-jobs">
-<h1>Submit jobs<a class="headerlink" href="#submit-jobs" title="Permalink to this headline"></a></h1>
+<h1>Submit jobs<a class="headerlink" href="#submit-jobs" title="Permalink to this heading"></a></h1>
 <p>You use Slurm commands to submit jobs to AiMOS.</p>
 <section id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"></a></h2>
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>You logged in to one of the front end nodes.  For how to see <a class="reference internal" href="aimos-userid.html#how-to-login"><span class="std std-ref">Login to AiMOS</span></a>.</p></li>
 </ul>
@@ -102,12 +103,12 @@
 </ul>
 </div></blockquote>
 </li>
-<li><p>This the number of gpu that you want per node.  If you specify –gres=gpu:6 for DCS cluster or –gres=gpu:8 for NPL cluster, you are in essence would get the whole node(s) allocated to you.  For more information regarding GPU on AiMOS, see <a class="reference external" href="https://secure.cci.rpi.edu/wiki/clusters/DCS_Supercomputer/#using-gpus">https://secure.cci.rpi.edu/wiki/clusters/DCS_Supercomputer/#using-gpus</a>.</p></li>
+<li><p>This the number of gpu that you want per node.  If you specify –gres=gpu:6 for DCS cluster or –gres=gpu:8 for NPL cluster, you are in essence would get the whole node(s) allocated to you.  For more information regarding GPU on AiMOS, see <a class="reference external" href="https://docs.cci.rpi.edu/clusters/DCS_Supercomputer/#using-gpus">https://docs.cci.rpi.edu/clusters/DCS_Supercomputer/#using-gpus</a>.</p></li>
 <li><p>You also must specify the time required to run your job via option <strong>-t &lt;value&gt;</strong>.  The value is number of minutes. See <a class="reference internal" href="aimos-env-basics.html#job-queue"><span class="std std-ref">Job Queue Limits</span></a> for more information.</p></li>
 </ul>
 </section>
 <section id="interactive-job">
-<h2>Interactive Job<a class="headerlink" href="#interactive-job" title="Permalink to this headline"></a></h2>
+<h2>Interactive Job<a class="headerlink" href="#interactive-job" title="Permalink to this heading"></a></h2>
 <p>It is assumed that you already ssh to one of the front end nodes.  You use the <strong>salloc</strong> command to allocate 1 node with 6 gpu for 15 minutes. After the command returns, you now run squeue command to see which node is allocated for the interactive session. In the example below, dcs249 is allocated. Now you can ssh to the node and execute your application.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$  salloc -N <span class="m">1</span> --gres<span class="o">=</span>gpu:6 -t <span class="m">15</span>
 salloc: Granted job allocation <span class="m">60780</span>
@@ -133,7 +134,7 @@ Authentication failed.
 </div>
 </section>
 <section id="batch-job">
-<h2>Batch job<a class="headerlink" href="#batch-job" title="Permalink to this headline"></a></h2>
+<h2>Batch job<a class="headerlink" href="#batch-job" title="Permalink to this heading"></a></h2>
 <p>You use <strong>sbatch</strong> Slurm command to submit a batch job.  You can create a scriptthat contains a list of Slurm directives (or commands) to tell Slurm what to do. This is a sample script to run a hello_MPI_c program.</p>
 <p><strong>PREREQUISITE:</strong> Passwordless is required for MPI job.  For how to see <a class="reference internal" href="aimos-env-basics.html#setup-environment"><span class="std std-ref">Initial Environment Setup</span></a>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -x</span>
@@ -191,12 +192,12 @@ rm ~/tmp/hosts.<span class="nv">$SLURM_JOBID</span>
 <p>You should also see the &lt;job name&gt;_&lt;job_id&gt;.out and &lt;job name&gt;_&lt;job_id&gt;.err in your current directory with #SBATCH -o &lt;job name&gt;_%j.out and #SBATCH -e &lt;job name&gt;_%j.err after the job completes.</p>
 </section>
 <section id="build-the-job-dependencies">
-<h2>Build the job dependencies<a class="headerlink" href="#build-the-job-dependencies" title="Permalink to this headline"></a></h2>
+<h2>Build the job dependencies<a class="headerlink" href="#build-the-job-dependencies" title="Permalink to this heading"></a></h2>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">--dependency</span></code> flag of sbatch to build a list of jobs to run in order.  For more information see  <a class="reference external" href="https://slurm.schedmd.com/sbatch.html">https://slurm.schedmd.com/sbatch.html</a>.</p>
 <p>You can find examples for how to use this flag at the <a class="reference external" href="https://hpc.nih.gov/docs/job_dependencies.html#intro">link</a>.</p>
 </section>
 <section id="request-for-up-to-48-hours-run-time">
-<h2>Request for up to 48 hours run time<a class="headerlink" href="#request-for-up-to-48-hours-run-time" title="Permalink to this headline"></a></h2>
+<h2>Request for up to 48 hours run time<a class="headerlink" href="#request-for-up-to-48-hours-run-time" title="Permalink to this heading"></a></h2>
 <p>The default maximum time limit is 360 minutes  which is 6 hours. It is recommended that you include checkpoint restart in your code to enable your job to restart at the last checkpoint if your job run is longer than 6 hours. For information on how to implement the checkpoint in pytorch, you can refer to <a class="reference external" href="https://pytorch.org/tutorials/recipes/recipes/saving_and_loading_a_general_checkpoint.html">https://pytorch.org/tutorials/recipes/recipes/saving_and_loading_a_general_checkpoint.html</a></p>
 <p>However, Both NPL and DCS clusters now have a capability for a 48 hour job time limit.  There are maximum 18 nodes that you can request for the 48 hour time limit in DCS cluster. There are maximum of 4 nodes that you can request for this option in NPL cluster. To request this capability, you must include the following line in your salloc or sbatch command.</p>
 <p>On DCS cluster:</p>
@@ -218,7 +219,7 @@ rm ~/tmp/hosts.<span class="nv">$SLURM_JOBID</span>
 </div>
 </section>
 <section id="request-for-nvme-storage-on-the-compute-nodes">
-<span id="request-nvme"></span><h2>Request for NVMe storage on the compute nodes<a class="headerlink" href="#request-for-nvme-storage-on-the-compute-nodes" title="Permalink to this headline"></a></h2>
+<span id="request-nvme"></span><h2>Request for NVMe storage on the compute nodes<a class="headerlink" href="#request-for-nvme-storage-on-the-compute-nodes" title="Permalink to this heading"></a></h2>
 <p><strong>NOTE:</strong> NVMe storage is only available on the DCS cluster.  It is not yet available on the NPL cluster.</p>
 <p>To request NVMe storage, specify –gres=nvme with your Slurm commands. This can be combined with other requests, such as GPUs. When the first job step starts, the system will initialize the storage and create the path /mnt/nvme/uid_${SLURM_JOB_UID}/job_${SLURM_JOBID}.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>your-id@dcsfen01 ~<span class="o">]</span>$  salloc -N <span class="m">1</span> --gres<span class="o">=</span>gpu:6,nvme -t <span class="m">30</span>
