@@ -71,6 +71,17 @@ Set your password
 
 You will receive the link similar to this, https://secure.cci.rpi.edu/password/?a=XXXXXXXXXXXXXXXX, where XXXXXXXXXXXXXXXX is your reset token. You need to use the link to reset your password. Please note that you have 24 hours to reset your password after you receive the email. If you miss it, you need to send an email to support@ccni.rpi.edu to request for a new password reset token.  After reset the password, the next step is to :ref:`set-challenge`.
 
+
+.. _set-duo:
+
+setup Two Factor authentication with Duo
+++++++++++++++++++++++++++++++++++++++++
+
+Login to CCI client portal at https://secure.cci.rpi.edu/client/ . You will be prompted to setup Two Factor authentication with Duo.
+Once you have set a password and enrolled in Duo you can login to our systems usings SSH.
+
+If you work in multiple CCI projects each will have a unique username, but will share the same password and Duo enrollment. If you have only one project, you can use existing password to setup DUO.
+
 .. _set-challenge:
 
 Set the Challenge Word
@@ -79,6 +90,7 @@ Set the Challenge Word
 The next step is choose and set the Challenge Word: https://secure.cci.rpi.edu/challenge/
 
 Enter your User ID, your newly reset password, and the challenge word twice, then click "Set Challenge Word".  You are ready for the next step :ref:`set-pic`.
+
 
 .. _set-pic:
 
@@ -166,6 +178,22 @@ First you need to ssh to one of the landing pad nodes. There are four(4) landing
 * blp02.ccni.rpi.edu
 * blp03.ccni.rpi.edu
 * blp04.ccni.rpi.edu. 
+
+SSh Example:
+
+ssh BMHRmksg@blp03.ccni.rpi.edu
+
+Password: 
+Duo two-factor login for mksg
+
+Enter a passcode or select one of the following options:
+
+ 1. Duo Push to XXX-XXX-8058
+
+Passcode or option (1-1): 
+
+After input your password and select the phone number, on your phone open Duo app and authorize the login. 
+
 
 For PIC+Token, enter your chosen PIC that you have set in the previous step and the token from the Google Authenticator app on your mobile device. For example: 
 
