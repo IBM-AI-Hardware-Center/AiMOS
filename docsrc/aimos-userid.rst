@@ -13,9 +13,9 @@ Apply for a user ID on AiMOS
 
 **IMPORTANT:** Please include your **first name initial** and **last name** in the name of all files that you send to Kaoutar El maghraoui and Mickey Song.  For example:
 
-   - **CCI_User_Information_KTran**.pdf
-   - **CCI_User_Responsibility_Agreement_KTran**.pdf
-   - **CCI_Project_Information.pdf**.pdf
+   - **CCI_User_Information_MSong**.pdf
+   - **CCI_User_Responsibility_Agreement_MSong**.pdf
+   - **CCI_Project_Information_MSong.pdf**.pdf
 
 * If you are a first time user, you need to fill out the following forms, sign and send them to Kaoutar El maghraoui(Email: kelmaghr@us.ibm.com) for approval and cc to Mickey Song(Email: msong@us.ibm.com).  Also, provide the following:
 
@@ -89,26 +89,8 @@ Set the Challenge Word
 
 The next step is choose and set the Challenge Word: https://secure.cci.rpi.edu/challenge/
 
-Enter your User ID, your newly reset password, and the challenge word twice, then click "Set Challenge Word".  You are ready for the next step :ref:`set-pic`.
+Enter your User ID, your newly reset password, and the challenge word twice, then click "Set Challenge Word".  
 
-
-.. _set-pic:
-
-Set the Personal Identification Code (PIC)
-++++++++++++++++++++++++++++++++++++++++++
-
-The last step is to choose the Personal Identification code (PIC). The PIC is case-sensitive and is made up of at least 4 numbers and/or letters. No special characters may be used. Do not use your bank PIN, account name, first or last name, or organization.
-
-* Install "Google Authenticator" app on your mobile device.
-
-* Go to https://secure.cci.rpi.edu/totp.
-
-    * Enter your User ID, the Password, the Challenge Word, the chosen PIC, then "Click Setup TOTP".
-    * You will get a QR code on the webpage.
-
-* Go to the Google Authenticator app on your mobile device and scan the QR code.
-
-You now have everything you need to login to a landing pad node.
 
 .. _Re_Activate_User_Account:
 
@@ -125,19 +107,8 @@ Step 1) Send an email to support@ccni.rpi.edu to request for a new password rese
 
 Step 2) Set the Challenge Word
 
-Step 3) Set the PIC. Reinstall "Google Authenticator" if changed a new phone.
+Step 3) Set the Duo. Reinstall "Duo Mobile" if changed a new phone.
 
-**Changing a New Phone**
-
-Google Authenticator needs to rescan the 2D bar code after new app installed. Here are the steps when after you switching to a new phone.
-
-Step 1) Send an email to support@ccni.rpi.edu to request setup new TOTP (Time-based One-time Password) by providing you user ID, exmaple BMHRxxxx
-
-Step 2) Support will send you an email after they removing the old two factor on your account. 
-
-Step 3) You can now set it up again at https://docs.cci.rpi.edu/other/totp/. Providing your password, challange word and PIC, it will generat a new 2D bar code if password and challange word are accepted. Now you can scan it using your Google Authenticator app. 
-
-.. figure:: totp.jpg
 
 
 .. _Join_AiMOS_Slack_Channel:
