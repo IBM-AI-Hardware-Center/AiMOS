@@ -165,14 +165,6 @@ Passcode or option (1-1):
 
 After input your password and select the phone number, on your phone open Duo app and authorize the login. 
 
-
-For PIC+Token, enter your chosen PIC that you have set in the previous step and the token from the Google Authenticator app on your mobile device. For example: 
-
-.. figure:: authenticator.png
-
-**Note:** do not enter + and space.  
-
-
 For example:
 
 ::
